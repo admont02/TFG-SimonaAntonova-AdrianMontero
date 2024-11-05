@@ -26,14 +26,13 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         float vInput = Input.GetAxis("Vertical");
         float hInput = Input.GetAxis("Horizontal");
+        bool isBraking = Input.GetKey(KeyCode.Space);
 
         // Calculate current speed in relation to the forward direction of the car
         // (this returns a negative number when traveling backwards)
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
-
 
         // Calculate how close the car is to top speed
         // as a number from zero to one
@@ -43,7 +42,7 @@ public class CarController : MonoBehaviour
         // (zero torque at top speed)
         float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
 
-        // �and to calculate how much to steer 
+        // and to calculate how much to steer 
         // (the car steers more gently at top speed)
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
@@ -59,7 +58,13 @@ public class CarController : MonoBehaviour
                 wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
             }
 
-            if (isAccelerating)
+            if (isBraking)
+            {
+                // Apply brake torque to all wheels when braking
+                wheel.WheelCollider.brakeTorque = brakeTorque;
+                wheel.WheelCollider.motorTorque = 0;
+            }
+            else if (isAccelerating)
             {
                 // Apply torque to Wheel colliders that have "Motorized" enabled
                 if (wheel.motorized)
