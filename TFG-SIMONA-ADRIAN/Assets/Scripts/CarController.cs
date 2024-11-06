@@ -26,6 +26,10 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance != null && !GameManager.Instance.canCarMove)
+        { // Si el coche no puede moverse, no hacer nada
+            return;
+        }
         float vInput = Input.GetAxis("Vertical");
         float hInput = Input.GetAxis("Horizontal");
         bool isBraking = Input.GetKey(KeyCode.Space);
