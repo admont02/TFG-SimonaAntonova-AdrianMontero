@@ -33,7 +33,6 @@ public class DialogueSystem : MonoBehaviour
 
     public void StartDialogue()
     {
-        Debug.Log("hola?");
         index = 0;
         dialoguePanel.SetActive(true);
         GameManager.Instance.canCarMove = false;
