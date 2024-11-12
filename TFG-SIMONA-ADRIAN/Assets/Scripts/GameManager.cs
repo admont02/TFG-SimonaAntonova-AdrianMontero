@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueSystem != null)
         {
-            dialogueSystem.StartDialogue();
+            //dialogueSystem.StartDialogue();
         }
     }
 }
