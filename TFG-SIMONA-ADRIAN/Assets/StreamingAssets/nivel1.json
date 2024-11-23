@@ -1,0 +1,16 @@
+{
+    "nivel": 1,
+    "posicionCoche": { "x": 0, "y": 0, "z": 0 },
+    "cochesIA": [
+        {
+            "posiciones": [
+                { "x": 10, "y": 0, "z": 10 },
+                { "x": 15, "y": 0, "z": 15 }
+            ]
+        }
+    ],
+    "elementosMapa": [
+        { "tipo": "arbol", "posicion": { "x": 5, "y": 0, "z": 5 } },
+        { "tipo": "roca", "posicion": { "x": -5, "y": 0, "z": -5 } }
+    ]
+}
