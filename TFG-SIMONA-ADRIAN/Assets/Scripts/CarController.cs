@@ -11,7 +11,7 @@ public class CarController : MonoBehaviour
 
     WheelControl[] wheels;
     Rigidbody rigidBody;
-
+    private bool hasMoved = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,10 @@ public class CarController : MonoBehaviour
         float vInput = Input.GetAxis("Vertical");
         float hInput = Input.GetAxis("Horizontal");
         bool isBraking = Input.GetKey(KeyCode.Space);
-
+        if (vInput != 0 || hInput != 0 || isBraking)
+        {
+            hasMoved = true;
+        }
         // Calculate current speed in relation to the forward direction of the car
         // (this returns a negative number when traveling backwards)
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
@@ -86,4 +89,5 @@ public class CarController : MonoBehaviour
             }
         }
     }
+    public bool HasMoved() { return hasMoved; }
 }

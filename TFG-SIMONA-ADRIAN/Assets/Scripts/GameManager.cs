@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool canCarMove = false; // Booleano para controlar el movimiento del coche
 
     private LevelLoader nivelLoader;
+    public CarController carController;
+    public OtherCar otherCar;
 
     void Awake()
     {
@@ -35,7 +37,10 @@ public class GameManager : MonoBehaviour
             //dialogueSystem.StartDialogue();
         }
     }
-
+    private void Update()
+    {
+        ComprobarNivel();
+    }
     void InitializeNivelLoader()
     {
         nivelLoader = FindObjectOfType<LevelLoader>();
@@ -45,7 +50,20 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No se encontró NivelLoader en la escena.");
+            //Debug.LogError("No se encontró NivelLoader en la escena.");
+        }
+    }
+    public void ComprobarNivel()
+    {
+        if (carController.HasMoved() && !otherCar.hasReachedFirstDestination)
+        {
+            Debug.Log("¡Nivel incorrecto!");
+        }
+        else if (!carController.HasMoved() && otherCar.hasReachedFirstDestination)
+        {
+            {
+                Debug.Log("¡Nivel completado correctamente!");
+            }
         }
     }
 }
