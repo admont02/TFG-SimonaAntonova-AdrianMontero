@@ -4,63 +4,60 @@ using UnityEngine;
 
 public class SimpleTrafficLight : MonoBehaviour
 {
-    public Material[] materials; // Array de materiales que quieres alternar
-    private Material[] currentMaterials; // Array de materiales que quieres alternar
-    private MeshRenderer meshRenderer; // Referencia al MeshRenderer del GameObject
+    public GameObject red; // Array de materiales que quieres alternar
+    public GameObject amber; // Array de materiales que quieres alternar
+    public GameObject green; // Array de materiales que quieres alternar
 
     private void Start()
     {
         // Obtén el MeshRenderer del GameObject
-        meshRenderer = GetComponent<MeshRenderer>();
-
         StartCoroutine(ChangeMaterialCoroutine());
     }
 
     private IEnumerator ChangeMaterialCoroutine()
     {
-        float currentSecs = 2.0f;
+        float currentSecs = 1.0f;
         bool fromRed = false;
 
         while (true)
         {
             // Estaba rojo
-            if (meshRenderer.materials[3].mainTexture == materials[0].mainTexture)
+            if (red.activeSelf)
             {
-                currentSecs = 5.0f;
-                // Apagar rojo
-                meshRenderer.materials[3] = materials[3];
+                currentSecs = 1.0f;
                 // Encender ambar
-                meshRenderer.materials[5] = materials[1];
+                amber.SetActive(true);
+                // Apagar rojo
+                red.SetActive(false);
                 fromRed = true;
             }
             // Estaba Ambar
-            else if (meshRenderer.materials[5].mainTexture == materials[1].mainTexture)
+            else if (amber.activeSelf)
             {
-                currentSecs = 1.0f;
+                currentSecs = 5.0f;
                 // Apagar ambar
-                meshRenderer.materials[5] = materials[4];
+                amber.SetActive(false);
                 if (fromRed)
                 {
                     // Encender verde
-                    meshRenderer.materials[6] = materials[2];
+                    green.SetActive(true);
                 }
                 else
                 {
                     // Encender rojo
-                    meshRenderer.materials[3] = materials[0];
+                    red.SetActive(true);
                 }
 
             }
             // Estaba verde
-            else if (meshRenderer.materials[6].mainTexture == materials[2].mainTexture)
+            else if (green.activeSelf)
             {
-                currentSecs = 5.0f;
-                // Apagar verde
-                meshRenderer.materials[6] = materials[5];
+                currentSecs = 1.0f;
                 // Encender ambar
-                meshRenderer.materials[5] = materials[1];
+                amber.SetActive(true);
+                // Apagar verde
+                green.SetActive(false);
                 fromRed = false;
-
             }
 
             // Espera 2 segundos antes de cambiar al siguiente material
