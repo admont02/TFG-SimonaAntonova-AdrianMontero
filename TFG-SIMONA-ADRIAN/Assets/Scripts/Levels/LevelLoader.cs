@@ -45,6 +45,17 @@ public class LevelLoader : MonoBehaviour
         //{
         //    GameObject elementoObj = Instantiate(Resources.Load(elemento.tipo + "Prefab"), new Vector3(elemento.posicion.x, elemento.posicion.y, elemento.posicion.z), Quaternion.identity) as GameObject;
         //}
+        OtherCar otherCar = FindObjectOfType<OtherCar>(); 
+        if (otherCar != null && nivel.cochesIA.Count > 0 && nivel.cochesIA[0].posiciones.Count > 0) 
+        { 
+            List<Vector3> destinations = new List<Vector3>(); 
+            foreach (var pos in nivel.cochesIA[0].posiciones) 
+            { 
+                destinations.Add(new Vector3(pos.x, pos.y, pos.z)); 
+            } 
+            otherCar.SetDestinations(destinations); 
+        }
     }
+
 }
 

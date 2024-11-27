@@ -65,5 +65,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("¡Nivel completado correctamente!");
             }
         }
+        Debug.Log("entro");
     }
 }

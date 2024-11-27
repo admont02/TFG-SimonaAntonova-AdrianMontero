@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class OtherCar : MonoBehaviour
 {
-    public List<Transform> targets; // Lista de destinos
+    private List<Vector3> destinations;
+  //  public List<Transform> targets; // Lista de destinos
     private int currentTargetIndex = 0;
     private NavMeshAgent agent;
     public float arrivalThreshold = 1.5f; // Umbral de distancia para considerar que ha llegado
@@ -13,15 +14,15 @@ public class OtherCar : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (targets.Count > 0)
+        if (destinations.Count > 0)
         {
-            agent.destination = targets[currentTargetIndex].position; // Establecer el primer destino del coche
+            agent.destination = destinations[currentTargetIndex]; // Establecer el primer destino del coche
         }
     }
 
     void Update()
     {
-        if (targets.Count == 0) return;
+        if (destinations.Count == 0) return;
 
         if (!agent.pathPending && agent.remainingDistance <= arrivalThreshold && agent.velocity.sqrMagnitude == 0f && !agent.isStopped)
         {
@@ -34,13 +35,14 @@ public class OtherCar : MonoBehaviour
         Debug.Log("El coche ha llegado a su destino: " + currentTargetIndex);
         currentTargetIndex++;
 
-        if (currentTargetIndex < targets.Count)
+        if (currentTargetIndex < destinations.Count)
         {
             hasReachedFirstDestination = true;
-           
-            agent.destination = targets[currentTargetIndex].position; // Establecer el siguiente destino
+
+            //agent.destination = targets[currentTargetIndex].position; // Establecer el siguiente destino
+            agent.SetDestination(destinations[currentTargetIndex]);
         }
-        else if(!agent.isStopped)
+        else if (!agent.isStopped)
         {
             Debug.Log("El coche ha llegado a todos sus destinos.");
             DetenerMovimiento(); // Detener el movimiento del coche
@@ -55,5 +57,13 @@ public class OtherCar : MonoBehaviour
     bool HasArrived()
     {
         return agent.isStopped;
+    }
+    public void SetDestinations(List<Vector3> newDestinations)
+    {
+        destinations = newDestinations; 
+        //if (destinations != null && destinations.Count > 0)
+        //{
+        //    agent.destination = destinations[currentTargetIndex]; 
+        //}
     }
 }
