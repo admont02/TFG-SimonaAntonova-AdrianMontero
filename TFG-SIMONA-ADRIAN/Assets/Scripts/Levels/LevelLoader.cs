@@ -45,6 +45,13 @@ public class LevelLoader : MonoBehaviour
         //{
         //    GameObject elementoObj = Instantiate(Resources.Load(elemento.tipo + "Prefab"), new Vector3(elemento.posicion.x, elemento.posicion.y, elemento.posicion.z), Quaternion.identity) as GameObject;
         //}
+        // Crear el punto objetivo
+        GameObject targetPoint = new GameObject("TargetPoint"); 
+        targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z); 
+        LineRenderer lineRenderer = targetPoint.AddComponent<LineRenderer>(); 
+        lineRenderer.positionCount = 2; 
+        lineRenderer.SetPosition(0, targetPoint.transform.position); 
+        lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 100.0f, 0));
         OtherCar otherCar = FindObjectOfType<OtherCar>(); 
         if (otherCar != null && nivel.cochesIA.Count > 0 && nivel.cochesIA[0].posiciones.Count > 0) 
         { 

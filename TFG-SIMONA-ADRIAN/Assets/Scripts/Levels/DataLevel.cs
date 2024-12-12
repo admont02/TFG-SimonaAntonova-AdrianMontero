@@ -26,6 +26,7 @@ public class Nivel
 {
     public int nivel;
     public Posicion posicionCoche;
+    public Posicion targetJugador;
     public List<CocheIA> cochesIA;
     public List<ElementoMapa> elementosMapa;
 }
