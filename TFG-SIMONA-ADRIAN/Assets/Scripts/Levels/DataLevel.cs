@@ -29,4 +29,5 @@ public class Nivel
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;
     public List<ElementoMapa> elementosMapa;
+    public string[] levelDialogs;
 }

@@ -18,10 +18,10 @@ public class DialogueSystem : MonoBehaviour
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        dialogues = new string[] {
-            "¡Bienvenido a la autoecuela!",
-            "Este es un sistema de diálogo de prueba."
-        };
+        //dialogues = new string[] {
+        //    "¡Bienvenido a la autoecuela!",
+        //    "Este es un sistema de diálogo de prueba."
+        //};
 
         // Asegurarnos de que la primera frase esté vacía al inicio
         dialogueText.text = "";
@@ -75,5 +75,9 @@ public class DialogueSystem : MonoBehaviour
             dialoguePanel.SetActive(false);
             GameManager.Instance.canCarMove = true;
         }
+    }
+    public void SetLevelDialog(string[] d)
+    {
+        dialogues = d;
     }
 }

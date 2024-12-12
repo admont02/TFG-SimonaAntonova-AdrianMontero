@@ -52,6 +52,7 @@ public class LevelLoader : MonoBehaviour
         lineRenderer.positionCount = 2; 
         lineRenderer.SetPosition(0, targetPoint.transform.position); 
         lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 100.0f, 0));
+        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs);
         OtherCar otherCar = FindObjectOfType<OtherCar>(); 
         if (otherCar != null && nivel.cochesIA.Count > 0 && nivel.cochesIA[0].posiciones.Count > 0) 
         { 

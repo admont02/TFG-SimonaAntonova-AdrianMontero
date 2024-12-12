@@ -22,7 +22,13 @@ public class OtherCar : MonoBehaviour
 
     void Update()
     {
-        if (destinations.Count == 0) return;
+
+        if (destinations.Count == 0 || !GameManager.Instance.canCarMove)
+        {
+            agent.isStopped = true;
+            return;
+        }
+        agent.isStopped = false;
 
         if (!agent.pathPending && agent.remainingDistance <= arrivalThreshold && agent.velocity.sqrMagnitude == 0f && !agent.isStopped)
         {

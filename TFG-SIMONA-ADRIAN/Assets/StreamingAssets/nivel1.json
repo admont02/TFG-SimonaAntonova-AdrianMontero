@@ -1,17 +1,52 @@
 {
     "nivel": 1,
-    "posicionCoche": { "x": 0, "y": 0, "z": 0 },
-    "targetJugador": { "x": 124, "y": 0, "z": 197 },
+    "posicionCoche": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "targetJugador": {
+        "x": 124,
+        "y": 0,
+        "z": 197
+    },
+    "levelDialogs": [
+        "¡Bienvenido a la autoescuela! Aquí aprenderás a manejar en cruces complicados.",
+        "Observa el cruce y los movimientos de los otros coches.",
+        "Cuando tengas la prioridad, ve hacia el punto morado."
+    ],
     "cochesIA": [
         {
             "posiciones": [
-                { "x": 102.2, "y": 2.5, "z": 134.45 },
-                { "x": 44.2, "y": 2.5, "z": 133.6 }
+                {
+                    "x": 102.2,
+                    "y": 2.5,
+                    "z": 134.45
+                },
+                {
+                    "x": 44.2,
+                    "y": 2.5,
+                    "z": 133.6
+                }
             ]
         }
     ],
     "elementosMapa": [
-        { "tipo": "arbol", "posicion": { "x": 5, "y": 0, "z": 5 } },
-        { "tipo": "roca", "posicion": { "x": -5, "y": 0, "z": -5 } }
+        {
+            "tipo": "arbol",
+            "posicion": {
+                "x": 5,
+                "y": 0,
+                "z": 5
+            }
+        },
+        {
+            "tipo": "roca",
+            "posicion": {
+                "x": -5,
+                "y": 0,
+                "z": -5
+            }
+        }
     ]
 }

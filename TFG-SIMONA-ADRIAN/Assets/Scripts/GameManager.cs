@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); // Mantener el GameManager entre escenas
 
             // Inicializar cualquier cosa necesaria al inicio de la escena
-            InitializeDialogue();
             InitializeNivelLoader();
+            InitializeDialogue();
+           
         }
         else
         {
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueSystem != null)
         {
-            //dialogueSystem.StartDialogue();
+            dialogueSystem.StartDialogue();
         }
     }
     private void Update()
