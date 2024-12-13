@@ -46,15 +46,15 @@ public class DialogueSystem : MonoBehaviour
         foreach (char letter in dialogues[index].ToCharArray())
         {
             dialogueText.text += letter;
-            if (typingSound != null && !audioSource.isPlaying)
+            if (typingSound != null && !GetComponent<AudioSource>().isPlaying)
             {
-                audioSource.PlayOneShot(typingSound);
+                GetComponent<AudioSource>().PlayOneShot(typingSound);
             }
             yield return new WaitForSeconds(typingSpeed);
         }
-        if (audioSource.isPlaying && typingSound != null)
+        if (GetComponent<AudioSource>().isPlaying && typingSound != null)
         {
-            audioSource.Stop();
+            GetComponent<AudioSource>().Stop();
         }
         isTyping = false;
     }
