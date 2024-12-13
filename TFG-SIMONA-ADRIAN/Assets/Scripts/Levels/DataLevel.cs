@@ -30,4 +30,5 @@ public class Nivel
     public List<CocheIA> cochesIA;
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;
+    public string[] completedDialogs;
 }

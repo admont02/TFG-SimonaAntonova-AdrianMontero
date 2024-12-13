@@ -11,6 +11,7 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip typingSound; // Sonido de tecleo
     private AudioSource audioSource;
     private string[] dialogues; // Array para almacenar los diálogos
+    private string[] winDialogues; // Array para almacenar los diálogos
     private int index;
     private bool isTyping = false;
     public Button dialogueBackground; // Fondo del diálogo que detectará clics
@@ -39,7 +40,11 @@ public class DialogueSystem : MonoBehaviour
 
         StartCoroutine(TypeSentence());
     }
-
+    public void ShowCompletedDialog()
+    {
+        dialogues = winDialogues;
+        StartDialogue();
+    }
     IEnumerator TypeSentence()
     {
         isTyping = true;
@@ -76,8 +81,9 @@ public class DialogueSystem : MonoBehaviour
             GameManager.Instance.canCarMove = true;
         }
     }
-    public void SetLevelDialog(string[] d)
+    public void SetLevelDialog(string[] d, string[] cDialogs)
     {
         dialogues = d;
+        winDialogues = cDialogs;
     }
 }

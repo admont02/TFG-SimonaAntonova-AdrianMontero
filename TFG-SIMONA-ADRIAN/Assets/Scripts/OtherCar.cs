@@ -38,7 +38,7 @@ public class OtherCar : MonoBehaviour
 
     void OnArrival()
     {
-        Debug.Log("El coche ha llegado a su destino: " + currentTargetIndex);
+        //Debug.Log("El coche ha llegado a su destino: " + currentTargetIndex);
         currentTargetIndex++;
 
         if (currentTargetIndex < destinations.Count)
@@ -50,7 +50,7 @@ public class OtherCar : MonoBehaviour
         }
         else if (!agent.isStopped)
         {
-            Debug.Log("El coche ha llegado a todos sus destinos.");
+           // Debug.Log("El coche ha llegado a todos sus destinos.");
             DetenerMovimiento(); // Detener el movimiento del coche
         }
     }

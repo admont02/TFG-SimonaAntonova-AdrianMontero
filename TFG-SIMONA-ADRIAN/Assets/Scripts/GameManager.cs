@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +13,8 @@ public class GameManager : MonoBehaviour
     private LevelLoader nivelLoader;
     public CarController carController;
     public OtherCar otherCar;
+    private GameObject playerTarget;
+    private bool completed = false;
 
     void Awake()
     {
@@ -23,7 +27,7 @@ public class GameManager : MonoBehaviour
             // Inicializar cualquier cosa necesaria al inicio de la escena
             InitializeNivelLoader();
             InitializeDialogue();
-           
+
         }
         else
         {
@@ -40,7 +44,8 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        ComprobarNivel();
+        //if (!completed)
+        //    ComprobarNivel();
     }
     void InitializeNivelLoader()
     {
@@ -56,16 +61,22 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarNivel()
     {
-        if (carController.HasMoved() && !otherCar.hasReachedFirstDestination)
-        {
-            Debug.Log("¡Nivel incorrecto!");
-        }
-        else if (!carController.HasMoved() && otherCar.hasReachedFirstDestination)
-        {
-            {
-                Debug.Log("¡Nivel completado correctamente!");
-            }
-        }
-        Debug.Log("entro");
+        //if (carController.HasMoved() && !otherCar.hasReachedFirstDestination)
+        //{
+        //    Debug.Log("¡Nivel incorrecto!");
+        //}
+        //else if (/*!carController.HasMoved() && otherCar.hasReachedFirstDestination &&*/ carController.transform.position.z >= playerTarget.transform.position.z)
+        //{
+        //    completed = true;
+        dialogueSystem.ShowCompletedDialog();
+        Debug.Log("¡Nivel completado correctamente!");
+
+        //}
+        //Debug.Log("entro");
+    }
+
+    internal void SetPlayerTarget(GameObject targetPoint)
+    {
+        playerTarget = targetPoint;
     }
 }

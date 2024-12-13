@@ -7,6 +7,7 @@ public class LevelLoader : MonoBehaviour
 {
     public string jsonFileName = "nivel1.json";
 
+    public GameObject TargetPrefab;
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
@@ -46,22 +47,24 @@ public class LevelLoader : MonoBehaviour
         //    GameObject elementoObj = Instantiate(Resources.Load(elemento.tipo + "Prefab"), new Vector3(elemento.posicion.x, elemento.posicion.y, elemento.posicion.z), Quaternion.identity) as GameObject;
         //}
         // Crear el punto objetivo
-        GameObject targetPoint = new GameObject("TargetPoint"); 
-        targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z); 
-        LineRenderer lineRenderer = targetPoint.AddComponent<LineRenderer>(); 
-        lineRenderer.positionCount = 2; 
-        lineRenderer.SetPosition(0, targetPoint.transform.position); 
+        GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
+        targetPoint.SetActive(true);    
+        GameManager.Instance.SetPlayerTarget(targetPoint);
+        //targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z);
+        LineRenderer lineRenderer = targetPoint.GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, targetPoint.transform.position);
         lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 100.0f, 0));
-        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs);
-        OtherCar otherCar = FindObjectOfType<OtherCar>(); 
-        if (otherCar != null && nivel.cochesIA.Count > 0 && nivel.cochesIA[0].posiciones.Count > 0) 
-        { 
-            List<Vector3> destinations = new List<Vector3>(); 
-            foreach (var pos in nivel.cochesIA[0].posiciones) 
-            { 
-                destinations.Add(new Vector3(pos.x, pos.y, pos.z)); 
-            } 
-            otherCar.SetDestinations(destinations); 
+        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
+        OtherCar otherCar = FindObjectOfType<OtherCar>();
+        if (otherCar != null && nivel.cochesIA.Count > 0 && nivel.cochesIA[0].posiciones.Count > 0)
+        {
+            List<Vector3> destinations = new List<Vector3>();
+            foreach (var pos in nivel.cochesIA[0].posiciones)
+            {
+                destinations.Add(new Vector3(pos.x, pos.y, pos.z));
+            }
+            otherCar.SetDestinations(destinations);
         }
     }
 
