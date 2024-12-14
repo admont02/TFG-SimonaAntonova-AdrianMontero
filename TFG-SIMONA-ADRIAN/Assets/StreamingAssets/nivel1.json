@@ -20,6 +20,16 @@
     ],
     "cochesIA": [
         {
+            "posicionInicial": {
+                "x": 137.3,
+                "y": 2.025,
+                "z": 133.3
+            },
+            "rotacionInicial": {
+                "x": 0,
+                "y": -90,
+                "z": 0
+            },
             "posiciones": [
                 {
                     "x": 102.2,
@@ -32,24 +42,30 @@
                     "z": 133.6
                 }
             ]
-        }
-    ],
-    "elementosMapa": [
-        {
-            "tipo": "arbol",
-            "posicion": {
-                "x": 5,
-                "y": 0,
-                "z": 5
-            }
         },
         {
-            "tipo": "roca",
-            "posicion": {
-                "x": -5,
-                "y": 0,
-                "z": -5
-            }
+            "posicionInicial": {
+                "x": 137.3,
+                "y": 2.025,
+                "z": 126.81
+            },
+            "rotacionInicial": {
+                "x": 0,
+                "y": -90,
+                "z": 0
+            },
+            "posiciones": [
+                {
+                    "x": 102.2,
+                    "y": 2.5,
+                    "z": 126.81
+                },
+                {
+                    "x": 44.2,
+                    "y": 2.5,
+                    "z": 126.81
+                }
+            ]
         }
     ]
 }

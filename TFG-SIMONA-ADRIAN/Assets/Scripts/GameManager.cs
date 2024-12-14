@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public OtherCar otherCar;
     private GameObject playerTarget;
     private bool completed = false;
+    private List<GameObject> cochesIA=new List<GameObject>();
 
     void Awake()
     {
@@ -78,5 +79,9 @@ public class GameManager : MonoBehaviour
     internal void SetPlayerTarget(GameObject targetPoint)
     {
         playerTarget = targetPoint;
+    }
+    public void AddCocheIA(GameObject coche)
+    {
+        cochesIA.Add(coche);
     }
 }

@@ -12,6 +12,9 @@ public class Posicion
 public class CocheIA
 {
     public List<Posicion> posiciones;
+    public Posicion posicionInicial;
+    public Posicion rotacionInicial;
+
 }
 
 [System.Serializable]
