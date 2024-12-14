@@ -15,6 +15,7 @@ public class DialogueSystem : MonoBehaviour
     private int index;
     private bool isTyping = false;
     public Button dialogueBackground; // Fondo del diálogo que detectará clics
+    public ParticleSystem confettiEffect;
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
     public void ShowCompletedDialog()
     {
         dialogues = winDialogues;
+        if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue();
     }
 
