@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Necesario para usar UI
+using UnityEngine.UI;
 using System.Collections;
 
 public class DialogueSystem : MonoBehaviour
@@ -11,55 +11,50 @@ public class DialogueSystem : MonoBehaviour
     public AudioClip typingSound; // Sonido de tecleo
     private AudioSource audioSource;
     private string[] dialogues; // Array para almacenar los diálogos
-    private string[] winDialogues; // Array para almacenar los diálogos
+    private string[] winDialogues; // Array para almacenar los diálogos de victoria
     private int index;
     private bool isTyping = false;
     public Button dialogueBackground; // Fondo del diálogo que detectará clics
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
-        //dialogues = new string[] {
-        //    "¡Bienvenido a la autoecuela!",
-        //    "Este es un sistema de diálogo de prueba."
-        //};
-
-        // Asegurarnos de que la primera frase esté vacía al inicio
-        dialogueText.text = "";
-
-        // Asignar el método al evento de clic del botón
+      
+        dialogueText.text = ""; // Asegurarnos de que la primera frase esté vacía al inicio
         dialogueBackground.onClick.AddListener(NextSentence);
-
     }
 
     public void StartDialogue()
     {
+        if(audioSource==null)
+            audioSource = GetComponent<AudioSource>();
+        ResetDialogue();
         index = 0;
         dialoguePanel.SetActive(true);
         GameManager.Instance.canCarMove = false;
-
         StartCoroutine(TypeSentence());
     }
+
     public void ShowCompletedDialog()
     {
         dialogues = winDialogues;
         StartDialogue();
     }
+
     IEnumerator TypeSentence()
     {
         isTyping = true;
         foreach (char letter in dialogues[index].ToCharArray())
         {
             dialogueText.text += letter;
-            if (typingSound != null && !GetComponent<AudioSource>().isPlaying)
+            if (typingSound != null && !audioSource.isPlaying)
             {
-                GetComponent<AudioSource>().PlayOneShot(typingSound);
+                audioSource.PlayOneShot(typingSound);
             }
             yield return new WaitForSeconds(typingSpeed);
         }
-        if (GetComponent<AudioSource>().isPlaying && typingSound != null)
+        if (audioSource.isPlaying && typingSound != null)
         {
-            GetComponent<AudioSource>().Stop();
+            audioSource.Stop();
         }
         isTyping = false;
     }
@@ -81,9 +76,17 @@ public class DialogueSystem : MonoBehaviour
             GameManager.Instance.canCarMove = true;
         }
     }
+
     public void SetLevelDialog(string[] d, string[] cDialogs)
     {
         dialogues = d;
         winDialogues = cDialogs;
+    }
+
+    private void ResetDialogue()
+    {
+        dialogueText.text = "";
+        index = 0;
+        StopAllCoroutines(); // Detener todas las corrutinas para asegurarnos de que no queden diálogos antiguos en ejecución
     }
 }

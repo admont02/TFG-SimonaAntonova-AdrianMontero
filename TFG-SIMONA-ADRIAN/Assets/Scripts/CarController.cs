@@ -28,6 +28,7 @@ public class CarController : MonoBehaviour
     {
         if (GameManager.Instance != null && !GameManager.Instance.canCarMove)
         { // Si el coche no puede moverse, no hacer nada
+            StopCar(); //pararlo si se mueve
             return;
         }
         float vInput = Input.GetAxis("Vertical");
@@ -90,4 +91,14 @@ public class CarController : MonoBehaviour
         }
     }
     public bool HasMoved() { return hasMoved; }
+    private void StopCar()
+    {
+        foreach (var wheel in wheels)
+        {
+            wheel.WheelCollider.brakeTorque = brakeTorque;
+            wheel.WheelCollider.motorTorque = 0;
+        }
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.angularVelocity = Vector3.zero;
+    }
 }
