@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     public OtherCar otherCar;
     private GameObject playerTarget;
     private bool completed = false;
-    private List<GameObject> cochesIA=new List<GameObject>();
+    private List<GameObject> cochesIA = new List<GameObject>();
+
+    public List<string> incorrectLevel;
 
     void Awake()
     {
@@ -62,18 +64,15 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarNivel()
     {
-        //if (carController.HasMoved() && !otherCar.hasReachedFirstDestination)
-        //{
-        //    Debug.Log("¡Nivel incorrecto!");
-        //}
-        //else if (/*!carController.HasMoved() && otherCar.hasReachedFirstDestination &&*/ carController.transform.position.z >= playerTarget.transform.position.z)
-        //{
-        //    completed = true;
-        dialogueSystem.ShowCompletedDialog();
-        Debug.Log("¡Nivel completado correctamente!");
-
-        //}
-        //Debug.Log("entro");
+        if (incorrectLevel.Count > 0)
+        {
+            Debug.Log("¡Nivel incorrecto!");
+        }
+        else 
+        {
+            dialogueSystem.ShowCompletedDialog();
+            Debug.Log("¡Nivel completado correctamente!");
+        }
     }
 
     internal void SetPlayerTarget(GameObject targetPoint)
