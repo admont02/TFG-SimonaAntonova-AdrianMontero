@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public CarController carController;
     public OtherCar otherCar;
     private GameObject playerTarget;
-    private bool completed = false;
     private List<GameObject> cochesIA = new List<GameObject>();
 
     public List<string> incorrectLevel;
