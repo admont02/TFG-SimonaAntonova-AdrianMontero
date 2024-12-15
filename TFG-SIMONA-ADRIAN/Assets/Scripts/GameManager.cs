@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        incorrectLevel.Add("Nivel Incorrecto, errores: ");
         // Asegurarse de que solo hay una instancia de GameManager
         if (Instance == null)
         {
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarNivel()
     {
-        if (incorrectLevel.Count > 0)
+        if (incorrectLevel.Count > 1)
         {
             dialogueSystem.ShowIncorrectLevelDialog(incorrectLevel.ToArray());
             Debug.Log("¡Nivel incorrecto!");
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log(nivel);
             }
         }
-        else 
+        else
         {
             dialogueSystem.ShowCompletedDialog();
             Debug.Log("¡Nivel completado correctamente!");
