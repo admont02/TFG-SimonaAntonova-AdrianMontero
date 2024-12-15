@@ -8,13 +8,17 @@ public class SimpleTrafficLight : MonoBehaviour
     public GameObject amber; // Array de materiales que quieres alternar
     public GameObject green; // Array de materiales que quieres alternar
 
+    public float greenSeconds = 20.0f;
+    public float amberSeconds = 2.0f;
+    public float redSeconds = 15.0f;
+
     private void Start()
     {
         // Obtén el MeshRenderer del GameObject
-        StartCoroutine(ChangeMaterialCoroutine());
+        StartCoroutine(ChangeLightColorCoroutine());
     }
 
-    private IEnumerator ChangeMaterialCoroutine()
+    private IEnumerator ChangeLightColorCoroutine()
     {
         float currentSecs = 1.0f;
         bool fromRed = false;
@@ -24,7 +28,7 @@ public class SimpleTrafficLight : MonoBehaviour
             // Estaba rojo
             if (red.activeSelf)
             {
-                currentSecs = 1.0f;
+                currentSecs = amberSeconds;
                 // Encender ambar
                 amber.SetActive(true);
                 // Apagar rojo
@@ -34,17 +38,18 @@ public class SimpleTrafficLight : MonoBehaviour
             // Estaba Ambar
             else if (amber.activeSelf)
             {
-                currentSecs = 5.0f;
                 // Apagar ambar
                 amber.SetActive(false);
                 if (fromRed)
                 {
                     // Encender verde
+                    currentSecs = greenSeconds;
                     green.SetActive(true);
                 }
                 else
                 {
                     // Encender rojo
+                    currentSecs = redSeconds;
                     red.SetActive(true);
                 }
 
@@ -52,7 +57,7 @@ public class SimpleTrafficLight : MonoBehaviour
             // Estaba verde
             else if (green.activeSelf)
             {
-                currentSecs = 1.0f;
+                currentSecs = amberSeconds;
                 // Encender ambar
                 amber.SetActive(true);
                 // Apagar verde
@@ -63,5 +68,13 @@ public class SimpleTrafficLight : MonoBehaviour
             // Espera 2 segundos antes de cambiar al siguiente material
             yield return new WaitForSeconds(currentSecs);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // si es player cambia al nivel del trigger
+        if (red.activeSelf && other.gameObject.layer == 3)
+            GameManager.Instance.incorrectLevel.Add("Semáforo con luz roja: Prohibido el paso.");
+
     }
 }

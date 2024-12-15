@@ -41,6 +41,12 @@ public class DialogueSystem : MonoBehaviour
         if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue();
     }
+    public void ShowIncorrectLevelDialog(string[] incorrect)
+    {
+        dialogues = incorrect;
+        //if (confettiEffect != null) { confettiEffect.Play(); }
+        StartDialogue();
+    }
 
     IEnumerator TypeSentence()
     {

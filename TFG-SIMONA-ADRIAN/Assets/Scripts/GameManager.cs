@@ -66,7 +66,12 @@ public class GameManager : MonoBehaviour
     {
         if (incorrectLevel.Count > 0)
         {
+            dialogueSystem.ShowIncorrectLevelDialog(incorrectLevel.ToArray());
             Debug.Log("¡Nivel incorrecto!");
+            foreach (string nivel in incorrectLevel)
+            {
+                Debug.Log(nivel);
+            }
         }
         else 
         {
