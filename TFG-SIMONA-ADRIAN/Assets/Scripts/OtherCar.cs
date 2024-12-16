@@ -14,7 +14,9 @@ public class OtherCar : MonoBehaviour
     public Material outline;
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+       
+        agent = GetComponent<NavMeshAgent>(); 
+        
         if (destinations.Count > 0)
         {
             agent.destination = destinations[currentTargetIndex]; // Establecer el primer destino del coche
