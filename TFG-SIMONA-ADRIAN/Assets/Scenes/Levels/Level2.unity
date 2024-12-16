@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &35259335
 Transform:
   m_ObjectHideFlags: 0
@@ -2296,8 +2296,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341576647}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
-  m_LocalPosition: {x: 123.5, y: 6.9, z: 102.9}
+  m_LocalRotation: {x: 0.17350298, y: -0.000000008472708, z: 0.0000000014926792, w: 0.98483336}
+  m_LocalPosition: {x: 123.5, y: 6.05, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6059,8 +6059,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009361677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
-  m_LocalPosition: {x: 123.5, y: 6.9, z: 102.9}
+  m_LocalRotation: {x: 0.17350298, y: -0.000000008472708, z: 0.0000000014926792, w: 0.98483336}
+  m_LocalPosition: {x: 123.5, y: 6.05, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16195,6 +16195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuadriculaAmarilla
       objectReference: {fileID: 0}
+    - target: {fileID: 4978257394053826113, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4997388643399224463, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 119.9929
@@ -16509,7 +16513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7152676752877602324, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 7152676752877602324, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16979,7 +16983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5709189992866638945
 Transform:
   m_ObjectHideFlags: 0
@@ -17071,7 +17075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &6285240472811873370
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17214,7 +17218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6623162552327905766
 MonoBehaviour:
   m_ObjectHideFlags: 0
