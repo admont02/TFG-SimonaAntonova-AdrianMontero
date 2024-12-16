@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class OtherCar : MonoBehaviour
 {
-    private List<Vector3> destinations;
-  //  public List<Transform> targets; // Lista de destinos
+    private List<Vector3> destinations = new List<Vector3>();
+    //  public List<Transform> targets; // Lista de destinos
     private int currentTargetIndex = 0;
     private NavMeshAgent agent;
     public float arrivalThreshold = 1.5f; // Umbral de distancia para considerar que ha llegado
     public bool hasReachedFirstDestination = false;
+    public Material outline;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -50,7 +51,7 @@ public class OtherCar : MonoBehaviour
         }
         else if (!agent.isStopped)
         {
-           // Debug.Log("El coche ha llegado a todos sus destinos.");
+            // Debug.Log("El coche ha llegado a todos sus destinos.");
             DetenerMovimiento(); // Detener el movimiento del coche
         }
     }
@@ -66,10 +67,22 @@ public class OtherCar : MonoBehaviour
     }
     public void SetDestinations(List<Vector3> newDestinations)
     {
-        destinations = newDestinations; 
+        destinations = newDestinations;
         //if (destinations != null && destinations.Count > 0)
         //{
         //    agent.destination = destinations[currentTargetIndex]; 
         //}
+    }
+    void OnMouseDown()
+    { // Cuando se toca este coche, pasar el orden al GameController gameController.CarTouched(carOrder); }
+        Debug.Log(this.name);
+        //gameObject.GetComponentInChildren<MeshCollider>().gameObject.GetComponent<MeshRenderer>().material = outline;
+        if (!GameManager.Instance.priorityCarList.Contains(gameObject))
+            GameManager.Instance.priorityCarList.Add(gameObject);
+        else
+            GameManager.Instance.priorityCarList.Remove(gameObject);
+
+        //Destroy(this.gameObject);
+
     }
 }

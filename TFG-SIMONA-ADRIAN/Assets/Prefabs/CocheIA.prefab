@@ -814,6 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrivalThreshold: 0.5
   hasReachedFirstDestination: 0
+  outline: {fileID: 2100000, guid: acd8f714506fd6540a36a074eb7f1491, type: 2}
 --- !u!1 &7386336429797760790
 GameObject:
   m_ObjectHideFlags: 0

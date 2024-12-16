@@ -5,7 +5,7 @@ using System.IO;
 
 public class LevelLoader : MonoBehaviour
 {
-    public string jsonFileName = "nivel1.json";
+    public string jsonFileName = "nivel2.json";
 
     public GameObject TargetPrefab;
     [SerializeField]
@@ -70,21 +70,24 @@ public class LevelLoader : MonoBehaviour
         //    otherCar.SetDestinations(destinations);
         //}
         // Crear coches IA
-        foreach (var cocheIA in nivel.cochesIA) 
+        int id = 0;
+        foreach (var cocheIA in nivel.cochesIA)
         {
             Quaternion rotation = Quaternion.Euler(cocheIA.rotacionInicial.x, cocheIA.rotacionInicial.y, cocheIA.rotacionInicial.z);
             GameObject cocheIAObj = Instantiate(cocheIAPrefab, new Vector3(cocheIA.posicionInicial.x, cocheIA.posicionInicial.y, cocheIA.posicionInicial.z), rotation);
+            cocheIAObj.name = "CocheIA" + id;
+            id++;
             GameManager.Instance.AddCocheIA(cocheIAObj);
-            OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>(); 
-            if (otherCar != null && cocheIA.posiciones.Count > 0) 
-            { 
-                List<Vector3> destinations = new List<Vector3>(); 
-                foreach (var pos in cocheIA.posiciones) 
-                { 
-                    destinations.Add(new Vector3(pos.x, pos.y, pos.z)); 
-                } 
+            OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
+            if (otherCar != null && cocheIA.posiciones.Count > 0)
+            {
+                List<Vector3> destinations = new List<Vector3>();
+                foreach (var pos in cocheIA.posiciones)
+                {
+                    destinations.Add(new Vector3(pos.x, pos.y, pos.z));
+                }
                 otherCar.SetDestinations(destinations);
-            } 
+            }
         }
     }
 

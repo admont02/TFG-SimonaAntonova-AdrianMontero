@@ -1,0 +1,57 @@
+{
+    "nivel": 1,
+    "posicionCoche": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "targetJugador": {
+        "x": 124,
+        "y": 0,
+        "z": 197
+    },
+    "levelDialogs": [
+        " En este nivel"
+    ],
+    "completedDialogs": [
+        "¡Enhorabuena! Has completado el nivel correctamente."
+    ],
+    "cochesIA": [
+        {
+            "posicionInicial": {
+                "x": 137.3,
+                "y": 2.025,
+                "z": 133.3
+            },
+            "rotacionInicial": {
+                "x": 0,
+                "y": -90,
+                "z": 0
+            }
+        },
+        {
+            "posicionInicial": {
+                "x": 123.5,
+                "y": 2.04,
+                "z": 114.0
+            },
+            "rotacionInicial": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        },
+        {
+            "posicionInicial": {
+                "x": 101.3,
+                "y": 2.025,
+                "z": 126.0
+            },
+            "rotacionInicial": {
+                "x": 0,
+                "y": 90,
+                "z": 0
+            }
+        }
+    ]
+}
