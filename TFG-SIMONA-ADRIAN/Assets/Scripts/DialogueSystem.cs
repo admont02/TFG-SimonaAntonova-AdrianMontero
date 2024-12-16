@@ -81,6 +81,7 @@ public class DialogueSystem : MonoBehaviour
         else
         {
             dialoguePanel.SetActive(false);
+            if(GameManager.Instance.carController!=null)
             GameManager.Instance.canCarMove = true;
         }
     }

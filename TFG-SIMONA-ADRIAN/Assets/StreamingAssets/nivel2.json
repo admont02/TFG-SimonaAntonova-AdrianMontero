@@ -11,10 +11,13 @@
         "z": 197
     },
     "levelDialogs": [
-        " En este nivel"
+        " En este nivel te encuentras con una intersección con 3 coches",
+        " haz clic sobre ellos en el orden en el que deben de pasar",
+        " Tras ello, pulsa en el botón'CORREGIR'"
     ],
     "completedDialogs": [
-        "¡Enhorabuena! Has completado el nivel correctamente."
+        "¡Enhorabuena! Has completado el nivel correctamente.",
+        " Los coches han realizado sus acciones en el orden correcto"
     ],
     "cochesIA": [
         {

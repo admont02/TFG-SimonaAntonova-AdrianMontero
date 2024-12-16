@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5649006, g: 0.6356399, b: 0.7239371, a: 1}
+  m_IndirectSpecularColor: {r: 0.5649007, g: 0.6356403, b: 0.72393775, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -940,9 +940,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 923984508}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ComprobarNivel
+      - m_Target: {fileID: 1580549972}
+        m_TargetAssemblyTypeName: ClicLevelManager, Assembly-CSharp
+        m_MethodName: CheckLevelCompletion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13599,6 +13599,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557603559}
   m_Mesh: {fileID: 7468059451467576502, guid: ad9581cdbeafd4b488d5a06c5f98521b, type: 3}
+--- !u!1 &1580549971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1580549973}
+  - component: {fileID: 1580549972}
+  m_Layer: 0
+  m_Name: ClicLevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1580549972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580549971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8b08a976c0b7d4cb171ac5a48acb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priorityCarList: []
+--- !u!4 &1580549973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580549971}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 128.35303, y: 2.2840848, z: 113.09831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600504503
 GameObject:
   m_ObjectHideFlags: 0
@@ -17606,3 +17651,4 @@ SceneRoots:
   - {fileID: 1385233925}
   - {fileID: 2114429482}
   - {fileID: 1413415057}
+  - {fileID: 1580549973}

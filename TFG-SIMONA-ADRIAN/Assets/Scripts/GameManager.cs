@@ -66,16 +66,16 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarNivel()
     {
-        int id = 0;
-        foreach (var item in priorityCarList)
-        {
-            if (item.name[item.name.Length - 1].ToString() != id.ToString())
-            {
-                incorrectLevel.Add("Prioridades incorrectas");
-                break;
-            }
-            id++;
-        }
+        //int id = 0;
+        //foreach (var item in priorityCarList)
+        //{
+        //    if (item.name[item.name.Length - 1].ToString() != id.ToString())
+        //    {
+        //        incorrectLevel.Add("Prioridades incorrectas");
+        //        break;
+        //    }
+        //    id++;
+        //}
         if (incorrectLevel.Count > 1)
         {
             dialogueSystem.ShowIncorrectLevelDialog(incorrectLevel.ToArray());
