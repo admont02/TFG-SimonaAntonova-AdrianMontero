@@ -7,7 +7,8 @@
     },
     "fog": true,
     "levelDialogs": [
-        " En este nivel vas a experimentar la niebla"
+        " En este nivel te encuentras con mucha niebla en tu viaje",
+        " Debes seleccionar las luces que tiene que llevar encendidas tu vehículo en esta situación "
     ],
     "completedDialogs": [
         "¡Enhorabuena! Has completado el nivel correctamente."
