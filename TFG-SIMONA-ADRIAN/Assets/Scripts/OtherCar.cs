@@ -12,6 +12,7 @@ public class OtherCar : MonoBehaviour
     public float arrivalThreshold = 1.5f; // Umbral de distancia para considerar que ha llegado
     public bool hasReachedFirstDestination = false;
     public Material outline;
+    public bool move = false;
     void Start()
     {
 
@@ -26,7 +27,7 @@ public class OtherCar : MonoBehaviour
     void Update()
     {
 
-        if (destinations.Count == 0 || !GameManager.Instance.canCarMove)
+        if (destinations.Count == 0 || !GameManager.Instance.canCarMove && !move)
         {
             agent.isStopped = true;
             return;
@@ -61,11 +62,12 @@ public class OtherCar : MonoBehaviour
     void DetenerMovimiento()
     {
         agent.isStopped = true;
+        move = false;
         agent.destination = agent.transform.position; // Establecer el destino a su posición actual
     }
-    bool HasArrived()
+    public bool HasArrived()
     {
-        return agent.isStopped;
+        return currentTargetIndex >= destinations.Count;
     }
     public void SetDestinations(List<Vector3> newDestinations)
     {
@@ -89,4 +91,16 @@ public class OtherCar : MonoBehaviour
             ClicLevelManager.Instance.CarClicked(gameObject);
 
     }
-}
+
+    public void MoveToDestinations()
+    {
+        agent.isStopped = false;
+        move = true;
+
+        // Baja prioridad para colisionar fácilmente, alta prioridad para evitar colisiones
+        if (destinations.Count > 0)
+        { 
+            agent.SetDestination(destinations[currentTargetIndex]); 
+        } 
+    }
+    }

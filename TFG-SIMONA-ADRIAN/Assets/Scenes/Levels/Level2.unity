@@ -942,7 +942,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1580549972}
         m_TargetAssemblyTypeName: ClicLevelManager, Assembly-CSharp
-        m_MethodName: CheckLevelCompletion
+        m_MethodName: OnConfirmButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
