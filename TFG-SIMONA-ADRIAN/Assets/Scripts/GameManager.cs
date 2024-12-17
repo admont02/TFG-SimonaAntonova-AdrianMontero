@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public CarController carController;
     public OtherCar otherCar;
     private GameObject playerTarget;
-    private List<GameObject> cochesIA = new List<GameObject>();
+    public List<GameObject> cochesIA = new List<GameObject>();
 
     public List<string> incorrectLevel = new List<string>();
     public List<GameObject> priorityCarList = new List<GameObject>();

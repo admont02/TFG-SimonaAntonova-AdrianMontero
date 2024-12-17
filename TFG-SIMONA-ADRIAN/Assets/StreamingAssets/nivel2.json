@@ -5,15 +5,10 @@
         "y": 0,
         "z": 0
     },
-    "targetJugador": {
-        "x": 124,
-        "y": 0,
-        "z": 197
-    },
     "levelDialogs": [
         " En este nivel te encuentras con una intersección con 3 coches",
-        " haz clic sobre ellos en el orden en el que deben de pasar",
-        " Tras ello, pulsa en el botón'CORREGIR'"
+        " Haz clic sobre ellos en el orden en el que deben de pasar",
+        " Tras ello, pulsa en el botón 'CORREGIR'"
     ],
     "completedDialogs": [
         "¡Enhorabuena! Has completado el nivel correctamente.",
@@ -33,7 +28,7 @@
             },
             "posiciones": [
                 {
-                    "x": 102.3,
+                    "x": 82.3,
                     "y": 2.025,
                     "z": 133.3
                 }

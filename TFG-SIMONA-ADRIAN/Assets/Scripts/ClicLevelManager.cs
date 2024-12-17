@@ -23,6 +23,8 @@ public class ClicLevelManager : MonoBehaviour
 
     public void CarClicked(GameObject car)
     {
+        if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
+            return;
         if (!priorityCarList.Contains(car))
         {
             priorityCarList.Add(car);
@@ -34,6 +36,7 @@ public class ClicLevelManager : MonoBehaviour
     }
     public void OnConfirmButtonClicked()
     {
+        if(priorityCarList.Count >= GameManager.Instance.cochesIA.Count)
         StartCoroutine(CheckLevelCompletion());
     }
     public IEnumerator CheckLevelCompletion()

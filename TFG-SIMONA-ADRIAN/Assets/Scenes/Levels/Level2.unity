@@ -1660,7 +1660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &209424772
 Transform:
   m_ObjectHideFlags: 0
@@ -5365,6 +5365,7 @@ MonoBehaviour:
   canCarMove: 1
   carController: {fileID: 0}
   otherCar: {fileID: 9136706429473145617}
+  cochesIA: []
   incorrectLevel: []
   priorityCarList: []
 --- !u!4 &923984509
