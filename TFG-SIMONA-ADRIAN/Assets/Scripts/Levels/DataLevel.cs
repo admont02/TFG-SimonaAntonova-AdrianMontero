@@ -34,4 +34,5 @@ public class Nivel
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;
     public string[] completedDialogs;
+    public bool fog = false;
 }

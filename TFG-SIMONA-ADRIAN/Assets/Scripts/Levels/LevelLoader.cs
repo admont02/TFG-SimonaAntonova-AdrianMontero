@@ -89,6 +89,10 @@ public class LevelLoader : MonoBehaviour
                 otherCar.SetDestinations(destinations);
             }
         }
+        if (nivel.fog)
+        {
+            GameManager.Instance.EnableFog();
+        }
     }
 
 }

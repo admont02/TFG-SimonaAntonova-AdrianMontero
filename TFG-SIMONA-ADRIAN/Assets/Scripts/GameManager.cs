@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     void InitializeDialogue()
@@ -99,5 +100,14 @@ public class GameManager : MonoBehaviour
     public void AddCocheIA(GameObject coche)
     {
         cochesIA.Add(coche);
+    }
+    public void EnableFog()
+    {
+        RenderSettings.fog = true;
+        RenderSettings.fogColor = Color.gray;
+        RenderSettings.fogMode = FogMode.ExponentialSquared;
+        RenderSettings.fogStartDistance = 0.5f;
+        RenderSettings.fogEndDistance = 80f;
+        RenderSettings.fogDensity = 0.05f;
     }
 }

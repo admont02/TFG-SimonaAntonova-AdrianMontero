@@ -1,0 +1,16 @@
+{
+    "nivel": 3,
+    "posicionCoche": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "fog": true,
+    "levelDialogs": [
+        " En este nivel vas a experimentar la niebla"
+    ],
+    "completedDialogs": [
+        "¡Enhorabuena! Has completado el nivel correctamente."
+    ]
+    
+}
