@@ -14,40 +14,47 @@ public class CarLights : MonoBehaviour
 
     void Start()
     {
+        if (antinieblaLights != null)
+            foreach (Light light in antinieblaLights)
+            {
+                light.color = Color.yellow;
+                light.intensity = 1.5f;
+                light.range = 50f;
+            }
 
-        foreach (Light light in antinieblaLights)
-        {
-            light.color = Color.yellow;
-            light.intensity = 1.5f;
-            light.range = 50f;
-        }
+        if (posicionLights != null)
+            foreach (Light light in posicionLights)
+            {
+                light.color = Color.white;
+                light.intensity = 1f;
+                light.range = 30f;
+            }
 
-        foreach (Light light in posicionLights)
-        {
-            light.color = Color.white;
-            light.intensity = 1f;
-            light.range = 30f;
-        }
+        if (cortasLights != null)
+            foreach (Light light in cortasLights)
+            {
+                light.color = Color.white;
+                light.intensity = 2f;
+                light.range = 100f;
+                light.spotAngle = 45f; // Si es Spot Light
+            }
 
-        foreach (Light light in cortasLights)
-        {
-            light.color = Color.white;
-            light.intensity = 2f;
-            light.range = 100f;
-            light.spotAngle = 45f; // Si es Spot Light
-        }
-
-        foreach (Light light in largasLights)
-        {
-            light.color = Color.white;
-            light.intensity = 2.5f;
-            light.range = 200f;
-            light.spotAngle = 60f; // Si es Spot Light
-        }
-        antinieblaButton.onClick.AddListener(ToggleAntinieblaLights); 
-        posicionButton.onClick.AddListener(TogglePosicionLights); 
-        cortasButton.onClick.AddListener(ToggleCortasLights); 
-        largasButton.onClick.AddListener(ToggleLargasLights);
+        if (largasLights != null)
+            foreach (Light light in largasLights)
+            {
+                light.color = Color.white;
+                light.intensity = 2.5f;
+                light.range = 200f;
+                light.spotAngle = 60f; // Si es Spot Light
+            }
+        if (antinieblaButton != null)
+            antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
+        if (posicionButton != null)
+            posicionButton.onClick.AddListener(TogglePosicionLights);
+        if (cortasButton != null)
+            cortasButton.onClick.AddListener(ToggleCortasLights);
+        if (largasButton != null)
+            largasButton.onClick.AddListener(ToggleLargasLights);
     }
 
     public void ToggleAntinieblaLights()

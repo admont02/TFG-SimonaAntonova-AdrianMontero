@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DialogueSystem : MonoBehaviour
     private string[] winDialogues; // Array para almacenar los diálogos de victoria
     private int index;
     private bool isTyping = false;
+    private bool levelEnded = false;
     public Button dialogueBackground; // Fondo del diálogo que detectará clics
     public ParticleSystem confettiEffect;
 
@@ -37,12 +39,14 @@ public class DialogueSystem : MonoBehaviour
 
     public void ShowCompletedDialog()
     {
+        levelEnded = true;
         dialogues = winDialogues;
         if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue();
     }
     public void ShowIncorrectLevelDialog(string[] incorrect)
     {
+        levelEnded = true;
         dialogues = incorrect;
         //if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue();
@@ -65,6 +69,8 @@ public class DialogueSystem : MonoBehaviour
             audioSource.Stop();
         }
         isTyping = false;
+        if(levelEnded)
+            SceneManager.LoadScene("Menu");
     }
 
     public void NextSentence()
