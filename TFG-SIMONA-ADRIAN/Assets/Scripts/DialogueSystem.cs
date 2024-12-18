@@ -69,8 +69,11 @@ public class DialogueSystem : MonoBehaviour
             audioSource.Stop();
         }
         isTyping = false;
-        if(levelEnded)
-            SceneManager.LoadScene("Menu");
+        //if (levelEnded)
+        //{
+        //    GameManager.Instance.canCarMove = true;
+        //    SceneManager.LoadScene("Menu");
+        //}
     }
 
     public void NextSentence()
