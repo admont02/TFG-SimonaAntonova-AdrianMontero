@@ -12,6 +12,10 @@
     ],
     "completedDialogs": [
         "¡Enhorabuena! Has completado el nivel correctamente."
-    ]
-    
+    ],
+    "type": "luces",
+    "objetivo": [
+        "antinieblas",
+        "cortas"
+    ] 
 }
