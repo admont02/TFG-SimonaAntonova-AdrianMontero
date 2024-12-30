@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClicLevelManager : MonoBehaviour
 {
@@ -20,7 +21,30 @@ public class ClicLevelManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void UpdatePriorityUI()
+    {
+        for (int i = 0; i < priorityCarList.Count; i++)
+        {
+            GameObject car = priorityCarList[i];
+            TextMesh priorityText = car.GetComponentInChildren<TextMesh>();
+            if (priorityText != null)
+            {
+                priorityText.text = (i + 1).ToString(); 
+            }
+        }
 
+       
+        foreach (GameObject car in GameManager.Instance.cochesIA)
+        {
+            if (!priorityCarList.Contains(car))
+            {
+                TextMesh priorityText = car.GetComponentInChildren<TextMesh>(); 
+                {
+                    priorityText.text = ""; 
+                }
+            }
+        }
+    }
     public void CarClicked(GameObject car)
     {
         if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
@@ -33,6 +57,7 @@ public class ClicLevelManager : MonoBehaviour
         {
             priorityCarList.Remove(car);
         }
+        UpdatePriorityUI();
     }
     public void OnConfirmButtonClicked()
     {

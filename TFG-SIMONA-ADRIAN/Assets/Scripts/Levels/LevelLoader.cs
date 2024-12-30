@@ -77,6 +77,14 @@ public class LevelLoader : MonoBehaviour
             GameObject cocheIAObj = Instantiate(cocheIAPrefab, new Vector3(cocheIA.posicionInicial.x, cocheIA.posicionInicial.y, cocheIA.posicionInicial.z), rotation);
             cocheIAObj.name = "CocheIA" + id;
             id++;
+
+            GameObject priorityTextObj = new GameObject("PriorityText");
+            priorityTextObj.transform.SetParent(cocheIAObj.transform);
+            priorityTextObj.transform.localPosition = new Vector3(0, 2, 0);
+            TextMesh priorityText = priorityTextObj.AddComponent<TextMesh>();
+            priorityText.color = Color.red;
+
+
             GameManager.Instance.AddCocheIA(cocheIAObj);
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
             if (otherCar != null && cocheIA.posiciones.Count > 0)
