@@ -23,6 +23,14 @@ public class ElementoMapa
     public string tipo;
     public Posicion posicion;
 }
+[System.Serializable]
+public enum LevelType
+{
+    Desconocido,
+    Conduccion,
+    Prioridad,
+    Luces
+}
 
 [System.Serializable]
 public class Nivel
@@ -35,4 +43,5 @@ public class Nivel
     public string[] levelDialogs;
     public string[] completedDialogs;
     public bool fog = false;
+    public string type;
 }

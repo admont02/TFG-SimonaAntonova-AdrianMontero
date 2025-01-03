@@ -2167,8 +2167,8 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
+  m_UpdateMethod: 0
+  m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -2296,7 +2296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341576647}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 123.5, y: 6.9, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5133,7 +5133,9 @@ MonoBehaviour:
   canCarMove: 1
   carController: {fileID: 4438828210468672034}
   otherCar: {fileID: 9136706429473145617}
+  cochesIA: []
   incorrectLevel: []
+  priorityCarList: []
 --- !u!4 &923984509
 Transform:
   m_ObjectHideFlags: 0
@@ -6059,7 +6061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009361677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 123.5, y: 6.9, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6915,7 +6917,7 @@ MonoBehaviour:
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 4, z: -11}
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 0
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -12802,6 +12804,7 @@ MonoBehaviour:
   jsonFileName: nivel1.json
   TargetPrefab: {fileID: 278864051}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
+  ClicLevelManagerPref: {fileID: 0}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0

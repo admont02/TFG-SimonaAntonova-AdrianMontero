@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class LevelLoader : MonoBehaviour
     public GameObject TargetPrefab;
     [SerializeField]
     GameObject cocheIAPrefab;
+    [SerializeField]
+    GameObject ClicLevelManagerPref;
 
     public void CargarNivel()
     {
@@ -20,6 +23,14 @@ public class LevelLoader : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             Nivel nivelData = JsonUtility.FromJson<Nivel>(json);
+            //if (Enum.TryParse(nivelData.type.ToString(), true, out LevelType tipo)) 
+            //{ 
+            //    nivelData.type = tipo; 
+            //} 
+            //else 
+            //{ 
+            //    nivelData.type = LevelType.Desconocido; 
+            //}
             CrearNivel(nivelData);
             Debug.Log(" se encontró el archivo JSON.");
         }
@@ -100,6 +111,22 @@ public class LevelLoader : MonoBehaviour
         if (nivel.fog)
         {
             GameManager.Instance.EnableFog();
+        }
+        switch (nivel.type)
+        {
+            //case LevelType.Desconocido:
+            //    break;
+            //case LevelType.Conduccion:
+            //    break;
+            case "Prioridad":
+
+
+                GameObject managerInstance = Instantiate(ClicLevelManagerPref);
+
+                break;
+            case "Luces":
+                Debug.Log("nivel luces");
+                break;
         }
     }
 

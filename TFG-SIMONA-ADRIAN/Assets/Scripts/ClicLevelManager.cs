@@ -62,10 +62,7 @@ public class ClicLevelManager : MonoBehaviour
         if (priorityCarList.Count >= GameManager.Instance.cochesIA.Count)
             StartCoroutine(CheckLevelCompletion());
     }
-    public void OnConfirmButtonClicked()
-    {
-
-    }
+    
     public IEnumerator CheckLevelCompletion()
     {
         //// Lógica para comprobar si el nivel se completó correctamente

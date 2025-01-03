@@ -2532,8 +2532,8 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
+  m_UpdateMethod: 0
+  m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -14130,6 +14130,7 @@ MonoBehaviour:
   jsonFileName: nivel3.json
   TargetPrefab: {fileID: 278864051}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
+  ClicLevelManagerPref: {fileID: 0}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0

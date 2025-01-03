@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public float motorTorque = 2000;
-    public float brakeTorque = 2000;
-    public float maxSpeed = 20;
-    public float steeringRange = 30;
-    public float steeringRangeAtMaxSpeed = 10;
+    public float motorTorque = 2000f;
+    public float brakeTorque = 2000f;
+    public float maxSpeed = 20f;
+    public float steeringRange = 30f;
+    public float steeringRangeAtMaxSpeed = 10f;
     public float centreOfGravityOffset = -1f;
 
-    WheelControl[] wheels;
-    Rigidbody rigidBody;
+    private WheelControl[] wheels;
+    private Rigidbody rigidBody;
     private bool hasMoved = false;
 
     void Start()
@@ -18,7 +18,6 @@ public class CarController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         // Adjust center of mass vertically, to help prevent the car from rolling
         rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
-
         // Find all child GameObjects that have the WheelControl script attached
         wheels = GetComponentsInChildren<WheelControl>();
     }
@@ -44,7 +43,6 @@ public class CarController : MonoBehaviour
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
         float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
-        bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
 
         foreach (var wheel in wheels)
         {
@@ -63,20 +61,26 @@ public class CarController : MonoBehaviour
             {
                 wheel.WheelCollider.brakeTorque = 0;
 
-                if (isAccelerating && wheel.motorized)
+                if (wheel.motorized)
                 {
-                    wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
-                }
-                else if (!isAccelerating)
-                {
-                    wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
-                    wheel.WheelCollider.motorTorque = 0;
+                    if (vInput != 0) // Permitir movimiento al soltar el freno
+                    {
+                        wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                    }
+                    else
+                    {
+                        // Desacelerar progresivamente
+                        wheel.WheelCollider.motorTorque = 0;
+                    }
                 }
             }
         }
     }
 
-    public bool HasMoved() { return hasMoved; }
+    public bool HasMoved()
+    {
+        return hasMoved;
+    }
 
     private void StopCar()
     {
@@ -85,6 +89,7 @@ public class CarController : MonoBehaviour
             wheel.WheelCollider.brakeTorque = brakeTorque;
             wheel.WheelCollider.motorTorque = 0;
         }
+
         rigidBody.velocity = Vector3.zero;
         rigidBody.angularVelocity = Vector3.zero;
     }
