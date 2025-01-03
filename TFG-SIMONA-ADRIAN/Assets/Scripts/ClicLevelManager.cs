@@ -29,18 +29,18 @@ public class ClicLevelManager : MonoBehaviour
             TextMesh priorityText = car.GetComponentInChildren<TextMesh>();
             if (priorityText != null)
             {
-                priorityText.text = (i + 1).ToString(); 
+                priorityText.text = (i + 1).ToString();
             }
         }
 
-       
+
         foreach (GameObject car in GameManager.Instance.cochesIA)
         {
             if (!priorityCarList.Contains(car))
             {
-                TextMesh priorityText = car.GetComponentInChildren<TextMesh>(); 
+                TextMesh priorityText = car.GetComponentInChildren<TextMesh>();
                 {
-                    priorityText.text = ""; 
+                    priorityText.text = "";
                 }
             }
         }
@@ -58,11 +58,13 @@ public class ClicLevelManager : MonoBehaviour
             priorityCarList.Remove(car);
         }
         UpdatePriorityUI();
+
+        if (priorityCarList.Count >= GameManager.Instance.cochesIA.Count)
+            StartCoroutine(CheckLevelCompletion());
     }
     public void OnConfirmButtonClicked()
     {
-        if(priorityCarList.Count >= GameManager.Instance.cochesIA.Count)
-        StartCoroutine(CheckLevelCompletion());
+
     }
     public IEnumerator CheckLevelCompletion()
     {
@@ -92,8 +94,8 @@ public class ClicLevelManager : MonoBehaviour
             }
             id++;
         }
-        if(correctOrder)
-        yield return StartCoroutine(MoveCarsInOrder(priorityCarList));
+        if (correctOrder)
+            yield return StartCoroutine(MoveCarsInOrder(priorityCarList));
         else
             yield return StartCoroutine(MoveCarsInDisorder(priorityCarList));
         GameManager.Instance.ComprobarNivel();
