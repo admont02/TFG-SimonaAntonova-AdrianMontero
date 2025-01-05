@@ -1,0 +1,11 @@
+{
+    "nivel": 0,
+    "isMenu":true,
+    "levelDialogs": [
+    "¡Bienvenido a nuestro videojuego de conducción! En este menú, podrás moverte con el coche haciendo clic en la carretera.",
+    "En ella verás señales de tráfico, que representan los niveles del juego.",
+    "Al acercarte a una señal de tráfico, al hacer clic podrás ver los detalles del nivel correspondiente y jugarlo si lo deseas.",
+    "¡Buena suerte y disfruta del viaje!"
+]
+
+}

@@ -44,4 +44,5 @@ public class Nivel
     public string[] completedDialogs;
     public bool fog = false;
     public string type;
+    public bool isMenu=false;
 }

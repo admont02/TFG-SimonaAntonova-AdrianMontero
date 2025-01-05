@@ -11,6 +11,8 @@ public class CarMenu : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
+            return;
         // Detecta clic en el mapa
         if (Input.GetMouseButtonDown(0)) // Clic izquierdo del ratón
         {

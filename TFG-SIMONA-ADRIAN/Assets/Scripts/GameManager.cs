@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Mantener el GameManager entre escenas
+           // DontDestroyOnLoad(gameObject); // Mantener el GameManager entre escenas
 
             // Inicializar cualquier cosa necesaria al inicio de la escena
             InitializeNivelLoader();
