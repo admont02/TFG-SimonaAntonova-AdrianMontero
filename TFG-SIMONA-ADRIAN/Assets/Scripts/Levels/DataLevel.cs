@@ -16,6 +16,11 @@ public class CocheIA
     public Posicion rotacionInicial;
 
 }
+[System.Serializable]
+public class Cuadricula
+{
+    public Posicion posicion;
+}
 
 [System.Serializable]
 public class ElementoMapa
@@ -39,6 +44,7 @@ public class Nivel
     public Posicion posicionCoche;
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;
+    public List<Cuadricula> cuadriculas;
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;
     public string[] completedDialogs;

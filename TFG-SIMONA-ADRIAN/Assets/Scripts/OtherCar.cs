@@ -29,7 +29,11 @@ public class OtherCar : MonoBehaviour
 
         if (destinations.Count == 0 || !GameManager.Instance.canCarMove && !move)
         {
+
+            agent.velocity = Vector3.zero;
             agent.isStopped = true;
+
+            GetComponent<Rigidbody>().velocity = Vector3.zero; // Detiene el movimiento rb.angularVelocity =
             return;
         }
         agent.isStopped = false;
@@ -99,8 +103,8 @@ public class OtherCar : MonoBehaviour
 
         // Baja prioridad para colisionar fácilmente, alta prioridad para evitar colisiones
         if (destinations.Count > 0)
-        { 
-            agent.SetDestination(destinations[currentTargetIndex]); 
-        } 
+        {
+            agent.SetDestination(destinations[currentTargetIndex]);
+        }
     }
-    }
+}

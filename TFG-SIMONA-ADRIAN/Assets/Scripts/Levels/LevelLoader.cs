@@ -13,6 +13,8 @@ public class LevelLoader : MonoBehaviour
     GameObject cocheIAPrefab;
     [SerializeField]
     GameObject ClicLevelManagerPref;
+    [SerializeField]
+    GameObject cuadriculaPrefab;
 
     public void CargarNivel()
     {
@@ -111,6 +113,12 @@ public class LevelLoader : MonoBehaviour
                 }
                 otherCar.SetDestinations(destinations);
             }
+        }
+        foreach (var cuadricula in nivel.cuadriculas)
+        {
+            Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
+            GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, new Vector3(cuadricula.posicion.x, cuadricula.posicion.y, cuadricula.posicion.z), prefabRotation);
+            cuadriculaObj.SetActive(true);
         }
         if (nivel.fog)
         {
