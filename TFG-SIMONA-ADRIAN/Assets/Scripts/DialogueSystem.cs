@@ -21,18 +21,25 @@ public class DialogueSystem : MonoBehaviour
 
     void Awake()
     {
-      
+
         dialogueText.text = ""; // Asegurarnos de que la primera frase esté vacía al inicio
         dialogueBackground.onClick.AddListener(NextSentence);
     }
 
-    public void StartDialogue()
+    public void StartDialogue(bool end)
     {
-        if(audioSource==null)
+        if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
         ResetDialogue();
         index = 0;
         dialoguePanel.SetActive(true);
+        if (end)
+        {
+            foreach (Transform child in dialoguePanel.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
         GameManager.Instance.canCarMove = false;
         StartCoroutine(TypeSentence());
     }
@@ -42,14 +49,14 @@ public class DialogueSystem : MonoBehaviour
         levelEnded = true;
         dialogues = winDialogues;
         if (confettiEffect != null) { confettiEffect.Play(); }
-        StartDialogue();
+        StartDialogue(true);
     }
     public void ShowIncorrectLevelDialog(string[] incorrect)
     {
         levelEnded = true;
         dialogues = incorrect;
         //if (confettiEffect != null) { confettiEffect.Play(); }
-        StartDialogue();
+        StartDialogue(true);
     }
 
     IEnumerator TypeSentence()
@@ -90,8 +97,8 @@ public class DialogueSystem : MonoBehaviour
         else
         {
             dialoguePanel.SetActive(false);
-            if(GameManager.Instance.carController!=null)
-            GameManager.Instance.canCarMove = true;
+            if (GameManager.Instance.carController != null)
+                GameManager.Instance.canCarMove = true;
         }
     }
 

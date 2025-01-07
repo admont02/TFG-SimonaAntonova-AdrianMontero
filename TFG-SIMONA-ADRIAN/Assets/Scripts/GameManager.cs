@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-           // DontDestroyOnLoad(gameObject); // Mantener el GameManager entre escenas
+            // DontDestroyOnLoad(gameObject); // Mantener el GameManager entre escenas
 
             // Inicializar cualquier cosa necesaria al inicio de la escena
             InitializeNivelLoader();
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueSystem != null)
         {
-            dialogueSystem.StartDialogue();
+            dialogueSystem.StartDialogue(false);
         }
     }
     private void Update()
@@ -109,5 +110,14 @@ public class GameManager : MonoBehaviour
         RenderSettings.fogStartDistance = 0.5f;
         RenderSettings.fogEndDistance = 80f;
         RenderSettings.fogDensity = 0.05f;
+    }
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    public void ReloadCurrentScene()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 }
