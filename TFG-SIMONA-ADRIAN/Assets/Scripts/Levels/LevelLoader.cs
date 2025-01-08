@@ -138,6 +138,12 @@ public class LevelLoader : MonoBehaviour
                 break;
             case "Luces":
                 Debug.Log("nivel luces");
+                //GameObject cocheJugador = Instantiate(Resources.Load("CochePrefab"), new Vector3(nivel.posicionCoche.x, nivel.posicionCoche.y, nivel.posicionCoche.z), Quaternion.identity) as GameObject; 
+                CarLights carLights =GameManager.Instance.carController.gameObject.GetComponent<CarLights>(); 
+                if (carLights != null) 
+                { 
+                    carLights.objetivoLuces = nivel.objetivo; 
+                }
                 break;
         }
     }

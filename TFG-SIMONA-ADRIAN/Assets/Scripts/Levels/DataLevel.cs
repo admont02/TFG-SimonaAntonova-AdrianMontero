@@ -51,4 +51,5 @@ public class Nivel
     public bool fog = false;
     public string type;
     public bool isMenu=false;
+    public List<string> objetivo;
 }

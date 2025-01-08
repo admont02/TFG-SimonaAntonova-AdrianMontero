@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class CarLights : MonoBehaviour
 {
     public Light[] antinieblaLights;
@@ -11,42 +13,18 @@ public class CarLights : MonoBehaviour
     public Button posicionButton;
     public Button cortasButton;
     public Button largasButton;
+    public List<string> objetivoLuces; // Lista de tipos de luces que deben estar encendidas
+
+    private bool antinieblaOn = false;
+    private bool posicionOn = false;
+    private bool cortasOn = false;
+    private bool largasOn = false;
 
     void Start()
     {
-        if (antinieblaLights != null)
-            foreach (Light light in antinieblaLights)
-            {
-                light.color = Color.yellow;
-                light.intensity = 1.5f;
-                light.range = 50f;
-            }
+        // Configurar luces
+        // ...
 
-        if (posicionLights != null)
-            foreach (Light light in posicionLights)
-            {
-                light.color = Color.white;
-                light.intensity = 1f;
-                light.range = 30f;
-            }
-
-        if (cortasLights != null)
-            foreach (Light light in cortasLights)
-            {
-                light.color = Color.white;
-                light.intensity = 2f;
-                light.range = 100f;
-                light.spotAngle = 45f; // Si es Spot Light
-            }
-
-        if (largasLights != null)
-            foreach (Light light in largasLights)
-            {
-                light.color = Color.white;
-                light.intensity = 2.5f;
-                light.range = 200f;
-                light.spotAngle = 60f; // Si es Spot Light
-            }
         if (antinieblaButton != null)
             antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
         if (posicionButton != null)
@@ -55,51 +33,73 @@ public class CarLights : MonoBehaviour
             cortasButton.onClick.AddListener(ToggleCortasLights);
         if (largasButton != null)
             largasButton.onClick.AddListener(ToggleLargasLights);
+
+        // CheckCorrectLights(); // Comprobar las luces iniciales
     }
 
     public void ToggleAntinieblaLights()
     {
+        antinieblaOn = !antinieblaOn;
         foreach (Light light in antinieblaLights)
         {
-            light.enabled = !light.enabled;
+            light.enabled = antinieblaOn;
         }
         CheckCorrectLights();
     }
 
     public void TogglePosicionLights()
     {
+        posicionOn = !posicionOn;
         foreach (Light light in posicionLights)
         {
-            light.enabled = !light.enabled;
+            light.enabled = posicionOn;
         }
         CheckCorrectLights();
     }
 
     public void ToggleCortasLights()
     {
+        cortasOn = !cortasOn;
         foreach (Light light in cortasLights)
         {
-            light.enabled = !light.enabled;
+            light.enabled = cortasOn;
         }
         CheckCorrectLights();
     }
 
     public void ToggleLargasLights()
     {
+        largasOn = !largasOn;
         foreach (Light light in largasLights)
         {
-            light.enabled = !light.enabled;
+            light.enabled = largasOn;
         }
         CheckCorrectLights();
     }
 
     private void CheckCorrectLights()
     {
-        bool antinieblaOn = Array.Exists(antinieblaLights, light => light.enabled);
-        bool cortasOn = Array.Exists(cortasLights, light => light.enabled);
+        bool allCorrect = true;
 
-        if (antinieblaOn && cortasOn)
+        if (objetivoLuces.Contains("antinieblas") && !antinieblaOn
+            || objetivoLuces.Contains("cortas") && !cortasOn
+            || objetivoLuces.Contains("posicion") && !posicionOn
+            || objetivoLuces.Contains("largas") && !largasOn)
         {
+            allCorrect = false;
+        }
+        //luces encendidas de mas
+        if (!objetivoLuces.Contains("antinieblas") && antinieblaOn
+           || !objetivoLuces.Contains("cortas") && cortasOn
+           || !objetivoLuces.Contains("posicion") && posicionOn
+           || !objetivoLuces.Contains("largas") && largasOn)
+        {
+            allCorrect = false;
+        }
+
+        if (allCorrect)
+        {
+            Debug.Log("correctas");
             RenderSettings.fogDensity = 0.01f; // Reducir la densidad de la niebla
         }
         else
