@@ -21,7 +21,16 @@ public class Cuadricula
 {
     public Posicion posicion;
 }
-
+[System.Serializable] 
+public class SemaforoConfig 
+{
+    public Posicion posicion;
+    public Posicion rotacion;
+    public float greenSeconds; 
+    public float amberSeconds; 
+    public float redSeconds; 
+    public string initialLight; 
+}
 [System.Serializable]
 public class ElementoMapa
 {
@@ -45,6 +54,7 @@ public class Nivel
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;
     public List<Cuadricula> cuadriculas;
+    public List<SemaforoConfig> semaforos;
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;
     public string[] completedDialogs;

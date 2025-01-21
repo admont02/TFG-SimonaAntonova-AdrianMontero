@@ -29,7 +29,7 @@ public class EnterLevel : MonoBehaviour
                 near = true;
                 audioSource.PlayOneShot(audioClip);
                 transform.localScale = enlargedScale;
-                SceneManager.LoadScene(gameObject.name);
+                //SceneManager.LoadScene(gameObject.name);
             }
 
         }

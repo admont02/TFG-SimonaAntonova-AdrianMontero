@@ -15,7 +15,8 @@ public class LevelLoader : MonoBehaviour
     GameObject ClicLevelManagerPref;
     [SerializeField]
     GameObject cuadriculaPrefab;
-
+    [SerializeField]
+    GameObject semaforoPrefab;
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
@@ -44,24 +45,7 @@ public class LevelLoader : MonoBehaviour
 
     void CrearNivel(Nivel nivel)
     {
-        // Crear el coche del jugador
-        //GameObject cocheJugador = Instantiate(Resources.Load("CochePrefab"), new Vector3(nivel.posicionCoche.x, nivel.posicionCoche.y, nivel.posicionCoche.z), Quaternion.identity) as GameObject;
-
-        //// Crear coches IA
-        //foreach (var cocheIA in nivel.cochesIA)
-        //{
-        //    foreach (var pos in cocheIA.posiciones)
-        //    {
-        //        GameObject cocheIAObj = Instantiate(Resources.Load("CocheIAPrefab"), new Vector3(pos.x, pos.y, pos.z), Quaternion.identity) as GameObject;
-
-        //    }
-        //}
-
-        //// Crear elementos del mapa
-        //foreach (var elemento in nivel.elementosMapa)
-        //{
-        //    GameObject elementoObj = Instantiate(Resources.Load(elemento.tipo + "Prefab"), new Vector3(elemento.posicion.x, elemento.posicion.y, elemento.posicion.z), Quaternion.identity) as GameObject;
-        //}
+        
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
@@ -76,16 +60,7 @@ public class LevelLoader : MonoBehaviour
         }
 
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
-        //OtherCar otherCar = FindObjectOfType<OtherCar>();
-        //if (otherCar != null && nivel.cochesIA.Count > 0 && nivel.cochesIA[0].posiciones.Count > 0)
-        //{
-        //    List<Vector3> destinations = new List<Vector3>();
-        //    foreach (var pos in nivel.cochesIA[0].posiciones)
-        //    {
-        //        destinations.Add(new Vector3(pos.x, pos.y, pos.z));
-        //    }
-        //    otherCar.SetDestinations(destinations);
-        //}
+       
         // Crear coches IA
         int id = 0;
         foreach (var cocheIA in nivel.cochesIA)
@@ -114,11 +89,26 @@ public class LevelLoader : MonoBehaviour
                 otherCar.SetDestinations(destinations);
             }
         }
+        //CUADRICULAS
         foreach (var cuadricula in nivel.cuadriculas)
         {
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
             GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, new Vector3(cuadricula.posicion.x, cuadricula.posicion.y, cuadricula.posicion.z), prefabRotation);
             cuadriculaObj.SetActive(true);
+        }
+        //SEMAFOROS
+        foreach (var semaforo in nivel.semaforos)
+        {
+            Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
+            GameObject semaforoObj = Instantiate(semaforoPrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
+            
+            SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
+            semaforoScript.greenSeconds = semaforo.greenSeconds;
+            semaforoScript.amberSeconds = semaforo.amberSeconds;
+            semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
+            semaforoScript.red.SetActive(semaforo.initialLight == "red");
+            semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+            semaforoScript.green.SetActive(semaforo.initialLight == "green");
         }
         if (nivel.fog)
         {
@@ -139,10 +129,10 @@ public class LevelLoader : MonoBehaviour
             case "Luces":
                 Debug.Log("nivel luces");
                 //GameObject cocheJugador = Instantiate(Resources.Load("CochePrefab"), new Vector3(nivel.posicionCoche.x, nivel.posicionCoche.y, nivel.posicionCoche.z), Quaternion.identity) as GameObject; 
-                CarLights carLights =GameManager.Instance.carController.gameObject.GetComponent<CarLights>(); 
-                if (carLights != null) 
-                { 
-                    carLights.objetivoLuces = nivel.objetivo; 
+                CarLights carLights = GameManager.Instance.carController.gameObject.GetComponent<CarLights>();
+                if (carLights != null)
+                {
+                    carLights.objetivoLuces = nivel.objetivo;
                 }
                 break;
         }

@@ -76,5 +76,23 @@
                 "z": 130.0516
             }
         }
+    ],
+    "semaforos": [
+        {
+            "posicion": {
+                "x": 131.22,
+                "y": 7.57,
+                "z": 139.06
+            },
+            "rotacion": {
+                "x": 0,
+                "y": -90,
+                "z": 0
+            },
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        }
     ]
 }
