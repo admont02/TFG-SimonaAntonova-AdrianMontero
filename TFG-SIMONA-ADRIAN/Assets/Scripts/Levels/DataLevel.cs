@@ -24,6 +24,7 @@ public class Cuadricula
 [System.Serializable] 
 public class SemaforoConfig 
 {
+    public bool doble;
     public Posicion posicion;
     public Posicion rotacion;
     public float greenSeconds; 

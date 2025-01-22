@@ -79,6 +79,7 @@
     ],
     "semaforos": [
         {
+            "doble": false,
             "posicion": {
                 "x": 131.22,
                 "y": 7.57,
@@ -87,6 +88,23 @@
             "rotacion": {
                 "x": 0,
                 "y": -90,
+                "z": 0
+            },
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": true,
+            "posicion": {
+                "x": 129.26,
+                "y": 2.51,
+                "z": 120.3
+            },
+            "rotacion": {
+                "x": 0,
+                "y": 0,
                 "z": 0
             },
             "greenSeconds": 20.0,

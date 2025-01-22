@@ -17,6 +17,8 @@ public class LevelLoader : MonoBehaviour
     GameObject cuadriculaPrefab;
     [SerializeField]
     GameObject semaforoPrefab;
+    [SerializeField]
+    GameObject semaforoDoblePrefab;
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
@@ -100,15 +102,36 @@ public class LevelLoader : MonoBehaviour
         foreach (var semaforo in nivel.semaforos)
         {
             Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
-            GameObject semaforoObj = Instantiate(semaforoPrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
-            
-            SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
-            semaforoScript.greenSeconds = semaforo.greenSeconds;
-            semaforoScript.amberSeconds = semaforo.amberSeconds;
-            semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
-            semaforoScript.red.SetActive(semaforo.initialLight == "red");
-            semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
-            semaforoScript.green.SetActive(semaforo.initialLight == "green");
+            if (semaforo.doble)
+            {
+                GameObject semaforoObj = Instantiate(semaforoDoblePrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
+                foreach (Transform child in semaforoObj.transform) 
+                { 
+                    SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>(); 
+                    if (semaforoScript != null) 
+                    { 
+                        semaforoScript.greenSeconds = semaforo.greenSeconds; 
+                        semaforoScript.amberSeconds = semaforo.amberSeconds; 
+                        semaforoScript.redSeconds = semaforo.redSeconds; 
+                        semaforoScript.red.SetActive(semaforo.initialLight == "red"); 
+                        semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+                        semaforoScript.green.SetActive(semaforo.initialLight == "green"); 
+                    } 
+                }
+            }
+            else
+            {
+                GameObject semaforoObj = Instantiate(semaforoPrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
+
+                SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
+                semaforoScript.greenSeconds = semaforo.greenSeconds;
+                semaforoScript.amberSeconds = semaforo.amberSeconds;
+                semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
+                semaforoScript.red.SetActive(semaforo.initialLight == "red");
+                semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+                semaforoScript.green.SetActive(semaforo.initialLight == "green");
+            }
+           
         }
         if (nivel.fog)
         {
