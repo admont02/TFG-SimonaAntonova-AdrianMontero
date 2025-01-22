@@ -104,12 +104,12 @@ public class GameManager : MonoBehaviour
     }
     public void EnableFog()
     {
-        RenderSettings.fog = true;
-        RenderSettings.fogColor = Color.gray;
-        RenderSettings.fogMode = FogMode.ExponentialSquared;
-        RenderSettings.fogStartDistance = 0.5f;
-        RenderSettings.fogEndDistance = 80f;
-        RenderSettings.fogDensity = 0.05f;
+        //RenderSettings.fog = true;
+        //RenderSettings.fogColor = Color.gray;
+        //RenderSettings.fogMode = FogMode.ExponentialSquared;
+        //RenderSettings.fogStartDistance = 0.5f;
+        //RenderSettings.fogEndDistance = 80f;
+        //RenderSettings.fogDensity = 0.05f;
     }
     public void ChangeScene(string sceneName)
     {
