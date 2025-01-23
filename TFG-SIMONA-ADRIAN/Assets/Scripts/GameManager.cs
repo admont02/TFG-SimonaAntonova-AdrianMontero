@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     }
     public void EnableFog()
     {
+        carController.gameObject.GetComponent<CarLights>().fog.SetActive(true);
         //RenderSettings.fog = true;
         //RenderSettings.fogColor = Color.gray;
         //RenderSettings.fogMode = FogMode.ExponentialSquared;

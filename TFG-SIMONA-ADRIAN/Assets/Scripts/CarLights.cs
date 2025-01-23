@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class CarLights : MonoBehaviour
 {
+    public GameObject fog;
+    public Material fogDisipada;
+    private Material fogIntensa;
     public Light[] antinieblaLights;
     public Light[] posicionLights;
     public Light[] cortasLights;
@@ -15,6 +18,8 @@ public class CarLights : MonoBehaviour
     public Button largasButton;
     public List<string> objetivoLuces; // Lista de tipos de luces que deben estar encendidas
 
+    private List<string> lucesSeleccionadas = new(); // Lista de tipos de luces que deben estar encendidas
+
     private bool antinieblaOn = false;
     private bool posicionOn = false;
     private bool cortasOn = false;
@@ -24,6 +29,7 @@ public class CarLights : MonoBehaviour
     {
         // Configurar luces
         // ...
+        fogIntensa = fog.GetComponent<Renderer>().material;
 
         if (antinieblaButton != null)
             antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
@@ -44,6 +50,10 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = antinieblaOn;
         }
+        if (antinieblaOn)
+            lucesSeleccionadas.Add("antinieblas");
+        else
+            lucesSeleccionadas.Remove("antinieblas");
         CheckCorrectLights();
     }
 
@@ -54,6 +64,10 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = posicionOn;
         }
+        if (posicionOn)
+            lucesSeleccionadas.Add("posicion");
+        else
+            lucesSeleccionadas.Remove("posicion");
         CheckCorrectLights();
     }
 
@@ -64,6 +78,10 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = cortasOn;
         }
+        if (cortasOn)
+            lucesSeleccionadas.Add("cortas");
+        else
+            lucesSeleccionadas.Remove("cortas");
         CheckCorrectLights();
     }
 
@@ -74,37 +92,39 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = largasOn;
         }
+        if (largasOn)
+            lucesSeleccionadas.Add("largas");
+        else
+            lucesSeleccionadas.Remove("largas");
         CheckCorrectLights();
     }
 
     private void CheckCorrectLights()
     {
         bool allCorrect = true;
-
-        if (objetivoLuces.Contains("antinieblas") && !antinieblaOn
-            || objetivoLuces.Contains("cortas") && !cortasOn
-            || objetivoLuces.Contains("posicion") && !posicionOn
-            || objetivoLuces.Contains("largas") && !largasOn)
+        if (objetivoLuces.Count == lucesSeleccionadas.Count)
         {
-            allCorrect = false;
+            foreach (var item in objetivoLuces)
+            {
+                if (!lucesSeleccionadas.Contains(item))
+                {
+                    allCorrect = false;
+                    break;
+                }
+            }
         }
-        //luces encendidas de mas
-        if (!objetivoLuces.Contains("antinieblas") && antinieblaOn
-           || !objetivoLuces.Contains("cortas") && cortasOn
-           || !objetivoLuces.Contains("posicion") && posicionOn
-           || !objetivoLuces.Contains("largas") && largasOn)
-        {
+        else
             allCorrect = false;
-        }
 
         if (allCorrect)
         {
             Debug.Log("correctas");
-            RenderSettings.fogDensity = 0.01f; // Reducir la densidad de la niebla
+            //fog.SetActive(false);
+            fog.GetComponent<Renderer>().material = fogDisipada;
         }
         else
         {
-            RenderSettings.fogDensity = 0.05f; // Aumentar la densidad de la niebla
+            fog.GetComponent<Renderer>().material = fogIntensa;
         }
     }
 }

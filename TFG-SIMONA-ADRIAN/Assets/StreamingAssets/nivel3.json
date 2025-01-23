@@ -16,6 +16,7 @@
     "type": "Luces",
     "objetivo": [
         "antinieblas",
-        "cortas"
+        "cortas",
+        "posicion"
     ] 
 }
