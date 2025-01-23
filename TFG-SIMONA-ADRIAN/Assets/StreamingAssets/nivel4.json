@@ -1,0 +1,36 @@
+{
+    "nivel": 4,
+    "posicionCoche": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },
+    "levelDialogs": [
+        " Ambulancia"
+    ],
+    "completedDialogs": [
+        "¡Enhorabuena! Has completado el nivel correctamente.",
+        " Los coches han realizado sus acciones en el orden correcto"
+    ],
+    "cochesIA": [
+        {
+            "posicionInicial": {
+                "x": 123.5,
+                "y": 0.025,
+                "z": 60.0
+            },
+            "rotacionInicial": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "posiciones": [
+                {
+                    "x": 123.5,
+                    "y": 0.34,
+                    "z": 133.3
+                }
+            ]
+        }
+    ]
+}
