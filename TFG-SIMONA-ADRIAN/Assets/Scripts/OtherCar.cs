@@ -5,13 +5,13 @@ using UnityEngine.AI;
 
 public class OtherCar : MonoBehaviour
 {
-    private List<Vector3> destinations = new List<Vector3>();
+    protected List<Vector3> destinations = new List<Vector3>();
     //  public List<Transform> targets; // Lista de destinos
-    private int currentTargetIndex = 0;
-    private NavMeshAgent agent;
-    public float arrivalThreshold = 1.5f; // Umbral de distancia para considerar que ha llegado
-    public bool hasReachedFirstDestination = false;
-    public Material outline;
+    protected int currentTargetIndex = 0;
+    protected NavMeshAgent agent;
+    protected float arrivalThreshold = 1.5f; // Umbral de distancia para considerar que ha llegado
+    protected bool hasReachedFirstDestination = false;
+    protected Material outline;
     public bool move = false;
     void Start()
     {
