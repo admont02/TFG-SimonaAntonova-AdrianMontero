@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fog: {fileID: 6381618864182113786}
+  fogDisipada: {fileID: 0}
   antinieblaLights:
   - {fileID: 6595752487759816430}
   - {fileID: 5569661898869044820}
@@ -1396,7 +1397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1892576437425607136
 Transform:
   m_ObjectHideFlags: 0
