@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,7 +6,11 @@ public class Ambulance : OtherCar
 {
     public GameObject sirenLights;
     public AudioSource sirenSound;
-    public bool lightsOn = false;
+    public bool lightsOn = true;
+
+    public Light redLight;
+    public Light blueLight;
+    public float blinkInterval = 0.5f;
 
     void Start()
     {
@@ -18,29 +23,25 @@ public class Ambulance : OtherCar
 
         if (lightsOn)
         {
-            sirenLights.SetActive(true);
+            if (sirenLights != null)
+                sirenLights.SetActive(true);
             sirenSound.Play();
+            StartCoroutine(BlinkLights());
         }
         else
         {
-            sirenLights.SetActive(false);
+            if (sirenLights != null)
+                sirenLights.SetActive(false);
             sirenSound.Stop();
         }
     }
-
-   
-
-    public void ToggleSiren(bool state)
+    private IEnumerator BlinkLights()
     {
-        lightsOn = state;
-        sirenLights.SetActive(state);
-        if (state)
+        while (true)
         {
-            sirenSound.Play();
-        }
-        else
-        {
-            sirenSound.Stop();
+            redLight.enabled = !redLight.enabled;
+            blueLight.enabled = !blueLight.enabled;
+            yield return new WaitForSeconds(blinkInterval);
         }
     }
 }
