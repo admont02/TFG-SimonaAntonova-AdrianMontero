@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using Unity.AI.Navigation;
 
 public class LevelLoader : MonoBehaviour
 {
     public string jsonFileName = "nivel2.json";
-
+    private string mapsFolderPath = "Assets/TemplatesMapas/";
     public GameObject TargetPrefab;
     [SerializeField]
     GameObject cocheIAPrefab;
@@ -47,10 +48,22 @@ public class LevelLoader : MonoBehaviour
 
     void CrearNivel(Nivel nivel)
     {
-        
+
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
+            //string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
+            //mapPath = mapPath.Replace("\\", "/");
+            //GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
+            //if (mapPrefab != null)
+            //{
+            //    Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
+            //    mapPrefab.GetComponentInChildren<NavMeshSurface>().BuildNavMesh();
+            //}
+            //else
+            //{
+            //    Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
+            //}
             GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
             targetPoint.SetActive(true);
             GameManager.Instance.SetPlayerTarget(targetPoint);
@@ -62,7 +75,7 @@ public class LevelLoader : MonoBehaviour
         }
 
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
-       
+
         // Crear coches IA
         int id = 0;
         foreach (var cocheIA in nivel.cochesIA)
@@ -105,18 +118,18 @@ public class LevelLoader : MonoBehaviour
             if (semaforo.doble)
             {
                 GameObject semaforoObj = Instantiate(semaforoDoblePrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
-                foreach (Transform child in semaforoObj.transform) 
-                { 
-                    SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>(); 
-                    if (semaforoScript != null) 
-                    { 
-                        semaforoScript.greenSeconds = semaforo.greenSeconds; 
-                        semaforoScript.amberSeconds = semaforo.amberSeconds; 
-                        semaforoScript.redSeconds = semaforo.redSeconds; 
-                        semaforoScript.red.SetActive(semaforo.initialLight == "red"); 
+                foreach (Transform child in semaforoObj.transform)
+                {
+                    SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
+                    if (semaforoScript != null)
+                    {
+                        semaforoScript.greenSeconds = semaforo.greenSeconds;
+                        semaforoScript.amberSeconds = semaforo.amberSeconds;
+                        semaforoScript.redSeconds = semaforo.redSeconds;
+                        semaforoScript.red.SetActive(semaforo.initialLight == "red");
                         semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
-                        semaforoScript.green.SetActive(semaforo.initialLight == "green"); 
-                    } 
+                        semaforoScript.green.SetActive(semaforo.initialLight == "green");
+                    }
                 }
             }
             else
@@ -131,7 +144,7 @@ public class LevelLoader : MonoBehaviour
                 semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
                 semaforoScript.green.SetActive(semaforo.initialLight == "green");
             }
-           
+
         }
         if (nivel.fog)
         {

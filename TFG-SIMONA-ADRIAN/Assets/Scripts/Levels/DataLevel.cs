@@ -46,11 +46,17 @@ public enum LevelType
     Prioridad,
     Luces
 }
-
+[System.Serializable]
+public class MapaConfig
+{
+    public string nombre;
+    public Posicion posicion;
+}
 [System.Serializable]
 public class Nivel
 {
     public int nivel;
+    public MapaConfig mapa;
     public Posicion posicionCoche;
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;

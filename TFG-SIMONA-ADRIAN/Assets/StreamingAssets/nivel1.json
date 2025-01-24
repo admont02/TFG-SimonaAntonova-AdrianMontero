@@ -1,5 +1,13 @@
 {
     "nivel": 1,
+    "mapa": {
+        "nombre": "Template01",
+        "posicion": {
+            "x": 172.4085,
+            "y": 0,
+            "z": 152.2267
+        }
+    },
     "posicionCoche": {
         "x": 0,
         "y": 0,

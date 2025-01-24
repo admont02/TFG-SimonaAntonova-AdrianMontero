@@ -65,9 +65,12 @@ public class OtherCar : MonoBehaviour
 
     void DetenerMovimiento()
     {
+        agent.velocity = Vector3.zero;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         agent.isStopped = true;
+        agent.SetDestination(transform.position);
         move = false;
-        agent.destination = agent.transform.position; // Establecer el destino a su posición actual
+        // agent.destination = agent.transform.position; // Establecer el destino a su posición actual
     }
     public bool HasArrived()
     {

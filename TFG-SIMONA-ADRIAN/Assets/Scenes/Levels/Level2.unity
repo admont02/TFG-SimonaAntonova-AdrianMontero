@@ -772,7 +772,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.43666664
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: b7453a4ccfefd464bb87d75779d4877e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f223c6e11d25a6f47af7483eedb7c206, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &88081970
 GameObject:
@@ -4589,6 +4589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 625617399}
   - component: {fileID: 625617398}
+  - component: {fileID: 625617400}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -4673,6 +4674,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &625617400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625617397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &642991808
 GameObject:
   m_ObjectHideFlags: 0
@@ -13405,6 +13429,9 @@ MonoBehaviour:
   TargetPrefab: {fileID: 278864051}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
   ClicLevelManagerPref: {fileID: 4985764007409247765, guid: 38e8e3b4c9a6b4f4b81008da7aef26d0, type: 3}
+  cuadriculaPrefab: {fileID: 0}
+  semaforoPrefab: {fileID: 0}
+  semaforoDoblePrefab: {fileID: 0}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0
