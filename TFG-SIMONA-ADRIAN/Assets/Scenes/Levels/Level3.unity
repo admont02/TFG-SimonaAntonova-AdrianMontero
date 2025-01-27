@@ -7736,6 +7736,10 @@ PrefabInstance:
       propertyPath: antinieblaButton
       value: 
       objectReference: {fileID: 93563716}
+    - target: {fileID: 1249257593467984754, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
+      propertyPath: objetivoLuces.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1892576437425607136, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
