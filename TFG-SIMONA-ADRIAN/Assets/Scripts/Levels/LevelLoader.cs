@@ -59,7 +59,7 @@ public class LevelLoader : MonoBehaviour
             {
                 GameObject instantiatedMap= Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
                 NavMeshSurface navM= instantiatedMap.GetComponentInChildren<NavMeshSurface>();
-                navM.BuildNavMesh();
+               // navM.BuildNavMesh();
             }
             else
             {
