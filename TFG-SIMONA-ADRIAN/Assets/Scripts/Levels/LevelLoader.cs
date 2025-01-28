@@ -48,7 +48,6 @@ public class LevelLoader : MonoBehaviour
 
     void CrearNivel(Nivel nivel)
     {
-
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
