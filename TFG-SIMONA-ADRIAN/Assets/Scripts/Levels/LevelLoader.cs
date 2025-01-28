@@ -52,18 +52,19 @@ public class LevelLoader : MonoBehaviour
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
-            //string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
-            //mapPath = mapPath.Replace("\\", "/");
-            //GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
-            //if (mapPrefab != null)
-            //{
-            //    Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
-            //    mapPrefab.GetComponentInChildren<NavMeshSurface>().BuildNavMesh();
-            //}
-            //else
-            //{
-            //    Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
-            //}
+            string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
+            mapPath = mapPath.Replace("\\", "/");
+            GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
+            if (mapPrefab != null)
+            {
+                GameObject instantiatedMap= Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
+                NavMeshSurface navM= instantiatedMap.GetComponentInChildren<NavMeshSurface>();
+                navM.BuildNavMesh();
+            }
+            else
+            {
+                Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
+            }
             GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
             targetPoint.SetActive(true);
             GameManager.Instance.SetPlayerTarget(targetPoint);
