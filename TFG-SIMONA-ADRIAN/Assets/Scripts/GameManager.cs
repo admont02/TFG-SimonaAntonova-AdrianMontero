@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public List<string> incorrectLevel = new List<string>();
     public List<GameObject> priorityCarList = new List<GameObject>();
+
+    public CinemachineVirtualCamera virtualCamera;
 
     void Awake()
     {
@@ -47,6 +50,11 @@ public class GameManager : MonoBehaviour
         {
             dialogueSystem.StartDialogue(false);
         }
+    }
+    public void SetPlayer(Transform t)
+    {
+        virtualCamera.LookAt = t;
+        virtualCamera.Follow = t;
     }
     private void Update()
     {

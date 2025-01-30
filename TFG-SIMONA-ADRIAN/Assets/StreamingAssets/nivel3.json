@@ -1,9 +1,24 @@
 {
     "nivel": 3,
-    "posicionCoche": {
-        "x": 0,
-        "y": 0,
-        "z": 0
+    "mapa": {
+        "nombre": "Template2",
+        "posicion": {
+            "x": 201.4,
+            "y": 0,
+            "z": 215.18
+        }
+    },
+    "jugador": {
+        "posicionInicial": {
+            "x": 123.5,
+            "y": 2.025,
+            "z": 113.9
+        },
+        "rotacionInicial": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
     },
     "fog": true,
     "levelDialogs": [

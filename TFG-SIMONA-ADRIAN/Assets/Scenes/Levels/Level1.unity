@@ -326,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341576647}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
   m_LocalPosition: {x: 123.5, y: 6.81, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1090,11 +1090,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSystem: {fileID: 1385233924}
   canCarMove: 1
-  carController: {fileID: 4438828210468672034}
+  carController: {fileID: 0}
   otherCar: {fileID: 9136706429473145617}
   cochesIA: []
   incorrectLevel: []
   priorityCarList: []
+  virtualCamera: {fileID: 1009361678}
 --- !u!4 &923984509
 Transform:
   m_ObjectHideFlags: 0
@@ -1174,7 +1175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009361677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
   m_LocalPosition: {x: 123.5, y: 6.81, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1182,6 +1183,11 @@ Transform:
   - {fileID: 1315555711}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 22, y: 0, z: 0}
+--- !u!1 &1035078202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2376696042191848362, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
+  m_PrefabInstance: {fileID: 3590190652233065773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1315555710
 GameObject:
   m_ObjectHideFlags: 3
@@ -6614,6 +6620,7 @@ MonoBehaviour:
   cuadriculaPrefab: {fileID: 4978257394053826113, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
   semaforoPrefab: {fileID: 868025956819239312, guid: 9b67ae2464d055f48b94ea4903095186, type: 3}
   semaforoDoblePrefab: {fileID: 3414803328377232135, guid: 19a8bad7f02518d4489050673be159a6, type: 3}
+  playerPrefab: {fileID: 1035078202}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0
@@ -7373,11 +7380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376696042191848362, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5546906334233765136, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
-      propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7152676752877602324, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7437,17 +7440,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7152676752877602324, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
   m_PrefabInstance: {fileID: 3590190652233065773}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4438828210468672034 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1770135834009856585, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
-  m_PrefabInstance: {fileID: 3590190652233065773}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364fa511ef46baf42bdbef254f293228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5048505080080766560
 GameObject:
   m_ObjectHideFlags: 0

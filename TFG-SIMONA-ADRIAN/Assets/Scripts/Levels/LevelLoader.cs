@@ -20,6 +20,8 @@ public class LevelLoader : MonoBehaviour
     GameObject semaforoPrefab;
     [SerializeField]
     GameObject semaforoDoblePrefab;
+    [SerializeField]
+    GameObject playerPrefab;
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
@@ -56,14 +58,23 @@ public class LevelLoader : MonoBehaviour
             GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
             if (mapPrefab != null)
             {
-                GameObject instantiatedMap= Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
-                NavMeshSurface navM= instantiatedMap.GetComponentInChildren<NavMeshSurface>();
-               // navM.BuildNavMesh();
+                GameObject instantiatedMap = Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
+                NavMeshSurface navM = instantiatedMap.GetComponentInChildren<NavMeshSurface>();
+                // navM.BuildNavMesh();
             }
             else
             {
                 Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
             }
+            if (nivel.jugador.posicionInicial != null)
+            {
+                Quaternion rotPlayer = Quaternion.Euler(nivel.jugador.rotacionInicial.x, nivel.jugador.rotacionInicial.y, nivel.jugador.rotacionInicial.z);
+                GameObject playerObj = Instantiate(playerPrefab, new Vector3(nivel.jugador.posicionInicial.x, nivel.jugador.posicionInicial.y, nivel.jugador.posicionInicial.z), rotPlayer);
+                playerObj.SetActive(true);
+                GameManager.Instance.carController = playerObj.GetComponent<CarController>();
+                GameManager.Instance.SetPlayer(playerObj.transform);
+            }
+
             GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
             targetPoint.SetActive(true);
             GameManager.Instance.SetPlayerTarget(targetPoint);

@@ -17,6 +17,12 @@ public class CocheIA
 
 }
 [System.Serializable]
+public class Player
+{
+    public Posicion posicionInicial;
+    public Posicion rotacionInicial;
+}
+[System.Serializable]
 public class Cuadricula
 {
     public Posicion posicion;
@@ -57,7 +63,7 @@ public class Nivel
 {
     public int nivel;
     public MapaConfig mapa;
-    public Posicion posicionCoche;
+    public Player jugador;
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;
     public List<Cuadricula> cuadriculas;
