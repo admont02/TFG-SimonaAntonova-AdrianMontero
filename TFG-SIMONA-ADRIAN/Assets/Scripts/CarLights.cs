@@ -9,10 +9,12 @@ public class CarLights : MonoBehaviour
     public Material fogDisipada;
     private Material fogIntensa;
     public Light[] antinieblaLights;
+    public Light[] antinieblaBack;
     public Light[] posicionLights;
     public Light[] cortasLights;
     public Light[] largasLights;
     public Button antinieblaButton;
+    public Button antinieblaBackButton;
     public Button posicionButton;
     public Button cortasButton;
     public Button largasButton;
@@ -33,6 +35,8 @@ public class CarLights : MonoBehaviour
 
         if (antinieblaButton != null)
             antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
+        if (antinieblaBackButton != null)
+            antinieblaBackButton.onClick.AddListener(ToggleAntinieblaBackLights);
         if (posicionButton != null)
             posicionButton.onClick.AddListener(TogglePosicionLights);
         if (cortasButton != null)
@@ -51,9 +55,21 @@ public class CarLights : MonoBehaviour
             light.enabled = antinieblaOn;
         }
         if (antinieblaOn)
-            lucesSeleccionadas.Add("antinieblas");
+            lucesSeleccionadas.Add("antinieblasDelanteras");
         else
-            lucesSeleccionadas.Remove("antinieblas");
+            lucesSeleccionadas.Remove("antinieblasDelanteras");
+        CheckCorrectLights();
+    }public void ToggleAntinieblaBackLights()
+    {
+        antinieblaOn = !antinieblaOn;
+        foreach (Light light in antinieblaLights)
+        {
+            light.enabled = antinieblaOn;
+        }
+        if (antinieblaOn)
+            lucesSeleccionadas.Add("antinieblasTraseras");
+        else
+            lucesSeleccionadas.Remove("antinieblasTraseras");
         CheckCorrectLights();
     }
 

@@ -21,8 +21,9 @@
         }
     },
     "fog": true,
+    "fogLevel": 2,
     "levelDialogs": [
-        " En este nivel te encuentras con mucha niebla en tu viaje",
+        " Estas saliendo de un túnel y te encuentras con niebla intensa en tu viaje",
         " Debes seleccionar las luces que tiene que llevar encendidas tu vehículo en esta situación "
     ],
     "completedDialogs": [
@@ -30,7 +31,8 @@
     ],
     "type": "Luces",
     "objetivo": [
-        "antinieblas",
+        "antinieblasDelanteras",
+        "antinieblasTraseras",
         "cortas",
         "posicion"
     ] 

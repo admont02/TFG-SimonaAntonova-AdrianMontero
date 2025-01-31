@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //Debug.LogError("No se encontró NivelLoader en la escena.");
+            Debug.LogError("No se encontró NivelLoader en la escena.");
         }
     }
     public void ComprobarNivel()
