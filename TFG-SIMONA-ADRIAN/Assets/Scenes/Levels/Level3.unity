@@ -1845,7 +1845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341576647}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 123.5, y: 6.025, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12600,7 +12600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933261579}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17350298, y: -0.00000000847271, z: 0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.000000008472708, z: -0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 123.5, y: 6.025, z: 102.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13671,7 +13671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5453093934434035512, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 197
+      value: 43.1
       objectReference: {fileID: 0}
     - target: {fileID: 5453093934434035512, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13701,13 +13701,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7603183400566717419, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
+      propertyPath: m_Size.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603183400566717419, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
+      propertyPath: m_Center.y
+      value: 48.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603183400566717419, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
+      propertyPath: m_Center.z
+      value: 153.89
+      objectReference: {fileID: 0}
     - target: {fileID: 9095901440409836212, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
       propertyPath: m_Name
       value: TargetForPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 9095901440409836212, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

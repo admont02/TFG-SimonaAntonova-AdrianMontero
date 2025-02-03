@@ -45,7 +45,7 @@ public class CarLights : MonoBehaviour
         if (largasButton != null)
             largasButton.onClick.AddListener(ToggleLargasLights);
 
-        // CheckCorrectLights(); // Comprobar las luces iniciales
+        CheckCorrectLights(); // Comprobar las luces iniciales
     }
 
     public void ToggleAntinieblaLights()
@@ -60,7 +60,8 @@ public class CarLights : MonoBehaviour
         else
             lucesSeleccionadas.Remove("antinieblasDelanteras");
         CheckCorrectLights();
-    }public void ToggleAntinieblaBackLights()
+    }
+    public void ToggleAntinieblaBackLights()
     {
         antinieblaBackOn = !antinieblaBackOn;
         foreach (Light light in antinieblaBack)
@@ -138,9 +139,12 @@ public class CarLights : MonoBehaviour
             Debug.Log("correctas");
             //fog.SetActive(false);
             fog.GetComponent<Renderer>().material = fogDisipada;
+            GameManager.Instance.incorrectLevel.Clear();
         }
         else
         {
+            if (GameManager.Instance.incorrectLevel.Count < 2)
+                GameManager.Instance.incorrectLevel.Add("Luces incorrectas para niebla intensa");
             fog.GetComponent<Renderer>().material = fogIntensa;
         }
     }
