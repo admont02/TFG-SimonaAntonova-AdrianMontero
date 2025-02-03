@@ -23,6 +23,7 @@ public class CarLights : MonoBehaviour
     private List<string> lucesSeleccionadas = new(); // Lista de tipos de luces que deben estar encendidas
 
     private bool antinieblaOn = false;
+    private bool antinieblaBackOn = false;
     private bool posicionOn = false;
     private bool cortasOn = false;
     private bool largasOn = false;
@@ -61,12 +62,12 @@ public class CarLights : MonoBehaviour
         CheckCorrectLights();
     }public void ToggleAntinieblaBackLights()
     {
-        antinieblaOn = !antinieblaOn;
-        foreach (Light light in antinieblaLights)
+        antinieblaBackOn = !antinieblaBackOn;
+        foreach (Light light in antinieblaBack)
         {
-            light.enabled = antinieblaOn;
+            light.enabled = antinieblaBackOn;
         }
-        if (antinieblaOn)
+        if (antinieblaBackOn)
             lucesSeleccionadas.Add("antinieblasTraseras");
         else
             lucesSeleccionadas.Remove("antinieblasTraseras");
