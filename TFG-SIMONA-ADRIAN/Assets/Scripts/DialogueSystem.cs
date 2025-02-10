@@ -18,6 +18,7 @@ public class DialogueSystem : MonoBehaviour
     //private bool levelEnded = false;
     public Button dialogueBackground; // Fondo del diálogo que detectará clics
     public ParticleSystem confettiEffect;
+    bool isEnd = false;
 
     void Awake()
     {
@@ -48,6 +49,8 @@ public class DialogueSystem : MonoBehaviour
     {
         //levelEnded = true;
         dialogues = winDialogues;
+        isEnd = true;
+
         if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue(true);
     }
@@ -55,6 +58,7 @@ public class DialogueSystem : MonoBehaviour
     {
         //levelEnded = true;
         dialogues = incorrect;
+        isEnd = true;
         //if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue(true);
     }
@@ -96,9 +100,14 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
-            dialoguePanel.SetActive(false);
-            if (GameManager.Instance.carController != null)
-                GameManager.Instance.canCarMove = true;
+            if (!isEnd)
+            {
+
+
+                dialoguePanel.SetActive(false);
+                if (GameManager.Instance.carController != null)
+                    GameManager.Instance.canCarMove = true;
+            }
         }
     }
 
