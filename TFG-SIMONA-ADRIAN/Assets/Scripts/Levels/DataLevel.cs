@@ -27,16 +27,16 @@ public class Cuadricula
 {
     public Posicion posicion;
 }
-[System.Serializable] 
-public class SemaforoConfig 
+[System.Serializable]
+public class SemaforoConfig
 {
     public bool doble;
     public Posicion posicion;
     public Posicion rotacion;
-    public float greenSeconds; 
-    public float amberSeconds; 
-    public float redSeconds; 
-    public string initialLight; 
+    public float greenSeconds;
+    public float amberSeconds;
+    public float redSeconds;
+    public string initialLight;
 }
 [System.Serializable]
 public class ElementoMapa
@@ -52,6 +52,21 @@ public enum LevelType
     Prioridad,
     Luces
 }
+
+[System.Serializable]
+public class MapaNuevo
+{
+    public List<PosicionMapa> rectas;
+    public List<PosicionMapa> rotondas;
+}
+
+[System.Serializable]
+public class PosicionMapa
+{
+    public int fil;
+    public int col;
+}
+
 [System.Serializable]
 public class MapaConfig
 {
@@ -73,6 +88,6 @@ public class Nivel
     public string[] completedDialogs;
     public bool fog = false;
     public string type;
-    public bool isMenu=false;
+    public bool isMenu = false;
     public List<string> objetivo;
 }

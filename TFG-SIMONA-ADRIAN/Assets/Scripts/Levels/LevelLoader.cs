@@ -47,6 +47,12 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("No se encontró el archivo JSON.");
         }
     }
+    Vector3 ConvertToPosition(int fil, int col, float scale)
+    {
+        float x = scale / 2 + scale * fil;
+        float z = scale / 2 + scale * col;
+        return new Vector3(x, 0, z);
+    }
 
     void CrearNivel(Nivel nivel)
     {
