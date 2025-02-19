@@ -57,7 +57,7 @@ public enum LevelType
 public class MapaNuevo
 {
     public List<PosicionMapa> rectas;
-    public List<PosicionMapa> rotondas;
+    //public List<PosicionMapa> rotondas;
 }
 
 [System.Serializable]
@@ -78,6 +78,7 @@ public class Nivel
 {
     public int nivel;
     public MapaConfig mapa;
+    public MapaNuevo mapaNuevo;
     public Player jugador;
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;

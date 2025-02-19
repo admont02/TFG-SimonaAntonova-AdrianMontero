@@ -59,6 +59,8 @@ public class LevelLoader : MonoBehaviour
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
+            // FUNCIONAMIENTO DE TEMPLATE MAPA HASTA 19/02
+
             if (nivel.mapa.nombre != null)
             {
                 string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
@@ -76,6 +78,25 @@ public class LevelLoader : MonoBehaviour
                 }
 
             }
+
+
+            // CÓDIGO ACTUAL MAPAS (DESDE 19/02)
+
+            //float scale = 100f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
+
+            //foreach (var recta in nivel.mapaNuevo.rectas)
+            //{
+            //    Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+            //    GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad"); 
+            //    if (rectaPrefab != null)
+            //    {
+            //        Instantiate(rectaPrefab, posicion, Quaternion.identity);
+            //    }
+            //    else
+            //    {
+            //        Debug.LogError("No se encontró el prefab de la recta.");
+            //    }
+            //}
             if (nivel.jugador.posicionInicial != null)
             {
                 Quaternion rotPlayer = Quaternion.Euler(nivel.jugador.rotacionInicial.x, nivel.jugador.rotacionInicial.y, nivel.jugador.rotacionInicial.z);
