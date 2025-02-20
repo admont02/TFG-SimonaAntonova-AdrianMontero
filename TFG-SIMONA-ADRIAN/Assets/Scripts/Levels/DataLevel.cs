@@ -59,7 +59,26 @@ public class MapaNuevo
     public List<PosicionMapa> rectas;
     //public List<PosicionMapa> rotondas;
 }
+[System.Serializable]
+public class SubPosicion
+{
+    public int fil;
+    public int col;
+}
 
+[System.Serializable]
+public class Pieza
+{
+    public int index;
+}
+
+[System.Serializable]
+public class Jugador
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public Posicion rotacionInicial;
+}
 [System.Serializable]
 public class PosicionMapa
 {
@@ -80,6 +99,7 @@ public class Nivel
     public MapaConfig mapa;
     public MapaNuevo mapaNuevo;
     public Player jugador;
+    public Jugador jugadorNuevo;
     public Posicion targetJugador;
     public List<CocheIA> cochesIA;
     public List<Cuadricula> cuadriculas;

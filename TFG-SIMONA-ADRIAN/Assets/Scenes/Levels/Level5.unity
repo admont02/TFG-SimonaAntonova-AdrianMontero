@@ -6366,7 +6366,7 @@ MonoBehaviour:
   cochesIA: []
   incorrectLevel: []
   priorityCarList: []
-  virtualCamera: {fileID: 0}
+  virtualCamera: {fileID: 1933261580}
 --- !u!4 &923984509
 Transform:
   m_ObjectHideFlags: 0
@@ -14635,7 +14635,7 @@ MonoBehaviour:
   cuadriculaPrefab: {fileID: 0}
   semaforoPrefab: {fileID: 0}
   semaforoDoblePrefab: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 2376696042191848362, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using Unity.AI.Navigation;
+using UnityEngine.UIElements;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -49,10 +50,17 @@ public class LevelLoader : MonoBehaviour
     }
     Vector3 ConvertToPosition(int fil, int col, float scale)
     {
-        float x = scale / 2 + scale * fil;
-        float z = scale / 2 + scale * col;
+        float z = scale / 2 + scale * fil;
+        float x = scale / 2 + scale * col;
         return new Vector3(x, 0, z);
     }
+    Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale)
+    {
+        float offsetZ = -100 / 2 + subScale / 2 + subScale * subFil;
+        float offsetX = -100 / 2 + subScale / 2 + subScale * subCol;
+        return basePosition + new Vector3(offsetX, 2.81f, offsetZ);
+    }
+
 
     void CrearNivel(Nivel nivel)
     {
@@ -83,11 +91,13 @@ public class LevelLoader : MonoBehaviour
             // CÓDIGO ACTUAL MAPAS (DESDE 19/02)
 
             //float scale = 100f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
-
+            //float subScale = scale / 3;
+            //List<Vector3> posicionesPiezas = new List<Vector3>();
             //foreach (var recta in nivel.mapaNuevo.rectas)
             //{
             //    Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-            //    GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad"); 
+            //    posicionesPiezas.Add(posicion);
+            //    GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad");
             //    if (rectaPrefab != null)
             //    {
             //        Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -97,6 +107,10 @@ public class LevelLoader : MonoBehaviour
             //        Debug.LogError("No se encontró el prefab de la recta.");
             //    }
             //}
+
+
+
+            //JUGADOR PREVIAMENTE
             if (nivel.jugador.posicionInicial != null)
             {
                 Quaternion rotPlayer = Quaternion.Euler(nivel.jugador.rotacionInicial.x, nivel.jugador.rotacionInicial.y, nivel.jugador.rotacionInicial.z);
@@ -105,6 +119,29 @@ public class LevelLoader : MonoBehaviour
                 GameManager.Instance.carController = playerObj.GetComponent<CarController>();
                 GameManager.Instance.SetPlayer(playerObj.transform);
             }
+
+
+
+
+            //JUGADOR NUEVO
+            //if (nivel.jugadorNuevo != null)
+            //{
+            //    int indexPieza = nivel.jugadorNuevo.pieza.index;
+            //    if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
+            //    {
+            //        Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            //        Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            //        Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
+            //        GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
+            //        playerObj.SetActive(true);
+            //        GameManager.Instance.carController = playerObj.GetComponent<CarController>();
+            //        GameManager.Instance.SetPlayer(playerObj.transform);
+            //    }
+            //    else
+            //    {
+            //        Debug.LogError("No se encontró la pieza especificada para el jugador.");
+            //    }
+            //}
 
             GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
             targetPoint.SetActive(true);
