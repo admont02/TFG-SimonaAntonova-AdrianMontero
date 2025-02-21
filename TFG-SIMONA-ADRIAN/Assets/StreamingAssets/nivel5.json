@@ -31,16 +31,28 @@
             "index": 0
         },
         "subPosicion": {
-            "fil": 1,
-            "col": 0
+            "fil": 3,
+            "col": 10
         },
-        "rotacionInicial": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        }
+        "orientacion": "derecha"
     },
-    
+    "semaforosNuevos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 0
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "derecha",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        }
+    ],
     "levelDialogs": [
         " Mapa por piezas"
     ],

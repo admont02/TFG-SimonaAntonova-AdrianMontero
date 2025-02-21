@@ -39,6 +39,18 @@ public class SemaforoConfig
     public string initialLight;
 }
 [System.Serializable]
+public class SemaforoNuevoConfig
+{
+    public bool doble;
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+    public float greenSeconds;
+    public float amberSeconds;
+    public float redSeconds;
+    public string initialLight;
+}
+[System.Serializable]
 public class ElementoMapa
 {
     public string tipo;
@@ -77,7 +89,7 @@ public class Jugador
 {
     public Pieza pieza;
     public SubPosicion subPosicion;
-    public Posicion rotacionInicial;
+    public string orientacion;
 }
 [System.Serializable]
 public class PosicionMapa
@@ -104,6 +116,8 @@ public class Nivel
     public List<CocheIA> cochesIA;
     public List<Cuadricula> cuadriculas;
     public List<SemaforoConfig> semaforos;
+    public List<SemaforoNuevoConfig> semaforosNuevos;
+
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;
     public string[] completedDialogs;

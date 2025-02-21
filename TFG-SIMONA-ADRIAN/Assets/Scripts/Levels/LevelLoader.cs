@@ -54,59 +54,87 @@ public class LevelLoader : MonoBehaviour
         float x = scale / 2 + scale * col;
         return new Vector3(x, 0, z);
     }
-    Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale)
+    //Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale)
+    //{
+    //    float offsetZ = -100 / 2 + subScale / 2 + subScale * subFil;
+    //    float offsetX = -100 / 2 + subScale / 2 + subScale * subCol;
+    //    return basePosition + new Vector3(offsetX, 2.81f, offsetZ);
+    //}
+    Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale, int subdivisions)
     {
-        float offsetZ = -100 / 2 + subScale / 2 + subScale * subFil;
-        float offsetX = -100 / 2 + subScale / 2 + subScale * subCol;
+        //el numero magico 5 es un offset para que 0,0 sea en la pos 5,5
+        float subdivisionSize = subScale / subdivisions; // Tamaño de cada subdivisión
+        float offsetX = -subScale / 2 + 5 + subdivisionSize * subFil;
+        float offsetZ = -subScale / 2 + 5 + subdivisionSize * subCol;
         return basePosition + new Vector3(offsetX, 2.81f, offsetZ);
     }
 
 
+    Quaternion ConvertirOrientacionARotacion(string orientacion)
+    {
+        switch (orientacion.ToLower())
+        {
+            case "izquierda":
+                return Quaternion.Euler(0, 270, 0);
+            case "derecha":
+                return Quaternion.Euler(0, 90, 0);
+            case "arriba":
+                return Quaternion.Euler(0, 0, 0);
+            case "abajo":
+                return Quaternion.Euler(0, 180, 0);
+            default:
+                Debug.LogWarning("Orientación desconocida, usando rotación por defecto.");
+                return Quaternion.identity;
+        }
+    }
+
     void CrearNivel(Nivel nivel)
     {
+        float scale = 100f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
+        int subdivisions = 20;
+        float subScale = scale;
+        List<Vector3> posicionesPiezas = new List<Vector3>();
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
             // FUNCIONAMIENTO DE TEMPLATE MAPA HASTA 19/02
 
-            if (nivel.mapa.nombre != null)
-            {
-                string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
-                mapPath = mapPath.Replace("\\", "/");
-                GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
-                if (mapPrefab != null)
-                {
-                    GameObject instantiatedMap = Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
-                    NavMeshSurface navM = instantiatedMap.GetComponentInChildren<NavMeshSurface>();
-                    // navM.BuildNavMesh();
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
-                }
+            //if (nivel.mapa.nombre != null)
+            //{
+            //    string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
+            //    mapPath = mapPath.Replace("\\", "/");
+            //    GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
+            //    if (mapPrefab != null)
+            //    {
+            //        GameObject instantiatedMap = Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
+            //        NavMeshSurface navM = instantiatedMap.GetComponentInChildren<NavMeshSurface>();
+            //        // navM.BuildNavMesh();
+            //    }
+            //    else
+            //    {
+            //        Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
+            //    }
 
-            }
+            //}
 
 
             // CÓDIGO ACTUAL MAPAS (DESDE 19/02)
 
-            //float scale = 100f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
-            //float subScale = scale / 3;
-            //List<Vector3> posicionesPiezas = new List<Vector3>();
-            //foreach (var recta in nivel.mapaNuevo.rectas)
-            //{
-            //    Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-            //    posicionesPiezas.Add(posicion);
-            //    GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad");
-            //    if (rectaPrefab != null)
-            //    {
-            //        Instantiate(rectaPrefab, posicion, Quaternion.identity);
-            //    }
-            //    else
-            //    {
-            //        Debug.LogError("No se encontró el prefab de la recta.");
-            //    }
-            //}
+            
+            foreach (var recta in nivel.mapaNuevo.rectas)
+            {
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                posicionesPiezas.Add(posicion);
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }
 
 
 
@@ -130,8 +158,11 @@ public class LevelLoader : MonoBehaviour
             //    if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
             //    {
             //        Vector3 posicionPieza = posicionesPiezas[indexPieza];
-            //        Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-            //        Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
+            //        //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            //        Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale, subdivisions);
+
+            //        // Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
+            //        Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugadorNuevo.orientacion);
             //        GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
             //        playerObj.SetActive(true);
             //        GameManager.Instance.carController = playerObj.GetComponent<CarController>();
@@ -190,7 +221,7 @@ public class LevelLoader : MonoBehaviour
             GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, new Vector3(cuadricula.posicion.x, cuadricula.posicion.y, cuadricula.posicion.z), prefabRotation);
             cuadriculaObj.SetActive(true);
         }
-        //SEMAFOROS
+        //SEMAFOROS ANTIGUOS
         foreach (var semaforo in nivel.semaforos)
         {
             Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
@@ -225,6 +256,55 @@ public class LevelLoader : MonoBehaviour
             }
 
         }
+
+
+
+
+        //SEMAFOROS NUEVOS
+        //foreach (var semaforo in nivel.semaforosNuevos)
+        //{
+        //    // Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
+        //    Quaternion rotation = ConvertirOrientacionARotacion(semaforo.orientacion);
+        //    int indexPieza = semaforo.pieza.index;
+
+
+        //    Vector3 posicionPieza = posicionesPiezas[indexPieza];
+        //    //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+        //    Vector3 posicionSemaforo = ConvertToSubPosition(posicionPieza, semaforo.subPosicion.fil, semaforo.subPosicion.col, subScale, subdivisions);
+        //    if (semaforo.doble)
+        //    {
+        //        GameObject semaforoObj = Instantiate(semaforoDoblePrefab, posicionSemaforo, rotation);
+        //        foreach (Transform child in semaforoObj.transform)
+        //        {
+        //            SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
+        //            if (semaforoScript != null)
+        //            {
+        //                semaforoScript.greenSeconds = semaforo.greenSeconds;
+        //                semaforoScript.amberSeconds = semaforo.amberSeconds;
+        //                semaforoScript.redSeconds = semaforo.redSeconds;
+        //                semaforoScript.red.SetActive(semaforo.initialLight == "red");
+        //                semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+        //                semaforoScript.green.SetActive(semaforo.initialLight == "green");
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        GameObject semaforoObj = Instantiate(semaforoPrefab, posicionSemaforo, rotation);
+
+        //        SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
+        //        semaforoScript.greenSeconds = semaforo.greenSeconds;
+        //        semaforoScript.amberSeconds = semaforo.amberSeconds;
+        //        semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
+        //        semaforoScript.red.SetActive(semaforo.initialLight == "red");
+        //        semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+        //        semaforoScript.green.SetActive(semaforo.initialLight == "green");
+        //    }
+
+        //}
+
+
+
         if (nivel.fog)
         {
             GameManager.Instance.EnableFog();
