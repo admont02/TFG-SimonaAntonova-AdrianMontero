@@ -5,7 +5,13 @@ using UnityEngine;
 public class CuadriculaAmarilla : MonoBehaviour
 {
     private readonly string incorrectString = "Cuadrícula de marcas amarillas: Prohibido entrar en el cruze cuando es posible quedarse inmovilizado en él";
+    private void Start()
+    {
+        Vector3 position = gameObject.transform.position;
+        position.y = 0.1f;
+        gameObject.transform.position = position;
 
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponentInParent<Rigidbody>() != null)

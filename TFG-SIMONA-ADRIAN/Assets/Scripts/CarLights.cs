@@ -139,7 +139,8 @@ public class CarLights : MonoBehaviour
             Debug.Log("correctas");
             //fog.SetActive(false);
             fog.GetComponent<Renderer>().material = fogDisipada;
-            GameManager.Instance.incorrectLevel.Clear();
+            // TO DO: cambiar a que se haga clear solo de las luces, no de todos los errores
+            //GameManager.Instance.incorrectLevel.Clear();
         }
         else
         {

@@ -272,8 +272,10 @@ public class LevelLoader : MonoBehaviour
                     Debug.LogError("No se encontró la pieza especificada para el jugador.");
                 }
             }
-
-            GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
+            Vector3 posicionPiezaTarget = posicionesPiezas[nivel.targetJugador.pieza.index];
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionTarget = ConvertToSubPosition(posicionPiezaTarget, nivel.targetJugador.subPosicion.fil, nivel.targetJugador.subPosicion.col, subScale, subdivisions);
+            GameObject targetPoint = Instantiate(TargetPrefab, posicionTarget, Quaternion.identity);
             targetPoint.SetActive(true);
             GameManager.Instance.SetPlayerTarget(targetPoint);
             //targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z);
@@ -316,8 +318,14 @@ public class LevelLoader : MonoBehaviour
         //CUADRICULAS
         foreach (var cuadricula in nivel.cuadriculas)
         {
+            int indexPieza = cuadricula.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, cuadricula.subPosicion.fil, cuadricula.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
-            GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, new Vector3(cuadricula.posicion.x, cuadricula.posicion.y, cuadricula.posicion.z), prefabRotation);
+            GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, posicionCuadricula, prefabRotation);
             cuadriculaObj.SetActive(true);
         }
         //SEMAFOROS ANTIGUOS

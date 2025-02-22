@@ -133,6 +133,26 @@
             "initialLight": "green"
         }
     ],
+    "cuadriculas": [
+        {
+            "pieza": {
+                "index": 6
+            },
+            "subPosicion": {
+                "fil": 9,
+                "col": 9
+            }
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 1
+        },
+        "subPosicion": {
+            "fil": 9,
+            "col": 0
+        }
+    },
     "levelDialogs": [
         " Mapa por piezas"
     ],

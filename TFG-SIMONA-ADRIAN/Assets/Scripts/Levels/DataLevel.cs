@@ -25,7 +25,8 @@ public class Player
 [System.Serializable]
 public class Cuadricula
 {
-    public Posicion posicion;
+    public Pieza pieza;
+    public SubPosicion subPosicion;
 }
 [System.Serializable]
 public class SemaforoConfig
@@ -112,6 +113,12 @@ public class PosicionMapa
 }
 
 [System.Serializable]
+public class TargetForPlayer
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+}
+[System.Serializable]
 public class MapaConfig
 {
     public string nombre;
@@ -125,7 +132,7 @@ public class Nivel
     public MapaNuevo mapaNuevo;
     public Player jugador;
     public Jugador jugadorNuevo;
-    public Posicion targetJugador;
+    public TargetForPlayer targetJugador;
     public List<CocheIA> cochesIA;
     public List<Cuadricula> cuadriculas;
     public List<SemaforoConfig> semaforos;

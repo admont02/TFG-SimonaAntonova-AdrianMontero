@@ -14,6 +14,12 @@ public class SimpleTrafficLight : MonoBehaviour
 
     private void Start()
     {
+
+        Vector3 position = gameObject.transform.position;
+        position.y = 7.57f;
+        gameObject.transform.position = position;
+
+
         // Obtén el MeshRenderer del GameObject
         StartCoroutine(ChangeLightColorCoroutine());
     }
