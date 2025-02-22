@@ -123,7 +123,7 @@ public class LevelLoader : MonoBehaviour
             // CÓDIGO ACTUAL MAPAS (DESDE 19/02)
 
             
-            foreach (var recta in nivel.mapaNuevo.rectas)
+            foreach (var recta in nivel.mapaNuevo.City_Crossroad)
             {
                 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
@@ -138,11 +138,94 @@ public class LevelLoader : MonoBehaviour
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
             }
+            foreach (var recta in nivel.mapaNuevo.City_Vertical_Road)
+            {
+                
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                posicionesPiezas[recta.id] =posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Vertical_Road");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }foreach (var recta in nivel.mapaNuevo.City_Horizontal_Road)
+            {
+                
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                posicionesPiezas[recta.id] =posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Horizontal_Road");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }foreach (var recta in nivel.mapaNuevo.City_Crossroad_Crosswalk)
+            {
+                
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                posicionesPiezas[recta.id] =posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad_Crosswalk");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }foreach (var recta in nivel.mapaNuevo.Roundabout_Front_Right_Trees)
+            {
+                
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                posicionesPiezas[recta.id] =posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Right_Trees");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Front_Left_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
                 posicionesPiezas[r_f_l_t.id] = posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Left_Trees");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Left_Trees)
+            {
+                Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
+                posicionesPiezas[r_f_l_t.id] = posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Left_Trees");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Right_Trees)
+            {
+                Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
+                posicionesPiezas[r_f_l_t.id] = posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Right_Trees");
                 if (rectaPrefab != null)
                 {
                     Instantiate(rectaPrefab, posicion, Quaternion.identity);

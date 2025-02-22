@@ -69,8 +69,18 @@ public enum LevelType
 public class MapaNuevo
 {
    
-    public List<PosicionMapa> rectas;
+    public List<PosicionMapa> City_Crossroad;
+    public List<PosicionMapa> City_Vertical_Road;
+    public List<PosicionMapa> City_Horizontal_Road;
+    public List<PosicionMapa> City_Crossroad_Crosswalk;
+
     public List<PosicionMapa> Roundabout_Front_Left_Trees;
+    public List<PosicionMapa> Roundabout_Front_Right_Trees;
+    public List<PosicionMapa> Roundabout_Left_Trees;
+    public List<PosicionMapa> Roundabout_Right_Trees;
+
+
+
     //public List<PosicionMapa> rotondas;
 }
 [System.Serializable]

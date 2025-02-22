@@ -1,33 +1,63 @@
 {
     "nivel": 5,
     "mapaNuevo": {
-        "rectas": [
+        "City_Crossroad": [
             {
-                "id":0,
-                "fil": 0,
+                "id": 6,
+                "fil": 2,
                 "col": 0
             },
             {
-                "id":1,
-                "fil": 0,
-                "col": 1
-            },
-            {
-                "id":2,
+                "id": 2,
                 "fil": 0,
                 "col": 2
             }
         ],
-        "Roundabout_Front_Left_Trees": [
+        "City_Vertical_Road": [
             {
-                "id":3,
-                "fil": 3,
+                "id": 0,
+                "fil": 0,
                 "col": 0
+            }
+        ],
+        "City_Horizontal_Road": [
+            {
+                "id": 4,
+                "fil": 1,
+                "col": 1
             },
             {
-                "id":4,
+                "id": 7,
+                "fil": 2,
+                "col": 1
+            }
+        ],
+        "City_Crossroad_Crosswalk": [
+            {
+                "id": 5,
+                "fil": 1,
+                "col": 2
+            }
+        ],
+        "Roundabout_Front_Right_Trees": [
+            {
+                "id": 3,
                 "fil": 1,
                 "col": 0
+            }
+        ],
+        "Roundabout_Right_Trees": [
+            {
+                "id": 1,
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "Roundabout_Left_Trees": [
+            {
+                "id": 7,
+                "fil": 2,
+                "col": 2
             }
         ]
     },
@@ -36,22 +66,67 @@
             "index": 0
         },
         "subPosicion": {
-            "fil": 3,
-            "col": 10
+            "fil": 10,
+            "col": 9
         },
-        "orientacion": "derecha"
+        "orientacion": "arriba"
     },
     "semaforosNuevos": [
         {
             "doble": false,
             "pieza": {
-                "index": 0
+                "index": 2
             },
             "subPosicion": {
                 "fil": 11,
                 "col": 11
             },
+            "orientacion": "izquierda",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 11
+            },
+            "orientacion": "abajo",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 7
+            },
             "orientacion": "derecha",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 7
+            },
+            "orientacion": "arriba",
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
