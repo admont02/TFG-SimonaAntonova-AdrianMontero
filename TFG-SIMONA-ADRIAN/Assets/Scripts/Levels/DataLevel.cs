@@ -17,6 +17,15 @@ public class CocheIA
 
 }
 [System.Serializable]
+public class IA_Car
+{
+    public List<Posicion> posiciones;
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+
+}
+[System.Serializable]
 public class Player
 {
     public Posicion posicionInicial;
@@ -134,6 +143,8 @@ public class Nivel
     public Jugador jugadorNuevo;
     public TargetForPlayer targetJugador;
     public List<CocheIA> cochesIA;
+    public List<IA_Car> IACars;
+
     public List<Cuadricula> cuadriculas;
     public List<SemaforoConfig> semaforos;
     public List<SemaforoNuevoConfig> semaforosNuevos;

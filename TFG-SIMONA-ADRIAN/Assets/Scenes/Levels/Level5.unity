@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5649006, g: 0.63564, b: 0.7239374, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14630,7 +14630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jsonFileName: nivel5.json
   TargetPrefab: {fileID: 278864051}
-  cocheIAPrefab: {fileID: 2436999950954089551, guid: cddea4c64352b30498538d822d8ceb99, type: 3}
+  cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
   ClicLevelManagerPref: {fileID: 0}
   cuadriculaPrefab: {fileID: 4978257394053826113, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
   semaforoPrefab: {fileID: 868025956819239312, guid: 9b67ae2464d055f48b94ea4903095186, type: 3}

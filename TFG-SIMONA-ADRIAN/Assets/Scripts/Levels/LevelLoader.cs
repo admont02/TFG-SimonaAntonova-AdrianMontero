@@ -287,12 +287,48 @@ public class LevelLoader : MonoBehaviour
 
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
 
-        // Crear coches IA
+        // Crear coches IA ANTIGUO
+        //int id = 0;
+        //foreach (var cocheIA in nivel.cochesIA)
+        //{
+        //    Quaternion rotation = Quaternion.Euler(cocheIA.rotacionInicial.x, cocheIA.rotacionInicial.y, cocheIA.rotacionInicial.z);
+        //    GameObject cocheIAObj = Instantiate(cocheIAPrefab, new Vector3(cocheIA.posicionInicial.x, cocheIA.posicionInicial.y, cocheIA.posicionInicial.z), rotation);
+        //    cocheIAObj.name = "CocheIA" + id;
+        //    id++;
+
+        //    GameObject priorityTextObj = new GameObject("PriorityText");
+        //    priorityTextObj.transform.SetParent(cocheIAObj.transform);
+        //    priorityTextObj.transform.localPosition = new Vector3(0, 2, 0);
+        //    TextMesh priorityText = priorityTextObj.AddComponent<TextMesh>();
+        //    priorityText.color = Color.red;
+
+
+        //    GameManager.Instance.AddCocheIA(cocheIAObj);
+        //    OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
+        //    if (otherCar != null && cocheIA.posiciones.Count > 0)
+        //    {
+        //        List<Vector3> destinations = new List<Vector3>();
+        //        foreach (var pos in cocheIA.posiciones)
+        //        {
+        //            destinations.Add(new Vector3(pos.x, pos.y, pos.z));
+        //        }
+        //        otherCar.SetDestinations(destinations);
+        //    }
+        //}
+
+
+        //IAs nuevo
         int id = 0;
-        foreach (var cocheIA in nivel.cochesIA)
+        foreach (var IAcar in nivel.IACars)
         {
-            Quaternion rotation = Quaternion.Euler(cocheIA.rotacionInicial.x, cocheIA.rotacionInicial.y, cocheIA.rotacionInicial.z);
-            GameObject cocheIAObj = Instantiate(cocheIAPrefab, new Vector3(cocheIA.posicionInicial.x, cocheIA.posicionInicial.y, cocheIA.posicionInicial.z), rotation);
+            Quaternion rotation = ConvertirOrientacionARotacion(IAcar.orientacion);
+            int indexPieza = IAcar.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
+            GameObject cocheIAObj = Instantiate(cocheIAPrefab, posicionCoche, rotation);
             cocheIAObj.name = "CocheIA" + id;
             id++;
 
@@ -305,17 +341,18 @@ public class LevelLoader : MonoBehaviour
 
             GameManager.Instance.AddCocheIA(cocheIAObj);
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
-            if (otherCar != null && cocheIA.posiciones.Count > 0)
+            if (otherCar != null && IAcar.posiciones.Count > 0)
             {
                 List<Vector3> destinations = new List<Vector3>();
-                foreach (var pos in cocheIA.posiciones)
+                foreach (var pos in IAcar.posiciones)
                 {
                     destinations.Add(new Vector3(pos.x, pos.y, pos.z));
                 }
                 otherCar.SetDestinations(destinations);
             }
         }
-        //CUADRICULAS
+
+        //CUADRICULAS ACTUAL
         foreach (var cuadricula in nivel.cuadriculas)
         {
             int indexPieza = cuadricula.pieza.index;

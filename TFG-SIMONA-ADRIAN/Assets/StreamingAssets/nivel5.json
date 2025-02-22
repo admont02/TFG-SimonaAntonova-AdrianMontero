@@ -55,7 +55,7 @@
         ],
         "Roundabout_Left_Trees": [
             {
-                "id": 7,
+                "id": 8,
                 "fil": 2,
                 "col": 2
             }
@@ -153,6 +153,52 @@
             "col": 0
         }
     },
+    "IACars": [
+        {
+            "pieza": {
+                "index": 4
+            },
+            "subPosicion": {
+                "fil": 9,
+                "col": 9
+            },
+            "orientacion": "izquierda",
+            "posiciones": [
+                {
+                    "x": 102.2,
+                    "y": 2.5,
+                    "z": 134.45
+                },
+                {
+                    "x": 44.2,
+                    "y": 2.5,
+                    "z": 133.6
+                }
+            ]
+        },
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                "fil": 9,
+                "col": 9
+            },
+            "orientacion": "izquierda",
+            "posiciones": [
+                {
+                    "x": 102.2,
+                    "y": 2.5,
+                    "z": 126.81
+                },
+                {
+                    "x": 44.2,
+                    "y": 2.5,
+                    "z": 126.81
+                }
+            ]
+        }
+    ],
     "levelDialogs": [
         " Mapa por piezas"
     ],
