@@ -68,7 +68,9 @@ public enum LevelType
 [System.Serializable]
 public class MapaNuevo
 {
+   
     public List<PosicionMapa> rectas;
+    public List<PosicionMapa> Roundabout_Front_Left_Trees;
     //public List<PosicionMapa> rotondas;
 }
 [System.Serializable]
@@ -94,6 +96,7 @@ public class Jugador
 [System.Serializable]
 public class PosicionMapa
 {
+    public int id;
     public int fil;
     public int col;
 }

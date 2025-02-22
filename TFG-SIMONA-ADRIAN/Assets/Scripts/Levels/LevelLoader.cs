@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using Unity.AI.Navigation;
 using UnityEngine.UIElements;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -93,7 +94,8 @@ public class LevelLoader : MonoBehaviour
         float scale = 100f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
         int subdivisions = 20;
         float subScale = scale;
-        List<Vector3> posicionesPiezas = new List<Vector3>();
+        //List<Vector3> posicionesPiezas = new List<Vector3>();
+        Dictionary<int, Vector3> posicionesPiezas = new Dictionary<int, Vector3>();
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
@@ -123,9 +125,24 @@ public class LevelLoader : MonoBehaviour
             
             foreach (var recta in nivel.mapaNuevo.rectas)
             {
+                
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                posicionesPiezas.Add(posicion);
+                posicionesPiezas[recta.id] =posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad");
+                if (rectaPrefab != null)
+                {
+                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+            }
+            foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Front_Left_Trees)
+            {
+                Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
+                posicionesPiezas[r_f_l_t.id] = posicion;
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Left_Trees");
                 if (rectaPrefab != null)
                 {
                     Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -137,42 +154,41 @@ public class LevelLoader : MonoBehaviour
             }
 
 
-
             //JUGADOR PREVIAMENTE
-            if (nivel.jugador.posicionInicial != null)
-            {
-                Quaternion rotPlayer = Quaternion.Euler(nivel.jugador.rotacionInicial.x, nivel.jugador.rotacionInicial.y, nivel.jugador.rotacionInicial.z);
-                GameObject playerObj = Instantiate(playerPrefab, new Vector3(nivel.jugador.posicionInicial.x, nivel.jugador.posicionInicial.y, nivel.jugador.posicionInicial.z), rotPlayer);
-                playerObj.SetActive(true);
-                GameManager.Instance.carController = playerObj.GetComponent<CarController>();
-                GameManager.Instance.SetPlayer(playerObj.transform);
-            }
+            //if (nivel.jugador.posicionInicial != null)
+            //{
+            //    Quaternion rotPlayer = Quaternion.Euler(nivel.jugador.rotacionInicial.x, nivel.jugador.rotacionInicial.y, nivel.jugador.rotacionInicial.z);
+            //    GameObject playerObj = Instantiate(playerPrefab, new Vector3(nivel.jugador.posicionInicial.x, nivel.jugador.posicionInicial.y, nivel.jugador.posicionInicial.z), rotPlayer);
+            //    playerObj.SetActive(true);
+            //    GameManager.Instance.carController = playerObj.GetComponent<CarController>();
+            //    GameManager.Instance.SetPlayer(playerObj.transform);
+            //}
 
 
 
 
             //JUGADOR NUEVO
-            //if (nivel.jugadorNuevo != null)
-            //{
-            //    int indexPieza = nivel.jugadorNuevo.pieza.index;
-            //    if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
-            //    {
-            //        Vector3 posicionPieza = posicionesPiezas[indexPieza];
-            //        //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-            //        Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale, subdivisions);
+            if (nivel.jugadorNuevo != null)
+            {
+                int indexPieza = nivel.jugadorNuevo.pieza.index;
+                if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
+                {
+                    Vector3 posicionPieza = posicionesPiezas[indexPieza];
+                    //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+                    Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale, subdivisions);
 
-            //        // Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
-            //        Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugadorNuevo.orientacion);
-            //        GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
-            //        playerObj.SetActive(true);
-            //        GameManager.Instance.carController = playerObj.GetComponent<CarController>();
-            //        GameManager.Instance.SetPlayer(playerObj.transform);
-            //    }
-            //    else
-            //    {
-            //        Debug.LogError("No se encontró la pieza especificada para el jugador.");
-            //    }
-            //}
+                    // Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
+                    Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugadorNuevo.orientacion);
+                    GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
+                    playerObj.SetActive(true);
+                    GameManager.Instance.carController = playerObj.GetComponent<CarController>();
+                    GameManager.Instance.SetPlayer(playerObj.transform);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró la pieza especificada para el jugador.");
+                }
+            }
 
             GameObject targetPoint = Instantiate(TargetPrefab, new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z), Quaternion.identity);
             targetPoint.SetActive(true);
@@ -222,58 +238,12 @@ public class LevelLoader : MonoBehaviour
             cuadriculaObj.SetActive(true);
         }
         //SEMAFOROS ANTIGUOS
-        foreach (var semaforo in nivel.semaforos)
-        {
-            Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
-            if (semaforo.doble)
-            {
-                GameObject semaforoObj = Instantiate(semaforoDoblePrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
-                foreach (Transform child in semaforoObj.transform)
-                {
-                    SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
-                    if (semaforoScript != null)
-                    {
-                        semaforoScript.greenSeconds = semaforo.greenSeconds;
-                        semaforoScript.amberSeconds = semaforo.amberSeconds;
-                        semaforoScript.redSeconds = semaforo.redSeconds;
-                        semaforoScript.red.SetActive(semaforo.initialLight == "red");
-                        semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
-                        semaforoScript.green.SetActive(semaforo.initialLight == "green");
-                    }
-                }
-            }
-            else
-            {
-                GameObject semaforoObj = Instantiate(semaforoPrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
-
-                SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
-                semaforoScript.greenSeconds = semaforo.greenSeconds;
-                semaforoScript.amberSeconds = semaforo.amberSeconds;
-                semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
-                semaforoScript.red.SetActive(semaforo.initialLight == "red");
-                semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
-                semaforoScript.green.SetActive(semaforo.initialLight == "green");
-            }
-
-        }
-
-
-
-
-        //SEMAFOROS NUEVOS
-        //foreach (var semaforo in nivel.semaforosNuevos)
+        //foreach (var semaforo in nivel.semaforos)
         //{
-        //    // Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
-        //    Quaternion rotation = ConvertirOrientacionARotacion(semaforo.orientacion);
-        //    int indexPieza = semaforo.pieza.index;
-
-
-        //    Vector3 posicionPieza = posicionesPiezas[indexPieza];
-        //    //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-        //    Vector3 posicionSemaforo = ConvertToSubPosition(posicionPieza, semaforo.subPosicion.fil, semaforo.subPosicion.col, subScale, subdivisions);
+        //    Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
         //    if (semaforo.doble)
         //    {
-        //        GameObject semaforoObj = Instantiate(semaforoDoblePrefab, posicionSemaforo, rotation);
+        //        GameObject semaforoObj = Instantiate(semaforoDoblePrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
         //        foreach (Transform child in semaforoObj.transform)
         //        {
         //            SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
@@ -290,7 +260,7 @@ public class LevelLoader : MonoBehaviour
         //    }
         //    else
         //    {
-        //        GameObject semaforoObj = Instantiate(semaforoPrefab, posicionSemaforo, rotation);
+        //        GameObject semaforoObj = Instantiate(semaforoPrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
 
         //        SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
         //        semaforoScript.greenSeconds = semaforo.greenSeconds;
@@ -302,6 +272,52 @@ public class LevelLoader : MonoBehaviour
         //    }
 
         //}
+
+
+
+
+        //SEMAFOROS NUEVOS
+        foreach (var semaforo in nivel.semaforosNuevos)
+        {
+            // Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
+            Quaternion rotation = ConvertirOrientacionARotacion(semaforo.orientacion);
+            int indexPieza = semaforo.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionSemaforo = ConvertToSubPosition(posicionPieza, semaforo.subPosicion.fil, semaforo.subPosicion.col, subScale, subdivisions);
+            if (semaforo.doble)
+            {
+                GameObject semaforoObj = Instantiate(semaforoDoblePrefab, posicionSemaforo, rotation);
+                foreach (Transform child in semaforoObj.transform)
+                {
+                    SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
+                    if (semaforoScript != null)
+                    {
+                        semaforoScript.greenSeconds = semaforo.greenSeconds;
+                        semaforoScript.amberSeconds = semaforo.amberSeconds;
+                        semaforoScript.redSeconds = semaforo.redSeconds;
+                        semaforoScript.red.SetActive(semaforo.initialLight == "red");
+                        semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+                        semaforoScript.green.SetActive(semaforo.initialLight == "green");
+                    }
+                }
+            }
+            else
+            {
+                GameObject semaforoObj = Instantiate(semaforoPrefab, posicionSemaforo, rotation);
+
+                SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
+                semaforoScript.greenSeconds = semaforo.greenSeconds;
+                semaforoScript.amberSeconds = semaforo.amberSeconds;
+                semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
+                semaforoScript.red.SetActive(semaforo.initialLight == "red");
+                semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
+                semaforoScript.green.SetActive(semaforo.initialLight == "green");
+            }
+
+        }
 
 
 

@@ -3,24 +3,29 @@
     "mapaNuevo": {
         "rectas": [
             {
+                "id":0,
                 "fil": 0,
                 "col": 0
             },
             {
+                "id":1,
                 "fil": 0,
                 "col": 1
             },
             {
+                "id":2,
                 "fil": 0,
                 "col": 2
             }
         ],
-        "rotondas": [
+        "Roundabout_Front_Left_Trees": [
             {
+                "id":3,
                 "fil": 3,
                 "col": 0
             },
             {
+                "id":4,
                 "fil": 1,
                 "col": 0
             }
