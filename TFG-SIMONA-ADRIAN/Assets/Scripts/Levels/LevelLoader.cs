@@ -96,6 +96,8 @@ public class LevelLoader : MonoBehaviour
         float subScale = scale;
         //List<Vector3> posicionesPiezas = new List<Vector3>();
         Dictionary<int, Vector3> posicionesPiezas = new Dictionary<int, Vector3>();
+        int nodos = nivel.mapaNuevo.numPiezas;
+        Digrafo digrafo= new Digrafo(nodos);
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
@@ -137,6 +139,11 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
+                foreach(var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+                
             }
             foreach (var recta in nivel.mapaNuevo.City_Vertical_Road)
             {
@@ -152,7 +159,12 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
-            }foreach (var recta in nivel.mapaNuevo.City_Horizontal_Road)
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.City_Horizontal_Road)
             {
                 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
@@ -166,7 +178,12 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
-            }foreach (var recta in nivel.mapaNuevo.City_Crossroad_Crosswalk)
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.City_Crossroad_Crosswalk)
             {
                 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
@@ -180,7 +197,12 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
-            }foreach (var recta in nivel.mapaNuevo.Roundabout_Front_Right_Trees)
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.Roundabout_Front_Right_Trees)
             {
                 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
@@ -193,6 +215,10 @@ public class LevelLoader : MonoBehaviour
                 else
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
                 }
             }
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Front_Left_Trees)
@@ -208,7 +234,12 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
-            }foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Left_Trees)
+                foreach (var conn in r_f_l_t.conexiones)
+                {
+                    digrafo.ponArista(r_f_l_t.id, conn);
+                }
+            }
+            foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Left_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
                 posicionesPiezas[r_f_l_t.id] = posicion;
@@ -221,7 +252,12 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
-            }foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Right_Trees)
+                foreach (var conn in r_f_l_t.conexiones)
+                {
+                    digrafo.ponArista(r_f_l_t.id, conn);
+                }
+            }
+            foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Right_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
                 posicionesPiezas[r_f_l_t.id] = posicion;
@@ -233,6 +269,10 @@ public class LevelLoader : MonoBehaviour
                 else
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in r_f_l_t.conexiones)
+                {
+                    digrafo.ponArista(r_f_l_t.id, conn);
                 }
             }
 
