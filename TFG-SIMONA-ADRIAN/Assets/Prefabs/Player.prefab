@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 4986585945725158176}
   - component: {fileID: 1770135834009856585}
   - component: {fileID: 1249257593467984754}
-  - component: {fileID: 8389039166424538279}
+  - component: {fileID: -5942936486012944113}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -490,7 +490,7 @@ MonoBehaviour:
   cortasButton: {fileID: 0}
   largasButton: {fileID: 0}
   objetivoLuces: []
---- !u!114 &8389039166424538279
+--- !u!114 &-5942936486012944113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -504,7 +504,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   target: {fileID: 0}
-  arrowPrefab: {fileID: 2875627241506409635, guid: 32611df44f9f0ae41bdf20d4d751793f, type: 3}
+  pathRendererPrefab: {fileID: 9095901440409836212, guid: 12d586c289c1c364798d731eb172a333, type: 3}
+  initialNodeId: 0
+  targetNodeId: 0
+  graph:
+    v: 0
+    a: 0
 --- !u!1 &2688654330929045169
 GameObject:
   m_ObjectHideFlags: 0
