@@ -318,11 +318,17 @@ public class LevelLoader : MonoBehaviour
             GameObject targetPoint = Instantiate(TargetPrefab, posicionTarget, Quaternion.identity);
             targetPoint.SetActive(true);
             GameManager.Instance.SetPlayerTarget(targetPoint);
+
             //targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z);
             LineRenderer lineRenderer = targetPoint.GetComponent<LineRenderer>();
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, targetPoint.transform.position);
             lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 100.0f, 0));
+
+
+            GameObject playerObjAux = GameManager.Instance.carController.gameObject;
+            GPSController gpsController = playerObjAux.GetComponent<GPSController>();
+            gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
         }
 
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
