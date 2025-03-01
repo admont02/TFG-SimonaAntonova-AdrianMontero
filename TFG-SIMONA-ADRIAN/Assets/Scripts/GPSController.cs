@@ -68,19 +68,19 @@ public class GPSController : MonoBehaviour
     public Digrafo graph; // Referencia al grafo
     private List<Node> path;
     private int currentPathIndex;
-    private Dictionary<int, Vector3> posicionesPiezas; // Mapa de posiciones de las piezas
+    private Dictionary<int, GameObject> posicionesPiezas; // Mapa de posiciones de las piezas
     private GameObject pathRendererObject; // Instancia del LineRenderer
     private LineRenderer lineRenderer;
     private float recalculationInterval = 1.0f; // Intervalo de tiempo para recalcular la ruta en segundos
     private float timeSinceLastRecalculation = 0.0f;
 
-    public void Initialize(Digrafo graph, Dictionary<int, Vector3> posicionesPiezas, int initialNodeId, int targetNodeId)
+    public void Initialize(Digrafo graph_, Dictionary<int, GameObject> posicionesPiezas_, int initialNodeId_, int targetNodeId_)
     {
-        this.graph = graph;
-        this.posicionesPiezas = posicionesPiezas;
-        this.initialNodeId = initialNodeId;
-        this.targetNodeId = targetNodeId;
-        this.player = GameManager.Instance.carController.gameObject.transform;
+        graph = graph_;
+        posicionesPiezas = posicionesPiezas_;
+        initialNodeId = initialNodeId_;
+        targetNodeId = targetNodeId_;
+        player = GameManager.Instance.carController.gameObject.transform;
         SetupPath();
     }
 
@@ -107,12 +107,23 @@ public class GPSController : MonoBehaviour
         pathRendererObject = Instantiate(pathRendererPrefab);
         lineRenderer = pathRendererObject.GetComponent<LineRenderer>();
 
-        lineRenderer.positionCount = path.Count;
+        //lineRenderer.positionCount = path.Count;
 
-        for (int i = 0; i < path.Count; i++)
+        int i = 0;
+        foreach (var nodo in path)
         {
-            lineRenderer.SetPosition(i, posicionesPiezas[path[i].Id]);
+            if (posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().GetWaypoints().Count <= 0)
+                posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().Calculate();
+            foreach (var item in posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().GetWaypoints())
+            {
+                lineRenderer.SetPosition(i, item.transform.position);
+                i++;
+            }
         }
+        //for (int i = 0; i < path.Count; i++)
+        //{
+        //    lineRenderer.SetPosition(i, posicionesPiezas[path[i].Id]);
+        //}
     }
 
     private void RecalculatePath()
@@ -135,7 +146,7 @@ public class GPSController : MonoBehaviour
 
         foreach (var kvp in posicionesPiezas)
         {
-            float distance = Vector3.Distance(position, kvp.Value);
+            float distance = Vector3.Distance(position, kvp.Value.transform.position);
             if (distance < closestDistance)
             {
                 closestDistance = distance;
@@ -158,12 +169,12 @@ public class GPSController : MonoBehaviour
 
         if (lineRenderer != null && path != null && path.Count > 0)
         {
-            if (Vector3.Distance(player.position, posicionesPiezas[path[currentPathIndex].Id]) < 1.0f && currentPathIndex < path.Count - 1)
+            if (Vector3.Distance(player.position, posicionesPiezas[path[currentPathIndex].Id].transform.position) < 1.0f && currentPathIndex < path.Count - 1)
             {
                 currentPathIndex++;
             }
 
-            Vector3 direction = posicionesPiezas[path[currentPathIndex].Id] - player.position;
+            Vector3 direction = posicionesPiezas[path[currentPathIndex].Id].transform.position - player.position;
             direction.y = 0; // Mantener la flecha en el plano horizontal
             Quaternion rotation = Quaternion.LookRotation(direction);
             lineRenderer.transform.rotation = Quaternion.Slerp(lineRenderer.transform.rotation, rotation, Time.deltaTime * 5f);

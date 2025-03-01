@@ -95,9 +95,9 @@ public class LevelLoader : MonoBehaviour
         int subdivisions = 20;
         float subScale = scale;
         //List<Vector3> posicionesPiezas = new List<Vector3>();
-        Dictionary<int, Vector3> posicionesPiezas = new Dictionary<int, Vector3>();
+        Dictionary<int, GameObject> posicionesPiezas = new Dictionary<int, GameObject>();
         int nodos = nivel.mapaNuevo.numPiezas;
-        Digrafo digrafo= new Digrafo(nodos);
+        Digrafo digrafo = new Digrafo(nodos);
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
@@ -124,36 +124,34 @@ public class LevelLoader : MonoBehaviour
 
             // CÓDIGO ACTUAL MAPAS (DESDE 19/02)
 
-            
+
             foreach (var recta in nivel.mapaNuevo.City_Crossroad)
             {
-                
+
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                posicionesPiezas[recta.id] =posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
                     Debug.LogError("No se encontró el prefab de la recta.");
                 }
-                foreach(var conn in recta.conexiones)
+                foreach (var conn in recta.conexiones)
                 {
                     digrafo.ponArista(recta.id, conn);
                 }
-                
+
             }
             foreach (var recta in nivel.mapaNuevo.City_Vertical_Road)
             {
-                
+
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                posicionesPiezas[recta.id] =posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Vertical_Road");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -166,13 +164,12 @@ public class LevelLoader : MonoBehaviour
             }
             foreach (var recta in nivel.mapaNuevo.City_Horizontal_Road)
             {
-                
+
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                posicionesPiezas[recta.id] =posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Horizontal_Road");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -185,13 +182,12 @@ public class LevelLoader : MonoBehaviour
             }
             foreach (var recta in nivel.mapaNuevo.City_Crossroad_Crosswalk)
             {
-                
+
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                posicionesPiezas[recta.id] =posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad_Crosswalk");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -204,13 +200,12 @@ public class LevelLoader : MonoBehaviour
             }
             foreach (var recta in nivel.mapaNuevo.Roundabout_Front_Right_Trees)
             {
-                
+
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                posicionesPiezas[recta.id] =posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Right_Trees");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -224,11 +219,10 @@ public class LevelLoader : MonoBehaviour
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Front_Left_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                posicionesPiezas[r_f_l_t.id] = posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Left_Trees");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -242,11 +236,10 @@ public class LevelLoader : MonoBehaviour
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Left_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                posicionesPiezas[r_f_l_t.id] = posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Left_Trees");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -260,11 +253,10 @@ public class LevelLoader : MonoBehaviour
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Right_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                posicionesPiezas[r_f_l_t.id] = posicion;
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Right_Trees");
                 if (rectaPrefab != null)
                 {
-                    Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
                 {
@@ -296,7 +288,7 @@ public class LevelLoader : MonoBehaviour
                 int indexPieza = nivel.jugadorNuevo.pieza.index;
                 if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
                 {
-                    Vector3 posicionPieza = posicionesPiezas[indexPieza];
+                    Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
                     //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
                     Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale, subdivisions);
 
@@ -312,7 +304,7 @@ public class LevelLoader : MonoBehaviour
                     Debug.LogError("No se encontró la pieza especificada para el jugador.");
                 }
             }
-            Vector3 posicionPiezaTarget = posicionesPiezas[nivel.targetJugador.pieza.index];
+            Vector3 posicionPiezaTarget = posicionesPiezas[nivel.targetJugador.pieza.index].transform.position;
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionTarget = ConvertToSubPosition(posicionPiezaTarget, nivel.targetJugador.subPosicion.fil, nivel.targetJugador.subPosicion.col, subScale, subdivisions);
             GameObject targetPoint = Instantiate(TargetPrefab, posicionTarget, Quaternion.identity);
@@ -371,7 +363,7 @@ public class LevelLoader : MonoBehaviour
             int indexPieza = IAcar.pieza.index;
 
 
-            Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
             GameObject cocheIAObj = Instantiate(cocheIAPrefab, posicionCoche, rotation);
@@ -404,7 +396,7 @@ public class LevelLoader : MonoBehaviour
             int indexPieza = cuadricula.pieza.index;
 
 
-            Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, cuadricula.subPosicion.fil, cuadricula.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
@@ -419,7 +411,7 @@ public class LevelLoader : MonoBehaviour
             int indexPieza = semaforo.pieza.index;
 
 
-            Vector3 posicionPieza = posicionesPiezas[indexPieza];
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionSemaforo = ConvertToSubPosition(posicionPieza, semaforo.subPosicion.fil, semaforo.subPosicion.col, subScale, subdivisions);
             if (semaforo.doble)
