@@ -452,8 +452,8 @@ MonoBehaviour:
   motorTorque: 2000
   brakeTorque: 2000
   maxSpeed: 120
-  steeringRange: 40
-  steeringRangeAtMaxSpeed: 10
+  steeringRange: 60
+  steeringRangeAtMaxSpeed: 30
   centreOfGravityOffset: -1
 --- !u!114 &1249257593467984754
 MonoBehaviour:

@@ -411,45 +411,6 @@ public class LevelLoader : MonoBehaviour
             GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, posicionCuadricula, prefabRotation);
             cuadriculaObj.SetActive(true);
         }
-        //SEMAFOROS ANTIGUOS
-        //foreach (var semaforo in nivel.semaforos)
-        //{
-        //    Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
-        //    if (semaforo.doble)
-        //    {
-        //        GameObject semaforoObj = Instantiate(semaforoDoblePrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
-        //        foreach (Transform child in semaforoObj.transform)
-        //        {
-        //            SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
-        //            if (semaforoScript != null)
-        //            {
-        //                semaforoScript.greenSeconds = semaforo.greenSeconds;
-        //                semaforoScript.amberSeconds = semaforo.amberSeconds;
-        //                semaforoScript.redSeconds = semaforo.redSeconds;
-        //                semaforoScript.red.SetActive(semaforo.initialLight == "red");
-        //                semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
-        //                semaforoScript.green.SetActive(semaforo.initialLight == "green");
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        GameObject semaforoObj = Instantiate(semaforoPrefab, new Vector3(semaforo.posicion.x, semaforo.posicion.y, semaforo.posicion.z), rotation);
-
-        //        SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
-        //        semaforoScript.greenSeconds = semaforo.greenSeconds;
-        //        semaforoScript.amberSeconds = semaforo.amberSeconds;
-        //        semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
-        //        semaforoScript.red.SetActive(semaforo.initialLight == "red");
-        //        semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
-        //        semaforoScript.green.SetActive(semaforo.initialLight == "green");
-        //    }
-
-        //}
-
-
-
-
         //SEMAFOROS NUEVOS
         foreach (var semaforo in nivel.semaforosNuevos)
         {
