@@ -13,12 +13,13 @@ public class CarController : MonoBehaviour
     private Rigidbody rigidBody;
     private bool hasMoved = false;
 
+    public float steeringSmoothness = 0.1f;  
+    private float previousSteerAngle = 0f;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        // Adjust center of mass vertically, to help prevent the car from rolling
         rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
-        // Find all child GameObjects that have the WheelControl script attached
         wheels = GetComponentsInChildren<WheelControl>();
     }
 
@@ -44,16 +45,19 @@ public class CarController : MonoBehaviour
         float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
+        float targetSteerAngle = hInput * currentSteerRange;
+        float smoothSteerAngle = Mathf.LerpAngle(previousSteerAngle, targetSteerAngle, steeringSmoothness);
+        previousSteerAngle = smoothSteerAngle;
+
         foreach (var wheel in wheels)
         {
             if (wheel.steerable)
             {
-                wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
+                wheel.WheelCollider.steerAngle = smoothSteerAngle;
             }
 
             if (isBraking)
             {
-                // Apply brake torque to all wheels when braking
                 wheel.WheelCollider.brakeTorque = brakeTorque;
                 wheel.WheelCollider.motorTorque = 0;
             }
@@ -63,13 +67,12 @@ public class CarController : MonoBehaviour
 
                 if (wheel.motorized)
                 {
-                    if (vInput != 0) // Permitir movimiento al soltar el freno
+                    if (vInput != 0)
                     {
                         wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
                     }
                     else
                     {
-                        // Desacelerar progresivamente
                         wheel.WheelCollider.motorTorque = 0;
                     }
                 }
