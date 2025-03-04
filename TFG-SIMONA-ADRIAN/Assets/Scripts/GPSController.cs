@@ -107,28 +107,85 @@ public class GPSController : MonoBehaviour
         pathRendererObject = Instantiate(pathRendererPrefab);
         lineRenderer = pathRendererObject.GetComponent<LineRenderer>();
 
-        //lineRenderer.positionCount = path.Count;
 
         int i = 0;
+
         foreach (var nodo in path)
         {
             if (posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().GetWaypoints().Count <= 0)
                 posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().Calculate();
-            foreach (var item in posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().GetWaypoints())
+
+
+            var currentWaypointContainer = posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>();
+            var waypoints = currentWaypointContainer.GetWaypoints();
+
+            foreach (var waypoint in waypoints)
             {
-                lineRenderer.SetPosition(i, item.transform.position);
-                i++;
+
+                Waypoint correctBranch = GetCorrectBranch(waypoint.GetComponent<Waypoint>());
+
+
+                if (correctBranch != null)
+                {
+
+                    lineRenderer.SetPosition(i, correctBranch.transform.position);
+                    i++;
+
+
+                    var nextWaypoint = correctBranch.next;
+                    while (nextWaypoint != null)
+                    {
+                        lineRenderer.SetPosition(i, nextWaypoint.transform.position);
+                        i++;
+                        nextWaypoint = nextWaypoint.next;
+                    }
+                }
             }
         }
-        //for (int i = 0; i < path.Count; i++)
-        //{
-        //    lineRenderer.SetPosition(i, posicionesPiezas[path[i].Id]);
-        //}
     }
+
+    //Método para obtener la rama correcta hacia el destino
+    private Waypoint GetCorrectBranch(Waypoint waypoint)
+    {
+
+        Node goalNode = new Node(targetNodeId);
+        Vector3 destinationPosition = posicionesPiezas[goalNode.Id].transform.position;
+
+
+        Vector3 directionToDestination = destinationPosition - waypoint.transform.position;
+
+
+        Waypoint correctBranch = null;
+        float maxDotProduct = float.MinValue;
+
+
+        foreach (var branch in waypoint.branches)
+        {
+
+            Vector3 directionToBranch = branch.transform.position - waypoint.transform.position;
+
+
+            float dotProduct = Vector3.Dot(directionToDestination.normalized, directionToBranch.normalized);
+
+
+            if (dotProduct > maxDotProduct)
+            {
+                maxDotProduct = dotProduct;
+                correctBranch = branch;
+            }
+        }
+
+        return correctBranch;
+    }
+
+
+
+
+
 
     private void RecalculatePath()
     {
-        // Recalcula el nodo inicial basado en la posición actual del jugador
+
         Node startNode = GetClosestNode(player.position);
         Node goalNode = new Node(targetNodeId);
         path = NavigationUtils.AStar(graph, startNode, goalNode);
