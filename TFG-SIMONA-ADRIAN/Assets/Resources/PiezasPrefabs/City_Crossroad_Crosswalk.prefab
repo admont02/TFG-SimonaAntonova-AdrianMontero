@@ -3963,3 +3963,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaypointRoot: {fileID: 4726692651111944905}
+  Waypoints: {fileID: 7389956229042900175}

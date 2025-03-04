@@ -109,39 +109,68 @@ public class GPSController : MonoBehaviour
 
 
         int i = 0;
-
-        foreach (var nodo in path)
+        for (int j = 0; j < path.Count; j++)
         {
-            if (posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().GetWaypoints().Count <= 0)
-                posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>().Calculate();
+            //path[j]
+            if (posicionesPiezas[path[j].Id].GetComponent<WaypointContainer>().GetWaypoints() != null)
+                posicionesPiezas[path[j].Id].GetComponent<WaypointContainer>().Calculate();
 
 
-            var currentWaypointContainer = posicionesPiezas[nodo.Id].GetComponent<WaypointContainer>();
+            var currentWaypointContainer = posicionesPiezas[path[j].Id].GetComponent<WaypointContainer>();
             var waypoints = currentWaypointContainer.GetWaypoints();
+            Waypoint aux = waypoints.GetComponent<Waypoint>();
 
-            foreach (var waypoint in waypoints)
+            while (aux.next != null)
             {
-
-                Waypoint correctBranch = GetCorrectBranch(waypoint.GetComponent<Waypoint>());
-
-
-                if (correctBranch != null)
+                if (aux.branches.Count > 0)
                 {
+                    if (j + 1 <= path.Count)
+                        if (CheckWaypointDistance(aux.branches[0], aux.next, posicionesPiezas[path[j + 1].Id].transform.position))
+                        {
 
-                    lineRenderer.SetPosition(i, correctBranch.transform.position);
+                            Waypoint correctBranch = GetCorrectBranch(aux);
+
+                            if (correctBranch != null)
+                            {
+
+                                lineRenderer.SetPosition(i, correctBranch.transform.position);
+                                i++;
+
+
+                                var nextWaypoint = correctBranch.next;
+                                while (nextWaypoint != null)
+                                {
+                                    lineRenderer.SetPosition(i, nextWaypoint.transform.position);
+                                    i++;
+                                    nextWaypoint = nextWaypoint.next;
+                                }
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            lineRenderer.SetPosition(i, aux.GetPosition());
+                            i++;
+                        }
+                }
+                else
+                {
+                    lineRenderer.SetPosition(i, aux.GetPosition());
                     i++;
-
-
-                    var nextWaypoint = correctBranch.next;
-                    while (nextWaypoint != null)
-                    {
-                        lineRenderer.SetPosition(i, nextWaypoint.transform.position);
-                        i++;
-                        nextWaypoint = nextWaypoint.next;
-                    }
+                }
+                if (aux.next != null)
+                {
+                    aux = aux.next;
+                    aux.previous.next = null;
                 }
             }
         }
+    }
+    private bool CheckWaypointDistance(Waypoint a, Waypoint b, Vector3 pos)
+    {
+        return (Vector3.Distance(a.GetPosition(), pos) < Vector3.Distance(a.GetPosition(), pos));
+
+
     }
 
     //Método para obtener la rama correcta hacia el destino
@@ -220,7 +249,7 @@ public class GPSController : MonoBehaviour
 
         if (timeSinceLastRecalculation >= recalculationInterval)
         {
-            RecalculatePath();
+            //RecalculatePath();
             timeSinceLastRecalculation = 0.0f;
         }
 

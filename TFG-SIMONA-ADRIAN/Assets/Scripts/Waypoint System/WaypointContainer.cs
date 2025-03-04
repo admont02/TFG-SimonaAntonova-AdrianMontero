@@ -7,15 +7,15 @@ public class WaypointContainer : MonoBehaviour
     [SerializeField]
     private GameObject WaypointRoot;
 
-    private List<GameObject> Waypoints = new();
+    [SerializeField]
+    private GameObject Waypoints;
     public void Calculate()
     {
-        for (int i = 0; i < WaypointRoot.transform.childCount; i++)
-        {
-            Waypoints.Add(WaypointRoot.transform.GetChild(i).gameObject);
-        }
+        if (Waypoints == null)
+            Waypoints = WaypointRoot.transform.GetChild(0).gameObject;
+
     }
-    public List<GameObject> GetWaypoints()
+    public GameObject GetWaypoints()
     {
         return Waypoints;
     }

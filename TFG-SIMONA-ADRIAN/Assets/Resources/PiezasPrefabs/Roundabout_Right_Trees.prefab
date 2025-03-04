@@ -6237,6 +6237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaypointRoot: {fileID: 7251610291902055816}
+  Waypoints: {fileID: 9035293331012323453}
 --- !u!1 &8659450739132550847
 GameObject:
   m_ObjectHideFlags: 0

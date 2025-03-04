@@ -47,8 +47,7 @@ MonoBehaviour:
   previous: {fileID: 0}
   next: {fileID: 8299710968486527037}
   width: 1
-  branches:
-  - {fileID: 7162893547345611707}
+  branches: []
   branchRatio: 1
 --- !u!1 &39005286125136521
 GameObject:
@@ -80,9 +79,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7549267896564648862}
-  - {fileID: 1743299377455051022}
-  - {fileID: 911180514701489104}
   - {fileID: 4336290267406223545}
+  - {fileID: 911180514701489104}
+  - {fileID: 1743299377455051022}
   m_Father: {fileID: 2081590182865003063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &101808454925387155
@@ -3731,6 +3730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaypointRoot: {fileID: 39005286125136521}
+  Waypoints: {fileID: 5473404381934254}
 --- !u!1 &6991371107820959155
 GameObject:
   m_ObjectHideFlags: 0
