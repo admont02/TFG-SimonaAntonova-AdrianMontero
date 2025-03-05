@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 8278955614840488042}
   - component: {fileID: 2956263089294761095}
   - component: {fileID: 8117760330026932410}
+  - component: {fileID: 4322305821549741012}
   m_Layer: 3
   m_Name: CocheIA
   m_TagString: Untagged
@@ -785,7 +786,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6387265493772772582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: -1372625422
   m_Radius: 1.35
   m_Speed: 15
@@ -812,7 +813,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318a632b7847b4e4c91927055c1414ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 0
+  reachedDestination: 1
+  destination: {x: 0, y: 0, z: 0}
+  stopDistance: 2.5
+  movementSpeed: 1
+  rotationSpeed: 120
+--- !u!114 &4322305821549741012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387265493772772582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c8377927ed0fe44bc5493f19114695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: {fileID: 0}
+  randomDirection: 0
 --- !u!1 &7386336429797760790
 GameObject:
   m_ObjectHideFlags: 0

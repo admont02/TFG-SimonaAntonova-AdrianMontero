@@ -15,7 +15,7 @@ public class WaypointContainer : MonoBehaviour
             Waypoints = WaypointRoot.transform.GetChild(0).gameObject;
 
     }
-    public GameObject GetWaypoints()
+    public GameObject GetWaypoint()
     {
         return Waypoints;
     }

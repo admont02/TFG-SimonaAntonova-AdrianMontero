@@ -65,12 +65,12 @@ public class GPSController : MonoBehaviour
         for (int i = 0; i < path.Count - 1; i++)
         {
             WaypointContainer currentWaypointContainer = posicionesPiezas[path[i].Id].GetComponent<WaypointContainer>();
-            if (currentWaypointContainer.GetWaypoints() == null)
+            if (currentWaypointContainer.GetWaypoint() == null)
             {
                 currentWaypointContainer.Calculate();
             }
 
-            GameObject waypointObject = currentWaypointContainer.GetWaypoints();
+            GameObject waypointObject = currentWaypointContainer.GetWaypoint();
             Waypoint waypointComponent = waypointObject.GetComponent<Waypoint>();
 
             if (waypointComponent == null)
