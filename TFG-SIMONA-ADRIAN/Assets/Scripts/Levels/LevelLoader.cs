@@ -219,7 +219,7 @@ public class LevelLoader : MonoBehaviour
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Front_Left_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Left_Trees");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
