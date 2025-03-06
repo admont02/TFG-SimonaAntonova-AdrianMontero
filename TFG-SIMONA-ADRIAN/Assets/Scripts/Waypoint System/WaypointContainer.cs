@@ -19,4 +19,8 @@ public class WaypointContainer : MonoBehaviour
     {
         return Waypoints;
     }
+    public GameObject GetRoot()
+    {
+        return WaypointRoot;
+    }
 }

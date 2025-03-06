@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[SerializeField]
+public enum Direction { NONE,North, South, East, West }
 public class Waypoint : MonoBehaviour
 {
+
     public Waypoint previous;
     public Waypoint next;
 
     [Range(0f, 5f)]
     public float width = 1f;
-    
+
     public List<Waypoint> branches = new();
 
     [Range(0f, 1f)]
     public float branchRatio = 1.0f;
+
+    public Direction direction;
 
     public Vector3 GetPosition()
     {
