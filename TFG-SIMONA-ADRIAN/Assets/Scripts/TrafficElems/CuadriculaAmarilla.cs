@@ -8,7 +8,7 @@ public class CuadriculaAmarilla : MonoBehaviour
     private void Start()
     {
         Vector3 position = gameObject.transform.position;
-        position.y = 0.1f;
+        position.y = 0.3f;
         gameObject.transform.position = position;
 
     }

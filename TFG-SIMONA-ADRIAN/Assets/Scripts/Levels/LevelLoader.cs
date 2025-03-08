@@ -129,7 +129,7 @@ public class LevelLoader : MonoBehaviour
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Crossroad");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -148,7 +148,7 @@ public class LevelLoader : MonoBehaviour
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Vertical_Road");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Vertical");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -166,7 +166,7 @@ public class LevelLoader : MonoBehaviour
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Horizontal_Road");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Horizontal");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -184,7 +184,7 @@ public class LevelLoader : MonoBehaviour
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/City_Crossroad_Crosswalk");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Crossroad");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -202,7 +202,7 @@ public class LevelLoader : MonoBehaviour
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Front_Right_Trees");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -236,7 +236,7 @@ public class LevelLoader : MonoBehaviour
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Left_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Left_Trees");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -253,7 +253,7 @@ public class LevelLoader : MonoBehaviour
             foreach (var r_f_l_t in nivel.mapaNuevo.Roundabout_Right_Trees)
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout_Right_Trees");
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
@@ -357,6 +357,7 @@ public class LevelLoader : MonoBehaviour
 
 
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+            
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, cuadricula.subPosicion.fil, cuadricula.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
