@@ -14,10 +14,12 @@ public class OtherCar : MonoBehaviour
     public float rotationSpeed = 120;
     private Vector3 lastPosition;
     private Vector3 velocity;
+    public bool isStopped = false;
 
     // Update is called once per frame
     void Update()
     {
+        if(isStopped) return;
         if (transform.position != destination)
         {
             Vector3 destinationDirection = destination - transform.position;
@@ -46,7 +48,14 @@ public class OtherCar : MonoBehaviour
     {
         destination = des;
         reachedDestination = false;
+    }
+    public void StopCar()
+    {
+        isStopped = true;
+    }
 
-
+    public void ResumeCar()
+    {
+        isStopped = false;
     }
 }

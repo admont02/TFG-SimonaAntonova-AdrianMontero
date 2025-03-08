@@ -149,6 +149,21 @@
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
             "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 0
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 12
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
         }
     ],
     "cuadriculas": [

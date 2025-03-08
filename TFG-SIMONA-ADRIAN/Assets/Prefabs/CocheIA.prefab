@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7043288734562286174}
   - component: {fileID: 8301115970027643676}
   - component: {fileID: 5743946937430556780}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Back Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3800858529263964393}
   - component: {fileID: 5397660284489311298}
   - component: {fileID: 985340814617601668}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Front Right Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7239745529272780239}
   - component: {fileID: 310266436750057023}
   - component: {fileID: 945250888421224573}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Back Left Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 1368141195243195139}
   - component: {fileID: 823817932504546388}
   - component: {fileID: 928977281727964646}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Front Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 8083962585592569552}
   - component: {fileID: 7388088614277247000}
   - component: {fileID: 2293288780425450826}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Front Left Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 5842663224984266424}
   - component: {fileID: 1056182048700099103}
   - component: {fileID: 5583961383131894139}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Back Right Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 5545757211558167289}
   - component: {fileID: 5204441123203368287}
   - component: {fileID: 7860984606017928968}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Front Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 2956263089294761095}
   - component: {fileID: 8117760330026932410}
   - component: {fileID: 4322305821549741012}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CocheIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,6 +818,7 @@ MonoBehaviour:
   stopDistance: 2.5
   movementSpeed: 1
   rotationSpeed: 120
+  isStopped: 0
 --- !u!114 &4322305821549741012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,7 +844,7 @@ GameObject:
   - component: {fileID: 5375271014702144285}
   - component: {fileID: 4675810485936799800}
   - component: {fileID: 522242801522039878}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wheel Back Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +928,7 @@ GameObject:
   - component: {fileID: 7065651181168110481}
   - component: {fileID: 7297783685811920891}
   - component: {fileID: 4866866283445430874}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Car Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
