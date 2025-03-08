@@ -389,7 +389,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 124.02, y: 2.62, z: 113.88}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1892576437425607136}
@@ -418,7 +418,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2376696042191848362}
   serializedVersion: 4
-  m_Mass: 1500
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: -1, z: 0}
@@ -455,6 +455,11 @@ MonoBehaviour:
   steeringRange: 60
   steeringRangeAtMaxSpeed: 30
   centreOfGravityOffset: -1
+  steeringSmoothness: 0.2
+  enableSteeringAssist: 1
+  enableSpeedControl: 1
+  assistSteeringFactor: 0.5
+  maxAssistSpeed: 10
 --- !u!114 &1249257593467984754
 MonoBehaviour:
   m_ObjectHideFlags: 0
