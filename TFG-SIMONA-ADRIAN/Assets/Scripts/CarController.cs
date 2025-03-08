@@ -5,22 +5,22 @@ public class CarController : MonoBehaviour
     public float motorTorque = 2000f;
     public float brakeTorque = 2000f;
     public float maxSpeed = 35f;
-    public float steeringRange = 50f; // Aumenta el rango de dirección para giros más fáciles
-    public float steeringRangeAtMaxSpeed = 25f; // Ajusta el rango de dirección a altas velocidades
+    public float steeringRange = 50f; 
+    public float steeringRangeAtMaxSpeed = 25f; 
     public float centreOfGravityOffset = -1f;
 
     private WheelControl[] wheels;
     private Rigidbody rigidBody;
     private bool hasMoved = false;
 
-    public float steeringSmoothness = 0.2f;  // Incrementar la suavidad del giro
+    public float steeringSmoothness = 0.2f;  
     private float previousSteerAngle = 0f;
 
-    // Parámetros de ayuda al jugador
+    
     public bool enableSteeringAssist = true;
     public bool enableSpeedControl = true;
-    public float assistSteeringFactor = 0.5f; // Factor de asistencia en la dirección
-    public float maxAssistSpeed = 10f; // Velocidad máxima con asistencia
+    public float assistSteeringFactor = 0.5f; 
+    public float maxAssistSpeed = 10f;
 
     void Start()
     {
@@ -78,20 +78,20 @@ public class CarController : MonoBehaviour
             }
         }
 
-        // Asistencia en la dirección
+        
         if (enableSteeringAssist && hInput != 0)
         {
             Vector3 assistDirection = Vector3.Lerp(transform.forward, transform.right * hInput, assistSteeringFactor);
             rigidBody.AddForce(assistDirection * motorTorque * 0.1f);
         }
 
-        // Control de velocidad
+        
         if (enableSpeedControl && forwardSpeed > maxAssistSpeed)
         {
             rigidBody.AddForce(-transform.forward * motorTorque * 0.5f);
         }
 
-        // Permitir giros incluso cuando no hay entrada vertical
+       
         if (hInput != 0)
         {
             Vector3 rotationForce = transform.up * hInput * currentSteerRange * 0.1f;
