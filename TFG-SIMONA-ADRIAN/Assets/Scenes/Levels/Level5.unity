@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 7.5, z: -18}
+  m_FollowOffset: {x: 0, y: 13, z: -22}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -7496,7 +7496,7 @@ MonoBehaviour:
   cuadriculaPrefab: {fileID: 4978257394053826113, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
   semaforoPrefab: {fileID: 868025956819239312, guid: 9b67ae2464d055f48b94ea4903095186, type: 3}
   semaforoDoblePrefab: {fileID: 3414803328377232135, guid: 19a8bad7f02518d4489050673be159a6, type: 3}
-  playerPrefab: {fileID: 2376696042191848362, guid: cb0846f2c2c783c469e8ff5e31e8b2b2, type: 3}
+  playerPrefab: {fileID: 5978714192574154039, guid: 7b8b534370d87be4c8068e202dbcbc27, type: 3}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0
