@@ -156,8 +156,8 @@
                 "index": 0
             },
             "subPosicion": {
-                "fil": 11,
-                "col": 12
+                "fil": 13,
+                "col": 14
             },
             "orientacion": "arriba",
             "greenSeconds": 20.0,
@@ -192,22 +192,10 @@
                 "index": 0
             },
             "subPosicion": {
-                "fil": 9,
+                "fil": 10,
                 "col": 2
             },
-            "orientacion": "arriba",
-            "posiciones": [
-                {
-                    "x": 102.2,
-                    "y": 2.5,
-                    "z": 134.45
-                },
-                {
-                    "x": 44.2,
-                    "y": 2.5,
-                    "z": 133.6
-                }
-            ]
+            "orientacion": "arriba"
         }
     ],
     "levelDialogs": [

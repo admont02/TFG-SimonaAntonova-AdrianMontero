@@ -338,7 +338,7 @@ public class LevelLoader : MonoBehaviour
             GameManager.Instance.AddCocheIA(cocheIAObj);
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
             WaypointNavigator wN = cocheIAObj.GetComponent<WaypointNavigator>();
-            wN.SetInitialWaypoint(posicionesPiezas, indexPieza);
+            wN.SetInitialWaypoint(posicionesPiezas, indexPieza,IAcar.orientacion);
             //if (otherCar != null && IAcar.posiciones.Count > 0)
             //{
             //    List<Vector3> destinations = new List<Vector3>();

@@ -13,15 +13,18 @@ public class WaypointNavigator : MonoBehaviour
     int currentIndex;
     //esto deberia estar accesible en GameManager (tb se usa GPS)
     Dictionary<int, GameObject> posicionesPiezas;
+    string initialOrientation;
     private void Awake()
     {
         controller = GetComponent<OtherCar>();
     }
-    public void SetInitialWaypoint(Dictionary<int, GameObject> posicionesPiezas_, int index)
+    public void SetInitialWaypoint(Dictionary<int, GameObject> posicionesPiezas_, int index,string orientacion)
     {
         currentIndex = index;
         posicionesPiezas=posicionesPiezas_;
         currentWaypoint = posicionesPiezas[index].GetComponent<WaypointContainer>().GetWaypoint().GetComponent<Waypoint>();
+        Direction dir = ParseOrientationToDirection(orientacion);
+        currentWaypoint = GetClosestWaypointInDirection(posicionesPiezas[index], controller.transform.position,dir);
     }
     void Start()
     {
@@ -138,6 +141,52 @@ public class WaypointNavigator : MonoBehaviour
             case Direction.East: return Direction.West;
             case Direction.West: return Direction.East;
             default: return Direction.North;  // Valor predeterminado
+        }
+    }
+    private Waypoint GetClosestWaypointInDirection(GameObject piece, Vector3 position, Direction direction)
+    {
+        Waypoint[] waypoints = piece.GetComponentsInChildren<Waypoint>();
+        Waypoint closestWaypoint = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (Waypoint waypoint in waypoints)
+        {
+            if (IsInDirection(position, waypoint.transform.position, direction))
+            {
+                float distance = Vector3.Distance(position, waypoint.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestWaypoint = waypoint;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        return closestWaypoint;
+    }
+
+    private bool IsInDirection(Vector3 from, Vector3 to, Direction direction)
+    {
+        Vector3 directionVector = to - from;
+        switch (direction)
+        {
+            case Direction.North: return directionVector.z > 0;
+            case Direction.South: return directionVector.z < 0;
+            case Direction.East: return directionVector.x > 0;
+            case Direction.West: return directionVector.x < 0;
+            default: return false;
+        }
+    }
+
+    private Direction ParseOrientationToDirection(string orientation)
+    {
+        switch (orientation.ToLower())
+        {
+            case "arriba": return Direction.North;
+            case "abajo": return Direction.South;
+            case "derecha": return Direction.East;
+            case "izquierda": return Direction.West;
+            default: return Direction.North; 
         }
     }
 }
