@@ -99,7 +99,7 @@ MonoBehaviour:
   width: 5
   branches: []
   branchRatio: 1
-  direction: 0
+  direction: 2
 --- !u!1 &671102975009175685
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   width: 5
   branches: []
   branchRatio: 1
-  direction: 0
+  direction: 1
 --- !u!1 &6370807584997999626
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   width: 5
   branches: []
   branchRatio: 1
-  direction: 0
+  direction: 3
 --- !u!1 &7790713433191050693
 GameObject:
   m_ObjectHideFlags: 0
