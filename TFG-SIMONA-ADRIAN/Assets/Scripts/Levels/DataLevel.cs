@@ -1,6 +1,12 @@
 using System;
 using System.Collections.Generic;
 
+public static class SceneData
+{
+    public static string JsonFileName="menu.json";
+}
+
+
 [System.Serializable]
 public class Posicion
 {
@@ -56,7 +62,7 @@ public class Digrafo
     public int v;
     public int a = 0;
     public List<List<int>> ady;
-     public Digrafo(int v_)
+    public Digrafo(int v_)
     {
         v = v_;
         ady = new List<List<int>>();
@@ -104,15 +110,15 @@ public class Digrafo
 
         return ady[a];
     }
-   // Digrafo inverso() const {
-   //   Digrafo inv(_V);
-   //   for (int v = 0; v<_V; ++v) {
-   //      for (int w : _ady[v]) {
-   //         inv.ponArista(w, v);
-   //      }
-   //   }
-   //   return inv;
-   //}
+    // Digrafo inverso() const {
+    //   Digrafo inv(_V);
+    //   for (int v = 0; v<_V; ++v) {
+    //      for (int w : _ady[v]) {
+    //         inv.ponArista(w, v);
+    //      }
+    //   }
+    //   return inv;
+    //}
 }
 
 [System.Serializable]
@@ -212,6 +218,7 @@ public class MapaNuevo
     public List<PosicionMapa> Roundabout_Front_Right_Trees;
     public List<PosicionMapa> Roundabout_Left_Trees;
     public List<PosicionMapa> Roundabout_Right_Trees;
+    public List<PosicionMapa> Pavement;
 
 
 
@@ -243,7 +250,7 @@ public class PosicionMapa
     public int id;
     public int fil;
     public int col;
-    public List <int> conexiones;
+    public List<int> conexiones;
 }
 
 [System.Serializable]

@@ -47,7 +47,7 @@ public class CarController : MonoBehaviour
         }
 
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
-        float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
+        float speedFactor = 0.5f;//Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
         float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 

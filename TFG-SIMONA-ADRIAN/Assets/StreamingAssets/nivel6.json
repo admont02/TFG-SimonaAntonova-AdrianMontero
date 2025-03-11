@@ -1,0 +1,241 @@
+{
+    "nivel": 5,
+    "mapaNuevo": {
+        "numPiezas": 100,
+        "filas": 10,
+        "columnas": 10,
+        "Pavement": [
+            { "id": 0, "fil": 0,"col": 0,"conexiones": []},
+            { "id": 1, "fil": 0,"col": 1,"conexiones": []},
+            { "id": 2, "fil": 0,"col": 2,"conexiones": []},
+            { "id": 3, "fil": 0,"col": 3,"conexiones": []},
+            { "id": 4, "fil": 0,"col": 4,"conexiones": []},
+            { "id": 5, "fil": 0,"col": 5,"conexiones": []},
+            { "id": 6, "fil": 0,"col": 6,"conexiones": []},
+            { "id": 7, "fil": 0,"col": 7,"conexiones": []},
+            { "id": 8, "fil": 0,"col": 8,"conexiones": []},
+            { "id": 9, "fil": 0,"col": 9,"conexiones": []},
+            
+            { "id": 10, "fil": 1,"col": 0,"conexiones": []},
+            { "id": 20, "fil": 2,"col": 0,"conexiones": []},
+            { "id": 30, "fil": 3,"col": 0,"conexiones": []},
+            { "id": 40, "fil": 4,"col": 0,"conexiones": []},
+            { "id": 50, "fil": 5,"col": 0,"conexiones": []},
+            { "id": 60, "fil": 6,"col": 0,"conexiones": []},
+            { "id": 70, "fil": 7,"col": 0,"conexiones": []},
+            { "id": 80, "fil": 8,"col": 0,"conexiones": []},
+
+            { "id": 19, "fil": 1,"col": 9,"conexiones": []},
+            { "id": 29, "fil": 2,"col": 9,"conexiones": []},
+            { "id": 39, "fil": 3,"col": 9,"conexiones": []},
+            { "id": 49, "fil": 4,"col": 9,"conexiones": []},
+            { "id": 59, "fil": 5,"col": 9,"conexiones": []},
+            { "id": 69, "fil": 6,"col": 9,"conexiones": []},
+            { "id": 79, "fil": 7,"col": 9,"conexiones": []},
+            { "id": 89, "fil": 8,"col": 9,"conexiones": []},
+
+            { "id": 90, "fil": 9,"col": 0,"conexiones": []},
+            { "id": 91, "fil": 9,"col": 1,"conexiones": []},
+            { "id": 92, "fil": 9,"col": 2,"conexiones": []},
+            { "id": 93, "fil": 9,"col": 3,"conexiones": []},
+            { "id": 94, "fil": 9,"col": 4,"conexiones": []},
+            { "id": 95, "fil": 9,"col": 5,"conexiones": []},
+            { "id": 96, "fil": 9,"col": 6,"conexiones": []},
+            { "id": 97, "fil": 9,"col": 7,"conexiones": []},
+            { "id": 98, "fil": 9,"col": 8,"conexiones": []},
+            { "id": 99, "fil": 9,"col": 9,"conexiones": []}
+        
+        ],
+        "City_Crossroad": [
+            {"id": 11,"fil": 1,"col": 1,"conexiones": []},
+            {"id": 12,"fil": 1,"col": 2,"conexiones": []},
+            {"id": 13,"fil": 1,"col": 3,"conexiones": []},
+            {"id": 14,"fil": 1,"col": 4,"conexiones": []},
+            {"id": 15,"fil": 1,"col": 5,"conexiones": []},
+            {"id": 16,"fil": 1,"col": 6,"conexiones": []},
+            {"id": 17,"fil": 1,"col": 7,"conexiones": []},
+            {"id": 18,"fil": 1,"col": 8,"conexiones": []},
+            {"id": 21,"fil": 2,"col": 1,"conexiones": []},
+            {"id": 22,"fil": 2,"col": 2,"conexiones": []},
+            {"id": 23,"fil": 2,"col": 3,"conexiones": []},
+            {"id": 24,"fil": 2,"col": 4,"conexiones": []},
+            {"id": 25,"fil": 2,"col": 5,"conexiones": []},
+            {"id": 26,"fil": 2,"col": 6,"conexiones": []},
+            {"id": 27,"fil": 2,"col": 7,"conexiones": []},
+            {"id": 28,"fil": 2,"col": 8,"conexiones": []},
+            {"id": 31,"fil": 3,"col": 1,"conexiones": []},
+            {"id": 32,"fil": 3,"col": 2,"conexiones": []},
+            {"id": 33,"fil": 3,"col": 3,"conexiones": []},
+            {"id": 34,"fil": 3,"col": 4,"conexiones": []},
+            {"id": 35,"fil": 3,"col": 5,"conexiones": []},
+            {"id": 36,"fil": 3,"col": 6,"conexiones": []},
+            {"id": 37,"fil": 3,"col": 7,"conexiones": []},
+            {"id": 38,"fil": 3,"col": 8,"conexiones": []},
+            {"id": 41,"fil": 4,"col": 1,"conexiones": []},
+            {"id": 42,"fil": 4,"col": 2,"conexiones": []},
+            {"id": 43,"fil": 4,"col": 3,"conexiones": []},
+            {"id": 44,"fil": 4,"col": 4,"conexiones": []},
+            {"id": 45,"fil": 4,"col": 5,"conexiones": []},
+            {"id": 46,"fil": 4,"col": 6,"conexiones": []},
+            {"id": 47,"fil": 4,"col": 7,"conexiones": []},
+            {"id": 48,"fil": 4,"col": 8,"conexiones": []},
+            {"id": 51,"fil": 5,"col": 1,"conexiones": []},
+            {"id": 52,"fil": 5,"col": 2,"conexiones": []},
+            {"id": 53,"fil": 5,"col": 3,"conexiones": []},
+            {"id": 54,"fil": 5,"col": 4,"conexiones": []},
+            {"id": 55,"fil": 5,"col": 5,"conexiones": []},
+            {"id": 56,"fil": 5,"col": 6,"conexiones": []},
+            {"id": 57,"fil": 5,"col": 7,"conexiones": []},
+            {"id": 58,"fil": 5,"col": 8,"conexiones": []},
+            {"id": 61,"fil": 6,"col": 1,"conexiones": []},
+            {"id": 62,"fil": 6,"col": 2,"conexiones": []},
+            {"id": 63,"fil": 6,"col": 3,"conexiones": []},
+            {"id": 64,"fil": 6,"col": 4,"conexiones": []},
+            {"id": 65,"fil": 6,"col": 5,"conexiones": []},
+            {"id": 66,"fil": 6,"col": 6,"conexiones": []},
+            {"id": 67,"fil": 6,"col": 7,"conexiones": []},
+            {"id": 68,"fil": 6,"col": 8,"conexiones": []},
+            {"id": 71,"fil": 7,"col": 1,"conexiones": []},
+            {"id": 72,"fil": 7,"col": 2,"conexiones": []},
+            {"id": 73,"fil": 7,"col": 3,"conexiones": []},
+            {"id": 74,"fil": 7,"col": 4,"conexiones": []},
+            {"id": 75,"fil": 7,"col": 5,"conexiones": []},
+            {"id": 76,"fil": 7,"col": 6,"conexiones": []},
+            {"id": 77,"fil": 7,"col": 7,"conexiones": []},
+            {"id": 78,"fil": 7,"col": 8,"conexiones": []},
+            {"id": 81,"fil": 8,"col": 1,"conexiones": []},
+            {"id": 82,"fil": 8,"col": 2,"conexiones": []},
+            {"id": 83,"fil": 8,"col": 3,"conexiones": []},
+            {"id": 84,"fil": 8,"col": 4,"conexiones": []},
+            {"id": 85,"fil": 8,"col": 5,"conexiones": []},
+            {"id": 86,"fil": 8,"col": 6,"conexiones": []},
+            {"id": 87,"fil": 8,"col": 7,"conexiones": []},
+            {"id": 88,"fil": 8,"col": 8,"conexiones": []}
+        ]
+    },
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 5
+        },
+        "subPosicion": {
+            "fil": 2,
+            "col": 10
+        },
+        "orientacion": "derecha"
+    },
+    "semaforosNuevos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "izquierda",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 11
+            },
+            "orientacion": "abajo",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 7
+            },
+            "orientacion": "derecha",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 7
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 0
+            },
+            "subPosicion": {
+                "fil": 13,
+                "col": 14
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        }
+    ],
+    "cuadriculas": [
+        {
+            "pieza": {
+                "index": 6
+            },
+            "subPosicion": {
+                "fil": 9,
+                "col": 9
+            }
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 6
+        },
+        "subPosicion": {
+            "fil": 9,
+            "col": 0
+        }
+    },
+    "IACars": [
+        {
+            "pieza": {
+                "index": 0
+            },
+            "subPosicion": {
+                "fil": 10,
+                "col": 2
+            },
+            "orientacion": "arriba"
+        }
+    ],
+    "levelDialogs": [
+        " Mapa por piezas"
+    ],
+    "completedDialogs": [
+        " ¡Enhorabuena! Has completado el nivel correctamente."
+    ]
+}

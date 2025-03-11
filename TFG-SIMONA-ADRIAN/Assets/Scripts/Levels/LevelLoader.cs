@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour
     GameObject playerPrefab;
     public void CargarNivel()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
+        string filePath = Path.Combine(Application.streamingAssetsPath, SceneData.JsonFileName);
         filePath = filePath.Replace("\\", "/"); // Reemplaza las barras invertidas por barras normales
         Debug.Log("Ruta del archivo JSON: " + filePath);
         if (File.Exists(filePath))
@@ -55,12 +55,7 @@ public class LevelLoader : MonoBehaviour
         float x = scale / 2 + scale * col;
         return new Vector3(x, 0, z);
     }
-    //Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale)
-    //{
-    //    float offsetZ = -100 / 2 + subScale / 2 + subScale * subFil;
-    //    float offsetX = -100 / 2 + subScale / 2 + subScale * subCol;
-    //    return basePosition + new Vector3(offsetX, 2.81f, offsetZ);
-    //}
+    
     Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale, int subdivisions)
     {
         //el numero magico 5 es un offset para que 0,0 sea en la pos 5,5
@@ -256,6 +251,23 @@ public class LevelLoader : MonoBehaviour
             {
                 Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
+                if (rectaPrefab != null)
+                {
+                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in r_f_l_t.conexiones)
+                {
+                    digrafo.ponArista(r_f_l_t.id, conn);
+                }
+            }
+            foreach (var r_f_l_t in nivel.mapaNuevo.Pavement)
+            {
+                Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Pavement");
                 if (rectaPrefab != null)
                 {
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);

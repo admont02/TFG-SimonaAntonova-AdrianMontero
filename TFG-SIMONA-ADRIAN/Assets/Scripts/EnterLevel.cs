@@ -30,6 +30,8 @@ public class EnterLevel : MonoBehaviour
                 audioSource.PlayOneShot(audioClip);
                 transform.localScale = enlargedScale;
                 //SceneManager.LoadScene(gameObject.name);
+                SceneData.JsonFileName = gameObject.name + ".json";
+                SceneManager.LoadScene("Game");
             }
 
         }

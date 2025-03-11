@@ -3753,7 +3753,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5978714192574154039}
   serializedVersion: 4
-  m_Mass: 1000
+  m_Mass: 1500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: -1, z: 0}
@@ -3784,11 +3784,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364fa511ef46baf42bdbef254f293228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorTorque: 2000
+  motorTorque: 2500
   brakeTorque: 2000
-  maxSpeed: 120
+  maxSpeed: 150
   steeringRange: 60
-  steeringRangeAtMaxSpeed: 30
+  steeringRangeAtMaxSpeed: 60
   centreOfGravityOffset: -1
   steeringSmoothness: 0.2
   enableSteeringAssist: 0

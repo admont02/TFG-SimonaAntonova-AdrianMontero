@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     }
     void InitializeNivelLoader()
     {
+
         nivelLoader = FindObjectOfType<LevelLoader>();
         if (nivelLoader != null)
         {
@@ -125,6 +126,8 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeScene(string sceneName)
     {
+        if (sceneName == "World")
+            SceneData.JsonFileName = "menu.json";
         SceneManager.LoadScene(sceneName);
     }
     public void ReloadCurrentScene()

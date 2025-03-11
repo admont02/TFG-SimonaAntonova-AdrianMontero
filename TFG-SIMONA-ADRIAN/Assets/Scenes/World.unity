@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2051699110}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7086,6 +7086,7 @@ MonoBehaviour:
   cochesIA: []
   incorrectLevel: []
   priorityCarList: []
+  virtualCamera: {fileID: 0}
 --- !u!4 &583424630
 Transform:
   m_ObjectHideFlags: 0
@@ -17731,6 +17732,10 @@ MonoBehaviour:
   TargetPrefab: {fileID: 0}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
   ClicLevelManagerPref: {fileID: 0}
+  cuadriculaPrefab: {fileID: 0}
+  semaforoPrefab: {fileID: 0}
+  semaforoDoblePrefab: {fileID: 0}
+  playerPrefab: {fileID: 0}
 --- !u!4 &1475562228
 Transform:
   m_ObjectHideFlags: 0
@@ -23885,6 +23890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051699111}
   - component: {fileID: 2051699110}
+  - component: {fileID: 2051699112}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -23969,6 +23975,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &2051699112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051699109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &2054854106
 GameObject:
   m_ObjectHideFlags: 0
@@ -25500,7 +25529,7 @@ GameObject:
   - component: {fileID: 8390715256790824518}
   - component: {fileID: 8390715256790824519}
   m_Layer: 0
-  m_Name: Level1
+  m_Name: nivel5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
