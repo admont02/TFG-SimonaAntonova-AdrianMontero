@@ -40,19 +40,19 @@ public class WaypointNavigator : MonoBehaviour
         switch (direction)
         {
             case Direction.North:
-                if (currentIndex + 3 < posicionesPiezas.Count) //Si no te sales del límite hacia el norte
-                    newIndex = currentIndex + 3;
+                if (currentIndex + GameManager.Instance.filas < posicionesPiezas.Count) //Si no te sales del límite hacia el norte
+                    newIndex = currentIndex + GameManager.Instance.filas;
                 break;
             case Direction.South:
-                if (currentIndex - 3 >= 0) //Si no te sales del límite hacia el sur
-                    newIndex = currentIndex - 3;
+                if (currentIndex - GameManager.Instance.filas >= 0) //Si no te sales del límite hacia el sur
+                    newIndex = currentIndex - GameManager.Instance.filas;
                 break;
             case Direction.East:
-                if ((currentIndex % 3) < 2) //Si no te sales del límite hacia el este (no estar en la última columna)
+                if ((currentIndex % GameManager.Instance.columnas) < 2) //Si no te sales del límite hacia el este (no estar en la última columna)
                     newIndex = currentIndex + 1;
                 break;
             case Direction.West:
-                if ((currentIndex % 3) > 0) //Si no te sales del límite hacia el oeste (no estar en la primera columna)
+                if ((currentIndex % GameManager.Instance.columnas) > 0) //Si no te sales del límite hacia el oeste (no estar en la primera columna)
                     newIndex = currentIndex - 1;
                 break;
         }

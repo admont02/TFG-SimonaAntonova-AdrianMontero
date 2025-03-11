@@ -201,6 +201,8 @@ public class PriorityQueue<T>
 public class MapaNuevo
 {
     public int numPiezas;
+    public int filas;
+    public int columnas;
     public List<PosicionMapa> City_Crossroad;
     public List<PosicionMapa> City_Vertical_Road;
     public List<PosicionMapa> City_Horizontal_Road;

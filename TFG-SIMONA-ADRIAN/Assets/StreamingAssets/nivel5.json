@@ -2,20 +2,25 @@
     "nivel": 5,
     "mapaNuevo": {
         "numPiezas": 9,
+        "filas": 3,
+        "columnas": 3,
         "City_Crossroad": [
             {
                 "id": 6,
                 "fil": 2,
                 "col": 0,
-                "conexiones": [7]
-
+                "conexiones": [
+                    7
+                ]
             },
             {
                 "id": 2,
                 "fil": 0,
                 "col": 2,
-                "conexiones": [1,5]
-
+                "conexiones": [
+                    1,
+                    5
+                ]
             }
         ],
         "City_Vertical_Road": [
@@ -23,7 +28,9 @@
                 "id": 0,
                 "fil": 0,
                 "col": 0,
-                "conexiones": [3]
+                "conexiones": [
+                    3
+                ]
             }
         ],
         "City_Horizontal_Road": [
@@ -31,15 +38,18 @@
                 "id": 4,
                 "fil": 1,
                 "col": 1,
-                "conexiones": [3]
-
+                "conexiones": [
+                    3
+                ]
             },
             {
                 "id": 7,
                 "fil": 2,
                 "col": 1,
-                "conexiones": [6,8]
-
+                "conexiones": [
+                    6,
+                    8
+                ]
             }
         ],
         "City_Crossroad_Crosswalk": [
@@ -47,8 +57,11 @@
                 "id": 5,
                 "fil": 1,
                 "col": 2,
-                "conexiones": [2,4,8]
-
+                "conexiones": [
+                    2,
+                    4,
+                    8
+                ]
             }
         ],
         "Roundabout_Front_Left_Trees": [
@@ -56,8 +69,9 @@
                 "id": 3,
                 "fil": 1,
                 "col": 0,
-                "conexiones": [6]
-
+                "conexiones": [
+                    6
+                ]
             }
         ],
         "Roundabout_Right_Trees": [
@@ -66,7 +80,6 @@
                 "fil": 0,
                 "col": 1,
                 "conexiones": []
-
             }
         ],
         "Roundabout_Left_Trees": [
@@ -74,8 +87,10 @@
                 "id": 8,
                 "fil": 2,
                 "col": 2,
-                "conexiones": [5,7]
-
+                "conexiones": [
+                    5,
+                    7
+                ]
             }
         ]
     },

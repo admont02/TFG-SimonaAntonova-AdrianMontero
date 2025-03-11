@@ -97,6 +97,8 @@ public class LevelLoader : MonoBehaviour
         //List<Vector3> posicionesPiezas = new List<Vector3>();
         Dictionary<int, GameObject> posicionesPiezas = new Dictionary<int, GameObject>();
         int nodos = nivel.mapaNuevo.numPiezas;
+        GameManager.Instance.filas = nivel.mapaNuevo.filas;
+        GameManager.Instance.columnas = nivel.mapaNuevo.columnas;
         Digrafo digrafo = new Digrafo(nodos);
         // Crear el punto objetivo
         if (!nivel.isMenu)
