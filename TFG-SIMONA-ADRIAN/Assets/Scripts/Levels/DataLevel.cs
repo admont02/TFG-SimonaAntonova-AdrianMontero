@@ -213,8 +213,8 @@ public class MapaNuevo
     public int filas;
     public int columnas;
     public List<PosicionMapa> City_Crossroad;
-    public List<PosicionMapa> City_Vertical_Road;
-    public List<PosicionMapa> City_Horizontal_Road;
+    public List<PosicionMapa> Vertical;
+    public List<PosicionMapa> Horizontal;
     public List<PosicionMapa> City_Crossroad_Crosswalk;
 
     public List<PosicionMapa> Roundabout_Front_Left_Trees;
@@ -222,6 +222,10 @@ public class MapaNuevo
     public List<PosicionMapa> Roundabout_Left_Trees;
     public List<PosicionMapa> Roundabout_Right_Trees;
     public List<PosicionMapa> Pavement;
+    public List<PosicionMapa> TurnRight;
+    public List<PosicionMapa> TurnRight2;
+    public List<PosicionMapa> TurnLeft;
+    public List<PosicionMapa> TurnLeft2;
 
 
 

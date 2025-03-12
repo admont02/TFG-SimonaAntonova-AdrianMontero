@@ -46,71 +46,90 @@
             {  "fil": 9,"col": 9,"conexiones": []}
         
         ],
-        "City_Crossroad": [
-            {"fil": 1,"col": 1,"conexiones": []},
+        "TurnRight":[
+            {"fil": 8,"col": 1,"conexiones": []}
+        ],
+        "TurnLeft":[
+            {"fil": 8,"col": 8,"conexiones": []}
+        ],
+        "TurnRight2":[
+            {"fil": 1,"col": 1,"conexiones": []}
+        ],
+        "TurnLeft2":[
+            {"fil": 1,"col": 8,"conexiones": []}
+        ],
+        "Horizontal":[
             {"fil": 1,"col": 2,"conexiones": []},
             {"fil": 1,"col": 3,"conexiones": []},
             {"fil": 1,"col": 4,"conexiones": []},
             {"fil": 1,"col": 5,"conexiones": []},
             {"fil": 1,"col": 6,"conexiones": []},
             {"fil": 1,"col": 7,"conexiones": []},
-            {"fil": 1,"col": 8,"conexiones": []},
+            
+            {"fil": 8,"col": 2,"conexiones": []},
+            {"fil": 8,"col": 3,"conexiones": []},
+            {"fil": 8,"col": 4,"conexiones": []},
+            {"fil": 8,"col": 5,"conexiones": []},
+            {"fil": 8,"col": 6,"conexiones": []},
+            {"fil": 8,"col": 7,"conexiones": []}
+        ],
+        "Vertical":[
             {"fil": 2,"col": 1,"conexiones": []},
+            {"fil": 3,"col": 1,"conexiones": []},
+            {"fil": 4,"col": 1,"conexiones": []},
+            {"fil": 5,"col": 1,"conexiones": []},
+            {"fil": 6,"col": 1,"conexiones": []},
+            {"fil": 7,"col": 1,"conexiones": []},
+            
+            {"fil": 2,"col": 8,"conexiones": []},
+            {"fil": 3,"col": 8,"conexiones": []},
+            {"fil": 4,"col": 8,"conexiones": []},
+            {"fil": 5,"col": 8,"conexiones": []},
+            {"fil": 6,"col": 8,"conexiones": []},
+            {"fil": 7,"col": 8,"conexiones": []}
+        ],
+        "City_Crossroad": [
             {"fil": 2,"col": 2,"conexiones": []},
             {"fil": 2,"col": 3,"conexiones": []},
             {"fil": 2,"col": 4,"conexiones": []},
             {"fil": 2,"col": 5,"conexiones": []},
             {"fil": 2,"col": 6,"conexiones": []},
             {"fil": 2,"col": 7,"conexiones": []},
-            {"fil": 2,"col": 8,"conexiones": []},
-            {"fil": 3,"col": 1,"conexiones": []},
+
             {"fil": 3,"col": 2,"conexiones": []},
             {"fil": 3,"col": 3,"conexiones": []},
             {"fil": 3,"col": 4,"conexiones": []},
             {"fil": 3,"col": 5,"conexiones": []},
             {"fil": 3,"col": 6,"conexiones": []},
             {"fil": 3,"col": 7,"conexiones": []},
-            {"fil": 3,"col": 8,"conexiones": []},
-            {"fil": 4,"col": 1,"conexiones": []},
+            
             {"fil": 4,"col": 2,"conexiones": []},
             {"fil": 4,"col": 3,"conexiones": []},
             {"fil": 4,"col": 4,"conexiones": []},
             {"fil": 4,"col": 5,"conexiones": []},
             {"fil": 4,"col": 6,"conexiones": []},
             {"fil": 4,"col": 7,"conexiones": []},
-            {"fil": 4,"col": 8,"conexiones": []},
-            {"fil": 5,"col": 1,"conexiones": []},
+            
             {"fil": 5,"col": 2,"conexiones": []},
             {"fil": 5,"col": 3,"conexiones": []},
             {"fil": 5,"col": 4,"conexiones": []},
             {"fil": 5,"col": 5,"conexiones": []},
             {"fil": 5,"col": 6,"conexiones": []},
             {"fil": 5,"col": 7,"conexiones": []},
-            {"fil": 5,"col": 8,"conexiones": []},
-            {"fil": 6,"col": 1,"conexiones": []},
+            
             {"fil": 6,"col": 2,"conexiones": []},
             {"fil": 6,"col": 3,"conexiones": []},
             {"fil": 6,"col": 4,"conexiones": []},
             {"fil": 6,"col": 5,"conexiones": []},
             {"fil": 6,"col": 6,"conexiones": []},
             {"fil": 6,"col": 7,"conexiones": []},
-            {"fil": 6,"col": 8,"conexiones": []},
-            {"fil": 7,"col": 1,"conexiones": []},
+            
             {"fil": 7,"col": 2,"conexiones": []},
             {"fil": 7,"col": 3,"conexiones": []},
             {"fil": 7,"col": 4,"conexiones": []},
             {"fil": 7,"col": 5,"conexiones": []},
             {"fil": 7,"col": 6,"conexiones": []},
-            {"fil": 7,"col": 7,"conexiones": []},
-            {"fil": 7,"col": 8,"conexiones": []},
-            {"fil": 8,"col": 1,"conexiones": []},
-            {"fil": 8,"col": 2,"conexiones": []},
-            {"fil": 8,"col": 3,"conexiones": []},
-            {"fil": 8,"col": 4,"conexiones": []},
-            {"fil": 8,"col": 5,"conexiones": []},
-            {"fil": 8,"col": 6,"conexiones": []},
-            {"fil": 8,"col": 7,"conexiones": []},
-            {"fil": 8,"col": 8,"conexiones": []}
+            {"fil": 7,"col": 7,"conexiones": []}
         ]
     },
     "jugadorNuevo": {
@@ -223,7 +242,7 @@
     "IACars": [
         {
             "pieza": {
-                "index": 0
+                "index": 11
             },
             "subPosicion": {
                 "fil": 10,

@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour
     GameObject playerPrefab;
     public void CargarNivel()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, SceneData.JsonFileName);
+        string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
         filePath = filePath.Replace("\\", "/"); // Reemplaza las barras invertidas por barras normales
         Debug.Log("Ruta del archivo JSON: " + filePath);
         if (File.Exists(filePath))
@@ -55,7 +55,7 @@ public class LevelLoader : MonoBehaviour
         float x = scale / 2 + scale * col;
         return new Vector3(x, 0, z);
     }
-    
+
     Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale, int subdivisions)
     {
         //el numero magico 5 es un offset para que 0,0 sea en la pos 5,5
@@ -98,7 +98,7 @@ public class LevelLoader : MonoBehaviour
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
-           
+
             foreach (var recta in nivel.mapaNuevo.City_Crossroad)
             {
 
@@ -119,7 +119,7 @@ public class LevelLoader : MonoBehaviour
                 }
 
             }
-            foreach (var recta in nivel.mapaNuevo.City_Vertical_Road)
+            foreach (var recta in nivel.mapaNuevo.Vertical)
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
@@ -138,7 +138,7 @@ public class LevelLoader : MonoBehaviour
                     digrafo.ponArista(recta.id, conn);
                 }
             }
-            foreach (var recta in nivel.mapaNuevo.City_Horizontal_Road)
+            foreach (var recta in nivel.mapaNuevo.Horizontal)
             {
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
@@ -183,6 +183,81 @@ public class LevelLoader : MonoBehaviour
 
                 Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
+                if (rectaPrefab != null)
+                {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.TurnRight)
+            {
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnRight");
+                if (rectaPrefab != null)
+                {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.TurnLeft)
+            {
+
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnLeft");
+                if (rectaPrefab != null)
+                {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.TurnLeft2)
+            {
+
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnLeft2");
+                if (rectaPrefab != null)
+                {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("No se encontró el prefab de la recta.");
+                }
+                foreach (var conn in recta.conexiones)
+                {
+                    digrafo.ponArista(recta.id, conn);
+                }
+            }
+            foreach (var recta in nivel.mapaNuevo.TurnRight2)
+            {
+
+                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnRight2");
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
@@ -341,7 +416,7 @@ public class LevelLoader : MonoBehaviour
             GameManager.Instance.AddCocheIA(cocheIAObj);
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
             WaypointNavigator wN = cocheIAObj.GetComponent<WaypointNavigator>();
-            wN.SetInitialWaypoint(posicionesPiezas, indexPieza,IAcar.orientacion);
+            wN.SetInitialWaypoint(posicionesPiezas, indexPieza, IAcar.orientacion);
             //if (otherCar != null && IAcar.posiciones.Count > 0)
             //{
             //    List<Vector3> destinations = new List<Vector3>();
@@ -360,7 +435,7 @@ public class LevelLoader : MonoBehaviour
 
 
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
-            
+
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, cuadricula.subPosicion.fil, cuadricula.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
