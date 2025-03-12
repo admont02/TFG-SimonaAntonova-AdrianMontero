@@ -6,7 +6,6 @@
         "columnas": 3,
         "City_Crossroad": [
             {
-                "id": 6,
                 "fil": 2,
                 "col": 0,
                 "conexiones": [
@@ -14,7 +13,6 @@
                 ]
             },
             {
-                "id": 2,
                 "fil": 0,
                 "col": 2,
                 "conexiones": [
@@ -25,7 +23,6 @@
         ],
         "City_Vertical_Road": [
             {
-                "id": 0,
                 "fil": 0,
                 "col": 0,
                 "conexiones": [
@@ -35,7 +32,6 @@
         ],
         "City_Horizontal_Road": [
             {
-                "id": 4,
                 "fil": 1,
                 "col": 1,
                 "conexiones": [
@@ -43,7 +39,6 @@
                 ]
             },
             {
-                "id": 7,
                 "fil": 2,
                 "col": 1,
                 "conexiones": [
@@ -54,7 +49,6 @@
         ],
         "City_Crossroad_Crosswalk": [
             {
-                "id": 5,
                 "fil": 1,
                 "col": 2,
                 "conexiones": [
@@ -66,7 +60,6 @@
         ],
         "Roundabout_Front_Left_Trees": [
             {
-                "id": 3,
                 "fil": 1,
                 "col": 0,
                 "conexiones": [
@@ -76,7 +69,6 @@
         ],
         "Roundabout_Right_Trees": [
             {
-                "id": 1,
                 "fil": 0,
                 "col": 1,
                 "conexiones": []
@@ -84,7 +76,6 @@
         ],
         "Roundabout_Left_Trees": [
             {
-                "id": 8,
                 "fil": 2,
                 "col": 2,
                 "conexiones": [

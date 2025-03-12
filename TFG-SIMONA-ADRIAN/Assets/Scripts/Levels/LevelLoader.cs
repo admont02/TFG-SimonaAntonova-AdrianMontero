@@ -98,30 +98,7 @@ public class LevelLoader : MonoBehaviour
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
-            // FUNCIONAMIENTO DE TEMPLATE MAPA HASTA 19/02
-
-            //if (nivel.mapa.nombre != null)
-            //{
-            //    string mapPath = Path.Combine(mapsFolderPath, nivel.mapa.nombre);
-            //    mapPath = mapPath.Replace("\\", "/");
-            //    GameObject mapPrefab = Resources.Load<GameObject>(nivel.mapa.nombre);
-            //    if (mapPrefab != null)
-            //    {
-            //        GameObject instantiatedMap = Instantiate(mapPrefab, new Vector3(nivel.mapa.posicion.x, nivel.mapa.posicion.y, nivel.mapa.posicion.z), Quaternion.identity);
-            //        NavMeshSurface navM = instantiatedMap.GetComponentInChildren<NavMeshSurface>();
-            //        // navM.BuildNavMesh();
-            //    }
-            //    else
-            //    {
-            //        Debug.LogError("No se encontró el prefab del mapa: " + mapPath);
-            //    }
-
-            //}
-
-
-            // CÓDIGO ACTUAL MAPAS (DESDE 19/02)
-
-
+           
             foreach (var recta in nivel.mapaNuevo.City_Crossroad)
             {
 
@@ -129,6 +106,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Crossroad");
                 if (rectaPrefab != null)
                 {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -148,6 +126,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Vertical");
                 if (rectaPrefab != null)
                 {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -166,6 +145,8 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Horizontal");
                 if (rectaPrefab != null)
                 {
+
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -184,6 +165,8 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Crossroad");
                 if (rectaPrefab != null)
                 {
+
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -202,6 +185,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
+                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
                     posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -219,6 +203,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
+                    r_f_l_t.id = r_f_l_t.fil * nivel.mapaNuevo.columnas + r_f_l_t.col;
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -236,6 +221,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
+                    r_f_l_t.id = r_f_l_t.fil * nivel.mapaNuevo.columnas + r_f_l_t.col;
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -253,6 +239,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
                 if (rectaPrefab != null)
                 {
+                    r_f_l_t.id = r_f_l_t.fil * nivel.mapaNuevo.columnas + r_f_l_t.col;
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
@@ -270,6 +257,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Pavement");
                 if (rectaPrefab != null)
                 {
+                    r_f_l_t.id = r_f_l_t.fil * nivel.mapaNuevo.columnas + r_f_l_t.col;
                     posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
                 }
                 else
