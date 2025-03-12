@@ -99,32 +99,17 @@ public class WaypointNavigator : MonoBehaviour
                 }
                 else
                 {
-                    //currentWaypoint = currentWaypoint.previous;
-                    //direction = 1;
+                    
                  
                     Direction oppositeDirection = GetOppositeDirection(currentWaypoint.direction);
+                    //int firstIndex = currentIndex;
                     currentIndex = GetAdjacentPieceIndex(currentWaypoint.direction);
-
-                    // Buscamos el siguiente waypoint en la pieza contigua
+                    //controller.IsConnected(firstIndex, currentIndex);
+                    //Buscamos el siguiente waypoint en la pieza contigua
                     currentWaypoint = FindNextWaypointInAdjacentPiece(oppositeDirection);
                 }
 
-                //}
-                //else if (direction == 1)
-                //{
-                //    if (currentWaypoint.previous != null)
-                //    {
-                //        currentWaypoint = currentWaypoint.previous;
-
-                //    }
-                //    else
-                //    {
-
-
-                //        currentWaypoint = currentWaypoint.next;
-                //        direction = 0;
-                //    }
-                //}
+               
             }
 
             controller.MoveToDestinations(currentWaypoint.GetPosition());

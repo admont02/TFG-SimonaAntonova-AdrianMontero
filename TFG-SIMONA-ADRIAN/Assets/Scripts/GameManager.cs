@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> priorityCarList = new List<GameObject>();
 
     public CinemachineVirtualCamera virtualCamera;
+    public Digrafo graph;
 
     void Awake()
     {

@@ -58,4 +58,9 @@ public class OtherCar : MonoBehaviour
     {
         isStopped = false;
     }
+    public bool IsConnected(int currentId, int nextId)
+    {
+        var ady = GameManager.Instance.graph.getAdy(currentId);
+        return ady.Contains(nextId);
+    }
 }

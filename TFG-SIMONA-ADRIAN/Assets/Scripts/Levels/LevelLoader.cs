@@ -310,6 +310,7 @@ public class LevelLoader : MonoBehaviour
             GameObject playerObjAux = GameManager.Instance.carController.gameObject;
             GPSController gpsController = playerObjAux.GetComponent<GPSController>();
             gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
+            GameManager.Instance.graph = digrafo;
         }
 
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
