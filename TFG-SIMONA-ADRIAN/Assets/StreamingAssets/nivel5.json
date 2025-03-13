@@ -21,7 +21,7 @@
                 ]
             }
         ],
-        "City_Vertical_Road": [
+        "Vertical": [
             {
                 "fil": 0,
                 "col": 0,
@@ -30,7 +30,7 @@
                 ]
             }
         ],
-        "City_Horizontal_Road": [
+        "Horizontal": [
             {
                 "fil": 1,
                 "col": 1,
