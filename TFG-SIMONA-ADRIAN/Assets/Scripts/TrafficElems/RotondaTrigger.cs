@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class RotondaTrigger : MonoBehaviour
 {
-    private const float leftTurnThreshold = -30f;
+    private const float leftTurnThreshold = -20f;
+    [SerializeField]
+    public float lowerLimit;
+    [SerializeField]
+    public float greaterLimit;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 3)
         {
 
 
+            //float entryAngle = NormalizeAngle(other.transform.eulerAngles.y);
             float entryAngle = NormalizeAngle(other.transform.eulerAngles.y);
 
             // Verificar si el jugador entra desde la izquierda
-            if (entryAngle < leftTurnThreshold || entryAngle > 180)
+            if (entryAngle < lowerLimit && entryAngle > greaterLimit)
             {
                 Debug.LogWarning("Entrada incorrecta en la rotonda.");
                 // Añadir lógica para manejar la entrada incorrecta (por ejemplo, reducir la velocidad)
-                GameManager.Instance.incorrectLevel.Add("Entrada incorrecta en la rotonda: Prohibido el paso.");
+                GameManager.Instance.incorrectLevel.Add("Rotonda realizada en sentido contrario.");
             }
         }
     }
