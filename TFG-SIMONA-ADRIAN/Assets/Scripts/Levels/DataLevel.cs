@@ -212,20 +212,23 @@ public class MapaNuevo
     public int numPiezas;
     public int filas;
     public int columnas;
-    public List<PosicionMapa> City_Crossroad;
+    public List<PosicionMapa> Pavement;
+
+    public List<PosicionMapa> Crossroad;
+    public List<PosicionMapa> Roundabout;
+    public List<PosicionMapa> Intersection;
+    public List<PosicionMapa> Intersection2;
+    public List<PosicionMapa> Intersection3;
+    public List<PosicionMapa> Intersection4;
+
     public List<PosicionMapa> Vertical;
     public List<PosicionMapa> Horizontal;
-    public List<PosicionMapa> City_Crossroad_Crosswalk;
 
-    public List<PosicionMapa> Roundabout_Front_Left_Trees;
-    public List<PosicionMapa> Roundabout_Front_Right_Trees;
-    public List<PosicionMapa> Roundabout_Left_Trees;
-    public List<PosicionMapa> Roundabout_Right_Trees;
-    public List<PosicionMapa> Pavement;
     public List<PosicionMapa> TurnRight;
     public List<PosicionMapa> TurnRight2;
     public List<PosicionMapa> TurnLeft;
     public List<PosicionMapa> TurnLeft2;
+
 
 
 

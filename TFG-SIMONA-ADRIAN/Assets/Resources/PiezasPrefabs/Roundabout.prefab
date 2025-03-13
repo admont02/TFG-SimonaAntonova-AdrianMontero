@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 0}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 4
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 0}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 3
@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 3077365605920496285}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 4
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 520810895770885459}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 3
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 0}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 1
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 1588173360380759434}
   next: {fileID: 3077365605920496285}
-  width: 5
+  width: 8.54
   branches:
   - {fileID: 5672629391549266308}
   branchRatio: 0.5
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 520810895770885459}
   next: {fileID: 1588173360380759434}
-  width: 5
+  width: 8.54
   branches:
   - {fileID: 2776804931656264766}
   branchRatio: 0.5
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 3077365605920496285}
   next: {fileID: 7761856819441126049}
-  width: 5
+  width: 8.54
   branches:
   - {fileID: 4015917465315079605}
   branchRatio: 0.5
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 6511513817427786766}
   next: {fileID: 3823529927060592743}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 0
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 0}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 2
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 1588173360380759434}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 1
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 3823529927060592743}
   next: {fileID: 4538269767881176384}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 0
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 4538269767881176384}
   next: {fileID: 6329503265436113527}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 6329503265436113527}
   next: {fileID: 6511513817427786766}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 0
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 7761856819441126049}
-  width: 5
+  width: 8.54
   branches: []
   branchRatio: 1
   direction: 2
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 7761856819441126049}
   next: {fileID: 520810895770885459}
-  width: 5
+  width: 8.54
   branches:
   - {fileID: 3587218482459852924}
   branchRatio: 0.5
