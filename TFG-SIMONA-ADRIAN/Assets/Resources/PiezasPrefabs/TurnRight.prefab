@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 3190325238022499445}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 4
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 3190325238022499445}
   next: {fileID: 9004128345134735896}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 9004128345134735896}
   next: {fileID: 0}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 2
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 412693729025664035}
   next: {fileID: 2311783625215329245}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 8432112957160070519}
   next: {fileID: 6567199042748385930}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 6567199042748385930}
   next: {fileID: 0}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 3
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 4450288676015972176}
   next: {fileID: 7477422967752103447}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 9112423387467965868}
   next: {fileID: 4450288676015972176}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 0}
   next: {fileID: 8432112957160070519}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 2
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previous: {fileID: 2311783625215329245}
   next: {fileID: 822435051165712450}
-  width: 10
+  width: 4
   branches: []
   branchRatio: 1
   direction: 0

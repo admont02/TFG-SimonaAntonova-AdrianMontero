@@ -48,11 +48,11 @@ public class WaypointNavigator : MonoBehaviour
                     newIndex = currentIndex - GameManager.Instance.filas;
                 break;
             case Direction.East:
-                if ((currentIndex % GameManager.Instance.columnas) < 2) //Si no te sales del límite hacia el este (no estar en la última columna)
+                //if ((currentIndex % GameManager.Instance.columnas) < 2) //Si no te sales del límite hacia el este (no estar en la última columna)
                     newIndex = currentIndex + 1;
                 break;
             case Direction.West:
-                if ((currentIndex % GameManager.Instance.columnas) > 0) //Si no te sales del límite hacia el oeste (no estar en la primera columna)
+                //if ((currentIndex % GameManager.Instance.columnas) > 0) //Si no te sales del límite hacia el oeste (no estar en la primera columna)
                     newIndex = currentIndex - 1;
                 break;
         }

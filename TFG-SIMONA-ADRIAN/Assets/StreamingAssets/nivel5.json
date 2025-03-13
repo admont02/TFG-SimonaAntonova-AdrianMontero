@@ -4,7 +4,7 @@
         "numPiezas": 9,
         "filas": 3,
         "columnas": 3,
-        "City_Crossroad": [
+        "Crossroad": [
             {
                 "fil": 2,
                 "col": 0,
@@ -18,6 +18,15 @@
                 "conexiones": [
                     1,
                     5
+                ]
+            },
+            {
+                "fil": 1,
+                "col": 2,
+                "conexiones": [
+                    2,
+                    4,
+                    8
                 ]
             }
         ],
@@ -47,34 +56,19 @@
                 ]
             }
         ],
-        "City_Crossroad_Crosswalk": [
-            {
-                "fil": 1,
-                "col": 2,
-                "conexiones": [
-                    2,
-                    4,
-                    8
-                ]
-            }
-        ],
-        "Roundabout_Front_Left_Trees": [
+        "Roundabout": [
             {
                 "fil": 1,
                 "col": 0,
                 "conexiones": [
                     6
                 ]
-            }
-        ],
-        "Roundabout_Right_Trees": [
+            },
             {
                 "fil": 0,
                 "col": 1,
                 "conexiones": []
-            }
-        ],
-        "Roundabout_Left_Trees": [
+            },
             {
                 "fil": 2,
                 "col": 2,
