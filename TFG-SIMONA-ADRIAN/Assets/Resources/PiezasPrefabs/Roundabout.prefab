@@ -66,8 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b3f0c720d440143997d2a69b53a49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerLimit: -150
-  greaterLimit: -90
+  lowerLimit: -90
+  greaterLimit: -150
 --- !u!1 &228241258928082973
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b3f0c720d440143997d2a69b53a49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerLimit: 150
+  lowerLimit: 160
   greaterLimit: 90
 --- !u!1 &251626363315017668
 GameObject:
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b3f0c720d440143997d2a69b53a49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerLimit: 50
+  lowerLimit: 80
   greaterLimit: 36
 --- !u!1 &6993582422220319768
 GameObject:
