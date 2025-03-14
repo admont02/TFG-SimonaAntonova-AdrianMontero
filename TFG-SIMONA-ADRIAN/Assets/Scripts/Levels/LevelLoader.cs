@@ -24,6 +24,9 @@ public class LevelLoader : MonoBehaviour
     GameObject semaforoDoblePrefab;
     [SerializeField]
     GameObject playerPrefab;
+    [SerializeField]
+    GameObject stopPrefab;
+
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
@@ -447,6 +450,20 @@ public class LevelLoader : MonoBehaviour
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
             GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, posicionCuadricula, prefabRotation);
             cuadriculaObj.SetActive(true);
+        }
+        //stops
+        foreach (var sign in nivel.stops)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(stopPrefab, posicionCuadricula, prefabRotation);
+            stopObj.SetActive(true);
         }
         //SEMAFOROS NUEVOS
         foreach (var semaforo in nivel.semaforosNuevos)

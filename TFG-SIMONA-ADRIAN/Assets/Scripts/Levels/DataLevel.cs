@@ -47,6 +47,13 @@ public class Cuadricula
     public Pieza pieza;
     public SubPosicion subPosicion;
 }
+[System.Serializable]
+public class Stop
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
 
 [System.Serializable]
 public class Node
@@ -288,6 +295,7 @@ public class Nivel
     public List<IA_Car> IACars;
 
     public List<Cuadricula> cuadriculas;
+    public List<Stop> stops;
     public List<SemaforoConfig> semaforos;
     public List<SemaforoNuevoConfig> semaforosNuevos;
 

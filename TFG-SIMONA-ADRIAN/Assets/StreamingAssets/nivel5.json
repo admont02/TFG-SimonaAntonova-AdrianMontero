@@ -85,7 +85,7 @@
         },
         "subPosicion": {
             "fil": 10,
-            "col": 9
+            "col": 3
         },
         "orientacion": "arriba"
     },
@@ -177,6 +177,18 @@
             }
         }
     ],
+    "stops": [
+        {
+            "pieza": {
+                "index": 4
+            },
+            "subPosicion": {
+                "fil": 9,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
     "targetJugador": {
         "pieza": {
             "index": 1
@@ -193,7 +205,7 @@
             },
             "subPosicion": {
                 "fil": 10,
-                "col": 2
+                "col": 7
             },
             "orientacion": "arriba"
         }

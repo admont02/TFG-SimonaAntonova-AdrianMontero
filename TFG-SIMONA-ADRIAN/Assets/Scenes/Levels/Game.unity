@@ -7440,6 +7440,7 @@ MonoBehaviour:
   semaforoPrefab: {fileID: 868025956819239312, guid: 9b67ae2464d055f48b94ea4903095186, type: 3}
   semaforoDoblePrefab: {fileID: 3414803328377232135, guid: 19a8bad7f02518d4489050673be159a6, type: 3}
   playerPrefab: {fileID: 5978714192574154039, guid: 7b8b534370d87be4c8068e202dbcbc27, type: 3}
+  stopPrefab: {fileID: 5488218659139243146, guid: 7619bebdbce600e4cbf98ea64f548822, type: 3}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0
