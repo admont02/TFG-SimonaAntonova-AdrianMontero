@@ -11,6 +11,9 @@ public class MapaData
     public List<TipoDePieza> Vertical = new List<TipoDePieza>();
     public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
     public List<TipoDePieza> Roundabout = new List<TipoDePieza>();
+    public List<TipoDePieza> Pavement = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnLeft = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnRight = new List<TipoDePieza>();
 }
 
 [System.Serializable]
