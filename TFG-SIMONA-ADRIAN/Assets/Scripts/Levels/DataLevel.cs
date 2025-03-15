@@ -75,7 +75,13 @@ public class Stop
     public SubPosicion subPosicion;
     public string orientacion;
 }
-
+[System.Serializable]
+public class Prohibido
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
 [System.Serializable]
 public class Node
 {
@@ -317,6 +323,7 @@ public class Nivel
 
     public List<Cuadricula> cuadriculas;
     public List<Stop> stops;
+    public List<Prohibido> prohibidos;
     public List<SemaforoConfig> semaforos;
     public List<SemaforoNuevoConfig> semaforosNuevos;
 

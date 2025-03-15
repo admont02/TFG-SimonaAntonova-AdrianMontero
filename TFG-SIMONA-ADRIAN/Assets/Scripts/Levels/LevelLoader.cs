@@ -26,6 +26,8 @@ public class LevelLoader : MonoBehaviour
     GameObject playerPrefab;
     [SerializeField]
     GameObject stopPrefab;
+    [SerializeField]
+    GameObject forbiddenPrefab;
 
     public void CargarNivel()
     {
@@ -463,6 +465,20 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
             GameObject stopObj = Instantiate(stopPrefab, posicionCuadricula, prefabRotation);
+            stopObj.SetActive(true);
+        }
+        //prohibidos
+        foreach (var sign in nivel.prohibidos)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(forbiddenPrefab, posicionCuadricula, prefabRotation);
             stopObj.SetActive(true);
         }
         //SEMAFOROS NUEVOS

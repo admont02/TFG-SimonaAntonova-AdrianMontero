@@ -52,7 +52,7 @@ public class StopSign : MonoBehaviour
         {
 
             Debug.Log("El coche salió del área de la señal de stop antes de completar los 3 segundos.");
-            GameManager.Instance.incorrectLevel.Add("Te has saltado una señal de stop.");
+            GameManager.Instance.incorrectLevel.Add("No has respetado la señal de Stop.");
 
         }
     }
