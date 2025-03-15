@@ -1,0 +1,46 @@
+{
+    "numPiezas": 9,
+    "filas": 3,
+    "columnas": 3,
+    "Crossroad": [],
+    "Vertical": [],
+    "Horizontal": [],
+    "Roundabout": [
+        {
+            "fil": 2,
+            "col": 0
+        },
+        {
+            "fil": 2,
+            "col": 1
+        },
+        {
+            "fil": 2,
+            "col": 2
+        },
+        {
+            "fil": 1,
+            "col": 0
+        },
+        {
+            "fil": 1,
+            "col": 1
+        },
+        {
+            "fil": 1,
+            "col": 2
+        },
+        {
+            "fil": 0,
+            "col": 0
+        },
+        {
+            "fil": 0,
+            "col": 1
+        },
+        {
+            "fil": 0,
+            "col": 2
+        }
+    ]
+}

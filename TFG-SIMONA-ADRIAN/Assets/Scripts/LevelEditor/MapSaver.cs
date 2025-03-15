@@ -8,56 +8,41 @@ public class MapSaver : MonoBehaviour
     public int filas; // Número de filas en el grid
     public int columnas; // Número de columnas en el grid
 
-    public void SaveMap(string fileName)
+    public void SaveMap()
     {
         MapaData mapa = new MapaData
         {
-            numPiezas = 0, // Se actualizará conforme se agreguen piezas
+            numPiezas = gridParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
             filas = gridParent.GetComponent<LevelEditorController>().GetWidth(),
-            columnas = gridParent.GetComponent<LevelEditorController>().GetHeight()
+            columnas = gridParent.GetComponent<LevelEditorController>().GetHeight(),
         };
 
-        // Recorre todos los tiles del grid
         foreach (Transform tile in gridParent)
         {
-            // Obtener la posición del tile
-            int fila = Mathf.RoundToInt(tile.GetComponent<RectTransform>().anchoredPosition.y / -50f); // Asegúrate de ajustar "-50" según el tamaño del tile
-            int columna = Mathf.RoundToInt(tile.GetComponent<RectTransform>().anchoredPosition.x / 50f);
+            // Obtener fila y columna del nombre del tile
+            string[] parts = tile.name.Replace("Tile (", "").Replace(")", "").Split(',');
+            int fila = int.Parse(parts[0]);
+            int columna = int.Parse(parts[1]);
 
-            // Obtener la imagen actual del tile
+            // Comprobar si el tile tiene una imagen asignada
             Image tileImage = tile.GetComponent<Image>();
             if (tileImage != null && tileImage.sprite != null)
             {
-                // Determina el tipo de pieza en función del sprite (ajusta según tu lógica)
-                if (tileImage.sprite.name == "Crossroad")
-                {
-                    mapa.Crossroad.Add(new TipoDePieza { fil = fila, col = columna });
-                }
-                else if (tileImage.sprite.name == "Vertical")
-                {
-                    mapa.Vertical.Add(new TipoDePieza { fil = fila, col = columna });
-                }
-                else if (tileImage.sprite.name == "Horizontal")
-                {
-                    mapa.Horizontal.Add(new TipoDePieza { fil = fila, col = columna });
-                }
-                else if (tileImage.sprite.name == "Roundabout")
+                // Agregar a la lista correspondiente según el sprite del tile
+                if (tileImage.sprite.name == "Roundabout")
                 {
                     mapa.Roundabout.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-
-                // Incrementa el contador de piezas
-                mapa.numPiezas++;
+                // Otros casos (Vertical, Horizontal, Roundabout, etc.)
             }
         }
 
-        // Convierte el mapa a JSON
+        // Convierte a JSON y guarda
         string json = JsonUtility.ToJson(mapa, true);
-
-        // Guarda el JSON en un archivo
-        string path = Path.Combine(Application.persistentDataPath, fileName);
+        string path = Path.Combine(Application.streamingAssetsPath, "prueba.json");
         File.WriteAllText(path, json);
 
         Debug.Log($"Mapa guardado en {path}");
     }
+
 }

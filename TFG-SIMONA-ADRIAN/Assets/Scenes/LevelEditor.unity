@@ -614,11 +614,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 616323254}
-  m_Father: {fileID: 1543426273}
+  m_Father: {fileID: 1252911939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -79.99989, y: -136.2}
+  m_AnchoredPosition: {x: -102, y: 59.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &441406635
@@ -668,7 +668,7 @@ MonoBehaviour:
       - m_Target: {fileID: 899210048}
         m_TargetAssemblyTypeName: MapSaver, Assembly-CSharp
         m_MethodName: SaveMap
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1440,6 +1440,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 441406634}
   - {fileID: 1690248006}
   - {fileID: 1664061521}
   - {fileID: 734671310}
@@ -1722,7 +1723,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1515578342}
-  - {fileID: 441406634}
   m_Father: {fileID: 1252911939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -2126,7 +2126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -202.41235, y: 256.58582}
+  m_AnchoredPosition: {x: -202.41235, y: -264}
   m_SizeDelta: {x: 1052.5269, y: 768.189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1744282433

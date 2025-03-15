@@ -20,37 +20,47 @@ public class LevelEditorController : MonoBehaviour
 
     void GenerateMap()
     {
+        // Limpia el grid existente
         foreach (Transform child in gridParent)
         {
             Destroy(child.gameObject);
         }
 
-        if (int.TryParse(widthInput.text, out mapWidth) && int.TryParse(heightInput.text, out mapHeight))
+        // Comprueba si las filas y columnas están configuradas
+        if (int.TryParse(widthInput.text, out mapHeight) && int.TryParse(heightInput.text, out mapWidth))
         {
-            RectTransform tileRect = tilePrefab.GetComponent<RectTransform>();
-            float tileWidth = tileRect.sizeDelta.x;
-            float tileHeight = tileRect.sizeDelta.y;
+            int totalTiles = mapWidth * mapHeight; // Total de tiles
 
-            gridParent.sizeDelta = new Vector2(tileWidth * mapWidth, tileHeight * mapHeight);
-
-            // Generar tiles
-            for (int x = 0; x < mapWidth; x++)
+            for (int i = 0; i < totalTiles; i++)
             {
-                for (int y = 0; y < mapHeight; y++)
-                {
-                    GameObject tile = Instantiate(tilePrefab, gridParent); 
-                    RectTransform rect = tile.GetComponent<RectTransform>();
+                // Crear un nuevo tile
+                GameObject tile = Instantiate(tilePrefab, gridParent);
 
-                    // Ajusta la posición en la grilla
-                    rect.anchoredPosition = new Vector2(x * tileWidth, -y * tileHeight); 
-                }
+                // Calcular fila y columna
+                int fila = i / mapHeight;   // Índice entero para la fila
+                int columna = i % mapHeight; // Resto para la columna
+
+                // Invertir las filas para que el grid empiece desde la esquina inferior izquierda
+                fila = mapWidth - 1 - fila;
+
+                // Configurar la posición del tile
+                RectTransform rect = tile.GetComponent<RectTransform>();
+                float tileWidth = rect.sizeDelta.x;
+                float tileHeight = rect.sizeDelta.y;
+
+                rect.anchoredPosition = new Vector2(columna * tileWidth, fila * tileHeight);
+
+                // Opcional: Renombrar el tile para facilitar la depuración
+                tile.name = $"Tile ({fila},{columna})";
             }
         }
         else
         {
-            Debug.LogError("Por favor, ingresa valores válidos para el ancho y alto.");
+            Debug.LogError("Por favor, ingresa valores válidos para las filas y columnas.");
         }
     }
+
+
     public int GetWidth()
     {
         return mapWidth;
