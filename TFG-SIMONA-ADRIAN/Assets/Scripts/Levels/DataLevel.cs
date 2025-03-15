@@ -1,6 +1,24 @@
 using System;
 using System.Collections.Generic;
+//para el editor de niveles
+[System.Serializable]
+public class MapaData
+{
+    public int numPiezas;
+    public int filas;
+    public int columnas;
+    public List<TipoDePieza> Crossroad = new List<TipoDePieza>();
+    public List<TipoDePieza> Vertical = new List<TipoDePieza>();
+    public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
+    public List<TipoDePieza> Roundabout = new List<TipoDePieza>();
+}
 
+[System.Serializable]
+public class TipoDePieza
+{
+    public int fil;
+    public int col;
+}
 public static class SceneData
 {
    // public static string JsonFileName="menu.json";

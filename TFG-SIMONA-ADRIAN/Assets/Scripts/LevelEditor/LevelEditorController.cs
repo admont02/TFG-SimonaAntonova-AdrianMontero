@@ -51,4 +51,12 @@ public class LevelEditorController : MonoBehaviour
             Debug.LogError("Por favor, ingresa valores válidos para el ancho y alto.");
         }
     }
+    public int GetWidth()
+    {
+        return mapWidth;
+    }
+    public int GetHeight()
+    {
+        return mapHeight;
+    }
 }
