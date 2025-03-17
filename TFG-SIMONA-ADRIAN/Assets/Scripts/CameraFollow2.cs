@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow2 : MonoBehaviour
 {
     public Transform target; // El coche que la cámara seguirá
     public float distance = 10.0f; // Distancia desde la cámara al coche

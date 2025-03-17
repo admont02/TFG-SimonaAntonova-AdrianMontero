@@ -371,7 +371,7 @@ public class LevelLoader : MonoBehaviour
                     Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugadorNuevo.orientacion);
                     GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
                     playerObj.SetActive(true);
-                    GameManager.Instance.carController = playerObj.GetComponent<CarController>();
+                    GameManager.Instance.carController = playerObj.GetComponent<PrometeoCarController>();
                     GameManager.Instance.SetPlayer(playerObj.transform);
                 }
                 else

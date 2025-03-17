@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public bool canCarMove = false; // Booleano para controlar el movimiento del coche
 
     private LevelLoader nivelLoader;
-    public CarController carController;
+    public PrometeoCarController carController;
     public OtherCar otherCar;
     private GameObject playerTarget;
     public List<GameObject> cochesIA = new List<GameObject>();

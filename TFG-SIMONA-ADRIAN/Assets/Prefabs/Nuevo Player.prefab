@@ -3704,9 +3704,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4876499394788946863}
   - component: {fileID: 5360822149816320657}
-  - component: {fileID: 153938328922926584}
   - component: {fileID: 6195470914354210396}
   - component: {fileID: 3449692620520228423}
+  - component: {fileID: 3659952809626657940}
   m_Layer: 3
   m_Name: Nuevo Player
   m_TagString: Untagged
@@ -3753,10 +3753,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5978714192574154039}
   serializedVersion: 4
-  m_Mass: 1500
+  m_Mass: 240
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: -1, z: 0}
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -3765,36 +3765,13 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 0
+  m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &153938328922926584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5978714192574154039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364fa511ef46baf42bdbef254f293228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  motorTorque: 2500
-  brakeTorque: 2000
-  maxSpeed: 150
-  steeringRange: 60
-  steeringRangeAtMaxSpeed: 60
-  centreOfGravityOffset: -1
-  steeringSmoothness: 0.2
-  enableSteeringAssist: 0
-  enableSpeedControl: 0
-  assistSteeringFactor: 0.5
-  maxAssistSpeed: 10
 --- !u!114 &6195470914354210396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3850,6 +3827,54 @@ MonoBehaviour:
   cortasButton: {fileID: 0}
   largasButton: {fileID: 0}
   objetivoLuces: []
+--- !u!114 &3659952809626657940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5978714192574154039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fefceefe666bb4682b272ec8c5bdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 120
+  maxReverseSpeed: 45
+  accelerationMultiplier: 6
+  maxSteeringAngle: 35
+  steeringSpeed: 0.5
+  brakeForce: 450
+  decelerationMultiplier: 2
+  handbrakeDriftMultiplier: 5
+  bodyMassCenter: {x: 0, y: 0, z: 0}
+  frontLeftMesh: {fileID: 1272635378605177309}
+  frontLeftCollider: {fileID: 7019228009618929289}
+  frontRightMesh: {fileID: 6544401074375968727}
+  frontRightCollider: {fileID: 128014031773503666}
+  rearLeftMesh: {fileID: 2647130537755653274}
+  rearLeftCollider: {fileID: 5035923121366540341}
+  rearRightMesh: {fileID: 4127673738540989013}
+  rearRightCollider: {fileID: 2500719833845988236}
+  useEffects: 0
+  RLWParticleSystem: {fileID: 4402756320724654539, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+  RRWParticleSystem: {fileID: 4402756320999286479, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+  RLWTireSkid: {fileID: 7045468751846977024, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+  RRWTireSkid: {fileID: 7045468751210077382, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
+  useUI: 0
+  carSpeedText: {fileID: 0}
+  useSounds: 0
+  carEngineSound: {fileID: 0}
+  tireScreechSound: {fileID: 0}
+  useTouchControls: 0
+  throttleButton: {fileID: 0}
+  reverseButton: {fileID: 0}
+  turnRightButton: {fileID: 0}
+  turnLeftButton: {fileID: 0}
+  handbrakeButton: {fileID: 0}
+  carSpeed: 0
+  isDrifting: 0
+  isTractionLocked: 0
 --- !u!1 &6035730227759922688
 GameObject:
   m_ObjectHideFlags: 0
