@@ -15,7 +15,8 @@ public class OtherCar : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 velocity;
     public bool isStopped = false;
-
+    public float brakeDistance = 5f;         // Distancia a la que el coche empieza a frenar
+    private bool isPlayerInFront = false;
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +28,15 @@ public class OtherCar : MonoBehaviour
             float destinationDistance = destinationDirection.magnitude;
             if (destinationDistance >= stopDistance)
             {
+                if (isPlayerInFront)
+                {
+                    // Reduce la velocidad si el jugador está demasiado cerca
+                    movementSpeed = Mathf.Lerp(movementSpeed, 0, Time.deltaTime * 2f); // Frenado suave
+                }
+                else
+                {
+                    movementSpeed = 15f; // Restablecer velocidad normal
+                }
                 reachedDestination = false;
                 Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -62,5 +72,20 @@ public class OtherCar : MonoBehaviour
     {
         var ady = GameManager.Instance.graph.getAdy(currentId);
         return ady.Contains(nextId);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 3) // Si detecta al jugador
+        {
+            isPlayerInFront=true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 3) // Cuando el jugador salga del trigger
+        {
+            isPlayerInFront=false;
+        }
     }
 }
