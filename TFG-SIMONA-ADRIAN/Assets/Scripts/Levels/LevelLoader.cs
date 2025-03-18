@@ -390,7 +390,7 @@ public class LevelLoader : MonoBehaviour
             LineRenderer lineRenderer = targetPoint.GetComponent<LineRenderer>();
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, targetPoint.transform.position);
-            lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 10.0f, 0));
+            lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 50.0f, 0));
             //icono minimapa
             Vector3 iconPosition = posicionTarget;
             iconPosition.y += 30.0f; // Aquí defines cuánto quieres aumentar la altura

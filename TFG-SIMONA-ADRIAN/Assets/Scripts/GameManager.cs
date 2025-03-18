@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private LevelLoader nivelLoader;
     public PrometeoCarController carController;
     public OtherCar otherCar;
-    private GameObject playerTarget;
+    public GameObject playerTarget;
     public List<GameObject> cochesIA = new List<GameObject>();
 
     public List<string> incorrectLevel = new List<string>();

@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 245326517}
   - component: {fileID: 245326516}
   - component: {fileID: 245326514}
+  - component: {fileID: 245326518}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -493,6 +494,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &245326518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245326513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033526ab51f20284ba340a6904d8ce9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  target: {fileID: 0}
+  minimapCamera: {fileID: 245326516}
+  minZoom: 5
+  maxZoom: 20
+  zoomSpeed: 5
+  followSpeed: 5
+  minDistance: 20
+  maxDistance: 100
 --- !u!1 &341576647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +1987,7 @@ MonoBehaviour:
   canCarMove: 1
   carController: {fileID: 0}
   otherCar: {fileID: 0}
+  playerTarget: {fileID: 0}
   cochesIA: []
   incorrectLevel: []
   priorityCarList: []
@@ -7768,7 +7791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878f8778dbf0fda4b9071c34db50cdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFileName: nivel5.json
+  jsonFileName: nivel6.json
   TargetPrefab: {fileID: 9095901440409836212, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
   ClicLevelManagerPref: {fileID: 0}
