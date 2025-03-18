@@ -7643,6 +7643,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 5978714192574154039, guid: 7b8b534370d87be4c8068e202dbcbc27, type: 3}
   stopPrefab: {fileID: 5488218659139243146, guid: 7619bebdbce600e4cbf98ea64f548822, type: 3}
   forbiddenPrefab: {fileID: 8390715255240760698, guid: 25a60f1ccc0237041b33cd2b22168f0a, type: 3}
+  TargetIconPrefab: {fileID: 5483377130502658908, guid: d825c8eb21ac4c541a7bd0dde6ed5ea2, type: 3}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0
