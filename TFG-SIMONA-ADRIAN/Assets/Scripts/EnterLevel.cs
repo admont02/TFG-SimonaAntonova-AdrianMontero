@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnterLevel : MonoBehaviour
 {
@@ -13,6 +15,11 @@ public class EnterLevel : MonoBehaviour
     public Vector3 enlargedScale = new Vector3(4f, 4f, 4f);  // Tamaño agrandado
     private Vector3 originalScale;
     private bool near = false;
+    public TextMeshProUGUI text;
+    public GameObject panel;
+    public Button botonJugar;
+    public Button botonCerrar;
+    public string levelString;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -30,10 +37,32 @@ public class EnterLevel : MonoBehaviour
                 audioSource.PlayOneShot(audioClip);
                 transform.localScale = enlargedScale;
                 //SceneManager.LoadScene(gameObject.name);
-                SceneData.JsonFileName = gameObject.name + ".json";
-                SceneManager.LoadScene("Game");
+                //panel.SetActive(true);
+                //SceneData.JsonFileName = gameObject.name + ".json";
+                //SceneManager.LoadScene("Game");
+                //botonJugar.onClick.AddListener(PlayLevel);
             }
+            else //si estas cerca
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
 
+                    if (Physics.Raycast(ray, out hit))
+                    {
+
+                        if (hit.collider.gameObject == gameObject)
+                        {
+
+                            panel.SetActive(true);
+                            botonJugar.onClick.AddListener(PlayLevel);
+                            botonCerrar.onClick.AddListener(CerrarPanel);
+                            text.text = levelString;
+                        }
+                    }
+                }
+            }
         }
         else
         {
@@ -43,11 +72,15 @@ public class EnterLevel : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    void PlayLevel()
     {
-        // si es player cambia al nivel del trigger
-        //if (other.gameObject.transform == player)
-
+        SceneData.JsonFileName = gameObject.name + ".json";
+        SceneManager.LoadScene("Game");
+    }
+    void CerrarPanel()
+    {
+        panel.SetActive(false);
+        botonJugar.onClick.RemoveAllListeners();
+        botonCerrar.onClick.RemoveAllListeners();
     }
 }

@@ -8,10 +8,10 @@ public class CarMenu : MonoBehaviour
     public float rotacionVelocidad = 5f; // Velocidad de rotación del coche
     private Vector3 destino; // El punto donde el coche se mueve
     private bool moviendo = false; // ¿Está el coche en movimiento?
-
+    public GameObject panelInfo;
     void Update()
     {
-        if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
+        if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf || panelInfo.activeSelf)
             return;
         // Detecta clic en el mapa
         if (Input.GetMouseButtonDown(0)) // Clic izquierdo del ratón

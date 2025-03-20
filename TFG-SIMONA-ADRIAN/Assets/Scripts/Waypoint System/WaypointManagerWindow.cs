@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
 public class WaypointManagerWindow : EditorWindow
 {
     [MenuItem("Tools/Waypoint Editor")]
@@ -152,3 +152,4 @@ public class WaypointManagerWindow : EditorWindow
         DestroyImmediate( selectedWaypoint.gameObject );
     }
 }
+#endif

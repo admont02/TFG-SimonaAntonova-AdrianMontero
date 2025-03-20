@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
 
 [InitializeOnLoad()]
 public class WaypointEditor
@@ -54,3 +55,4 @@ public class WaypointEditor
         }
     }
 }
+#endif
