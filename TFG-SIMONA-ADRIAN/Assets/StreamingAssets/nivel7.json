@@ -50,6 +50,28 @@
             }
         ]
     },
+    "IACars": [
+        {
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 14
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 5
+            },
+            "subPosicion": {
+                "fil": 3,
+                "col": 7
+            },
+            "orientacion": "izquierda"
+        }
+    ],
     "levelDialogs": [
         " Mapa por piezas"
     ],

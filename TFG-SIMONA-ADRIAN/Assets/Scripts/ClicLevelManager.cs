@@ -14,6 +14,7 @@ public class ClicLevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+           
             // DontDestroyOnLoad(gameObject);
         }
         else

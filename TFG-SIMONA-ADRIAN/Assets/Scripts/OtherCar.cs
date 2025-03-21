@@ -88,4 +88,18 @@ public class OtherCar : MonoBehaviour
             isPlayerInFront=false;
         }
     }
+    void OnMouseDown()
+    { // Cuando se toca este coche, pasar el orden al GameController gameController.CarTouched(carOrder); }
+        Debug.Log(this.name);
+        ////gameObject.GetComponentInChildren<MeshCollider>().gameObject.GetComponent<MeshRenderer>().material = outline;
+        //if (!GameManager.Instance.priorityCarList.Contains(gameObject))
+        //    GameManager.Instance.priorityCarList.Add(gameObject);
+        //else
+        //    GameManager.Instance.priorityCarList.Remove(gameObject);
+
+        //Destroy(this.gameObject);
+        if (ClicLevelManager.Instance != null)
+            ClicLevelManager.Instance.CarClicked(gameObject);
+
+    }
 }
