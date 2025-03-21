@@ -358,7 +358,7 @@ public class LevelLoader : MonoBehaviour
 
 
             //JUGADOR NUEVO
-            if (nivel.jugadorNuevo != null)
+            if (nivel.jugadorNuevo.pieza != null)
             {
                 int indexPieza = nivel.jugadorNuevo.pieza.index;
                 if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
@@ -378,31 +378,33 @@ public class LevelLoader : MonoBehaviour
                 {
                     Debug.LogError("No se encontró la pieza especificada para el jugador.");
                 }
+
+
+                Vector3 posicionPiezaTarget = posicionesPiezas[nivel.targetJugador.pieza.index].transform.position;
+                //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+                Vector3 posicionTarget = ConvertToSubPosition(posicionPiezaTarget, nivel.targetJugador.subPosicion.fil, nivel.targetJugador.subPosicion.col, subScale, subdivisions);
+                GameObject targetPoint = Instantiate(TargetPrefab, posicionTarget, Quaternion.identity);
+                targetPoint.SetActive(true);
+                GameManager.Instance.SetPlayerTarget(targetPoint);
+
+                //targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z);
+                LineRenderer lineRenderer = targetPoint.GetComponent<LineRenderer>();
+                lineRenderer.positionCount = 2;
+                lineRenderer.SetPosition(0, targetPoint.transform.position);
+                lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 50.0f, 0));
+                //icono minimapa
+                Vector3 iconPosition = posicionTarget;
+                iconPosition.y += 30.0f; // Aquí defines cuánto quieres aumentar la altura
+                Quaternion rotacionTarget = Quaternion.Euler(100, 0, 0);
+                GameObject minimapIcon = Instantiate(TargetIconPrefab, iconPosition, rotacionTarget);
+                minimapIcon.SetActive(true);
+
+
+                GameObject playerObjAux = GameManager.Instance.carController.gameObject;
+                //GPSController gpsController = playerObjAux.GetComponent<GPSController>();
+                //gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
+                GameManager.Instance.graph = digrafo;
             }
-            Vector3 posicionPiezaTarget = posicionesPiezas[nivel.targetJugador.pieza.index].transform.position;
-            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-            Vector3 posicionTarget = ConvertToSubPosition(posicionPiezaTarget, nivel.targetJugador.subPosicion.fil, nivel.targetJugador.subPosicion.col, subScale, subdivisions);
-            GameObject targetPoint = Instantiate(TargetPrefab, posicionTarget, Quaternion.identity);
-            targetPoint.SetActive(true);
-            GameManager.Instance.SetPlayerTarget(targetPoint);
-
-            //targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z);
-            LineRenderer lineRenderer = targetPoint.GetComponent<LineRenderer>();
-            lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, targetPoint.transform.position);
-            lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 50.0f, 0));
-            //icono minimapa
-            Vector3 iconPosition = posicionTarget;
-            iconPosition.y += 30.0f; // Aquí defines cuánto quieres aumentar la altura
-            Quaternion rotacionTarget = Quaternion.Euler(100, 0, 0);
-            GameObject minimapIcon = Instantiate(TargetIconPrefab, iconPosition, rotacionTarget);
-            minimapIcon.SetActive(true);
-            
-
-                        GameObject playerObjAux = GameManager.Instance.carController.gameObject;
-            //GPSController gpsController = playerObjAux.GetComponent<GPSController>();
-            //gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
-            GameManager.Instance.graph = digrafo;
         }
 
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
@@ -544,7 +546,7 @@ public class LevelLoader : MonoBehaviour
             //    break;
             case "Prioridad":
 
-
+                Debug.Log("Prioridad");
                 GameObject managerInstance = Instantiate(ClicLevelManagerPref);
 
                 break;

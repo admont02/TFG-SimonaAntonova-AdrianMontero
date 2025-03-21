@@ -4,52 +4,49 @@
     "columnas": 3,
     "Crossroad": [
         {
-            "fil": 2,
+            "fil": 1,
             "col": 1
         }
     ],
     "Vertical": [
         {
             "fil": 2,
-            "col": 2
+            "col": 1
+        },
+        {
+            "fil": 0,
+            "col": 1
         }
     ],
     "Horizontal": [
         {
             "fil": 1,
+            "col": 0
+        },
+        {
+            "fil": 1,
             "col": 2
         }
     ],
-    "Roundabout": [
+    "Roundabout": [],
+    "Pavement": [
         {
             "fil": 2,
             "col": 0
-        }
-    ],
-    "Pavement": [
+        },
         {
-            "fil": 0,
-            "col": 0
+            "fil": 2,
+            "col": 2
         },
         {
             "fil": 0,
-            "col": 1
+            "col": 0
         },
         {
             "fil": 0,
             "col": 2
         }
     ],
-    "TurnLeft": [
-        {
-            "fil": 1,
-            "col": 0
-        }
-    ],
-    "TurnRight": [
-        {
-            "fil": 1,
-            "col": 1
-        }
-    ]
+    "TurnLeft": [],
+    "TurnRight": []
 }

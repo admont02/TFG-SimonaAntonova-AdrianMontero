@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera;
     public Digrafo graph;
 
-    public TextMeshProUGUI velText; 
+    public TextMeshProUGUI velText;
 
     void Awake()
     {
@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        velText.text = carController.GetComponent<Rigidbody>().velocity.magnitude.ToString("F0");
+        if (carController != null)
+            velText.text = carController.GetComponent<Rigidbody>().velocity.magnitude.ToString("F0");
         //if (!completed)
         //    ComprobarNivel();
         //Debug.Log(priorityCarList.Count);

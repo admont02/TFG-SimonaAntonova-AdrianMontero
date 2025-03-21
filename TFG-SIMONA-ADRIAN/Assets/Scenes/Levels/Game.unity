@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5649006, g: 0.63564, b: 0.7239374, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7794,7 +7794,7 @@ MonoBehaviour:
   jsonFileName: nivel5.json
   TargetPrefab: {fileID: 9095901440409836212, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
-  ClicLevelManagerPref: {fileID: 0}
+  ClicLevelManagerPref: {fileID: 4985764007409247765, guid: 38e8e3b4c9a6b4f4b81008da7aef26d0, type: 3}
   cuadriculaPrefab: {fileID: 4978257394053826113, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
   semaforoPrefab: {fileID: 868025956819239312, guid: 9b67ae2464d055f48b94ea4903095186, type: 3}
   semaforoDoblePrefab: {fileID: 3414803328377232135, guid: 19a8bad7f02518d4489050673be159a6, type: 3}
@@ -7833,7 +7833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1580549972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7846,6 +7846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8b08a976c0b7d4cb171ac5a48acb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priorityCarList: []
 --- !u!4 &1580549973
 Transform:
   m_ObjectHideFlags: 0
