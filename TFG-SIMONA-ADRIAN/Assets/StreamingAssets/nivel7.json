@@ -70,6 +70,16 @@
                 "col": 7
             },
             "orientacion": "izquierda"
+        },
+        {
+            "pieza": {
+                "index": 3
+            },
+            "subPosicion": {
+                "fil": 16,
+                "col": 7
+            },
+            "orientacion": "derecha"
         }
     ],
     "levelDialogs": [

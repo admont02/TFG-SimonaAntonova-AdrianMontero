@@ -40,14 +40,6 @@ public class Posicion
 }
 
 [System.Serializable]
-public class CocheIA
-{
-    public List<Posicion> posiciones;
-    public Posicion posicionInicial;
-    public Posicion rotacionInicial;
-
-}
-[System.Serializable]
 public class IA_Car
 {
     public List<Posicion> posiciones;
@@ -158,17 +150,6 @@ public class Digrafo
     //}
 }
 
-[System.Serializable]
-public class SemaforoConfig
-{
-    public bool doble;
-    public Posicion posicion;
-    public Posicion rotacion;
-    public float greenSeconds;
-    public float amberSeconds;
-    public float redSeconds;
-    public string initialLight;
-}
 [System.Serializable]
 public class SemaforoNuevoConfig
 {
@@ -318,13 +299,11 @@ public class Nivel
     public Player jugador;
     public Jugador jugadorNuevo;
     public TargetForPlayer targetJugador;
-    public List<CocheIA> cochesIA;
     public List<IA_Car> IACars;
 
     public List<Cuadricula> cuadriculas;
     public List<Stop> stops;
     public List<Prohibido> prohibidos;
-    public List<SemaforoConfig> semaforos;
     public List<SemaforoNuevoConfig> semaforosNuevos;
 
     public List<ElementoMapa> elementosMapa;

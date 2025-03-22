@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour
 
     public List<string> incorrectLevel = new List<string>();
     public List<GameObject> priorityCarList = new List<GameObject>();
-
+    public GameObject minimapCamera;
     public CinemachineVirtualCamera virtualCamera;
+    public Camera clicLevelCam;
     public Digrafo graph;
 
     public TextMeshProUGUI velText;
@@ -42,7 +43,15 @@ public class GameManager : MonoBehaviour
             // Inicializar cualquier cosa necesaria al inicio de la escena
             InitializeNivelLoader();
             InitializeDialogue();
-
+            if (ClicLevelManager.Instance != null)
+            {
+                Debug.Log("hola");
+                minimapCamera.SetActive(false);
+                //SetPlayer(cochesIA[0].transform);
+                Camera.main.gameObject.SetActive(false);
+                clicLevelCam.gameObject.SetActive(true);
+                clicLevelCam.tag = "MainCamera";
+            }
         }
         else
         {
@@ -50,7 +59,10 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    private void Start()
+    {
+       
+    }
     void InitializeDialogue()
     {
         if (dialogueSystem != null)
@@ -67,6 +79,11 @@ public class GameManager : MonoBehaviour
     {
         if (carController != null)
             velText.text = carController.GetComponent<Rigidbody>().velocity.magnitude.ToString("F0");
+        else
+        {
+            //momentaneio
+
+        }
         //if (!completed)
         //    ComprobarNivel();
         //Debug.Log(priorityCarList.Count);
