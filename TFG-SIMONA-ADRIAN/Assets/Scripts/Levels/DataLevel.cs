@@ -46,6 +46,7 @@ public class IA_Car
     public Pieza pieza;
     public SubPosicion subPosicion;
     public string orientacion;
+    public int branchTo;
 
 }
 [System.Serializable]

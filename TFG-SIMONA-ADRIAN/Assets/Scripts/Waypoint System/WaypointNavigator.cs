@@ -18,13 +18,13 @@ public class WaypointNavigator : MonoBehaviour
     {
         controller = GetComponent<OtherCar>();
     }
-    public void SetInitialWaypoint(Dictionary<int, GameObject> posicionesPiezas_, int index,string orientacion)
+    public void SetInitialWaypoint(Dictionary<int, GameObject> posicionesPiezas_, int index, string orientacion)
     {
         currentIndex = index;
-        posicionesPiezas=posicionesPiezas_;
+        posicionesPiezas = posicionesPiezas_;
         currentWaypoint = posicionesPiezas[index].GetComponent<WaypointContainer>().GetWaypoint().GetComponent<Waypoint>();
         Direction dir = ParseOrientationToDirection(orientacion);
-        currentWaypoint = GetClosestWaypointInDirection(posicionesPiezas[index], controller.transform.position,dir);
+        currentWaypoint = GetClosestWaypointInDirection(posicionesPiezas[index], controller.transform.position, dir);
     }
     void Start()
     {
@@ -49,11 +49,11 @@ public class WaypointNavigator : MonoBehaviour
                 break;
             case Direction.East:
                 //if ((currentIndex % GameManager.Instance.columnas) < 2) //Si no te sales del límite hacia el este (no estar en la última columna)
-                    newIndex = currentIndex + 1;
+                newIndex = currentIndex + 1;
                 break;
             case Direction.West:
                 //if ((currentIndex % GameManager.Instance.columnas) > 0) //Si no te sales del límite hacia el oeste (no estar en la primera columna)
-                    newIndex = currentIndex - 1;
+                newIndex = currentIndex - 1;
                 break;
         }
         //currentIndex = newIndex;
@@ -96,12 +96,28 @@ public class WaypointNavigator : MonoBehaviour
                 for (int i = 0; i < currentWaypoint.branches.Count; i++)
                 {
                     if (controller.IsConnected(firstIndex, GetAdjacentPieceIndex(currentWaypoint.branches[i].direction)))
-                        shouldBranch = UnityEngine.Random.Range(0f, 1f) <= currentWaypoint.branchRatio ? true : false;
+                    {
+                        if (!ClicLevelManager.Instance)
+                            shouldBranch = UnityEngine.Random.Range(0f, 1f) <= currentWaypoint.branchRatio ? true : false;
+                        else
+                        {
+                            //if (currentWaypoint.branches[i].direction == controller.branchTo)
+                                shouldBranch = true;
+                        }
+                    }
+
+
                 }
             }
             if (shouldBranch)
             {
-                currentWaypoint = currentWaypoint.branches[UnityEngine.Random.Range(0, currentWaypoint.branches.Count - 1)];
+                if (!ClicLevelManager.Instance)
+                    currentWaypoint = currentWaypoint.branches[UnityEngine.Random.Range(0, currentWaypoint.branches.Count - 1)];
+                else
+                {
+                    currentWaypoint = currentWaypoint.branches[controller.branchTo];
+
+                }
             }
             else
             {
@@ -181,7 +197,7 @@ public class WaypointNavigator : MonoBehaviour
             case "abajo": return Direction.South;
             case "derecha": return Direction.East;
             case "izquierda": return Direction.West;
-            default: return Direction.North; 
+            default: return Direction.North;
         }
     }
 }

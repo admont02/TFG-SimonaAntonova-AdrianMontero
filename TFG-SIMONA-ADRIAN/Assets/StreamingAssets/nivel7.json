@@ -9,44 +9,71 @@
             {
                 "fil": 1,
                 "col": 1
+                ,"conexiones": [
+                    3,1,5,7
+                ]
             }
         ],
         "Vertical": [
             {
                 "fil": 2,
-                "col": 1
+                "col": 1,
+                "conexiones": [
+                    4
+                ]
             },
             {
                 "fil": 0,
-                "col": 1
+                "col": 1,
+                "conexiones": [
+                    4
+                ]
             }
         ],
         "Horizontal": [
             {
                 "fil": 1,
-                "col": 0
+                "col": 0,
+                "conexiones": [
+                    4
+                ]
             },
             {
                 "fil": 1,
-                "col": 2
+                "col": 2,
+                "conexiones": [
+                    4
+                ]
             }
         ],
         "Pavement": [
             {
                 "fil": 2,
-                "col": 0
+                "col": 0,
+                "conexiones": [
+                    
+                ]
             },
             {
                 "fil": 2,
-                "col": 2
+                "col": 2,
+                "conexiones": [
+                    
+                ]
             },
             {
                 "fil": 0,
-                "col": 0
+                "col": 0,
+                "conexiones": [
+                    
+                ]
             },
             {
                 "fil": 0,
-                "col": 2
+                "col": 2,
+                "conexiones": [
+                    
+                ]
             }
         ]
     },
@@ -59,7 +86,8 @@
                 "fil": 11,
                 "col": 14
             },
-            "orientacion": "arriba"
+            "orientacion": "arriba",
+            "branchTo": 1
         },
         {
             "pieza": {
@@ -67,9 +95,10 @@
             },
             "subPosicion": {
                 "fil": 3,
-                "col": 7
+                "col": 11
             },
-            "orientacion": "izquierda"
+            "orientacion": "izquierda",
+            "branchTo": 1
         },
         {
             "pieza": {
@@ -79,7 +108,8 @@
                 "fil": 16,
                 "col": 7
             },
-            "orientacion": "derecha"
+            "orientacion": "derecha",
+            "branchTo": 2
         }
     ],
     "levelDialogs": [

@@ -17,6 +17,7 @@ public class OtherCar : MonoBehaviour
     public bool isStopped = false;
     public float brakeDistance = 5f;         // Distancia a la que el coche empieza a frenar
     private bool isPlayerInFront = false;
+    public int branchTo { get; set; }
     // Update is called once per frame
     void Update()
     {
@@ -102,4 +103,8 @@ public class OtherCar : MonoBehaviour
             ClicLevelManager.Instance.CarClicked(gameObject);
 
     }
+    //public void SetBranchTo(int b)
+    //{
+    //    branchTo = b;
+    //}
 }

@@ -403,10 +403,10 @@ public class LevelLoader : MonoBehaviour
                 GameObject playerObjAux = GameManager.Instance.carController.gameObject;
                 //GPSController gpsController = playerObjAux.GetComponent<GPSController>();
                 //gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
-                GameManager.Instance.graph = digrafo;
+                
             }
         }
-
+        GameManager.Instance.graph = digrafo;
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
 
 
@@ -436,15 +436,10 @@ public class LevelLoader : MonoBehaviour
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
             WaypointNavigator wN = cocheIAObj.GetComponent<WaypointNavigator>();
             wN.SetInitialWaypoint(posicionesPiezas, indexPieza, IAcar.orientacion);
-            //if (otherCar != null && IAcar.posiciones.Count > 0)
-            //{
-            //    List<Vector3> destinations = new List<Vector3>();
-            //    foreach (var pos in IAcar.posiciones)
-            //    {
-            //        destinations.Add(new Vector3(pos.x, pos.y, pos.z));
-            //    }
-            //    otherCar.SetDestinations(destinations);
-            //}
+
+
+            otherCar.branchTo = IAcar.branchTo;
+
         }
 
         //CUADRICULAS ACTUAL
