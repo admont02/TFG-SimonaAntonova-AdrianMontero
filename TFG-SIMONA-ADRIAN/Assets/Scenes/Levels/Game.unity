@@ -541,7 +541,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minimapCamera: {fileID: 245326516}
   minZoom: 5
-  maxZoom: 20
+  maxZoom: 200
   zoomSpeed: 5
   followSpeed: 5
   minDistance: 20
