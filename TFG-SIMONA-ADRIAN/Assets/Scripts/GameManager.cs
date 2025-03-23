@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public int filas { get; internal set; }
     public int columnas { get; internal set; }
+    public float scale { get; internal set; }
 
     public DialogueSystem dialogueSystem;
     public bool canCarMove = false; // Booleano para controlar el movimiento del coche

@@ -11,34 +11,65 @@ public class MinimapCamera : MonoBehaviour
     public float followSpeed = 5f;
     public float minDistance = 20f;
     public float maxDistance = 100f;
+    public GameObject smallMap;
+    public GameObject bigMap;
+
+    Vector3 positionMap;
 
     private float currentZoom;
 
     void Start()
     {
+        smallMap.SetActive(true);
+        bigMap.SetActive(false);
         // Inicializar el zoom actual al mínimo
         currentZoom = maxZoom;
         player = GameManager.Instance.carController.transform;
         target = GameManager.Instance.playerTarget.transform;
+
+        positionMap = new Vector3((GameManager.Instance.columnas * GameManager.Instance.scale) / 2, minimapCamera.transform.position.y, (GameManager.Instance.filas * GameManager.Instance.scale) / 2);
     }
 
     void Update()
     {
-        // Seguir al jugador
-        FollowPlayer();
+
+        if (!bigMap.activeSelf)
+        {
+
+            // Seguir al jugador
+            FollowPlayer();
+        }
 
         // Ajustar el zoom según la distancia entre el jugador y el objetivo
         AdjustZoom();
 
+
         // Actualizar la cámara del minimapa
         UpdateMinimapCameraPosition();
+
+        if (Input.GetKeyUp(KeyCode.M))
+        {
+            smallMap.SetActive(!smallMap.activeSelf);
+            bigMap.SetActive(!bigMap.activeSelf);
+            if (smallMap.activeSelf)
+            {
+                maxZoom = 2 * GameManager.Instance.scale;
+            }
+            if (bigMap.activeSelf)
+            {
+                maxZoom = 5 * GameManager.Instance.scale;
+                minimapCamera.transform.position = positionMap;
+                //minimapCamera.orthographicSize = currentZoom;
+            }
+        }
     }
 
     // Método para seguir al jugador
     private void FollowPlayer()
     {
         Vector3 desiredPosition = new Vector3(player.position.x, minimapCamera.transform.position.y, player.position.z);
-        minimapCamera.transform.position = Vector3.Lerp(minimapCamera.transform.position, desiredPosition, followSpeed * Time.deltaTime);
+        minimapCamera.transform.position = desiredPosition;
+        //minimapCamera.transform.position = Vector3.Lerp(minimapCamera.transform.position, desiredPosition, followSpeed * Time.deltaTime);
     }
 
     // Ajustar el zoom según la distancia entre el jugador y el objetivo

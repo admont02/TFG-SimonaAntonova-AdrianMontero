@@ -29,6 +29,9 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     GameObject forbiddenPrefab;
     public GameObject TargetIconPrefab;
+    // Padre de las piezas
+    [SerializeField]
+    Transform conjuntoPiezas;
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
@@ -99,6 +102,7 @@ public class LevelLoader : MonoBehaviour
         int nodos = nivel.mapaNuevo.numPiezas;
         GameManager.Instance.filas = nivel.mapaNuevo.filas;
         GameManager.Instance.columnas = nivel.mapaNuevo.columnas;
+        GameManager.Instance.scale = scale;
         Digrafo digrafo = new Digrafo(nodos);
         // Crear el punto objetivo
         if (!nivel.isMenu)
@@ -112,7 +116,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -132,7 +136,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -152,7 +156,7 @@ public class LevelLoader : MonoBehaviour
                 {
 
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -172,7 +176,7 @@ public class LevelLoader : MonoBehaviour
                 {
 
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -192,7 +196,7 @@ public class LevelLoader : MonoBehaviour
                 {
 
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -212,7 +216,7 @@ public class LevelLoader : MonoBehaviour
                 {
 
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -232,7 +236,7 @@ public class LevelLoader : MonoBehaviour
                 {
 
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -251,7 +255,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -269,7 +273,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -288,7 +292,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -307,7 +311,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -326,7 +330,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {
@@ -344,7 +348,7 @@ public class LevelLoader : MonoBehaviour
                 if (rectaPrefab != null)
                 {
                     r_f_l_t.id = r_f_l_t.fil * nivel.mapaNuevo.columnas + r_f_l_t.col;
-                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity);
+                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
                 }
                 else
                 {

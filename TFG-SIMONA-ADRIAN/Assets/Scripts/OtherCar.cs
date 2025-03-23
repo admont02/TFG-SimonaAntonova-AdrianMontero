@@ -21,7 +21,8 @@ public class OtherCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isStopped|| !GameManager.Instance.canCarMove) return;
+        //hay que cambiar segunda variable 
+        //if(isStopped|| !GameManager.Instance.canCarMove) return;
         if (transform.position != destination)
         {
             Vector3 destinationDirection = destination - transform.position;

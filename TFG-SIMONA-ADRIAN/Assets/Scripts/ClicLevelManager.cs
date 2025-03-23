@@ -61,7 +61,9 @@ public class ClicLevelManager : MonoBehaviour
         UpdatePriorityUI();
 
         if (priorityCarList.Count >= GameManager.Instance.cochesIA.Count)
+        {
             StartCoroutine(CheckLevelCompletion());
+        }
     }
 
     public IEnumerator CheckLevelCompletion()
