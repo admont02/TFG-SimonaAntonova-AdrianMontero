@@ -14,7 +14,7 @@ public class ClicLevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-           
+
             // DontDestroyOnLoad(gameObject);
         }
         else
@@ -107,26 +107,26 @@ public class ClicLevelManager : MonoBehaviour
             OtherCar otherCar = car.GetComponent<OtherCar>();
             if (otherCar != null)
             {
-                // otherCar.MoveToDestinations();
-
-                //while (!otherCar.HasArrived())
-                //{
-                yield return null; // Espera a que el coche llegue a su destino } } } GameManager.Instance.canCarMove = false;
+                otherCar.arrow.SetActive(false);
+                otherCar.clickMove = true;
+                yield return new WaitForSeconds(2.0f);
+                //yield return null; // Espera a que el coche llegue a su destino } } } GameManager.Instance.canCarMove = false;
                 //}
             }
         }
     }
     private IEnumerator MoveCarsInDisorder(List<GameObject> carList)
     {
-        //foreach (var car in carList)
-        //{
-        //    OtherCar otherCar = car.GetComponent<OtherCar>();
-        //    if (otherCar != null)
-        //    {
-        //        otherCar.MoveToDestinations();
+        foreach (var car in carList)
+        {
+            OtherCar otherCar = car.GetComponent<OtherCar>();
+            if (otherCar != null)
+            {
+                otherCar.arrow.SetActive(false);
+                otherCar.clickMove = true;
 
-        //    }
-        //}
+            }
+        }
         yield return new WaitForSeconds(5.0f);
     }
 }

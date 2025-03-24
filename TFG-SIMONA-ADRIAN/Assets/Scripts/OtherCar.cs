@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class OtherCar : MonoBehaviour
 {
 
-    public bool reachedDestination=false;
+    public bool reachedDestination = false;
     public Vector3 destination;
     public float stopDistance = 2.5f;
     public float movementSpeed = 1;
@@ -17,12 +17,42 @@ public class OtherCar : MonoBehaviour
     public bool isStopped = false;
     public float brakeDistance = 5f;         // Distancia a la que el coche empieza a frenar
     private bool isPlayerInFront = false;
+    public GameObject arrow;
     public int branchTo { get; set; }
+    public bool clickMove { get; set; }
+    private void Start()
+    {
+
+        if (ClicLevelManager.Instance != null)
+        {
+            clickMove = false;
+            arrow.SetActive(true);
+            Vector3 localArrowRotation = Vector3.zero;
+
+            switch (branchTo)
+            {
+                case 1: // Norte
+                    localArrowRotation = new Vector3(-90, 0, -90); // Hacia adelante
+                    break;
+                case 2: // Este
+                    localArrowRotation = new Vector3(-90, 0, 180); // Hacia la derecha
+                    break;
+                case 3: // Oeste
+                    localArrowRotation = new Vector3(-90, -90, 0); // Hacia la izquierda
+                    break;
+                case 4: // Sur
+                    localArrowRotation = new Vector3(-90, 180, 0); // Hacia atrás
+                    break;
+            }
+
+            arrow.transform.localRotation = Quaternion.Euler(localArrowRotation);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         //hay que cambiar segunda variable 
-        //if(isStopped|| !GameManager.Instance.canCarMove) return;
+        if (isStopped || !GameManager.Instance.canCarMove && !ClicLevelManager.Instance|| ClicLevelManager.Instance && !clickMove) return;
         if (transform.position != destination)
         {
             Vector3 destinationDirection = destination - transform.position;
@@ -47,7 +77,7 @@ public class OtherCar : MonoBehaviour
 
             else reachedDestination = true;
 
-            velocity = (transform.position - lastPosition) / Time.deltaTime; 
+            velocity = (transform.position - lastPosition) / Time.deltaTime;
             velocity.y = 0;
             var velocityMagnitude = velocity.magnitude;
             velocity = velocity.normalized;
@@ -79,7 +109,7 @@ public class OtherCar : MonoBehaviour
     {
         if (other.gameObject.layer == 3) // Si detecta al jugador
         {
-            isPlayerInFront=true;
+            isPlayerInFront = true;
         }
     }
 
@@ -87,7 +117,7 @@ public class OtherCar : MonoBehaviour
     {
         if (other.gameObject.layer == 3) // Cuando el jugador salga del trigger
         {
-            isPlayerInFront=false;
+            isPlayerInFront = false;
         }
     }
     void OnMouseDown()
