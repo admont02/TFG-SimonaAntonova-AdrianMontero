@@ -7,6 +7,7 @@ public class MinimapCamera : MonoBehaviour
     public Camera minimapCamera;
     public float minZoom = 5f;
     public float maxZoom = 20f;
+    public float initialMaxZoom = 200f;
     public float zoomSpeed = 5f;
     public float followSpeed = 5f;
     public float minDistance = 20f;
@@ -53,11 +54,11 @@ public class MinimapCamera : MonoBehaviour
             bigMap.SetActive(!bigMap.activeSelf);
             if (smallMap.activeSelf)
             {
-                maxZoom = 2 * GameManager.Instance.scale;
+                maxZoom = initialMaxZoom;
             }
             if (bigMap.activeSelf)
             {
-                maxZoom = 5 * GameManager.Instance.scale;
+                maxZoom = (GameManager.Instance.scale * 5) * GameManager.Instance.columnas / 10;
                 minimapCamera.transform.position = positionMap;
                 //minimapCamera.orthographicSize = currentZoom;
             }
