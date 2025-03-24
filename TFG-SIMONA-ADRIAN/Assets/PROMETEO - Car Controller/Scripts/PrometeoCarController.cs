@@ -280,7 +280,13 @@ public class PrometeoCarController : MonoBehaviour
         }
 
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponentInParent<OtherCar>() != null)
+        {
+            GameManager.Instance.incorrectLevel.Add("Has tenido un choque con otro vehículo.");
+        }
+    }
     // Update is called once per frame
     void Update()
     {

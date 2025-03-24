@@ -16,7 +16,7 @@ public class OtherCar : MonoBehaviour
     private Vector3 velocity;
     public bool isStopped = false;
     public float brakeDistance = 5f;         // Distancia a la que el coche empieza a frenar
-    private bool isPlayerInFront = false;
+    private bool isCarInFront = false;
     public GameObject arrow;
     public int branchTo { get; set; }
     public bool clickMove { get; set; }
@@ -62,7 +62,7 @@ public class OtherCar : MonoBehaviour
             float destinationDistance = destinationDirection.magnitude;
             if (destinationDistance >= stopDistance)
             {
-                if (isPlayerInFront)
+                if (isCarInFront)
                 {
                     // Reduce la velocidad si el jugador está demasiado cerca
                     movementSpeed = Mathf.Lerp(movementSpeed, 0, Time.deltaTime * 2f); // Frenado suave
@@ -109,17 +109,17 @@ public class OtherCar : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 3) // Si detecta al jugador
+        if (other.gameObject.layer == 3|| other.gameObject.GetComponent<OtherCar>()) //Si detecta al jugador/otro coche
         {
-            isPlayerInFront = true;
+            isCarInFront = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 3) // Cuando el jugador salga del trigger
+        if (other.gameObject.layer == 3||other.gameObject.GetComponent<OtherCar>()) //Cuando el jugador/otro coche salga del trigger
         {
-            isPlayerInFront = false;
+            isCarInFront = false;
         }
     }
     void OnMouseDown()
