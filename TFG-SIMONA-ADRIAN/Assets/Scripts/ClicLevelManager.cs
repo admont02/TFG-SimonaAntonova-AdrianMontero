@@ -8,7 +8,7 @@ public class ClicLevelManager : MonoBehaviour
     public static ClicLevelManager Instance { get; private set; }
     public List<GameObject> priorityCarList = new List<GameObject>();
     private bool correctOrder = true;
-
+    public List<int> correctOrderList;
     void Awake()
     {
         if (Instance == null)
@@ -30,6 +30,7 @@ public class ClicLevelManager : MonoBehaviour
             TextMesh priorityText = car.GetComponentInChildren<TextMesh>();
             if (priorityText != null)
             {
+               
                 priorityText.text = (i + 1).ToString();
             }
         }
@@ -66,40 +67,32 @@ public class ClicLevelManager : MonoBehaviour
         }
     }
 
+    
     public IEnumerator CheckLevelCompletion()
     {
-        //// Lógica para comprobar si el nivel se completó correctamente
-        //int expectedOrder = 0;
-        //foreach (var car in priorityCarList)
-        //{
-        //    int carOrder;
-        //    if (!int.TryParse(car.name.Substring(car.name.Length - 1), out carOrder) || carOrder != expectedOrder)
-        //    {
-        //        Debug.Log("Nivel Incorrecto");
-        //        dialogueSystem.ShowIncorrectLevelDialog(new string[] { "Prioridades incorrectas" });
-        //        return;
-        //    }
-        //    expectedOrder++;
-        //}
-        //Debug.Log("¡Nivel completado correctamente!");
-        //dialogueSystem.ShowCompletedDialog();
-        int id = 0;
+        int index = 0;
+
         foreach (var item in priorityCarList)
         {
-            if (item.name[item.name.Length - 1].ToString() != id.ToString())
+            OtherCar otherCar = item.GetComponent<OtherCar>();
+            if (otherCar == null || index >= correctOrderList.Count || otherCar.carID != correctOrderList[index])
             {
                 correctOrder = false;
                 GameManager.Instance.incorrectLevel.Add("Prioridades incorrectas");
                 break;
             }
-            id++;
+
+            index++;
         }
+
         if (correctOrder)
             yield return StartCoroutine(MoveCarsInOrder(priorityCarList));
         else
             yield return StartCoroutine(MoveCarsInDisorder(priorityCarList));
+
         GameManager.Instance.ComprobarNivel();
     }
+
     private IEnumerator MoveCarsInOrder(List<GameObject> carList)
     {
         foreach (var car in carList)
@@ -109,9 +102,8 @@ public class ClicLevelManager : MonoBehaviour
             {
                 otherCar.arrow.SetActive(false);
                 otherCar.clickMove = true;
-                yield return new WaitForSeconds(2.0f);
-                //yield return null; // Espera a que el coche llegue a su destino } } } GameManager.Instance.canCarMove = false;
-                //}
+                yield return new WaitForSeconds(3.0f);
+                
             }
         }
     }
@@ -127,6 +119,6 @@ public class ClicLevelManager : MonoBehaviour
 
             }
         }
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(8.0f);
     }
 }

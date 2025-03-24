@@ -1,6 +1,9 @@
 {
     "nivel": 7,
     "type": "Prioridad",
+    "correctOrder": [
+        1,0,2
+    ],
     "mapaNuevo": {
         "numPiezas": 9,
         "filas": 3,
@@ -8,9 +11,12 @@
         "Crossroad": [
             {
                 "fil": 1,
-                "col": 1
-                ,"conexiones": [
-                    3,1,5,7
+                "col": 1,
+                "conexiones": [
+                    3,
+                    1,
+                    5,
+                    7
                 ]
             }
         ],
@@ -50,30 +56,22 @@
             {
                 "fil": 2,
                 "col": 0,
-                "conexiones": [
-                    
-                ]
+                "conexiones": []
             },
             {
                 "fil": 2,
                 "col": 2,
-                "conexiones": [
-                    
-                ]
+                "conexiones": []
             },
             {
                 "fil": 0,
                 "col": 0,
-                "conexiones": [
-                    
-                ]
+                "conexiones": []
             },
             {
                 "fil": 0,
                 "col": 2,
-                "conexiones": [
-                    
-                ]
+                "conexiones": []
             }
         ]
     },
@@ -113,7 +111,8 @@
         }
     ],
     "levelDialogs": [
-        " Mapa por piezas"
+        " En esta intersección, ¿en qué orden deben pasar los coches?",
+        "Haz click sobre ellos en el orden deseado."
     ],
     "completedDialogs": [
         " ¡Enhorabuena! Has completado el nivel correctamente."

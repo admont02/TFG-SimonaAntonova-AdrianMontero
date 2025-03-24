@@ -427,11 +427,12 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
             GameObject cocheIAObj = Instantiate(cocheIAPrefab, posicionCoche, rotation);
             cocheIAObj.name = "CocheIA" + id;
-            id++;
+
 
             GameObject priorityTextObj = new GameObject("PriorityText");
             priorityTextObj.transform.SetParent(cocheIAObj.transform);
-            priorityTextObj.transform.localPosition = new Vector3(0, 2, 0);
+            priorityTextObj.transform.localPosition = new Vector3(0, 6, 0);
+            priorityTextObj.transform.localScale = new Vector3(2, 2, 2);
             TextMesh priorityText = priorityTextObj.AddComponent<TextMesh>();
             priorityText.color = Color.red;
 
@@ -443,6 +444,9 @@ public class LevelLoader : MonoBehaviour
 
 
             otherCar.branchTo = IAcar.branchTo;
+            otherCar.carID = id;
+            id++;
+
 
         }
 
@@ -547,6 +551,7 @@ public class LevelLoader : MonoBehaviour
 
                 Debug.Log("Prioridad");
                 GameObject managerInstance = Instantiate(ClicLevelManagerPref);
+                managerInstance.GetComponent<ClicLevelManager>().correctOrderList = nivel.correctOrder;
 
                 break;
             case "Luces":

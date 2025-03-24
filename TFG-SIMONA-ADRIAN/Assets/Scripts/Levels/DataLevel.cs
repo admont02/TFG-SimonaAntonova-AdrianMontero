@@ -314,4 +314,5 @@ public class Nivel
     public string type;
     public bool isMenu = false;
     public List<string> objetivo;
+    public List<int> correctOrder;
 }

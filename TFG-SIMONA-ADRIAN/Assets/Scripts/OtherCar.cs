@@ -20,6 +20,8 @@ public class OtherCar : MonoBehaviour
     public GameObject arrow;
     public int branchTo { get; set; }
     public bool clickMove { get; set; }
+    public int carID { get; internal set; }
+
     private void Start()
     {
 
