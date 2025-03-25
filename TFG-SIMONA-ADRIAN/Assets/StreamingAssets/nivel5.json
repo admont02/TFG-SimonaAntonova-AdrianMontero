@@ -1,5 +1,6 @@
 {
     "nivel": 5,
+    "type":"Luces",
     "mapaNuevo": {
         "numPiezas": 9,
         "filas": 3,

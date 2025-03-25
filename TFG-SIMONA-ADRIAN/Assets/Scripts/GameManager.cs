@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI velText;
 
+    public GameObject antiniebla;
+    public GameObject posicion;
+    public GameObject largas;
+    public GameObject cortas;
+
     void Awake()
     {
         incorrectLevel.Add("Nivel Incorrecto, errores: ");

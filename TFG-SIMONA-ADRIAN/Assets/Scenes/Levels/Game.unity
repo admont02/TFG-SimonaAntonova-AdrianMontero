@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5649006, g: 0.63564, b: 0.7239374, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,6 +542,7 @@ MonoBehaviour:
   minimapCamera: {fileID: 245326516}
   minZoom: 5
   maxZoom: 200
+  initialMaxZoom: 200
   zoomSpeed: 5
   followSpeed: 5
   minDistance: 20
@@ -2031,6 +2032,10 @@ MonoBehaviour:
     v: 0
     a: 0
   velText: {fileID: 2083370879}
+  antiniebla: {fileID: 93563714}
+  posicion: {fileID: 1361371315}
+  largas: {fileID: 18829632}
+  cortas: {fileID: 1334436484}
 --- !u!4 &923984509
 Transform:
   m_ObjectHideFlags: 0
