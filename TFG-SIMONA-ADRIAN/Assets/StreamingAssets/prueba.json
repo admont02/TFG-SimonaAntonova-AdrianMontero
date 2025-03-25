@@ -2,15 +2,14 @@
     "numPiezas": 9,
     "filas": 3,
     "columnas": 3,
-    "Crossroad": [
-        {
-            "fil": 1,
-            "col": 1
-        }
-    ],
+    "Crossroad": [],
     "Vertical": [
         {
             "fil": 2,
+            "col": 1
+        },
+        {
+            "fil": 1,
             "col": 1
         },
         {
@@ -18,16 +17,7 @@
             "col": 1
         }
     ],
-    "Horizontal": [
-        {
-            "fil": 1,
-            "col": 0
-        },
-        {
-            "fil": 1,
-            "col": 2
-        }
-    ],
+    "Horizontal": [],
     "Roundabout": [],
     "Pavement": [
         {
@@ -36,6 +26,14 @@
         },
         {
             "fil": 2,
+            "col": 2
+        },
+        {
+            "fil": 1,
+            "col": 0
+        },
+        {
+            "fil": 1,
             "col": 2
         },
         {

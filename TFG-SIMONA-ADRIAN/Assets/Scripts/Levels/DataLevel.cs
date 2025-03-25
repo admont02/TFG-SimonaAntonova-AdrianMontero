@@ -244,6 +244,7 @@ public class MapaNuevo
     public List<PosicionMapa> TurnRight2;
     public List<PosicionMapa> TurnLeft;
     public List<PosicionMapa> TurnLeft2;
+    public List<PosicionMapa> TunnelVertical;
 
 
 

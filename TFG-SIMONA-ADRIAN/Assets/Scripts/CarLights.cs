@@ -145,6 +145,7 @@ public class CarLights : MonoBehaviour
             fog.GetComponent<Renderer>().material = fogDisipada;
             // TO DO: cambiar a que se haga clear solo de las luces, no de todos los errores
             //GameManager.Instance.incorrectLevel.Clear();
+            GameManager.Instance.incorrectLevel.Remove("Luces incorrectas para niebla intensa");
         }
         else
         {

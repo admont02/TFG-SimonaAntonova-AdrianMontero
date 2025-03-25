@@ -1,23 +1,85 @@
 {
     "nivel": 3,
-    "mapa": {
-        "nombre": "Template2",
-        "posicion": {
-            "x": 201.4,
-            "y": 0,
-            "z": 215.18
-        }
+    "type":"Luces",
+    "mapaNuevo": 
+    {
+        "numPiezas": 9,
+        "filas": 3,
+        "columnas": 3,
+        "Crossroad": [],
+        "TunnelVertical": [
+            {
+                "fil": 0,
+                "col": 1,
+                "conexiones": [
+                    4
+                ]
+            }
+        ],
+        "Vertical": [
+            {
+                "fil": 2,
+                "col": 1,
+                "conexiones": [
+                    4
+                ]
+            },
+            {
+                "fil": 1,
+                "col": 1,
+                "conexiones": [
+                    7, 1
+                ]
+            }
+        ],
+        "Horizontal": [],
+        "Roundabout": [],
+        "Pavement": [
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "TurnLeft": [],
+        "TurnRight": []
     },
-    "jugador": {
-        "posicionInicial": {
-            "x": 123.5,
-            "y": 2.025,
-            "z": 113.9
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 1
         },
-        "rotacionInicial": {
-            "x": 0,
-            "y": 0,
-            "z": 0
+        "subPosicion": {
+            "fil": 10,
+            "col": 3
+        },
+        "orientacion": "arriba"
+    },
+    "targetJugador": {
+        "pieza": {
+            "index": 7
+        },
+        "subPosicion": {
+            "fil": 9,
+            "col": 6
         }
     },
     "fog": true,
@@ -29,7 +91,6 @@
     "completedDialogs": [
         "¡Enhorabuena! Has completado el nivel correctamente."
     ],
-    "type": "Luces",
     "objetivo": [
         "antinieblasDelanteras",
         "antinieblasTraseras",

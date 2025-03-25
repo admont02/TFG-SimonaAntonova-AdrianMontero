@@ -3974,7 +3974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fog: {fileID: 4485689717955179674}
-  fogDisipada: {fileID: 0}
+  fogDisipada: {fileID: 2100000, guid: 13da8d8fe82d4b64e8be62c1e68263a2, type: 2}
   antinieblaLights:
   - {fileID: 3221894327405164806}
   - {fileID: 646771395456817756}
