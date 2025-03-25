@@ -108,259 +108,20 @@ public class LevelLoader : MonoBehaviour
         if (!nivel.isMenu)
         {
 
-            foreach (var recta in nivel.mapaNuevo.Crossroad)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Crossroad");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-
-            }
-            foreach (var recta in nivel.mapaNuevo.Vertical)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Vertical");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.Horizontal)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Horizontal");
-                if (rectaPrefab != null)
-                {
-
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.Intersection)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Intersection");
-                if (rectaPrefab != null)
-                {
-
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.Intersection3)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Intersection3");
-                if (rectaPrefab != null)
-                {
-
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.Intersection4)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Intersection4");
-                if (rectaPrefab != null)
-                {
-
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.Intersection2)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Intersection2");
-                if (rectaPrefab != null)
-                {
-
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.Roundabout)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Roundabout");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.TurnRight)
-            {
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnRight");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.TurnLeft)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnLeft");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.TurnLeft2)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnLeft2");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var recta in nivel.mapaNuevo.TurnRight2)
-            {
-
-                Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/TurnRight2");
-                if (rectaPrefab != null)
-                {
-                    recta.id = recta.fil * nivel.mapaNuevo.columnas + recta.col;
-                    posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in recta.conexiones)
-                {
-                    digrafo.ponArista(recta.id, conn);
-                }
-            }
-            foreach (var r_f_l_t in nivel.mapaNuevo.Pavement)
-            {
-                Vector3 posicion = ConvertToPosition(r_f_l_t.fil, r_f_l_t.col, scale);
-                GameObject rectaPrefab = Resources.Load<GameObject>("PiezasPrefabs/Pavement");
-                if (rectaPrefab != null)
-                {
-                    r_f_l_t.id = r_f_l_t.fil * nivel.mapaNuevo.columnas + r_f_l_t.col;
-                    posicionesPiezas[r_f_l_t.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
-                }
-                else
-                {
-                    Debug.LogError("No se encontró el prefab de la recta.");
-                }
-                foreach (var conn in r_f_l_t.conexiones)
-                {
-                    digrafo.ponArista(r_f_l_t.id, conn);
-                }
-            }
-
-
+            CrearTipoPiezas(nivel.mapaNuevo.Crossroad, "Crossroad", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Vertical, "Vertical", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Horizontal, "Horizontal", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Roundabout, "Roundabout", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnRight, "TurnRight", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnRight2, "TurnRight2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft, "TurnLeft", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft2, "TurnLeft2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Intersection, "Intersection", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Intersection2, "Intersection2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Intersection3, "Intersection3", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Intersection4, "Intersection4", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Pavement, "Pavement", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            
             //JUGADOR NUEVO
             if (nivel.jugadorNuevo.pieza != null)
             {
@@ -567,6 +328,33 @@ public class LevelLoader : MonoBehaviour
                     carLights.objetivoLuces = nivel.objetivo;
                 }
                 break;
+        }
+    }
+    private void CrearTipoPiezas(List<PosicionMapa> piezas, string prefabName, MapaNuevo nivel, Transform conjuntoPiezas, float scale, Dictionary<int, GameObject> posicionesPiezas, Digrafo digrafo)
+    {
+        foreach (var recta in piezas)
+        {
+            //Convertir la posición
+            Vector3 posicion = ConvertToPosition(recta.fil, recta.col, scale);
+
+            //Cargar el prefab correspondiente
+            GameObject rectaPrefab = Resources.Load<GameObject>($"PiezasPrefabs/{prefabName}");
+            if (rectaPrefab != null)
+            {
+                //Asignar ID y crear instancia
+                recta.id = recta.fil * nivel.columnas + recta.col;
+                posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
+            }
+            else
+            {
+                Debug.LogError($"No se encontró el prefab: {prefabName}");
+            }
+
+            //Añadir conexiones al grafo
+            foreach (var conn in recta.conexiones)
+            {
+                digrafo.ponArista(recta.id, conn);
+            }
         }
     }
 
