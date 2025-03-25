@@ -317,7 +317,8 @@ public class LevelLoader : MonoBehaviour
                 break;
             case "Luces":
                 Debug.Log("nivel luces");
-                GameManager.Instance.antiniebla.SetActive(true);
+                GameManager.Instance.antinieblaDelanteras.SetActive(true);
+                GameManager.Instance.antinieblaTraseras.SetActive(true);
                 GameManager.Instance.posicion.SetActive(true);
                 GameManager.Instance.largas.SetActive(true);
                 GameManager.Instance.cortas.SetActive(true);

@@ -33,7 +33,8 @@ public class CarLights : MonoBehaviour
         // Configurar luces
         // ...
         fogIntensa = fog.GetComponent<Renderer>().material;
-        antinieblaButton=GameManager.Instance.antiniebla.GetComponent<Button>();
+        antinieblaButton = GameManager.Instance.antinieblaDelanteras.GetComponent<Button>();
+        antinieblaBackButton = GameManager.Instance.antinieblaTraseras.GetComponent<Button>();
         posicionButton = GameManager.Instance.posicion.GetComponent<Button>();
         cortasButton = GameManager.Instance.cortas.GetComponent<Button>();
         largasButton = GameManager.Instance.largas.GetComponent<Button>();

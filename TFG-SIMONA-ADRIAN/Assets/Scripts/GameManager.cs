@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI velText;
 
-    public GameObject antiniebla;
+    public GameObject antinieblaDelanteras;
+    public GameObject antinieblaTraseras;
     public GameObject posicion;
     public GameObject largas;
     public GameObject cortas;
