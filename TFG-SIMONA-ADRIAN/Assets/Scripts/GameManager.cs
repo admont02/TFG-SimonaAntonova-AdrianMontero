@@ -58,6 +58,10 @@ public class GameManager : MonoBehaviour
                 Camera.main.gameObject.SetActive(false);
                 clicLevelCam.gameObject.SetActive(true);
                 clicLevelCam.tag = "MainCamera";
+                for (int i = 0; i < cochesIA.Count; i++)
+                {
+                    cochesIA[i].GetComponent<OtherCar>().icon.SetActive(false);
+                }
             }
         }
         else
@@ -68,13 +72,31 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       
+
     }
     void InitializeDialogue()
     {
         if (dialogueSystem != null)
         {
-            dialogueSystem.StartDialogue(false);
+            if (SceneData.JsonFileName == "menu.json")
+            {
+                if (SceneData.firstTime)
+                {
+                    dialogueSystem.StartDialogue(false);
+                    SceneData.firstTime = false;
+                }
+                else
+                {
+                    dialogueSystem.dialoguePanel.SetActive(false);
+
+                }
+
+            }
+            else if (SceneData.JsonFileName != "menu.json")
+            {
+                dialogueSystem.StartDialogue(false);
+
+            }
         }
     }
     public void SetPlayer(Transform t)
@@ -105,7 +127,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No se encontró NivelLoader en la escena.");
+            Debug.Log("No se encontró NivelLoader en la escena.");
         }
     }
     public void ComprobarNivel()

@@ -21,7 +21,7 @@ public class OtherCar : MonoBehaviour
     public int branchTo { get; set; }
     public bool clickMove { get; set; }
     public int carID { get; internal set; }
-
+    public GameObject icon;
     private void Start()
     {
 

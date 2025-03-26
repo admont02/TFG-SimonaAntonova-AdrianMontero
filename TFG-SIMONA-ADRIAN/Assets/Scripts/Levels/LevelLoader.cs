@@ -34,7 +34,7 @@ public class LevelLoader : MonoBehaviour
     Transform conjuntoPiezas;
     public void CargarNivel()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
+        string filePath = Path.Combine(Application.streamingAssetsPath, SceneData.JsonFileName);
         filePath = filePath.Replace("\\", "/"); // Reemplaza las barras invertidas por barras normales
         Debug.Log("Ruta del archivo JSON: " + filePath);
         if (File.Exists(filePath))

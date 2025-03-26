@@ -4180,6 +4180,7 @@ MonoBehaviour:
   isStopped: 0
   brakeDistance: 5
   arrow: {fileID: 5496428060249442122}
+  icon: {fileID: 6355413703131638298}
 --- !u!114 &4322305821549741012
 MonoBehaviour:
   m_ObjectHideFlags: 0
