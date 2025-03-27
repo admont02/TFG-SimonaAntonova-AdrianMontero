@@ -1,5 +1,7 @@
 {
-    "online": "true",
+    "online": "false",
+    "offline": "true",
+     "backup-format": "XAPI",
     "lrs_endpoint": "<your-lrs-endpoint>",
     "auth_protocol": "basic", 
     "auth_parameters": {
