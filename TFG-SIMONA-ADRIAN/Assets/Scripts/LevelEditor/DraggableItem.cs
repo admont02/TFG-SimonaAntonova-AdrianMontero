@@ -55,6 +55,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     rectTransform.anchoredPosition = originalPosition; // Regresa a la posición inicial
                     return;
                 }
+                else
+                {
+                    Debug.Log("cambiar pieza");
+                }
             }
 
             
