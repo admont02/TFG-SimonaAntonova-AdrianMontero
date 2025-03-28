@@ -39,7 +39,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup.blocksRaycasts = true;
 
         //Detectar si el objeto fue soltado sobre una celda válida del grid
-        if (eventData.pointerEnter != null && eventData.pointerEnter.transform.IsChildOf(gridParent) && draggableType!=DraggableType.TrafficElem)
+        if (eventData.pointerEnter != null && eventData.pointerEnter.transform.IsChildOf(gridParent) && draggableType != DraggableType.TrafficElem)
         {
             Transform cell = eventData.pointerEnter.transform;
 
@@ -48,26 +48,37 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
             if (existingItem != null)
             {
-                // No reemplazar una pieza por un elemento de tráfico o viceversa
+                //No reemplazar una pieza por un elemento de tráfico o viceversa
                 if (existingItem.draggableType != this.draggableType)
                 {
                     Debug.Log($"No se puede sustituir {existingItem.draggableType} con {this.draggableType}");
-                    rectTransform.anchoredPosition = originalPosition; // Regresa a la posición inicial
+                    rectTransform.anchoredPosition = originalPosition; //Regresa a la posición inicial
                     return;
                 }
                 else
                 {
                     Debug.Log("cambiar pieza");
+                    
+                    Destroy(existingItem.gameObject);
+                   
+                    Debug.Log($"Pieza {name} colocada en {cell.parent.name}");
+
+                    GameObject copy = Instantiate(gameObject, cell.parent);
+                    copy.name = gameObject.name;
+                    copy.transform.localPosition = Vector3.zero;
+                    rectTransform.anchoredPosition = originalPosition;
                 }
             }
+            else
+            {
+                Debug.Log($"Pieza {name} colocada en {cell.name}");
 
-            
-            Debug.Log($"Pieza {name} colocada en {cell.name}");
+                GameObject copy = Instantiate(gameObject, cell);
+                copy.name = gameObject.name;
+                copy.transform.localPosition = Vector3.zero;
+                rectTransform.anchoredPosition = originalPosition;
+            }
 
-            GameObject copy = Instantiate(gameObject, cell);
-            copy.name = gameObject.name; 
-            copy.transform.localPosition = Vector3.zero;
-            rectTransform.anchoredPosition = originalPosition;
 
         }
         else
