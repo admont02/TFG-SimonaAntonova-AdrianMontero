@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class MapSaver : MonoBehaviour
 {
-    public Transform gridParent; 
-    public int filas; 
-    public int columnas; 
+    public Transform gridParent;
+    public int filas;
+    public int columnas;
 
     public void SaveMap()
     {
@@ -28,7 +28,7 @@ public class MapSaver : MonoBehaviour
             Image tileImage = tile.GetComponent<Image>();
             if (tileImage != null && tileImage.sprite != null)
             {
-               
+
                 if (tileImage.sprite.name == "Roundabout")
                 {
                     mapa.Roundabout.Add(new TipoDePieza { fil = fila, col = columna });
@@ -37,27 +37,45 @@ public class MapSaver : MonoBehaviour
                 {
                     mapa.Crossroad.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                else if(tileImage.sprite.name == "Vertical")
+                else if (tileImage.sprite.name == "Vertical")
                 {
                     mapa.Vertical.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                else if(tileImage.sprite.name == "Horizontal")
+                else if (tileImage.sprite.name == "Horizontal")
                 {
                     mapa.Horizontal.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                else if(tileImage.sprite.name == "Pavement")
+                else if (tileImage.sprite.name == "Pavement")
                 {
                     mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                else if(tileImage.sprite.name == "TurnRight")
+                else if (tileImage.sprite.name == "TurnRight")
                 {
                     mapa.TurnRight.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                else if(tileImage.sprite.name == "TurnLeft")
+                else if (tileImage.sprite.name == "TurnLeft")
                 {
                     mapa.TurnLeft.Add(new TipoDePieza { fil = fila, col = columna });
                 }
+                // Guardar stops (InteractivePoints)
+                foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
+                {
+                    if (point.gameObject.transform.childCount > 0)
+                    {
+                        string nombreHijo = point.gameObject.transform.GetChild(0).name;
+                        if (nombreHijo == "stop")
+                        {
+                            mapa.stops.Add(new Stop
+                            {
+                                pieza = new Pieza { index = tile.GetSiblingIndex() }, 
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion 
+                            });
+                        }
 
+                    }
+
+                }
             }
         }
 

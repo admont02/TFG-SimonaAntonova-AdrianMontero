@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 public class InteractivePoint : MonoBehaviour, IDropHandler
 {
     public int fil; 
-    public int col; 
+    public int col;
+
+    public string orientacion { get; internal set; }
 
     //Método que se ejecuta cuando algo se suelta sobre el punto
     public void OnDrop(PointerEventData eventData)
