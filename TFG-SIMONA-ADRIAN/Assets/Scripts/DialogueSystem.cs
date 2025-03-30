@@ -8,6 +8,8 @@ public class DialogueSystem : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     public GameObject dialoguePanel;
+    public GameObject restartButton;
+    public GameObject menuButton;
     public float typingSpeed = 0.05f; // Velocidad a la que se escribe el texto
     public AudioClip typingSound; // Sonido de tecleo
     private AudioSource audioSource;
@@ -36,10 +38,8 @@ public class DialogueSystem : MonoBehaviour
         dialoguePanel.SetActive(true);
         if (end)
         {
-            foreach (Transform child in dialoguePanel.transform)
-            {
-                child.gameObject.SetActive(true);
-            }
+            restartButton.SetActive(true);
+            menuButton.SetActive(true);
         }
         GameManager.Instance.canCarMove = false;
         StartCoroutine(TypeSentence());
