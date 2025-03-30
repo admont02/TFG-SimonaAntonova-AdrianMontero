@@ -19,9 +19,9 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
             if (transform.childCount > 0)
             {
                 //Borrar el hijo existente
-                Transform existingChild = transform.GetChild(0); // Obtiene el primer hijo (único hijo esperado)
+                Transform existingChild = transform.GetChild(0); 
                 Debug.Log($"Eliminando hijo existente: {existingChild.name}");
-                Destroy(existingChild.gameObject); // Elimina el GameObject del hijo
+                Destroy(existingChild.gameObject); 
             }
             GameObject copy = Instantiate(draggable.gameObject, transform);
             copy.name = draggable.gameObject.name;

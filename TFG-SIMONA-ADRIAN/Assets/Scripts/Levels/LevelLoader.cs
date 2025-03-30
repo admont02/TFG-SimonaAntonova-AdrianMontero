@@ -315,6 +315,11 @@ public class LevelLoader : MonoBehaviour
         {
             GameManager.Instance.EnableFog();
         }
+        else if (nivel.rain)
+        {
+            GameManager.Instance.EnableRain();
+
+        }
         switch (nivel.type)
         {
             //case LevelType.Desconocido:

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public PrometeoCarController carController;
     public OtherCar otherCar;
     public GameObject playerTarget;
+    public GameObject rain;
     public List<GameObject> cochesIA = new List<GameObject>();
 
     public List<string> incorrectLevel = new List<string>();
@@ -175,6 +176,11 @@ public class GameManager : MonoBehaviour
         //RenderSettings.fogStartDistance = 0.5f;
         //RenderSettings.fogEndDistance = 80f;
         //RenderSettings.fogDensity = 0.05f;
+    }
+    public void EnableRain()
+    {
+        Debug.Log("lluvia");
+        rain.SetActive(true);
     }
     public void ChangeScene(string sceneName)
     {
