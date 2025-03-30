@@ -80,6 +80,7 @@ public class DialogueSystem : MonoBehaviour
             audioSource.Stop();
         }
         isTyping = false;
+        typingSpeed = 0.05f;
         //if (levelEnded)
         //{
         //    GameManager.Instance.canCarMove = true;
@@ -90,24 +91,30 @@ public class DialogueSystem : MonoBehaviour
     public void NextSentence()
     {
         if (isTyping)
-            return; // No avanzar si el texto se está escribiendo
-
-        if (index < dialogues.Length - 1)
         {
-            index++;
-            dialogueText.text = "";
-            StartCoroutine(TypeSentence());
+            typingSpeed = 0.01f;
+            //return; // No avanzar si el texto se está escribiendo
         }
         else
         {
-            if (!isEnd)
+            if (index < dialogues.Length - 1)
             {
-
-
-                dialoguePanel.SetActive(false);
-                if (GameManager.Instance.carController != null)
-                    GameManager.Instance.canCarMove = true;
+                index++;
+                dialogueText.text = "";
+                StartCoroutine(TypeSentence());
             }
+            else
+            {
+                if (!isEnd)
+                {
+
+
+                    dialoguePanel.SetActive(false);
+                    if (GameManager.Instance.carController != null)
+                        GameManager.Instance.canCarMove = true;
+                }
+            }
+
         }
     }
 
