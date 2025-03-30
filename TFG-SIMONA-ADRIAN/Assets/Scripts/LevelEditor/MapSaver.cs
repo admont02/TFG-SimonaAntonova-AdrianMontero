@@ -72,6 +72,15 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion 
                             });
                         }
+                        else if (nombreHijo == "prohibido")
+                        {
+                            mapa.prohibidos.Add(new Prohibido
+                            {
+                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
 
                     }
 

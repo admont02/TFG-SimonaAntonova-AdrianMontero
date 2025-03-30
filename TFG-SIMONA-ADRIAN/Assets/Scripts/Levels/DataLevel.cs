@@ -15,6 +15,7 @@ public class MapaData
     public List<TipoDePieza> TurnLeft = new List<TipoDePieza>();
     public List<TipoDePieza> TurnRight = new List<TipoDePieza>();
     public List<Stop> stops = new List<Stop>();
+    public List<Prohibido> prohibidos = new List<Prohibido>();
 }
 
 [System.Serializable]
