@@ -7,6 +7,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 originalPosition; // Guarda la posición inicial
+    private Vector2 originalSize; // Guarda la posición inicial
     private Canvas canvas;
     public DraggableType draggableType;
     public Transform gridParent;
@@ -22,6 +23,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        originalSize = eventData.pointerDrag.GetComponent<RectTransform>().sizeDelta;
         // Ajustar propiedades para que sea más visible y no bloquee eventos
         canvasGroup.alpha = 0.6f; // Hace la pieza más transparente durante el drag
         canvasGroup.blocksRaycasts = false; // Permite que los eventos pasen a través
@@ -53,6 +55,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                     Debug.Log($"No se puede sustituir {existingItem.draggableType} con {this.draggableType}");
                     rectTransform.anchoredPosition = originalPosition; //Regresa a la posición inicial
+                    rectTransform.sizeDelta = originalSize;
                     return;
                 }
                 else
@@ -67,6 +70,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
                     rectTransform.anchoredPosition = originalPosition;
+                    rectTransform.sizeDelta = originalSize;
                 }
             }
             else
@@ -77,6 +81,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 copy.name = gameObject.name;
                 copy.transform.localPosition = Vector3.zero;
                 rectTransform.anchoredPosition = originalPosition;
+                rectTransform.sizeDelta = originalSize;
+
             }
 
 
@@ -85,6 +91,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             //Si no se suelta sobre una celda válida, regresar a la posición original
             rectTransform.anchoredPosition = originalPosition;
+            rectTransform.sizeDelta = originalSize;
         }
     }
 
