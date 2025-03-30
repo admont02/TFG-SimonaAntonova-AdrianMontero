@@ -29,6 +29,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     GameObject forbiddenPrefab;
     public GameObject TargetIconPrefab;
+    public float scale = 50f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
     // Padre de las piezas
     [SerializeField]
     Transform conjuntoPiezas;
@@ -94,7 +95,7 @@ public class LevelLoader : MonoBehaviour
 
     void CrearNivel(Nivel nivel)
     {
-        float scale = 100f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
+
         int subdivisions = 20;
         float subScale = scale;
         //List<Vector3> posicionesPiezas = new List<Vector3>();
@@ -136,6 +137,7 @@ public class LevelLoader : MonoBehaviour
                     // Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
                     Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugadorNuevo.orientacion);
                     GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
+                    playerObj.transform.localScale = new Vector3(playerObj.transform.localScale.x * scale / 100, playerObj.transform.localScale.y * scale / 100, playerObj.transform.localScale.z * scale / 100);
                     playerObj.SetActive(true);
                     GameManager.Instance.carController = playerObj.GetComponent<PrometeoCarController>();
                     GameManager.Instance.SetPlayer(playerObj.transform);
@@ -169,7 +171,7 @@ public class LevelLoader : MonoBehaviour
                 GameObject playerObjAux = GameManager.Instance.carController.gameObject;
                 //GPSController gpsController = playerObjAux.GetComponent<GPSController>();
                 //gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
-                
+
             }
         }
         GameManager.Instance.graph = digrafo;
@@ -188,6 +190,7 @@ public class LevelLoader : MonoBehaviour
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
             GameObject cocheIAObj = Instantiate(cocheIAPrefab, posicionCoche, rotation);
+            cocheIAObj.transform.localScale = new Vector3(cocheIAObj.transform.localScale.x * scale / 100, cocheIAObj.transform.localScale.y * scale / 100, cocheIAObj.transform.localScale.z * scale / 100);
             cocheIAObj.name = "CocheIA" + id;
 
 
@@ -224,6 +227,8 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, cuadricula.subPosicion.fil, cuadricula.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
             GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, posicionCuadricula, prefabRotation);
+            cuadriculaObj.transform.localScale = new Vector3(cuadriculaObj.transform.localScale.x * scale / 100, cuadriculaObj.transform.localScale.y * scale / 100, cuadriculaObj.transform.localScale.z * scale / 100);
+
             cuadriculaObj.SetActive(true);
         }
         //stops
@@ -238,6 +243,8 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
             GameObject stopObj = Instantiate(stopPrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
             stopObj.SetActive(true);
         }
         //prohibidos
@@ -252,6 +259,8 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
             GameObject stopObj = Instantiate(forbiddenPrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
             stopObj.SetActive(true);
         }
         //SEMAFOROS NUEVOS
@@ -268,6 +277,8 @@ public class LevelLoader : MonoBehaviour
             if (semaforo.doble)
             {
                 GameObject semaforoObj = Instantiate(semaforoDoblePrefab, posicionSemaforo, rotation);
+                semaforoObj.transform.localScale = new Vector3(semaforoObj.transform.localScale.x * scale / 100, semaforoObj.transform.localScale.y * scale / 100, semaforoObj.transform.localScale.z * scale / 100);
+
                 foreach (Transform child in semaforoObj.transform)
                 {
                     SimpleTrafficLight semaforoScript = child.GetComponent<SimpleTrafficLight>();
@@ -285,6 +296,7 @@ public class LevelLoader : MonoBehaviour
             else
             {
                 GameObject semaforoObj = Instantiate(semaforoPrefab, posicionSemaforo, rotation);
+                semaforoObj.transform.localScale = new Vector3(semaforoObj.transform.localScale.x * scale / 100, semaforoObj.transform.localScale.y * scale / 100, semaforoObj.transform.localScale.z * scale / 100);
 
                 SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
                 semaforoScript.greenSeconds = semaforo.greenSeconds;
@@ -346,6 +358,7 @@ public class LevelLoader : MonoBehaviour
                 //Asignar ID y crear instancia
                 recta.id = recta.fil * nivel.columnas + recta.col;
                 posicionesPiezas[recta.id] = Instantiate(rectaPrefab, posicion, Quaternion.identity, conjuntoPiezas);
+                posicionesPiezas[recta.id].transform.localScale = new Vector3(scale / 100, scale / 100, scale / 100);
             }
             else
             {

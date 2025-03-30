@@ -35,11 +35,11 @@ public class DialogueSystem : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         ResetDialogue();
         index = 0;
-        dialoguePanel.SetActive(true);
+        dialoguePanel?.SetActive(true);
         if (end)
         {
-            restartButton.SetActive(true);
-            menuButton.SetActive(true);
+            restartButton?.SetActive(true);
+            menuButton?.SetActive(true);
         }
         GameManager.Instance.canCarMove = false;
         StartCoroutine(TypeSentence());

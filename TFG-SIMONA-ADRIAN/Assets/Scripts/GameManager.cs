@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (carController != null)
-            velText.text = carController.GetComponent<Rigidbody>().velocity.magnitude.ToString("F0");
+            velText.text = carController.GetComponent<PrometeoCarController>().carSpeed.ToString("F0");
         else
         {
             //momentaneio
