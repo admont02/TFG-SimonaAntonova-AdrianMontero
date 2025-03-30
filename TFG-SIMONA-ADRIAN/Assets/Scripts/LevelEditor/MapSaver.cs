@@ -81,6 +81,15 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion
                             });
                         }
+                        else if (nombreHijo == "IA_Car")
+                        {
+                            mapa.IACars.Add(new IA_Car
+                            {
+                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
 
                     }
 
