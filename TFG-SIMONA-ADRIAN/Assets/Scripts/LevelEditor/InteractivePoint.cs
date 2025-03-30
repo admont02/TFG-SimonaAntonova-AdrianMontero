@@ -16,7 +16,13 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
         {
             Debug.Log($"Elemento {draggable.name} colocado en el punto interactivo [fil: {fil}, col: {col}]");
 
-
+            if (transform.childCount > 0)
+            {
+                //Borrar el hijo existente
+                Transform existingChild = transform.GetChild(0); // Obtiene el primer hijo (único hijo esperado)
+                Debug.Log($"Eliminando hijo existente: {existingChild.name}");
+                Destroy(existingChild.gameObject); // Elimina el GameObject del hijo
+            }
             GameObject copy = Instantiate(draggable.gameObject, transform);
             copy.name = draggable.gameObject.name;
             copy.transform.localPosition = Vector3.zero;
