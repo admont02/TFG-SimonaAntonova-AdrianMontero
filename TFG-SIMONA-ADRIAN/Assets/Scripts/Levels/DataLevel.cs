@@ -34,7 +34,7 @@ public static class SceneData
     public static bool firstTime = true;
     //public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    public static string JsonFileName="nivel5.json";
+    public static string JsonFileName="nivel8.json";
 
 }
 
@@ -50,7 +50,6 @@ public class Posicion
 [System.Serializable]
 public class IA_Car
 {
-    public List<Posicion> posiciones;
     public Pieza pieza;
     public SubPosicion subPosicion;
     public string orientacion;

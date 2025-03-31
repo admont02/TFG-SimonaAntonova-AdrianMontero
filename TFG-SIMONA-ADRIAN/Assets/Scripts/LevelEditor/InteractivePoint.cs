@@ -7,7 +7,7 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
     public int fil; 
     public int col;
 
-    public string orientacion { get; internal set; }
+    public string orientacion;
 
     //Método que se ejecuta cuando algo se suelta sobre el punto
     public void OnDrop(PointerEventData eventData)

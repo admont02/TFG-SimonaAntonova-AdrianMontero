@@ -69,8 +69,8 @@ public class LevelLoader : MonoBehaviour
     {
         //el numero magico 5 es un offset para que 0,0 sea en la pos 5,5
         float subdivisionSize = subScale / subdivisions; // Tamaño de cada subdivisión
-        float offsetX = -subScale / 2 + 5 + subdivisionSize * subFil;
-        float offsetZ = -subScale / 2 + 5 + subdivisionSize * subCol;
+        float offsetX = -subScale / 2 + 2.5f + subdivisionSize * subFil;
+        float offsetZ = -subScale / 2 + 2.5f + subdivisionSize * subCol;
         return basePosition + new Vector3(offsetX, 2.81f, offsetZ);
     }
 
