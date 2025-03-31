@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Xasu.HighLevel;
 
 public class StopSign : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class StopSign : MonoBehaviour
     {
         if (timeStopped < stopDuration)
         {
-
+            GameObjectTracker.Instance.Interacted("stop-sign-error", GameObjectTracker.TrackedGameObject.GameObject);
             Debug.Log("El coche salió del área de la señal de stop antes de completar los 3 segundos.");
             GameManager.Instance.incorrectLevel.Add("No has respetado la señal de Stop.");
 

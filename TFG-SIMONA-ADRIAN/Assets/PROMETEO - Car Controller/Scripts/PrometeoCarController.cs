@@ -13,6 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Xasu.HighLevel;
 
 public class PrometeoCarController : MonoBehaviour
 {
@@ -284,6 +285,7 @@ public class PrometeoCarController : MonoBehaviour
     {
         if(collision.gameObject.GetComponentInParent<OtherCar>() != null)
         {
+            GameObjectTracker.Instance.Interacted("crash-car-error", GameObjectTracker.TrackedGameObject.GameObject);
             GameManager.Instance.incorrectLevel.Add("Has tenido un choque con otro vehículo.");
         }
     }

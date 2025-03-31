@@ -1,4 +1,5 @@
 using UnityEngine;
+using Xasu.HighLevel;
 
 public class TriggerHandler : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class TriggerHandler : MonoBehaviour
 
                 if (trafficLight.GetComponent<SimpleTrafficLight>().red.activeSelf)
                 {
+                    GameObjectTracker.Instance.Interacted("traffic-light-error", GameObjectTracker.TrackedGameObject.GameObject);
                     GameManager.Instance.incorrectLevel.Add("Semáforo con luz roja: Prohibido el paso.");
                 }
             }
