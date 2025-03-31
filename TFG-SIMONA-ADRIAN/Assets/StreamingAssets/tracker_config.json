@@ -1,11 +1,11 @@
 {
-    "online": "false",
-    "offline": "true",
+    "online": "true",
+    "offline": "false",
      "backup-format": "XAPI",
-    "lrs_endpoint": "<your-lrs-endpoint>",
+    "lrs_endpoint": "https://cloud.scorm.com/lrs/TD2TL5GN2B",
     "auth_protocol": "basic", 
     "auth_parameters": {
-        "username": "<your-username>",
-        "password": "<your-password>"
+        "username": "TD2TL5GN2B",
+        "password": "KNKEs3mpeYIOn5ypPLU04LnohpwlS4geRKdNLfQz"
     }
 }
