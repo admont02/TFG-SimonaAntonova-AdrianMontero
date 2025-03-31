@@ -75,7 +75,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
             else
             {
-                if (cell.GetComponent<InteractivePoint>()==null)
+                if (cell.GetComponent<InteractivePoint>() == null)
                 {
                     Debug.Log($"Pieza {name} colocada en {cell.name}");
 
@@ -84,6 +84,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     copy.transform.localPosition = Vector3.zero;
                     rectTransform.anchoredPosition = originalPosition;
                     rectTransform.sizeDelta = originalSize;
+                    rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 }
                 else
                 {

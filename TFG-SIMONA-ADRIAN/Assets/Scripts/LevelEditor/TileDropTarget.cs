@@ -9,7 +9,7 @@ public class TileDropTarget : MonoBehaviour, IDropHandler
         // Obtener el objeto que se está arrastrando
         GameObject droppedItem = eventData.pointerDrag;
 
-        if (droppedItem != null && droppedItem.GetComponent<DraggableItem>().draggableType==DraggableType.Pieza)
+        if (droppedItem != null && droppedItem.GetComponent<DraggableItem>().draggableType == DraggableType.Pieza)
         {
             // Obtener el componente Image de la pieza y del tile
             Image droppedImage = droppedItem.GetComponent<Image>();
@@ -30,7 +30,15 @@ public class TileDropTarget : MonoBehaviour, IDropHandler
 
             if (interactiveRect != null && draggableRect != null)
             {
+                var aux = draggableRect.sizeDelta;
                 draggableRect.sizeDelta = interactiveRect.sizeDelta; //Igualar tamaños
+                draggableRect.GetChild(0).GetComponent<RectTransform>().localScale =
+                    (draggableRect.GetChild(0).GetComponent<RectTransform>().localScale * interactiveRect.sizeDelta) / aux;
+
+                //while (0 < draggableRect.GetChild(0).childCount)
+                //{
+                //    draggableRect.GetChild(0).GetChild(0).SetParent(draggableRect);
+                //}
             }
         }
     }
