@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-public enum DraggableType { Pieza, TrafficElem };
+public enum DraggableType { Pieza, TrafficElem, Car };
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -41,7 +41,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup.blocksRaycasts = true;
 
         //Detectar si el objeto fue soltado sobre una celda válida del grid
-        if (eventData.pointerEnter != null && eventData.pointerEnter.transform.IsChildOf(gridParent) && draggableType != DraggableType.TrafficElem)
+        if (eventData.pointerEnter != null && eventData.pointerEnter.transform.IsChildOf(gridParent) && draggableType == DraggableType.Pieza)
         {
             Transform cell = eventData.pointerEnter.transform;
 
@@ -61,9 +61,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 else
                 {
                     Debug.Log("cambiar pieza");
-                    
+
                     Destroy(existingItem.gameObject);
-                   
+
                     Debug.Log($"Pieza {name} colocada en {cell.parent.name}");
 
                     GameObject copy = Instantiate(gameObject, cell.parent);
@@ -75,13 +75,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
             else
             {
-                Debug.Log($"Pieza {name} colocada en {cell.name}");
+                if (cell.GetComponent<InteractivePoint>()==null)
+                {
+                    Debug.Log($"Pieza {name} colocada en {cell.name}");
 
-                GameObject copy = Instantiate(gameObject, cell);
-                copy.name = gameObject.name;
-                copy.transform.localPosition = Vector3.zero;
-                rectTransform.anchoredPosition = originalPosition;
-                rectTransform.sizeDelta = originalSize;
+                    GameObject copy = Instantiate(gameObject, cell);
+                    copy.name = gameObject.name;
+                    copy.transform.localPosition = Vector3.zero;
+                    rectTransform.anchoredPosition = originalPosition;
+                    rectTransform.sizeDelta = originalSize;
+                }
+                else
+                {
+                    rectTransform.anchoredPosition = originalPosition;
+                    rectTransform.sizeDelta = originalSize;
+                }
 
             }
 

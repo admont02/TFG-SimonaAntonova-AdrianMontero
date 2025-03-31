@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class InteractivePoint : MonoBehaviour, IDropHandler
 {
+    public DraggableType acceptedType;
     public int fil; 
     public int col;
 
@@ -12,7 +13,7 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         DraggableItem draggable = eventData.pointerDrag.GetComponent<DraggableItem>();
-        if (draggable != null && draggable.draggableType==DraggableType.TrafficElem)
+        if (draggable != null && draggable.draggableType==acceptedType)
         {
             Debug.Log($"Elemento {draggable.name} colocado en el punto interactivo [fil: {fil}, col: {col}]");
 

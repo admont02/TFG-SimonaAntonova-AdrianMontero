@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class MapaData
 {
+    public string type;
     public int numPiezas;
     public int filas;
     public int columnas;
@@ -17,6 +18,8 @@ public class MapaData
     public List<Stop> stops = new List<Stop>();
     public List<Prohibido> prohibidos = new List<Prohibido>();
     public List<IA_Car> IACars=new List<IA_Car>();
+    public List<TipoDePieza> TunnelVertical = new List<TipoDePieza>();
+    public List<TipoDePieza> TunnelHorizontal = new List<TipoDePieza>();
 
 }
 
@@ -250,6 +253,7 @@ public class MapaNuevo
     public List<PosicionMapa> TurnLeft;
     public List<PosicionMapa> TurnLeft2;
     public List<PosicionMapa> TunnelVertical;
+    public List<PosicionMapa> TunnelHorizontal;
 
 
 

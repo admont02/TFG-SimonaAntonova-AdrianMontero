@@ -9,7 +9,7 @@ public class TileDropTarget : MonoBehaviour, IDropHandler
         // Obtener el objeto que se está arrastrando
         GameObject droppedItem = eventData.pointerDrag;
 
-        if (droppedItem != null && droppedItem.GetComponent<DraggableItem>().draggableType!=DraggableType.TrafficElem)
+        if (droppedItem != null && droppedItem.GetComponent<DraggableItem>().draggableType==DraggableType.Pieza)
         {
             // Obtener el componente Image de la pieza y del tile
             Image droppedImage = droppedItem.GetComponent<Image>();

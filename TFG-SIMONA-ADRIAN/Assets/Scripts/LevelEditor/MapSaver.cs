@@ -5,16 +5,19 @@ using UnityEngine.UI;
 public class MapSaver : MonoBehaviour
 {
     public Transform gridParent;
+    public Dropdown levelTypeDropdown;
     public int filas;
     public int columnas;
 
     public void SaveMap()
     {
+        string levelType = levelTypeDropdown.options[levelTypeDropdown.value].text;
         MapaData mapa = new MapaData
         {
             numPiezas = gridParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
             filas = gridParent.GetComponent<LevelEditorController>().GetWidth(),
             columnas = gridParent.GetComponent<LevelEditorController>().GetHeight(),
+            type= levelType
         };
 
         foreach (Transform tile in gridParent)
@@ -56,6 +59,14 @@ public class MapSaver : MonoBehaviour
                 else if (tileImage.sprite.name == "TurnLeft")
                 {
                     mapa.TurnLeft.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TunnelVertical")
+                {
+                    mapa.TunnelVertical.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TunnelHorizontal")
+                {
+                    mapa.TunnelHorizontal.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 // Guardar stops (InteractivePoints)
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
