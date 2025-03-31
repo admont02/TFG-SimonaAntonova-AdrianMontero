@@ -17,7 +17,8 @@ public class Waypoint : MonoBehaviour
     [Range(0f, 1f)]
     public float branchRatio = 1.0f;
 
-    public Direction direction;
+    public Direction entryDirection; // Dirección de entrada
+    public Direction exitDirection; // Dirección de salida
 
     public Vector3 GetPosition()
     {

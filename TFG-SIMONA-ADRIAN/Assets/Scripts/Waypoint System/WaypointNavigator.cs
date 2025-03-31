@@ -59,30 +59,33 @@ public class WaypointNavigator : MonoBehaviour
         //currentIndex = newIndex;
         return newIndex;
     }
-    private Waypoint FindNearestWaypointInAdjacentPiece(Direction oppositeDirection, Vector3 currentPosition)
+    private Waypoint FindNearestWaypointInAdjacentPiece(Direction exitDirection, Vector3 currentPosition)
     {
         GameObject adjacentPiece = posicionesPiezas[currentIndex].GetComponent<WaypointContainer>().GetRoot();
         Waypoint[] waypoints = adjacentPiece.GetComponentsInChildren<Waypoint>();
 
         Waypoint nearestWaypoint = null;
-        float shortestDistance = float.MaxValue; // Inicializa con un valor muy alto
+        float shortestDistance = float.MaxValue;
+
+        Direction entryDirection = GetOppositeDirection(exitDirection); // Direccion opuesta para conectar
 
         foreach (Waypoint waypoint in waypoints)
         {
-            if (waypoint.direction == oppositeDirection) // Solo considera waypoints en la dirección opuesta
+            // Solo considera waypoints cuya entrada coincida con la dirección de salida del anterior
+            if (waypoint.entryDirection == entryDirection)
             {
-                float distance = Vector3.Distance(currentPosition, waypoint.GetPosition()); // Calcula la distancia
-
-                if (distance < shortestDistance) // Comprueba si es la más corta
+                float distance = Vector3.Distance(currentPosition, waypoint.GetPosition());
+                if (distance < shortestDistance)
                 {
                     shortestDistance = distance;
-                    nearestWaypoint = waypoint; // Actualiza el waypoint más cercano
+                    nearestWaypoint = waypoint;
                 }
             }
         }
 
-        return nearestWaypoint; // Retorna el waypoint más cercano o null si no hay coincidencias
+        return nearestWaypoint;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -95,7 +98,7 @@ public class WaypointNavigator : MonoBehaviour
             {
                 for (int i = 0; i < currentWaypoint.branches.Count; i++)
                 {
-                    if (controller.IsConnected(firstIndex, GetAdjacentPieceIndex(currentWaypoint.branches[i].direction)))
+                    if (controller.IsConnected(firstIndex, GetAdjacentPieceIndex(currentWaypoint.branches[i].exitDirection)))
                     {
                         if (!ClicLevelManager.Instance)
                             shouldBranch = UnityEngine.Random.Range(0f, 1f) <= currentWaypoint.branchRatio ? true : false;
@@ -129,12 +132,15 @@ public class WaypointNavigator : MonoBehaviour
                 }
                 else
                 {
-                    Direction oppositeDirection = GetOppositeDirection(currentWaypoint.direction);
-                    //int firstIndex = currentIndex;
-                    currentIndex = GetAdjacentPieceIndex(currentWaypoint.direction);
-                    //controller.IsConnected(firstIndex, currentIndex);
-                    //Buscamos el siguiente waypoint en la pieza contigua
-                    currentWaypoint = FindNearestWaypointInAdjacentPiece(oppositeDirection, transform.position);
+                    //Direction oppositeDirection = GetOppositeDirection(currentWaypoint.direction);
+                    ////int firstIndex = currentIndex;
+                    //currentIndex = GetAdjacentPieceIndex(currentWaypoint.direction);
+                    ////controller.IsConnected(firstIndex, currentIndex);
+                    ////Buscamos el siguiente waypoint en la pieza contigua
+                    //currentWaypoint = FindNearestWaypointInAdjacentPiece(oppositeDirection, transform.position);
+                    Direction exitDirection = currentWaypoint.exitDirection;
+                    currentIndex = GetAdjacentPieceIndex(exitDirection);
+                    currentWaypoint = FindNearestWaypointInAdjacentPiece(exitDirection, transform.position);
                 }
             }
 
