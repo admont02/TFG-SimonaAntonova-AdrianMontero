@@ -9,6 +9,7 @@ public class CarMenu : MonoBehaviour
     private Vector3 destino; // El punto donde el coche se mueve
     private bool moviendo = false; // ¿Está el coche en movimiento?
     public GameObject panelInfo;
+    public GameObject clickEffectPrefab;
     void Update()
     {
         if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf || panelInfo.activeSelf)
@@ -23,6 +24,13 @@ public class CarMenu : MonoBehaviour
             {
                 destino = hit.point; // Guarda el punto de destino donde el coche debe ir
                 moviendo = true; // El coche empieza a moverse
+                Quaternion rot=Quaternion.Euler(90, 0, 0);
+                GameObject effectInstance= Instantiate(clickEffectPrefab, hit.point, rot);
+                AudioSource audioSource = effectInstance.GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
             }
         }
 

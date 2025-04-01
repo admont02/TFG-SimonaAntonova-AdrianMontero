@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2051699110}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -96869,6 +96869,7 @@ MonoBehaviour:
   velocidad: 10
   rotacionVelocidad: 5
   panelInfo: {fileID: 1103036129}
+  clickEffectPrefab: {fileID: 462555795157684224, guid: d61dd61f9715c1f42ad1e7832f89a628, type: 3}
 --- !u!82 &2101392301
 AudioSource:
   m_ObjectHideFlags: 0
