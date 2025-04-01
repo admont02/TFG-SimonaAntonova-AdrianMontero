@@ -372,6 +372,16 @@
                 "col": 13
             },
             "orientacion": "izquierda"
+        },
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 17,
+                "col": 4
+            },
+            "orientacion": "derecha"
         }
     ],
     "prohibidos": [],
@@ -392,7 +402,7 @@
                 "index": 39
             },
             "subPosicion": {
-                "fil": 16,
+                "fil": 15,
                 "col": 7
             },
             "orientacion": "derecha",
