@@ -17,6 +17,7 @@ public class MapaData
     public List<TipoDePieza> TurnRight = new List<TipoDePieza>();
     public List<Stop> stops = new List<Stop>();
     public List<Prohibido> prohibidos = new List<Prohibido>();
+    public List<Ceda> cedas = new List<Ceda>();
     public List<IA_Car> IACars=new List<IA_Car>();
     public List<TipoDePieza> TunnelVertical = new List<TipoDePieza>();
     public List<TipoDePieza> TunnelHorizontal = new List<TipoDePieza>();
@@ -34,7 +35,7 @@ public static class SceneData
     public static bool firstTime = true;
     //public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    public static string JsonFileName="nivel10.json";
+    public static string JsonFileName="nivel11.json";
 
 }
 
@@ -54,7 +55,7 @@ public class IA_Car
     public SubPosicion subPosicion;
     public string orientacion;
     public int branchTo;
-    public bool isAmbulance = false;
+    public string vehicle = "car";
 }
 [System.Serializable]
 public class Player
@@ -70,6 +71,13 @@ public class Cuadricula
 }
 [System.Serializable]
 public class Stop
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
+[System.Serializable]
+public class Ceda
 {
     public Pieza pieza;
     public SubPosicion subPosicion;
@@ -314,6 +322,7 @@ public class Nivel
     public List<Cuadricula> cuadriculas;
     public List<Stop> stops;
     public List<Prohibido> prohibidos;
+    public List<Ceda> cedas;
     public List<SemaforoNuevoConfig> semaforosNuevos;
 
     public List<ElementoMapa> elementosMapa;
