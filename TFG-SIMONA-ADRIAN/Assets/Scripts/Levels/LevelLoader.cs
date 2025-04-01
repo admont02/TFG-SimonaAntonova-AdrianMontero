@@ -15,6 +15,8 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     GameObject cocheIAPrefab;
     [SerializeField]
+    GameObject ambulancePrefab;
+    [SerializeField]
     GameObject ClicLevelManagerPref;
     [SerializeField]
     GameObject cuadriculaPrefab;
@@ -189,7 +191,17 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
-            GameObject cocheIAObj = Instantiate(cocheIAPrefab, posicionCoche, rotation);
+            GameObject cocheIAObj;
+            if (IAcar.isAmbulance)
+            {
+                cocheIAObj = Instantiate(ambulancePrefab, posicionCoche, rotation);
+
+            }
+            else
+            {
+                cocheIAObj = Instantiate(cocheIAPrefab, posicionCoche, rotation);
+
+            }
             cocheIAObj.transform.localScale = new Vector3(cocheIAObj.transform.localScale.x * scale / 100, cocheIAObj.transform.localScale.y * scale / 100, cocheIAObj.transform.localScale.z * scale / 100);
             cocheIAObj.name = "CocheIA" + id;
 

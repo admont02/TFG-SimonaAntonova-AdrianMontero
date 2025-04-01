@@ -1,0 +1,393 @@
+{
+    "type": "Prioridad",
+    "correctOrder": [
+        1,0
+    ],
+    "mapaNuevo": {
+        "numPiezas": 81,
+        "filas": 9,
+        "columnas": 9,
+        "Crossroad": [
+            {
+                "fil": 4,
+                "col": 4,
+                "conexiones": [
+                    39,
+                    41,
+                    31,
+                    49
+                ]
+            }
+        ],
+        "Vertical": [
+            {
+                "fil": 8,
+                "col": 4
+            },
+            {
+                "fil": 7,
+                "col": 4
+            },
+            {
+                "fil": 6,
+                "col": 4
+            },
+            {
+                "fil": 5,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 4
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 4,
+                "col": 1,
+                "conexiones": [
+                    38,36
+                ]
+            },
+            {
+                "fil": 4,
+                "col": 2,"conexiones": [
+                    37,39
+                ]
+            },
+            {
+                "fil": 4,
+                "col": 3,
+                "conexiones": [
+                    38,40
+                ]
+            },
+            {
+                "fil": 4,
+                "col": 5
+            },
+            {
+                "fil": 4,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 7
+            },
+            {
+                "fil": 4,
+                "col": 8
+            }
+        ],
+        "Roundabout": [],
+        "Pavement": [
+            {
+                "fil": 8,
+                "col": 0
+            },
+            {
+                "fil": 8,
+                "col": 1
+            },
+            {
+                "fil": 8,
+                "col": 2
+            },
+            {
+                "fil": 8,
+                "col": 3
+            },
+            {
+                "fil": 8,
+                "col": 5
+            },
+            {
+                "fil": 8,
+                "col": 6
+            },
+            {
+                "fil": 8,
+                "col": 7
+            },
+            {
+                "fil": 8,
+                "col": 8
+            },
+            {
+                "fil": 7,
+                "col": 0
+            },
+            {
+                "fil": 7,
+                "col": 1
+            },
+            {
+                "fil": 7,
+                "col": 2
+            },
+            {
+                "fil": 7,
+                "col": 3
+            },
+            {
+                "fil": 7,
+                "col": 5
+            },
+            {
+                "fil": 7,
+                "col": 6
+            },
+            {
+                "fil": 7,
+                "col": 7
+            },
+            {
+                "fil": 7,
+                "col": 8
+            },
+            {
+                "fil": 6,
+                "col": 0
+            },
+            {
+                "fil": 6,
+                "col": 1
+            },
+            {
+                "fil": 6,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 3
+            },
+            {
+                "fil": 6,
+                "col": 5
+            },
+            {
+                "fil": 6,
+                "col": 6
+            },
+            {
+                "fil": 6,
+                "col": 7
+            },
+            {
+                "fil": 6,
+                "col": 8
+            },
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 5,
+                "col": 1
+            },
+            {
+                "fil": 5,
+                "col": 2
+            },
+            {
+                "fil": 5,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 5
+            },
+            {
+                "fil": 5,
+                "col": 6
+            },
+            {
+                "fil": 5,
+                "col": 7
+            },
+            {
+                "fil": 5,
+                "col": 8
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 6
+            },
+            {
+                "fil": 3,
+                "col": 7
+            },
+            {
+                "fil": 3,
+                "col": 8
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 2,
+                "col": 5
+            },
+            {
+                "fil": 2,
+                "col": 6
+            },
+            {
+                "fil": 2,
+                "col": 7
+            },
+            {
+                "fil": 2,
+                "col": 8
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 1,
+                "col": 5
+            },
+            {
+                "fil": 1,
+                "col": 6
+            },
+            {
+                "fil": 1,
+                "col": 7
+            },
+            {
+                "fil": 1,
+                "col": 8
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 5
+            },
+            {
+                "fil": 0,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 7
+            },
+            {
+                "fil": 0,
+                "col": 8
+            }
+        ],
+        "TurnLeft": [],
+        "TurnRight": []
+    },
+    "stops": [],
+    "prohibidos": [],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 31
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 14
+            },
+            "orientacion": "arriba",
+            "branchTo": 1,
+            "isAmbulance":true
+        },
+        {
+            "pieza": {
+                "index": 41
+            },
+            "subPosicion": {
+                "fil": 3,
+                "col": 11
+            },
+            "orientacion": "izquierda",
+            "branchTo": 1
+        }
+    ],
+    "levelDialogs": [
+        " Mapa por piezas"
+    ],
+    "completedDialogs": [
+        " ¡Enhorabuena! Has completado el nivel correctamente."
+    ]
+}

@@ -8626,6 +8626,7 @@ MonoBehaviour:
   jsonFileName: nivel3.json
   TargetPrefab: {fileID: 9095901440409836212, guid: 5b3e696902574214582a4ceaaa126736, type: 3}
   cocheIAPrefab: {fileID: 6387265493772772582, guid: 3bdf0dcf615cfd04c88659cded8fb044, type: 3}
+  ambulancePrefab: {fileID: 2436999950954089551, guid: cddea4c64352b30498538d822d8ceb99, type: 3}
   ClicLevelManagerPref: {fileID: 4985764007409247765, guid: 38e8e3b4c9a6b4f4b81008da7aef26d0, type: 3}
   cuadriculaPrefab: {fileID: 4978257394053826113, guid: 1986efbaba4ed2241bd370d6e37370bf, type: 3}
   semaforoPrefab: {fileID: 868025956819239312, guid: 9b67ae2464d055f48b94ea4903095186, type: 3}
