@@ -22,6 +22,29 @@ public class OtherCar : MonoBehaviour
     public bool clickMove { get; set; }
     public int carID { get; internal set; }
     public GameObject icon;
+
+    public GameObject bodyMain;
+    public GameObject seams;
+
+    public Material[] carColors;
+    public Material[] seamColors;
+
+    private void Awake()
+    {
+        if (carColors.Length > 0 && bodyMain != null)
+        {
+            int randomIndex = Random.Range(0, carColors.Length);
+            bodyMain.GetComponent<Renderer>().material = carColors[randomIndex];
+        }
+
+        // Asigna un material aleatorio a seams
+        if (seamColors.Length > 0 && seams != null)
+        {
+            int randomIndex = Random.Range(0, seamColors.Length);
+            seams.GetComponent<Renderer>().material = seamColors[randomIndex];
+        }
+    }
+
     private void Start()
     {
 
