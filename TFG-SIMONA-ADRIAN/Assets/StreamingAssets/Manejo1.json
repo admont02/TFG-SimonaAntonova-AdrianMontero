@@ -1,32 +1,40 @@
 {
-    "type": "Manejo",
+    "type": "Prioridad",
     "numPiezas": 25,
     "filas": 5,
     "columnas": 5,
     "Crossroad": [
         {
             "fil": 1,
-            "col": 3
+            "col": 2
         }
     ],
     "Vertical": [
+        {
+            "fil": 2,
+            "col": 1
+        }
+    ],
+    "Horizontal": [
+        {
+            "fil": 3,
+            "col": 2
+        },
+        {
+            "fil": 3,
+            "col": 3
+        },
         {
             "fil": 2,
             "col": 3
         },
         {
             "fil": 1,
-            "col": 0
-        }
-    ],
-    "Horizontal": [
-        {
-            "fil": 4,
             "col": 3
         },
         {
             "fil": 0,
-            "col": 1
+            "col": 3
         }
     ],
     "Roundabout": [
@@ -37,17 +45,33 @@
     ],
     "Pavement": [
         {
-            "fil": 2,
-            "col": 4
+            "fil": 4,
+            "col": 3
+        },
+        {
+            "fil": 1,
+            "col": 0
+        },
+        {
+            "fil": 0,
+            "col": 0
         }
     ],
     "Pavement_1": [
         {
-            "fil": 2,
+            "fil": 4,
             "col": 2
         },
         {
-            "fil": 1,
+            "fil": 4,
+            "col": 4
+        },
+        {
+            "fil": 2,
+            "col": 0
+        },
+        {
+            "fil": 0,
             "col": 1
         }
     ],
@@ -57,7 +81,7 @@
             "col": 1
         },
         {
-            "fil": 4,
+            "fil": 3,
             "col": 4
         },
         {
@@ -71,19 +95,7 @@
             "col": 0
         },
         {
-            "fil": 4,
-            "col": 2
-        },
-        {
-            "fil": 3,
-            "col": 3
-        },
-        {
             "fil": 2,
-            "col": 0
-        },
-        {
-            "fil": 1,
             "col": 2
         }
     ],

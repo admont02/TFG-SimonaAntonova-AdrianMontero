@@ -52,6 +52,10 @@ public class MapSaver : MonoBehaviour
                 {
                     mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
                 }
+                else if (tileImage.sprite.name == "Pavement_1")
+                {
+                    mapa.Pavement_1.Add(new TipoDePieza { fil = fila, col = columna });
+                }
                 else if (tileImage.sprite.name == "TurnRight")
                 {
                     mapa.TurnRight.Add(new TipoDePieza { fil = fila, col = columna });
@@ -59,6 +63,14 @@ public class MapSaver : MonoBehaviour
                 else if (tileImage.sprite.name == "TurnLeft")
                 {
                     mapa.TurnLeft.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TurnRight2")
+                {
+                    mapa.TurnRight2.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TurnLeft2")
+                {
+                    mapa.TurnLeft2.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TunnelVertical")
                 {

@@ -13,8 +13,11 @@ public class MapaData
     public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
     public List<TipoDePieza> Roundabout = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement = new List<TipoDePieza>();
+    public List<TipoDePieza> Pavement_1 = new List<TipoDePieza>();
     public List<TipoDePieza> TurnLeft = new List<TipoDePieza>();
     public List<TipoDePieza> TurnRight = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnLeft2 = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnRight2 = new List<TipoDePieza>();
     public List<Stop> stops = new List<Stop>();
     public List<Prohibido> prohibidos = new List<Prohibido>();
     public List<Ceda> cedas = new List<Ceda>();
