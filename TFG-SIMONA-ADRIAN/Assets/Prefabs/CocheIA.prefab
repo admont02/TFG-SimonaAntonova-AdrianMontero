@@ -4186,13 +4186,11 @@ MonoBehaviour:
   carColors:
   - {fileID: 2100000, guid: 707eb7b790aaa214bb421203de68536d, type: 2}
   - {fileID: 2100000, guid: bff761b7e096ac849bedb4d802539ce6, type: 2}
-  - {fileID: 2100000, guid: 2408c7077c3256541945bfb35ac03ca5, type: 2}
   - {fileID: 2100000, guid: a4e6922f48c28e645b166a6e87c82b19, type: 2}
   - {fileID: 2100000, guid: 4afaa452ef080cb498346d3bd5c7c110, type: 2}
   seamColors:
   - {fileID: 2100000, guid: a27a8be488cbb5d4bac448dda9339b95, type: 2}
   - {fileID: 2100000, guid: 7e00b4046bd2ca5429f90632d734feb9, type: 2}
-  - {fileID: 2100000, guid: 3f47f4d644d848c4aa8dce558daa5b85, type: 2}
   - {fileID: 2100000, guid: 022f817192f82864a956f7ccd727ef3d, type: 2}
   - {fileID: 2100000, guid: 7dbe00169b441e64a9693d2ee7fcea42, type: 2}
 --- !u!114 &4322305821549741012
