@@ -38,18 +38,45 @@ public class CarLights : MonoBehaviour
         posicionButton = GameManager.Instance.posicion.GetComponent<Button>();
         cortasButton = GameManager.Instance.cortas.GetComponent<Button>();
         largasButton = GameManager.Instance.largas.GetComponent<Button>();
-        if (antinieblaButton != null)
-            antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
-        if (antinieblaBackButton != null)
-            antinieblaBackButton.onClick.AddListener(ToggleAntinieblaBackLights);
         if (posicionButton != null)
             posicionButton.onClick.AddListener(TogglePosicionLights);
         if (cortasButton != null)
             cortasButton.onClick.AddListener(ToggleCortasLights);
         if (largasButton != null)
             largasButton.onClick.AddListener(ToggleLargasLights);
+        if (antinieblaButton != null)
+            antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
+        if (antinieblaBackButton != null)
+            antinieblaBackButton.onClick.AddListener(ToggleAntinieblaBackLights);
+        
 
         CheckCorrectLights(); // Comprobar las luces iniciales
+    }
+
+    private void Update()
+    {
+        // Posición
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            TogglePosicionLights();
+        }
+        // 
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            ToggleCortasLights();
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            ToggleLargasLights();
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha4))
+        {
+            ToggleAntinieblaLights();
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha5))
+        {
+            ToggleAntinieblaBackLights();
+        }
     }
 
     public void ToggleAntinieblaLights()
