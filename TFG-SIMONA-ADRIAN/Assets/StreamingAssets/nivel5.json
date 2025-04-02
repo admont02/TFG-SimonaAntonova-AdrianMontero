@@ -1,6 +1,5 @@
 {
     "nivel": 5,
-    "rain":true,
     "mapaNuevo": {
         "numPiezas": 9,
         "filas": 3,

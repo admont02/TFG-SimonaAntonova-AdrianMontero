@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public GameObject largas;
     public GameObject cortas;
     private int currentLevel;
+    public Material graySkybox; 
 
     void Awake()
     {
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
+       // CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
 
     }
     void InitializeDialogue()
@@ -140,7 +141,7 @@ public class GameManager : MonoBehaviour
 
         if (incorrectLevel.Count > 1)
         {
-            CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);
+            //CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);
 
             dialogueSystem.ShowIncorrectLevelDialog(incorrectLevel.ToArray());
             Debug.Log("¡Nivel incorrecto!");
@@ -151,7 +152,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(true);
+           // CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(true);
             dialogueSystem.ShowCompletedDialog();
             Debug.Log("¡Nivel completado correctamente!");
         }
@@ -177,15 +178,31 @@ public class GameManager : MonoBehaviour
     }
     public void EnableRain()
     {
-        Debug.Log("lluvia");
-        rain.SetActive(true);
+        //Debug.Log("lluvia");
+        //rain.SetActive(true);
+        GameObject instantiatedRain = Instantiate(rain);
+
+        // Configurar como hijo del jugador
+        instantiatedRain.transform.SetParent(carController.transform);
+
+        // Opcional: Ajustar la posición y rotación
+        instantiatedRain.transform.localPosition = new Vector3(0, 60, 0); // Centrado en el jugador
+        instantiatedRain.transform.localRotation = Quaternion.identity;
+        RenderSettings.ambientLight = Color.gray; // Cambia la luz ambiental a gris
+        ChangeSkybox();
+        instantiatedRain.SetActive(true);
     }
-    private IEnumerator EnableRainWithDelay(float delay)
+    
+
+    void ChangeSkybox()
     {
-        yield return new WaitForSeconds(delay); // Espera el tiempo especificado
-        rain.SetActive(true); // Activa la lluvia
-        Debug.Log("Lluvia activada.");
+        if (graySkybox != null)
+        {
+            RenderSettings.skybox = graySkybox; // Cambia el Skybox
+            DynamicGI.UpdateEnvironment(); // Actualiza la iluminación global
+        }
     }
+
     public void ChangeScene(string sceneName)
     {
         if (sceneName == "World")
