@@ -38,7 +38,7 @@ public static class SceneData
     public static bool firstTime = true;
     public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    //public static string JsonFileName="nivel12.json";
+    //public static string JsonFileName="nivel13.json";
 
 }
 
@@ -333,6 +333,7 @@ public class Nivel
     public string[] completedDialogs;
     public bool fog = false;
     public bool rain = false;
+    public bool night = false;
     public string type;
     public bool isMenu = false;
     public List<string> objetivo;

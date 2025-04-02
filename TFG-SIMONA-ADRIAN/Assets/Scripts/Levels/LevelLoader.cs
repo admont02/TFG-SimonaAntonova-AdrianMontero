@@ -357,6 +357,11 @@ public class LevelLoader : MonoBehaviour
             GameManager.Instance.EnableRain();
 
         }
+        else if (nivel.night)
+        {
+            GameManager.Instance.SetNight();
+
+        }
         switch (nivel.type)
         {
             //case LevelType.Desconocido:

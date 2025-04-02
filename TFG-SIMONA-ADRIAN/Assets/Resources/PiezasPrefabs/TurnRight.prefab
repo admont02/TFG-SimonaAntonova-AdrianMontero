@@ -49,7 +49,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 4
+  entryDirection: 3
+  exitDirection: 0
 --- !u!1 &472956243432499647
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +141,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 0
+  entryDirection: 0
+  exitDirection: 0
 --- !u!1 &2379951299059633643
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +301,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 2
+  entryDirection: 0
+  exitDirection: 2
 --- !u!1 &4207741268977931710
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +352,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 0
+  entryDirection: 0
+  exitDirection: 0
 --- !u!1 &4602593108616873839
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +403,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 0
+  entryDirection: 0
+  exitDirection: 0
 --- !u!1 &5833503682340181555
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +454,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 3
+  entryDirection: 0
+  exitDirection: 3
 --- !u!1 &5950275175486328655
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +553,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 0
+  entryDirection: 0
+  exitDirection: 0
 --- !u!1 &6851864323451390859
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +604,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 0
+  entryDirection: 0
+  exitDirection: 0
 --- !u!1 &7809221177734964332
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +655,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 2
+  entryDirection: 2
+  exitDirection: 0
 --- !u!1 &8041058807710779464
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,4 +706,5 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 0
+  entryDirection: 0
+  exitDirection: 0

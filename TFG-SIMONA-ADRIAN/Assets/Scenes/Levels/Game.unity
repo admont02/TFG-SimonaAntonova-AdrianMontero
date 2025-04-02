@@ -2586,6 +2586,7 @@ MonoBehaviour:
   largas: {fileID: 18829632}
   cortas: {fileID: 1334436484}
   graySkybox: {fileID: 2100000, guid: d759c18d845960842a1c0412ba7b3c5c, type: 2}
+  directionalLight: {fileID: 625617398}
 --- !u!4 &923984509
 Transform:
   m_ObjectHideFlags: 0

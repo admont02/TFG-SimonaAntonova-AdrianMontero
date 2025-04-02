@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
     public GameObject largas;
     public GameObject cortas;
     private int currentLevel;
-    public Material graySkybox; 
+    public Material graySkybox;
+    public Light directionalLight;
 
     void Awake()
     {
@@ -192,7 +193,15 @@ public class GameManager : MonoBehaviour
         ChangeSkybox();
         instantiatedRain.SetActive(true);
     }
-    
+    public void SetNight()
+    {
+        //RenderSettings.ambientLight = Color.gray; // Cambia la luz ambiental a gris
+        ChangeSkybox();
+        directionalLight.intensity = 0.5f;
+
+        
+        directionalLight.color = Color.black;
+    }
 
     void ChangeSkybox()
     {

@@ -1,0 +1,265 @@
+{
+    "type": "Luces",
+    "night":true,
+    "mapaNuevo": {
+        "numPiezas": 49,
+        "filas": 7,
+        "columnas": 7,
+        "Crossroad": [],
+        "Vertical": [
+            {
+                "fil": 4,
+                "col": 1
+            },
+            {
+                "fil": 4,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 3,
+                "col": 5
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 5
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 5,
+                "col": 2
+            },
+            {
+                "fil": 5,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 1,
+                "col": 4
+            }
+        ],
+        "Roundabout": [],
+        "Pavement": [
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 4,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 0
+            },
+            {
+                "fil": 6,
+                "col": 1
+            },
+            {
+                "fil": 6,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 3
+            },
+            {
+                "fil": 6,
+                "col": 4
+            },
+            {
+                "fil": 6,
+                "col": 5
+            },
+            {
+                "fil": 6,
+                "col": 6
+            },
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 5,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 4,
+                "col": 3
+            },
+            {
+                "fil": 4,
+                "col": 6
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 6
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 6
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 5
+            },
+            {
+                "fil": 0,
+                "col": 6
+            }
+        ],
+        
+        "TurnLeft": [
+            {
+                "fil": 5,
+                "col": 5
+            }
+        ],
+        "TurnRight": [
+            {
+                "fil": 5,
+                "col": 1
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 1,
+                "col": 5
+            }
+        ],
+        "TurnRight2": [
+            {
+                "fil": 1,
+                "col": 1
+            }
+        ]
+    },
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 29
+        },
+        "subPosicion": {
+            "fil": 10,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    },
+    "IACars": [
+        {
+            "pieza": {
+                "index": 19
+            },
+            "subPosicion": {
+                "fil": 10,
+                "col": 1
+            },
+            "orientacion": "arriba",
+            "branchTo": 0,
+            "vehicle": "car"
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 12
+        },
+        "subPosicion": {
+            "fil": 9,
+            "col": 6
+        }
+    },
+    "levelDialogs": [
+        "Estás a punto de enfrentarte a una tormenta con lluvia intensa y visibilidad reducida.",
+        "Selecciona las luces que debe llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás conductores."
+    ],
+    "completedDialogs": [
+        "¡Enhorabuena! Has completado el nivel correctamente y has manejado las luces de forma adecuada para la lluvia intensa."
+    ]
+}
