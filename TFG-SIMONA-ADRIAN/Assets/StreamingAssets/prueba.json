@@ -1,94 +1,28 @@
 {
-    "type": "Manejo",
-    "numPiezas": 25,
-    "filas": 5,
-    "columnas": 5,
-    "Crossroad": [
-        {
-            "fil": 1,
-            "col": 3
-        }
-    ],
-    "Vertical": [
-        {
-            "fil": 2,
-            "col": 3
-        },
-        {
-            "fil": 1,
-            "col": 0
-        }
-    ],
-    "Horizontal": [
-        {
-            "fil": 4,
-            "col": 3
-        },
-        {
-            "fil": 0,
-            "col": 1
-        }
-    ],
-    "Roundabout": [
-        {
-            "fil": 3,
-            "col": 1
-        }
-    ],
-    "Pavement": [
-        {
-            "fil": 2,
-            "col": 4
-        }
-    ],
-    "Pavement_1": [
-        {
-            "fil": 2,
-            "col": 2
-        },
-        {
-            "fil": 1,
-            "col": 1
-        }
-    ],
-    "TurnLeft": [
-        {
-            "fil": 4,
-            "col": 1
-        },
-        {
-            "fil": 4,
-            "col": 4
-        },
-        {
-            "fil": 1,
-            "col": 4
-        }
-    ],
-    "TurnRight": [
-        {
-            "fil": 4,
-            "col": 0
-        },
-        {
-            "fil": 4,
-            "col": 2
-        },
-        {
-            "fil": 3,
-            "col": 3
-        },
+    "type": "Prioridad",
+    "numPiezas": 9,
+    "filas": 3,
+    "columnas": 3,
+    "Crossroad": [],
+    "Vertical": [],
+    "Horizontal": [],
+    "Roundabout": [],
+    "Pavement": [],
+    "Pavement_1": [],
+    "TurnLeft": [],
+    "TurnRight": [],
+    "TurnLeft2": [
         {
             "fil": 2,
             "col": 0
-        },
-        {
-            "fil": 1,
-            "col": 2
         }
     ],
-    "TurnLeft2": [],
-    "TurnRight2": [],
+    "TurnRight2": [
+        {
+            "fil": 2,
+            "col": 1
+        }
+    ],
     "stops": [],
     "prohibidos": [],
     "cedas": [],
