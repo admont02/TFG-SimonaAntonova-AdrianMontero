@@ -3577,6 +3577,7 @@ MonoBehaviour:
   menuButton: {fileID: 1244875842}
   typingSpeed: 0.05
   typingSound: {fileID: 8300000, guid: 1621e6d5faeba374f8b1ddcb1e87e32b, type: 3}
+  winSound: {fileID: 8300000, guid: ad97621e082759b418977089e4777f11, type: 3}
   dialogueBackground: {fileID: 1923760182}
   confettiEffect: {fileID: 1398808294}
 --- !u!4 &1385233925
@@ -3709,7 +3710,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398808291}
   serializedVersion: 8
-  lengthInSec: 0.5
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0

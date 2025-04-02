@@ -12,6 +12,9 @@ public class DialogueSystem : MonoBehaviour
     public GameObject menuButton;
     public float typingSpeed = 0.05f; // Velocidad a la que se escribe el texto
     public AudioClip typingSound; // Sonido de tecleo
+    public AudioClip winSound; // Sonido de win
+
+
     private AudioSource audioSource;
     private string[] dialogues; // Array para almacenar los diálogos
     private string[] winDialogues; // Array para almacenar los diálogos de victoria
@@ -51,7 +54,12 @@ public class DialogueSystem : MonoBehaviour
         dialogues = winDialogues;
         isEnd = true;
 
-        if (confettiEffect != null) { confettiEffect.Play(); }
+        if (confettiEffect != null)
+        {
+            Debug.Log("El sistema de partículas existe y está por reproducirse.");
+            audioSource.PlayOneShot(winSound);
+            confettiEffect.Play();
+        }
         StartDialogue(true);
     }
     public void ShowIncorrectLevelDialog(string[] incorrect)

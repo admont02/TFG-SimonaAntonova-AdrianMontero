@@ -7,7 +7,7 @@
         "filas": 7,
         "columnas": 7,
         "Crossroad": [],
-        "TunnelVertical": [
+        "Vertical": [
             {
                 "fil": 4,
                 "col": 3
@@ -23,9 +23,7 @@
             {
                 "fil": 1,
                 "col": 3
-            }
-        ],
-        "Vertical": [
+            },
             {
                 "fil": 0,
                 "col": 3
