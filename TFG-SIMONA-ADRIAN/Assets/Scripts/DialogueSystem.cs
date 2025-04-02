@@ -13,6 +13,8 @@ public class DialogueSystem : MonoBehaviour
     public float typingSpeed = 0.05f; // Velocidad a la que se escribe el texto
     public AudioClip typingSound; // Sonido de tecleo
     public AudioClip winSound; // Sonido de win
+    public AudioClip loseSound; // Sonido de lose
+
 
 
     private AudioSource audioSource;
@@ -67,6 +69,7 @@ public class DialogueSystem : MonoBehaviour
         //levelEnded = true;
         dialogues = incorrect;
         isEnd = true;
+        audioSource.PlayOneShot(loseSound);
         //if (confettiEffect != null) { confettiEffect.Play(); }
         StartDialogue(true);
     }

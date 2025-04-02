@@ -6,6 +6,7 @@ using System;
 using Unity.AI.Navigation;
 using UnityEngine.UIElements;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using Xasu.HighLevel;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -384,6 +385,7 @@ public class LevelLoader : MonoBehaviour
                 }
                 break;
         }
+        GameManager.Instance.SetCurrentLevel(nivel.nivel);
     }
     private void CrearTipoPiezas(List<PosicionMapa> piezas, string prefabName, MapaNuevo nivel, Transform conjuntoPiezas, float scale, Dictionary<int, GameObject> posicionesPiezas, Digrafo digrafo)
     {

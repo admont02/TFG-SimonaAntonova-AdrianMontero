@@ -6,6 +6,7 @@ using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Xasu.HighLevel;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     public GameObject posicion;
     public GameObject largas;
     public GameObject cortas;
+    private int currentLevel;
 
     void Awake()
     {
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
 
             // Inicializar cualquier cosa necesaria al inicio de la escena
             InitializeNivelLoader();
+
             InitializeDialogue();
             if (ClicLevelManager.Instance != null)
             {
@@ -73,6 +76,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
 
     }
     void InitializeDialogue()
@@ -133,9 +137,11 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarNivel()
     {
-       
+
         if (incorrectLevel.Count > 1)
         {
+            CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);
+
             dialogueSystem.ShowIncorrectLevelDialog(incorrectLevel.ToArray());
             Debug.Log("¡Nivel incorrecto!");
             foreach (string nivel in incorrectLevel)
@@ -145,6 +151,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(true);
             dialogueSystem.ShowCompletedDialog();
             Debug.Log("¡Nivel completado correctamente!");
         }
@@ -189,5 +196,10 @@ public class GameManager : MonoBehaviour
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
+    }
+
+    public void SetCurrentLevel(int nivel)
+    {
+        currentLevel = nivel;
     }
 }

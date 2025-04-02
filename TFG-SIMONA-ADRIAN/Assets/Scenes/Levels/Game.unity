@@ -3578,6 +3578,7 @@ MonoBehaviour:
   typingSpeed: 0.05
   typingSound: {fileID: 8300000, guid: 1621e6d5faeba374f8b1ddcb1e87e32b, type: 3}
   winSound: {fileID: 8300000, guid: ad97621e082759b418977089e4777f11, type: 3}
+  loseSound: {fileID: 8300000, guid: 59a5753eded28e44ca6e17627cba1862, type: 3}
   dialogueBackground: {fileID: 1923760182}
   confettiEffect: {fileID: 1398808294}
 --- !u!4 &1385233925
@@ -8671,7 +8672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1512247085
 MonoBehaviour:
   m_ObjectHideFlags: 0
