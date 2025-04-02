@@ -59,6 +59,7 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = antinieblaOn;
         }
+        GameManager.Instance.antinieblaDelanteras.GetComponent<Image>().color = antinieblaOn ? Color.yellow : Color.white;
         if (antinieblaOn)
             lucesSeleccionadas.Add("antinieblasDelanteras");
         else
@@ -72,6 +73,7 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = antinieblaBackOn;
         }
+       GameManager.Instance.antinieblaTraseras.GetComponent<Image>().color = antinieblaBackOn ? Color.yellow : Color.white;
         if (antinieblaBackOn)
             lucesSeleccionadas.Add("antinieblasTraseras");
         else
@@ -86,6 +88,7 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = posicionOn;
         }
+        GameManager.Instance.posicion.GetComponent<Image>().color = posicionOn ? Color.yellow : Color.white;
         if (posicionOn)
             lucesSeleccionadas.Add("posicion");
         else
@@ -100,6 +103,7 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = cortasOn;
         }
+        GameManager.Instance.cortas.GetComponent<Image>().color = cortasOn ? Color.yellow : Color.white;
         if (cortasOn)
             lucesSeleccionadas.Add("cortas");
         else
@@ -114,6 +118,7 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = largasOn;
         }
+        GameManager.Instance.largas.GetComponent<Image>().color = largasOn ? Color.yellow : Color.white;
         if (largasOn)
             lucesSeleccionadas.Add("largas");
         else
