@@ -91,7 +91,7 @@ public class ClicLevelManager : MonoBehaviour
             index++;
         }
 
-
+        GameManager.Instance.PerspectiveButton.SetActive(false);
         if (correctOrder)
             yield return StartCoroutine(MoveCarsInOrder(priorityCarList));
         else
