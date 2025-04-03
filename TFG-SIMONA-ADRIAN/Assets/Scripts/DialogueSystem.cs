@@ -75,7 +75,7 @@ public class DialogueSystem : MonoBehaviour
         StartDialogue(true);
     }
 
-   
+
 
     IEnumerator TypeSentence()
     {
@@ -125,7 +125,13 @@ public class DialogueSystem : MonoBehaviour
                     Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                     dialoguePanel.SetActive(false);
                     if (GameManager.Instance.carController != null)
-                        GameManager.Instance.canCarMove = true;
+                    {
+                        if (GameManager.Instance.CurrentLevel == "Luces")
+                            GameManager.Instance.LightsPanel.SetActive(true);
+                        else
+                            GameManager.Instance.canCarMove = true;
+
+                    }
                 }
             }
 

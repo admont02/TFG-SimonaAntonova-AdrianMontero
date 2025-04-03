@@ -197,7 +197,7 @@ public class LevelLoader : MonoBehaviour
             //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
             Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
             GameObject cocheIAObj;
-            if (IAcar.vehicle=="ambulance")
+            if (IAcar.vehicle == "ambulance")
             {
                 cocheIAObj = Instantiate(ambulancePrefab, posicionCoche, rotation);
 
@@ -362,6 +362,7 @@ public class LevelLoader : MonoBehaviour
             GameManager.Instance.SetNight();
 
         }
+        GameManager.Instance.CurrentLevel = nivel.type;
         switch (nivel.type)
         {
             //case LevelType.Desconocido:
@@ -377,11 +378,11 @@ public class LevelLoader : MonoBehaviour
                 break;
             case "Luces":
                 Debug.Log("nivel luces");
-                GameManager.Instance.antinieblaDelanteras.SetActive(true);
-                GameManager.Instance.antinieblaTraseras.SetActive(true);
-                GameManager.Instance.posicion.SetActive(true);
-                GameManager.Instance.largas.SetActive(true);
-                GameManager.Instance.cortas.SetActive(true);
+                //GameManager.Instance.antinieblaDelanteras.SetActive(true);
+                //GameManager.Instance.antinieblaTraseras.SetActive(true);
+                //GameManager.Instance.posicion.SetActive(true);
+                //GameManager.Instance.largas.SetActive(true);
+                //GameManager.Instance.cortas.SetActive(true);
                 //GameObject cocheJugador = Instantiate(Resources.Load("CochePrefab"), new Vector3(nivel.posicionCoche.x, nivel.posicionCoche.y, nivel.posicionCoche.z), Quaternion.identity) as GameObject; 
                 CarLights carLights = GameManager.Instance.carController.gameObject.GetComponent<CarLights>();
                 if (carLights != null)

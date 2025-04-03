@@ -13,6 +13,7 @@ public class CarLights : MonoBehaviour
     public Light[] posicionLights;
     public Light[] cortasLights;
     public Light[] largasLights;
+    public Button comenzarButton;
     public Button antinieblaButton;
     public Button antinieblaBackButton;
     public Button posicionButton;
@@ -38,6 +39,7 @@ public class CarLights : MonoBehaviour
         posicionButton = GameManager.Instance.posicion.GetComponent<Button>();
         cortasButton = GameManager.Instance.cortas.GetComponent<Button>();
         largasButton = GameManager.Instance.largas.GetComponent<Button>();
+        comenzarButton = GameManager.Instance.comenzar.GetComponent<Button>();
         if (posicionButton != null)
             posicionButton.onClick.AddListener(TogglePosicionLights);
         if (cortasButton != null)
@@ -48,11 +50,27 @@ public class CarLights : MonoBehaviour
             antinieblaButton.onClick.AddListener(ToggleAntinieblaLights);
         if (antinieblaBackButton != null)
             antinieblaBackButton.onClick.AddListener(ToggleAntinieblaBackLights);
-        
+        if (comenzarButton != null)
+            comenzarButton.onClick.AddListener(ActivateLevel);
+
 
         CheckCorrectLights(); // Comprobar las luces iniciales
     }
+    void ActivateLevel()
+    {
+        GameManager.Instance.canCarMove = true;
+        comenzarButton.transform.parent.gameObject.SetActive(false);
 
+        if (CheckCorrectLights())
+        {
+            //fog.SetActive(false);
+            fog.GetComponent<Renderer>().material = fogDisipada;
+        }
+        else
+        {
+            fog.GetComponent<Renderer>().material = fogIntensa;
+        }
+    }
     private void Update()
     {
         // Posición
@@ -100,7 +118,7 @@ public class CarLights : MonoBehaviour
         {
             light.enabled = antinieblaBackOn;
         }
-       GameManager.Instance.antinieblaTraseras.GetComponent<Image>().color = antinieblaBackOn ? Color.yellow : Color.white;
+        GameManager.Instance.antinieblaTraseras.GetComponent<Image>().color = antinieblaBackOn ? Color.yellow : Color.white;
         if (antinieblaBackOn)
             lucesSeleccionadas.Add("antinieblasTraseras");
         else
@@ -153,7 +171,7 @@ public class CarLights : MonoBehaviour
         CheckCorrectLights();
     }
 
-    private void CheckCorrectLights()
+    private bool CheckCorrectLights()
     {
         bool allCorrect = true;
         if (objetivoLuces.Count == lucesSeleccionadas.Count)
@@ -174,7 +192,7 @@ public class CarLights : MonoBehaviour
         {
             Debug.Log("correctas");
             //fog.SetActive(false);
-            fog.GetComponent<Renderer>().material = fogDisipada;
+            //fog.GetComponent<Renderer>().material = fogDisipada;
             // TO DO: cambiar a que se haga clear solo de las luces, no de todos los errores
             //GameManager.Instance.incorrectLevel.Clear();
             GameManager.Instance.incorrectLevel.Remove("Luces incorrectas para niebla intensa");
@@ -183,7 +201,8 @@ public class CarLights : MonoBehaviour
         {
             if (GameManager.Instance.incorrectLevel.Count < 2)
                 GameManager.Instance.incorrectLevel.Add("Luces incorrectas para niebla intensa");
-            fog.GetComponent<Renderer>().material = fogIntensa;
+            //fog.GetComponent<Renderer>().material = fogIntensa;
         }
+        return allCorrect;
     }
 }

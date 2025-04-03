@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int filas { get; internal set; }
     public int columnas { get; internal set; }
     public float scale { get; internal set; }
+    public string CurrentLevel { get; internal set; }
 
     public DialogueSystem dialogueSystem;
     public bool canCarMove = false; // Booleano para controlar el movimiento del coche
@@ -34,15 +35,16 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI velText;
 
+    public GameObject LightsPanel;
     public GameObject antinieblaDelanteras;
     public GameObject antinieblaTraseras;
     public GameObject posicion;
     public GameObject largas;
     public GameObject cortas;
+    public GameObject comenzar;
     private int currentLevel;
     public Material graySkybox;
     public Light directionalLight;
-
 
     void Awake()
     {
