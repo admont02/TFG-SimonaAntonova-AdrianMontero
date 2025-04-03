@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Xasu.HighLevel;
 
 public class ClicLevelManager : MonoBehaviour
 {
@@ -81,7 +82,7 @@ public class ClicLevelManager : MonoBehaviour
                 GameManager.Instance.incorrectLevel.Add("Prioridades incorrectas");
                 break;
             }
-
+            GameObjectTracker.Instance.Interacted($"car-{otherCar.carID}-order-{index + 1}");
             index++;
         }
 

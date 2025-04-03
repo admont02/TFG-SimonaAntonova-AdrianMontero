@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
+        //CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
 
     }
     void InitializeDialogue()
@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        if (sceneName == "World")
+        if (sceneName == "Menu")
             SceneData.JsonFileName = "menu.json";
         SceneManager.LoadScene(sceneName);
     }
