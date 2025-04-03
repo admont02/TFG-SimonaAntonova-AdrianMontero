@@ -64,6 +64,16 @@ public class MinimapCamera : MonoBehaviour
             }
         }
     }
+    public void ActivateBigMap()
+    {
+        smallMap.SetActive(false);
+        bigMap.SetActive(true);
+
+        maxZoom = (GameManager.Instance.scale * 5) * GameManager.Instance.columnas / 10;
+        minimapCamera.transform.position = positionMap;
+        //minimapCamera.orthographicSize = currentZoom;
+
+    }
 
     // Método para seguir al jugador
     private void FollowPlayer()

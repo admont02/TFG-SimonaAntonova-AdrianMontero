@@ -129,9 +129,12 @@ public class DialogueSystem : MonoBehaviour
                         if (GameManager.Instance.CurrentLevel == "Luces")
                             GameManager.Instance.LightsPanel.SetActive(true);
                         else
+                        {
                             GameManager.Instance.canCarMove = true;
-
+                        }
                     }
+                    if (GameManager.Instance.CurrentLevel == "Prioridad")
+                        GameManager.Instance.PerspectiveButton.SetActive(true);
                 }
             }
 

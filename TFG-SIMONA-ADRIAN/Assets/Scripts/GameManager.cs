@@ -30,11 +30,12 @@ public class GameManager : MonoBehaviour
     public List<GameObject> priorityCarList = new List<GameObject>();
     public GameObject minimapCamera;
     public CinemachineVirtualCamera virtualCamera;
-    public Camera clicLevelCam;
+    public GameObject clicLevelCam;
     public Digrafo graph;
 
     public TextMeshProUGUI velText;
 
+    public GameObject PerspectiveButton;
     public GameObject LightsPanel;
     public GameObject antinieblaDelanteras;
     public GameObject antinieblaTraseras;
@@ -67,10 +68,13 @@ public class GameManager : MonoBehaviour
                 Camera.main.gameObject.SetActive(false);
                 clicLevelCam.gameObject.SetActive(true);
                 clicLevelCam.tag = "MainCamera";
-                for (int i = 0; i < cochesIA.Count; i++)
-                {
-                    cochesIA[i].GetComponent<OtherCar>().icon.SetActive(false);
-                }
+                //clicLevelCam.GetComponentInChildren<CinemachineBrain>().enabled = true;
+                //for (int i = 0; i < cochesIA.Count; i++)
+                //{
+                //    //cochesIA[i].GetComponent<OtherCar>().icon.SetActive(false);
+                //    cochesIA[i].GetComponentInChildren<CinemachineVirtualCamera>().enabled = true;
+
+                //}
             }
         }
         else
@@ -109,6 +113,25 @@ public class GameManager : MonoBehaviour
 
             }
         }
+    }
+    public void ActivateCarPerspective()
+    {
+
+        StartCoroutine(CarPerspective());
+    }
+    private IEnumerator CarPerspective()
+    {
+        foreach (var item in cochesIA)
+        {
+            yield return StartCoroutine(CarPerspectiveCameras(item));
+        }
+    }
+    private IEnumerator CarPerspectiveCameras(GameObject item)
+    {
+        item.GetComponentInChildren<CinemachineVirtualCamera>().enabled = true;
+        yield return new WaitForSeconds(2.0f);
+        item.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
+
     }
     public void SetPlayer(Transform t)
     {
