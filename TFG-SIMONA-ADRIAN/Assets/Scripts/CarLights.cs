@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Xasu.HighLevel;
 
 public class CarLights : MonoBehaviour
 {
@@ -106,9 +107,15 @@ public class CarLights : MonoBehaviour
         }
         GameManager.Instance.antinieblaDelanteras.GetComponent<Image>().color = antinieblaOn ? Color.yellow : Color.white;
         if (antinieblaOn)
+        {
+            GameObjectTracker.Instance.Interacted("antinieblasDelanteras-on");
             lucesSeleccionadas.Add("antinieblasDelanteras");
+        }
         else
+        {
+            GameObjectTracker.Instance.Interacted("antinieblasDelanteras-off");
             lucesSeleccionadas.Remove("antinieblasDelanteras");
+        }
         CheckCorrectLights();
     }
     public void ToggleAntinieblaBackLights()
@@ -120,9 +127,15 @@ public class CarLights : MonoBehaviour
         }
         GameManager.Instance.antinieblaTraseras.GetComponent<Image>().color = antinieblaBackOn ? Color.yellow : Color.white;
         if (antinieblaBackOn)
+        {
+            GameObjectTracker.Instance.Interacted("antinieblasTraseras-on");
             lucesSeleccionadas.Add("antinieblasTraseras");
+        }
         else
+        {
+            GameObjectTracker.Instance.Interacted("antinieblasTraseras-off");
             lucesSeleccionadas.Remove("antinieblasTraseras");
+        }
         CheckCorrectLights();
     }
 
@@ -135,9 +148,15 @@ public class CarLights : MonoBehaviour
         }
         GameManager.Instance.posicion.GetComponent<Image>().color = posicionOn ? Color.yellow : Color.white;
         if (posicionOn)
+        {
+            GameObjectTracker.Instance.Interacted("posicion-on");
             lucesSeleccionadas.Add("posicion");
+        }
         else
+        {
+            GameObjectTracker.Instance.Interacted("posicion-off");
             lucesSeleccionadas.Remove("posicion");
+        }
         CheckCorrectLights();
     }
 
@@ -150,9 +169,15 @@ public class CarLights : MonoBehaviour
         }
         GameManager.Instance.cortas.GetComponent<Image>().color = cortasOn ? Color.yellow : Color.white;
         if (cortasOn)
+        {
+            GameObjectTracker.Instance.Interacted("cortas-on");
             lucesSeleccionadas.Add("cortas");
+        }
         else
+        {
+            GameObjectTracker.Instance.Interacted("cortas-off");
             lucesSeleccionadas.Remove("cortas");
+        }
         CheckCorrectLights();
     }
 
@@ -165,9 +190,15 @@ public class CarLights : MonoBehaviour
         }
         GameManager.Instance.largas.GetComponent<Image>().color = largasOn ? Color.yellow : Color.white;
         if (largasOn)
+        {
+            GameObjectTracker.Instance.Interacted("largas-on");
             lucesSeleccionadas.Add("largas");
+        }
         else
+        {
+            GameObjectTracker.Instance.Interacted("largas-off");
             lucesSeleccionadas.Remove("largas");
+        }
         CheckCorrectLights();
     }
 
