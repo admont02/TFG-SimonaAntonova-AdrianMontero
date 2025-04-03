@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject minimapCamera;
     public CinemachineVirtualCamera virtualCamera;
     public GameObject clicLevelCam;
+    public GameObject velocidad;
     public Digrafo graph;
 
     public TextMeshProUGUI velText;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
             InitializeDialogue();
             if (ClicLevelManager.Instance != null)
             {
+                velocidad.SetActive(false);
                 Debug.Log("hola");
                 minimapCamera.SetActive(false);
                 //SetPlayer(cochesIA[0].transform);
@@ -129,7 +131,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator CarPerspectiveCameras(GameObject item)
     {
         item.GetComponentInChildren<CinemachineVirtualCamera>().enabled = true;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.5f);
         item.GetComponentInChildren<CinemachineVirtualCamera>().enabled = false;
 
     }

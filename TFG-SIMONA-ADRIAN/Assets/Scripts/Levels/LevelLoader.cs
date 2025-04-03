@@ -231,6 +231,7 @@ public class LevelLoader : MonoBehaviour
 
 
             otherCar.branchTo = IAcar.branchTo;
+            otherCar.orientacion = IAcar.orientacion;
             otherCar.carID = id;
             id++;
 
