@@ -27,6 +27,7 @@ public class DialogueSystem : MonoBehaviour
     public ParticleSystem confettiEffect;
     bool isEnd = false;
 
+
     void Awake()
     {
 
@@ -74,6 +75,8 @@ public class DialogueSystem : MonoBehaviour
         StartDialogue(true);
     }
 
+   
+
     IEnumerator TypeSentence()
     {
         isTyping = true;
@@ -119,7 +122,7 @@ public class DialogueSystem : MonoBehaviour
                 if (!isEnd)
                 {
 
-
+                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                     dialoguePanel.SetActive(false);
                     if (GameManager.Instance.carController != null)
                         GameManager.Instance.canCarMove = true;
