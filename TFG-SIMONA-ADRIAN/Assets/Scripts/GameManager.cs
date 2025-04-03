@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public Material graySkybox;
     public Light directionalLight;
 
+
     void Awake()
     {
         incorrectLevel.Add("Nivel Incorrecto, errores: ");
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-       // CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
+        CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
 
     }
     void InitializeDialogue()
@@ -142,7 +143,7 @@ public class GameManager : MonoBehaviour
 
         if (incorrectLevel.Count > 1)
         {
-            //CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);
+            CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);
 
             dialogueSystem.ShowIncorrectLevelDialog(incorrectLevel.ToArray());
             Debug.Log("¡Nivel incorrecto!");
@@ -153,7 +154,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-           // CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(true);
+            CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(true);
             dialogueSystem.ShowCompletedDialog();
             Debug.Log("¡Nivel completado correctamente!");
         }
@@ -199,7 +200,7 @@ public class GameManager : MonoBehaviour
         ChangeSkybox();
         directionalLight.intensity = 0.5f;
 
-        
+
         directionalLight.color = Color.black;
     }
 
@@ -227,5 +228,12 @@ public class GameManager : MonoBehaviour
     public void SetCurrentLevel(int nivel)
     {
         currentLevel = nivel;
+    }
+    public async void Finalized()
+    {
+        
+        await CompletableTracker.Instance.Progressed("Juego", CompletableTracker.CompletableType.Game, 1f);
+        await CompletableTracker.Instance.Completed("Juego", CompletableTracker.CompletableType.Game);
+       
     }
 }
