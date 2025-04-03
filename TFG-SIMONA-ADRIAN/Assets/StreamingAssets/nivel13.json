@@ -1,5 +1,6 @@
 {
     "type": "Luces",
+    "nivel":13,
     "night":true,
     "mapaNuevo": {
         "numPiezas": 49,

@@ -79,12 +79,18 @@ public class ClicLevelManager : MonoBehaviour
             if (otherCar == null || index >= correctOrderList.Count || otherCar.carID != correctOrderList[index])
             {
                 correctOrder = false;
-                GameManager.Instance.incorrectLevel.Add("Prioridades incorrectas");
-                break;
+
+                if (!GameManager.Instance.incorrectLevel.Contains("Prioridades incorrectas"))
+                {
+                    GameManager.Instance.incorrectLevel.Add("Prioridades incorrectas");
+                }
             }
+
+            //Registrar el orden independientemente de si es correcto o no
             GameObjectTracker.Instance.Interacted($"car-{otherCar.carID}-order-{index + 1}");
             index++;
         }
+
 
         if (correctOrder)
             yield return StartCoroutine(MoveCarsInOrder(priorityCarList));

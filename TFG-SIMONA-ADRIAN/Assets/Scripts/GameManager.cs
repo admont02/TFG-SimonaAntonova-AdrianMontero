@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        //CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
+        if (currentLevel != 0)
+            CompletableTracker.Instance.Initialized("nivel" + currentLevel.ToString());
 
     }
     void InitializeDialogue()
@@ -233,9 +234,9 @@ public class GameManager : MonoBehaviour
     }
     public async void Finalized()
     {
-        
+
         await CompletableTracker.Instance.Progressed("Juego", CompletableTracker.CompletableType.Game, 1f);
         await CompletableTracker.Instance.Completed("Juego", CompletableTracker.CompletableType.Game);
-       
+
     }
 }
