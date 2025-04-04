@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
     public Material graySkybox;
     public Light directionalLight;
 
+    private float timer = 0f;
+    public float trackingInterval = 10f;
+
     void Awake()
     {
         incorrectLevel.Add("Nivel Incorrecto, errores: ");
@@ -142,8 +145,26 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (carController != null)
+        if (carController != null && !dialogueSystem.dialoguePanel.activeSelf)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= trackingInterval) // Comprueba si ha pasado el intervalo
+            {
+                if (carController != null)
+                {
+                    //Obtener la posición del coche
+                    Vector3 carPosition = carController.transform.position;
+
+                    //Enviar la posición al tracker
+                    GameObjectTracker.Instance.Interacted($"player-position/{carPosition.x}-{carPosition.y}-{carPosition.z}");
+                }
+
+                // Reinicia el temporizador
+                timer = 0f;
+            }
             velText.text = carController.GetComponent<PrometeoCarController>().carSpeed.ToString("F0");
+        }
         else
         {
             //momentaneio

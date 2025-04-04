@@ -289,6 +289,21 @@ public class PrometeoCarController : MonoBehaviour
             GameManager.Instance.incorrectLevel.Add("Has tenido un choque con otro vehículo.");
         }
     }
+    private void TrackPlayerInput()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+            GameObjectTracker.Instance.Interacted("player-moved-forward");
+
+        if (Input.GetKeyDown(KeyCode.S))
+            GameObjectTracker.Instance.Interacted("player-moved-backward");
+
+        if (Input.GetKeyDown(KeyCode.A))
+            GameObjectTracker.Instance.Interacted("player-moved-left");
+
+        if (Input.GetKeyDown(KeyCode.D))
+            GameObjectTracker.Instance.Interacted("player-moved-right");
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -297,6 +312,7 @@ public class PrometeoCarController : MonoBehaviour
             StopCar();
             return;
         }
+        TrackPlayerInput();
         //CAR DATA
 
         // We determine the speed of the car.
