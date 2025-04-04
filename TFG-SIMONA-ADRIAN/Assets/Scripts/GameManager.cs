@@ -252,6 +252,13 @@ public class GameManager : MonoBehaviour
 
         directionalLight.color = Color.black;
     }
+    public void SetDeslumbramiento()
+    {
+        foreach (var item in cochesIA)
+        {
+            item.GetComponentInChildren<Deslumbramiento>()?.gameObject.SetActive(true);
+        }
+    }
 
     void ChangeSkybox()
     {

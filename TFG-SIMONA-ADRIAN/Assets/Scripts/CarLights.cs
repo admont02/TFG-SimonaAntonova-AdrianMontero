@@ -77,16 +77,16 @@ public class CarLights : MonoBehaviour
         // Posición
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
-            TogglePosicionLights();
+            ToggleCortasLights();
         }
         // 
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
-            ToggleCortasLights();
+            ToggleLargasLights();
         }
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
-            ToggleLargasLights();
+            TogglePosicionLights();
         }
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {

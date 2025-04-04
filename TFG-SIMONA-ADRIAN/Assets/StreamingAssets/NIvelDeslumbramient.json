@@ -433,7 +433,7 @@
     "cedas": [],
     "jugadorNuevo": {
         "pieza": {
-            "index": 14
+            "index": 64
         },
         "subPosicion": {
             "fil": 10,
@@ -444,11 +444,11 @@
     "IACars": [
         {
             "pieza": {
-                "index": 86
+                "index": 16
             },
             "subPosicion": {
-                "fil": 11,
-                "col": 5
+                "fil": 0,
+                "col": 0
             },
             "orientacion": "arriba",
             "branchTo": 0,
@@ -457,7 +457,7 @@
     ],
     "targetJugador": {
         "pieza": {
-            "index": 84
+            "index": 14
         },
         "subPosicion": {
             "fil": 5,

@@ -334,6 +334,7 @@ public class Nivel
     public bool fog = false;
     public bool rain = false;
     public bool night = false;
+    public bool deslumbramiento = false;
     public string type;
     public bool isMenu = false;
     public List<string> objetivo;
