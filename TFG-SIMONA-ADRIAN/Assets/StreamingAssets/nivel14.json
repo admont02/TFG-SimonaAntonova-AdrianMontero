@@ -1,0 +1,273 @@
+{
+    "nivel": 5,
+    "mapaNuevo": {
+        "numPiezas": 25,
+    "filas": 5,
+    "columnas": 5,
+    "Crossroad": [
+        {
+            "fil": 1,
+            "col": 3
+        }
+    ],
+    "Vertical": [
+        {
+            "fil": 2,
+            "col": 3
+        },
+        {
+            "fil": 1,
+            "col": 0
+        }
+    ],
+    "Horizontal": [
+        {
+            "fil": 4,
+            "col": 4
+        },
+        {
+            "fil": 3,
+            "col": 2
+        },
+        {
+            "fil": 1,
+            "col": 2
+        }
+    ],
+    "Roundabout": [
+        {
+            "fil": 3,
+            "col": 1
+        }],
+    "Pavement": [
+        {
+            "fil": 4,
+            "col": 2
+        },
+        {
+            "fil": 3,
+            "col": 4
+        },
+        {
+            "fil": 2,
+            "col": 2
+        },
+        {
+            "fil": 2,
+            "col": 4
+        },
+        {
+            "fil": 0,
+            "col": 2
+        }
+    ],
+    "Pavement_1": [],
+    "TurnLeft": [
+        {
+            "fil": 4,
+            "col": 1
+        },
+        {
+            "fil": 3,
+            "col": 3
+        },
+        {
+            "fil": 1,
+            "col": 4
+        }
+    ],
+    "TurnRight": [
+        {
+            "fil": 4,
+            "col": 0
+        },
+        {
+            "fil": 2,
+            "col": 0
+        },
+        {
+            "fil": 1,
+            "col": 1
+        }
+    ],
+    "TurnLeft2": [
+        {
+            "fil": 2,
+            "col": 1
+        },
+        {
+            "fil": 0,
+            "col": 1
+        },
+        {
+            "fil": 0,
+            "col": 4
+        }
+    ],
+    "TurnRight2": [
+        {
+            "fil": 4,
+            "col": 3
+        },
+        {
+            "fil": 3,
+            "col": 0
+        },
+        {
+            "fil": 0,
+            "col": 0
+        },
+        {
+            "fil": 0,
+            "col": 3
+        }
+    ],
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 13
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 0
+            },
+            "orientacion": "abajo",
+            "branchTo": 0,
+            "vehicle": "car"
+        },
+        {
+            "pieza": {
+                "index": 13
+            },
+            "subPosicion": {
+                "fil": 10,
+                "col": 1
+            },
+            "orientacion": "arriba",
+            "branchTo": 0,
+            "vehicle": "car"
+        },
+        {
+            "pieza": {
+                "index": 15
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 0
+            },
+            "orientacion": "abajo",
+            "branchTo": 0,
+            "vehicle": "car"
+        },
+        {
+            "pieza": {
+                "index": 15
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 0
+            },
+            "orientacion": "arriba",
+            "branchTo": 0,
+            "vehicle": "car"
+        }
+    ],
+    "TunnelVertical": [],
+    "TunnelHorizontal": []
+    },
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 5
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    },
+    "semaforosNuevos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 13
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "abajo",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 2
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 11
+            },
+            "orientacion": "abajo",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        }
+    ],
+    "cuadriculas": [
+        {
+            "pieza": {
+                "index": 8
+            },
+            "subPosicion": {
+                "fil": 9, 
+                "col": 9
+            }
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 8
+        },
+        "subPosicion": {
+            "fil": 9, 
+            "col": 9
+        }
+    },
+    "IACars": [
+        {
+            "pieza": {
+                "index": 5
+            },
+            "subPosicion": {
+                
+            "fil": 11,
+            "col": 5
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                
+            "fil": 5,
+            "col": 11
+            },
+            "orientacion": "derecha"
+        }
+    ],
+    "levelDialogs": [
+        " Mapa por piezas"
+    ],
+    "completedDialogs": [
+        " ¡Enhorabuena! Has completado el nivel correctamente."
+    ]
+}
