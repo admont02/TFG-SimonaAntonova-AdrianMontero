@@ -126,56 +126,6 @@
         "stops": [],
         "prohibidos": [],
         "cedas": [],
-        "IACars": [
-            {
-                "pieza": {
-                    "index": 13
-                },
-                "subPosicion": {
-                    "fil": 0,
-                    "col": 0
-                },
-                "orientacion": "abajo",
-                "branchTo": 0,
-                "vehicle": "car"
-            },
-            {
-                "pieza": {
-                    "index": 13
-                },
-                "subPosicion": {
-                    "fil": 10,
-                    "col": 1
-                },
-                "orientacion": "arriba",
-                "branchTo": 0,
-                "vehicle": "car"
-            },
-            {
-                "pieza": {
-                    "index": 15
-                },
-                "subPosicion": {
-                    "fil": 0,
-                    "col": 0
-                },
-                "orientacion": "abajo",
-                "branchTo": 0,
-                "vehicle": "car"
-            },
-            {
-                "pieza": {
-                    "index": 15
-                },
-                "subPosicion": {
-                    "fil": 0,
-                    "col": 0
-                },
-                "orientacion": "arriba",
-                "branchTo": 0,
-                "vehicle": "car"
-            }
-        ],
         "TunnelVertical": [],
         "TunnelHorizontal": []
     },
@@ -196,8 +146,8 @@
                 "index": 13
             },
             "subPosicion": {
-                "fil": 11,
-                "col": 11
+                "fil": 4,
+                "col": 2
             },
             "orientacion": "abajo",
             "greenSeconds": 20.0,
@@ -208,28 +158,17 @@
         {
             "doble": false,
             "pieza": {
-                "index": 2
+                "index": 11
             },
             "subPosicion": {
-                "fil": 7,
-                "col": 11
+                "fil": 14,
+                "col": 18
             },
-            "orientacion": "abajo",
+            "orientacion": "arriba",
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
             "initialLight": "green"
-        }
-    ],
-    "cuadriculas": [
-        {
-            "pieza": {
-                "index": 8
-            },
-            "subPosicion": {
-                "fil": 9,
-                "col": 9
-            }
         }
     ],
     "targetJugador": {
