@@ -20,4 +20,14 @@ public class PreventCrash : MonoBehaviour
             GetComponentInParent<OtherCar>().isCarInFront = false;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponentInParent<OtherCar>())
+        {
+            if (other.gameObject.GetComponentInParent<OtherCar>().destroyedByTrash)
+            {
+                GetComponentInParent<OtherCar>().isCarInFront = false;
+            }
+        }
+    }
 }

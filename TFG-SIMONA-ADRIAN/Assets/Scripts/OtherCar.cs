@@ -33,7 +33,7 @@ public class OtherCar : MonoBehaviour
 
     public Material[] carColors;
     public Material[] seamColors;
-
+    public bool destroyedByTrash=false;
 
     private void Awake()
     {

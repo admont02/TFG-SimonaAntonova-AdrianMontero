@@ -7,7 +7,8 @@
         "Crossroad": [
             {
                 "fil": 1,
-                "col": 1
+                "col": 1,
+                "conexiones":[1,11,10,12]
             }
         ],
         "Vertical": [
