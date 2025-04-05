@@ -7,7 +7,7 @@ public class PreventCrash : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Si detecta al jugador/otro coche
+        if (other.gameObject.layer == 3 || other.gameObject.GetComponentInParent<OtherCar>()) //Si detecta al jugador/otro coche
         {
             GetComponentInParent<OtherCar>().isCarInFront = true;
         }
@@ -15,7 +15,7 @@ public class PreventCrash : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Cuando el jugador/otro coche salga del trigger
+        if (other.gameObject.layer == 3 || other.gameObject.GetComponentInParent<OtherCar>()) //Cuando el jugador/otro coche salga del trigger
         {
             GetComponentInParent<OtherCar>().isCarInFront = false;
         }

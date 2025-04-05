@@ -579,7 +579,7 @@ MonoBehaviour:
   width: 4
   branches:
   - {fileID: 5672629391549266308}
-  branchRatio: 0.5
+  branchRatio: 0.85
   entryDirection: 0
   exitDirection: 0
 --- !u!1 &4508163974896837174
@@ -714,7 +714,7 @@ MonoBehaviour:
   width: 4
   branches:
   - {fileID: 2776804931656264766}
-  branchRatio: 0.5
+  branchRatio: 0.85
   entryDirection: 0
   exitDirection: 0
 --- !u!1 &4658986677163377113
@@ -766,7 +766,7 @@ MonoBehaviour:
   width: 4
   branches:
   - {fileID: 4015917465315079605}
-  branchRatio: 0.5
+  branchRatio: 0.85
   entryDirection: 0
   exitDirection: 0
 --- !u!1 &5100668201023066122
@@ -1519,6 +1519,6 @@ MonoBehaviour:
   width: 4
   branches:
   - {fileID: 3587218482459852924}
-  branchRatio: 0.5
+  branchRatio: 0.85
   entryDirection: 0
   exitDirection: 0

@@ -10,7 +10,7 @@ public class OtherCar : MonoBehaviour
 
     public bool reachedDestination = false;
     public Vector3 destination;
-    public float stopDistance = 2.5f;
+    public float stopDistance = 5.5f;
     public float movementSpeed = 1;
     public float rotationSpeed = 120;
     private Vector3 lastPosition;

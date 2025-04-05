@@ -7,7 +7,8 @@
         "Crossroad": [
             {
                 "fil": 1,
-                "col": 3
+                "col": 3,
+                "conexiones": [3, 9, 7, 13] 
             }
         ],
         "Vertical": [
@@ -37,7 +38,8 @@
         "Roundabout": [
             {
                 "fil": 3,
-                "col": 1
+                "col": 1,
+                "conexiones": [15, 17, 11, 21]
             }
         ],
         "Pavement": [
