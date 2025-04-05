@@ -115,7 +115,7 @@
             },
             "subPosicion": {
                 "fil": 18,
-                "col": 14
+                "col": 4
             },
             "orientacion": "derecha",
             "greenSeconds": 15.0,
@@ -147,7 +147,7 @@
                 "fil": 4,
                 "col": 2
             },
-            "orientacion": "arriba",
+            "orientacion": "abajo",
             "greenSeconds": 15.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
