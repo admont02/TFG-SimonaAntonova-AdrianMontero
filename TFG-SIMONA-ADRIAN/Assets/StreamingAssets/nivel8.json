@@ -408,5 +408,11 @@
     "completedDialogs": [
         " ¡Buen trabajo! Has completado correctamente el nivel y demostrado que puedes aplicar las normas de prioridad en una intersección.",
         "Este es solo el primer paso para seguir mejorando tus conocimientos de tráfico. ¡Sigue así!"
+    ],
+    "wrongDialogs": [
+        " Respuesta incorrecta.",
+        "Recuerda observar bien el orden de prioridad según las normas de tráfico y hacer clic en los coches en el orden correcto.",
+        "Si necesitas ayuda, utiliza el botón 'Perspectiva' para cambiar la vista y analizar la posición de los vehículos desde todos los ángulos.",
+        "Fijate bien en los intermitentes."
     ]
 }

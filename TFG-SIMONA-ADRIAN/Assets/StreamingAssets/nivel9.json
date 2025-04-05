@@ -398,5 +398,10 @@
     "completedDialogs": [
         " ¡Buen trabajo! Has completado el nivel correctamente.",
         "Reconociste que la ambulancia no tenía luces ni sonido activados, lo que significa que no estaba en servicio de emergencia. Por eso, aplicaste correctamente las normas de prioridad en este caso. ¡Sigue así!"
+    ],
+    "wrongDialogs": [
+        " Respuesta incorrecta",
+        "Recuerda que la ambulancia no tiene luces ni sonido activados, lo que significa que no está en servicio de emergencia.",
+        "Analiza bien las normas de prioridad y vuelve a intentarlo. ¡Tú puedes hacerlo!"
     ]
 }

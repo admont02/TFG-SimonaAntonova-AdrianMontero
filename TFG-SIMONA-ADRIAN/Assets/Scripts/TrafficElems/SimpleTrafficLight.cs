@@ -79,8 +79,8 @@ public class SimpleTrafficLight : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // si es player cambia al nivel del trigger
-        if (red.activeSelf && other.gameObject.layer == 3)
-            GameManager.Instance.incorrectLevel.Add("Semáforo con luz roja: Prohibido el paso.");
+        if (red.activeSelf && other.gameObject.layer == 3 && !GameManager.Instance.incorrectLevel.Contains("Has pasado un Semáforo con luz roja."))
+            GameManager.Instance.incorrectLevel.Add("Has pasado un Semáforo con luz roja.");
 
     }
 }

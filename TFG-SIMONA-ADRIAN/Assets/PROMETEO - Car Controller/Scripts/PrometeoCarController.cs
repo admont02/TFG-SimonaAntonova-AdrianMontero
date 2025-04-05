@@ -283,10 +283,11 @@ public class PrometeoCarController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponentInParent<OtherCar>() != null)
+        if (collision.gameObject.GetComponentInParent<OtherCar>() != null)
         {
             GameObjectTracker.Instance.Interacted("crash-car-error", GameObjectTracker.TrackedGameObject.GameObject);
-            GameManager.Instance.incorrectLevel.Add("Has tenido un choque con otro vehículo.");
+            if (!GameManager.Instance.incorrectLevel.Contains("Has tenido un choque con otro vehículo."))
+                GameManager.Instance.incorrectLevel.Add("Has tenido un choque con otro vehículo.");
         }
     }
     private void TrackPlayerInput()

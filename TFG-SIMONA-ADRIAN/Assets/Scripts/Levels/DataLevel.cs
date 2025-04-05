@@ -331,6 +331,7 @@ public class Nivel
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;
     public string[] completedDialogs;
+    public string[] wrongDialogs;
     public bool fog = false;
     public bool rain = false;
     public bool night = false;

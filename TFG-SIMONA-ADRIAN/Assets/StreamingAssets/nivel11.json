@@ -418,5 +418,10 @@
     "completedDialogs": [
         " ¡Buen trabajo! Has tomado la decisión correcta.",
         "Recuerda que, aunque uno de los vehículos sea un autobús, la prioridad la tiene el coche porque continúa recto, según las normas de tráfico. ¡Sigue aplicando lo aprendido!"
+    ],
+    "wrongDialogs": [
+        " Respuesta incorrecta.",
+        "Recuerda que, aunque uno de los vehículos sea un autobús, eso no le da prioridad automáticamente.",
+        "Analiza cuidadosamente las normas de tráfico y vuelve a intentarlo. ¡Tú puedes hacerlo!"
     ]
 }

@@ -20,6 +20,7 @@ public class DialogueSystem : MonoBehaviour
     private AudioSource audioSource;
     private string[] dialogues; // Array para almacenar los diálogos
     private string[] winDialogues; // Array para almacenar los diálogos de victoria
+    private string[] wrongDialogues; // Array para almacenar los diálogos de incorrecto
     private int index;
     private bool isTyping = false;
     //private bool levelEnded = false;
@@ -68,7 +69,10 @@ public class DialogueSystem : MonoBehaviour
     public void ShowIncorrectLevelDialog(string[] incorrect)
     {
         //levelEnded = true;
-        dialogues = incorrect;
+        if (ClicLevelManager.Instance == null)
+            dialogues = incorrect;
+        else
+            dialogues = wrongDialogues;
         isEnd = true;
         audioSource.PlayOneShot(loseSound);
         //if (confettiEffect != null) { confettiEffect.Play(); }
@@ -141,10 +145,11 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    public void SetLevelDialog(string[] d, string[] cDialogs)
+    public void SetLevelDialog(string[] d, string[] cDialogs, string[] wDialogs)
     {
         dialogues = d;
         winDialogues = cDialogs;
+        wrongDialogues = wDialogs;
     }
 
     private void ResetDialogue()

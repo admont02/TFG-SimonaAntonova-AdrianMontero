@@ -182,7 +182,7 @@ public class LevelLoader : MonoBehaviour
             }
         }
         GameManager.Instance.graph = digrafo;
-        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs);
+        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs,nivel.wrongDialogs);
 
 
         //IAs nuevo

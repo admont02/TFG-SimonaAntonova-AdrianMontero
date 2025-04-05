@@ -409,5 +409,10 @@
     "completedDialogs": [
         " ¡Excelente trabajo! Has determinado correctamente el orden de prioridad en la intersección.",
         "Reconociste que el vehículo que continúa recto tiene prioridad y que, posteriormente, el vehículo a la derecha debe avanzar. ¡Bien hecho!"
+    ],
+    "wrongDialogs": [
+        " Respuesta incorrecta.",
+        "Recuerda que un vehículo que continúa por la misma vía, tiene prioridad sobre los que se quieren incorporar.",
+        "Después, considera cuál de los vehículos restantes tiene la prioridad. ¡Vuelve a intentarlo!"
     ]
 }

@@ -31,7 +31,7 @@ public class StopSign : MonoBehaviour
         car.StopCar();
         yield return new WaitForSeconds(stopDuration);
         car.ResumeCar();
-        IAstopped=true;
+        IAstopped = true;
     }
     private void OnTriggerExit(Collider other)
     {
@@ -41,9 +41,9 @@ public class StopSign : MonoBehaviour
             CheckPlayerLeaving();
 
         }
-        else if(other.gameObject.layer == 7)
+        else if (other.gameObject.layer == 7)
         {
-            IAstopped=false;
+            IAstopped = false;
         }
     }
 
@@ -53,7 +53,8 @@ public class StopSign : MonoBehaviour
         {
             GameObjectTracker.Instance.Interacted("stop-sign-error", GameObjectTracker.TrackedGameObject.GameObject);
             Debug.Log("El coche salió del área de la señal de stop antes de completar los 3 segundos.");
-            GameManager.Instance.incorrectLevel.Add("No has respetado la señal de Stop.");
+            if (!GameManager.Instance.incorrectLevel.Contains("No has respetado la señal de Stop. Recuerda que esta señal indica que debes detenerte completamente antes de continuar"))
+                GameManager.Instance.incorrectLevel.Add("No has respetado la señal de Stop. Recuerda que esta señal indica que debes detenerte completamente antes de continuar");
 
         }
     }

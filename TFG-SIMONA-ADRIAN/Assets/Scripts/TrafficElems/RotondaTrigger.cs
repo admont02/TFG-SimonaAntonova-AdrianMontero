@@ -25,7 +25,8 @@ public class RotondaTrigger : MonoBehaviour
                 GameObjectTracker.Instance.Interacted("roundabout-error", GameObjectTracker.TrackedGameObject.GameObject);
                 Debug.LogWarning("Entrada incorrecta en la rotonda.");
                 // Añadir lógica para manejar la entrada incorrecta (por ejemplo, reducir la velocidad)
-                GameManager.Instance.incorrectLevel.Add("Rotonda realizada en sentido contrario.");
+                if (!GameManager.Instance.incorrectLevel.Contains("Rotonda realizada en sentido contrario."))
+                    GameManager.Instance.incorrectLevel.Add("Rotonda realizada en sentido contrario.");
             }
         }
     }
