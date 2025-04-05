@@ -1,0 +1,177 @@
+{
+    "type": "Manejo",
+    "mapaNuevo": {
+        "numPiezas": 36,
+        "filas": 6,
+        "columnas": 6,
+        "Crossroad": [
+            {
+                "fil": 4,
+                "col": 4
+            }
+        ],
+        "Vertical": [
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 5
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 5
+            },
+            {
+                "fil": 1,
+                "col": 5
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 5,
+                "col": 1
+            },
+            {
+                "fil": 5,
+                "col": 2
+            },
+            {
+                "fil": 5,
+                "col": 3
+            },
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 4,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 4
+            }
+        ],
+        "Roundabout": [
+            {
+                "fil": 1,
+                "col": 2
+            }
+        ],
+        "Pavement": [
+            {
+                "fil": 2,
+                "col": 1
+            }
+        ],
+        "Pavement_1": [],
+        "TurnLeft": [
+            {
+                "fil": 5,
+                "col": 4
+            },
+            {
+                "fil": 4,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "TurnRight": [
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 4,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 2
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 1,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 5
+            }
+        ],
+        "TurnRight2": [
+            {
+                "fil": 5,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "stops": [],
+        "prohibidos": [],
+        "cedas": [],
+        "IACars": [],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
+    }
+}
