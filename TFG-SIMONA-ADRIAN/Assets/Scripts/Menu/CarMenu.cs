@@ -22,14 +22,17 @@ public class CarMenu : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                destino = hit.point; // Guarda el punto de destino donde el coche debe ir
-                moviendo = true; // El coche empieza a moverse
-                Quaternion rot=Quaternion.Euler(90, 0, 0);
-                GameObject effectInstance= Instantiate(clickEffectPrefab, hit.point, rot);
-                AudioSource audioSource = effectInstance.GetComponent<AudioSource>();
-                if (audioSource != null)
+                if (hit.collider.gameObject.layer==LayerMask.NameToLayer("MenuRoad"))
                 {
-                    audioSource.Play();
+                    destino = hit.point; // Guarda el punto de destino donde el coche debe ir
+                    moviendo = true; // El coche empieza a moverse
+                    Quaternion rot = Quaternion.Euler(90, 0, 0);
+                    GameObject effectInstance = Instantiate(clickEffectPrefab, hit.point, rot);
+                    AudioSource audioSource = effectInstance.GetComponent<AudioSource>();
+                    if (audioSource != null)
+                    {
+                        audioSource.Play();
+                    }
                 }
             }
         }
