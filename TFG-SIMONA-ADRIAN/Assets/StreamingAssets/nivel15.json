@@ -1,0 +1,264 @@
+{
+    "type": "Manejo",
+    "mapaNuevo": {
+        "numPiezas": 16,
+        "filas": 4,
+        "columnas": 4,
+        "Crossroad": [
+            {
+                "fil": 1,
+                "col": 1
+            }
+        ],
+        "Vertical": [
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 3
+            }
+        ],
+        "Roundabout": [],
+        "Pavement": [
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 3
+            }
+        ],
+        "Pavement_1": [],
+        "TurnLeft": [],
+        "TurnRight": [
+            {
+                "fil": 1,
+                "col": 0
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 0,
+                "col": 0
+            }
+        ],
+        "TurnRight2": [],
+        "stops": [],
+        "prohibidos": [],
+        "cedas": [],
+        "IACars": [],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
+    },
+    "semaforosNuevos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 4
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 14
+            },
+            "orientacion": "derecha",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 6
+            },
+            "subPosicion": {
+                "fil": 2,
+                "col": 14
+            },
+            "orientacion": "izquierda",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 2
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        }
+    ],
+    "cuadriculas": [
+        {
+            "pieza": {
+                "index": 5
+            },
+            "subPosicion": {
+                "fil": 9,
+                "col": 9
+            }
+        }
+    ],
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 5
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    },
+    "targetJugador": {
+        "pieza": {
+            "index": 13
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 9
+        }
+    },
+    "IACars": [
+        {
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 13
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 4
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 13
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 13
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 4
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 13
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 13
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 8,
+                "col": 4
+            },
+            "orientacion": "abajo"
+        },
+        {
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 8,
+                "col": 13
+            },
+            "orientacion": "abajo"
+        }
+    ],
+    "levelDialogs": [
+        " Mapa por piezas"
+    ],
+    "completedDialogs": [
+        " ¡Enhorabuena! Has completado el nivel correctamente."
+    ]
+}
