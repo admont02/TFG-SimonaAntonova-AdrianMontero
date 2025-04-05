@@ -1,8 +1,10 @@
 {
     "type": "Prioridad",
-    "nivel":8,
+    "nivel": 8,
     "correctOrder": [
-        1,0,2
+        1,
+        0,
+        2
     ],
     "mapaNuevo": {
         "numPiezas": 81,
@@ -63,20 +65,24 @@
                 "fil": 4,
                 "col": 1,
                 "conexiones": [
-                    38,36
+                    38,
+                    36
                 ]
             },
             {
                 "fil": 4,
-                "col": 2,"conexiones": [
-                    37,39
+                "col": 2,
+                "conexiones": [
+                    37,
+                    39
                 ]
             },
             {
                 "fil": 4,
                 "col": 3,
                 "conexiones": [
-                    38,40
+                    38,
+                    40
                 ]
             },
             {
@@ -396,9 +402,11 @@
         }
     ],
     "levelDialogs": [
-        " Mapa por piezas"
+        " En este nivel, deberás hacer clic en orden sobre los coches según su prioridad en la intersección, siguiendo las normas de tráfico.",
+        "Para ayudarte, dispones del botón 'perspectiva', que te permitirá cambiar la vista y observar la posición de todos los vehículos desde diferentes ángulos."
     ],
     "completedDialogs": [
-        " ¡Enhorabuena! Has completado el nivel correctamente."
+        " ¡Buen trabajo! Has completado correctamente el nivel y demostrado que puedes aplicar las normas de prioridad en una intersección.",
+        "Este es solo el primer paso para seguir mejorando tus conocimientos de tráfico. ¡Sigue así!"
     ]
 }

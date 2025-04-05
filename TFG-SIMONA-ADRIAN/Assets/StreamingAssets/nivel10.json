@@ -1,8 +1,10 @@
 {
     "type": "Prioridad",
-    "nivel":10,
+    "nivel": 10,
     "correctOrder": [
-        2,1,0
+        2,
+        1,
+        0
     ],
     "mapaNuevo": {
         "numPiezas": 81,
@@ -63,20 +65,24 @@
                 "fil": 4,
                 "col": 1,
                 "conexiones": [
-                    38,36
+                    38,
+                    36
                 ]
             },
             {
                 "fil": 4,
-                "col": 2,"conexiones": [
-                    37,39
+                "col": 2,
+                "conexiones": [
+                    37,
+                    39
                 ]
             },
             {
                 "fil": 4,
                 "col": 3,
                 "conexiones": [
-                    38,40
+                    38,
+                    40
                 ]
             },
             {
@@ -396,9 +402,12 @@
         }
     ],
     "levelDialogs": [
-        " Mapa por piezas"
+        " En este nivel, tendrás que evaluar la prioridad de tres vehículos en una intersección.",
+        "Tu tarea es decidir el orden correcto según las normas de tráfico, observando las condiciones cuidadosamente.",
+        "Recuerda analizar qué vehículo sigue recto y cuál está a la derecha para tomar la mejor decisión."
     ],
     "completedDialogs": [
-        " ¡Enhorabuena! Has completado el nivel correctamente."
+        " ¡Excelente trabajo! Has determinado correctamente el orden de prioridad en la intersección.",
+        "Reconociste que el vehículo que continúa recto tiene prioridad y que, posteriormente, el vehículo a la derecha debe avanzar. ¡Bien hecho!"
     ]
 }

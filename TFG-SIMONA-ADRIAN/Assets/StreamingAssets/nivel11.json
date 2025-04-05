@@ -411,9 +411,12 @@
         }
     ],
     "levelDialogs": [
-        " Mapa por piezas"
+        " En este nivel, te encuentras con una intersección en la que participan un autobús y un coche",
+        "Tu tarea será analizar cuidadosamente la situación y decidir el orden de prioridad según las normas de tráfico.",
+        "Observa bien los detalles desde sus persepectivas y toma la decisión adecuada. ¡Buena suerte!"
     ],
     "completedDialogs": [
-        " ¡Enhorabuena! Has completado el nivel correctamente."
+        " ¡Buen trabajo! Has tomado la decisión correcta.",
+        "Recuerda que, aunque uno de los vehículos sea un autobús, la prioridad la tiene el coche porque continúa recto, según las normas de tráfico. ¡Sigue aplicando lo aprendido!"
     ]
 }

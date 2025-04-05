@@ -1,8 +1,9 @@
 {
     "type": "Prioridad",
-    "nivel":9,
+    "nivel": 9,
     "correctOrder": [
-        1,0
+        1,
+        0
     ],
     "mapaNuevo": {
         "numPiezas": 81,
@@ -63,20 +64,24 @@
                 "fil": 4,
                 "col": 1,
                 "conexiones": [
-                    38,36
+                    38,
+                    36
                 ]
             },
             {
                 "fil": 4,
-                "col": 2,"conexiones": [
-                    37,39
+                "col": 2,
+                "conexiones": [
+                    37,
+                    39
                 ]
             },
             {
                 "fil": 4,
                 "col": 3,
                 "conexiones": [
-                    38,40
+                    38,
+                    40
                 ]
             },
             {
@@ -371,7 +376,7 @@
             },
             "orientacion": "arriba",
             "branchTo": 1,
-            "vehicle":"ambulance"
+            "vehicle": "ambulance"
         },
         {
             "pieza": {
@@ -386,9 +391,12 @@
         }
     ],
     "levelDialogs": [
-        " Mapa por piezas"
+        " En este nivel, te encuentras con una intersección donde participan una ambulancia y otro vehículo.",
+        "Tu tarea es decidir el orden de prioridad correctamente, siguiendo las normas de tráfico.",
+        "Observa la situación detenidamente."
     ],
     "completedDialogs": [
-        " ¡Enhorabuena! Has completado el nivel correctamente."
+        " ¡Buen trabajo! Has completado el nivel correctamente.",
+        "Reconociste que la ambulancia no tenía luces ni sonido activados, lo que significa que no estaba en servicio de emergencia. Por eso, aplicaste correctamente las normas de prioridad en este caso. ¡Sigue así!"
     ]
 }
