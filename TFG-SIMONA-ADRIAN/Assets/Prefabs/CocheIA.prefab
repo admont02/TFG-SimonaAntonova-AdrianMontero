@@ -4290,12 +4290,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 2, z: 950}
-  m_Center: {x: 0, y: 1, z: 490}
+  m_Size: {x: 40, y: 2, z: 950}
+  m_Center: {x: -13, y: 1, z: 490}
 --- !u!114 &6164102731789980549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4574,6 +4574,7 @@ MonoBehaviour:
   icon: {fileID: 6355413703131638298}
   bodyMain: {fileID: 1620275877834008986}
   seams: {fileID: 1621124275845141274}
+  Deslumbramiento: {fileID: 4249435889051841220}
   carColors:
   - {fileID: 2100000, guid: 707eb7b790aaa214bb421203de68536d, type: 2}
   - {fileID: 2100000, guid: bff761b7e096ac849bedb4d802539ce6, type: 2}

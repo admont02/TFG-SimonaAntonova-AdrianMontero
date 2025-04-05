@@ -29,6 +29,7 @@ public class OtherCar : MonoBehaviour
 
     public GameObject bodyMain;
     public GameObject seams;
+    public GameObject Deslumbramiento;
 
     public Material[] carColors;
     public Material[] seamColors;

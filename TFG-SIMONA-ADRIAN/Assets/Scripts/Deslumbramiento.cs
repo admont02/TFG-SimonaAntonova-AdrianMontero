@@ -30,15 +30,18 @@ public class Deslumbramiento : MonoBehaviour
     {
         if (other.gameObject.layer == 3)
         {
-            if (!other.gameObject.GetComponent<CarLights>().largasLights[0].enabled)
+            Debug.Log("COLLIDER STAY WITH " + other.gameObject.transform.parent.name);
+            if (!other.gameObject.transform.parent.GetComponent<CarLights>().largasLights[0].enabled)
             {
                 correcto = true;
-                GameManager.Instance.incorrectLevel.Remove("Has deslumbrado a un usuario");
+                if (GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario"))
+                    GameManager.Instance.incorrectLevel.Remove("Has deslumbrado a un usuario");
             }
             else
             {
                 correcto = false;
-                GameManager.Instance.incorrectLevel.Add("Has deslumbrado a un usuario");
+                if (!GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario"))
+                    GameManager.Instance.incorrectLevel.Add("Has deslumbrado a un usuario");
             }
         }
     }
@@ -46,7 +49,8 @@ public class Deslumbramiento : MonoBehaviour
     {
         if (other.gameObject.layer == 3)
         {
-            if (other.gameObject.GetComponent<CarLights>().largasLights[0].enabled)
+            Debug.Log("COLLIDER exit WITH " + other.transform.parent.gameObject.name);
+            if (other.gameObject.transform.parent.GetComponent<CarLights>().largasLights[0].enabled)
             {
                 correcto = false;
 

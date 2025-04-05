@@ -2145,7 +2145,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1328640318394940515}
-  - {fileID: 1042526972880391571}
   - {fileID: 4725408782365378779}
   - {fileID: 8489790014188442841}
   - {fileID: 730806511276714026}
@@ -3633,11 +3632,11 @@ Transform:
   m_GameObject: {fileID: 5460377517221321426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07219696, y: -0.0023572445, z: 0.32654}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.3609848, y: -0.011786222, z: 1.632698}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1919436743533957292}
+  m_Father: {fileID: 4876499394788946863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7906766655182350862
 MeshFilter:
@@ -3943,6 +3942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1042526972880391571}
   - {fileID: 1919436743533957292}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4022,6 +4022,7 @@ MonoBehaviour:
   largasLights:
   - {fileID: 4527195221822520023}
   - {fileID: 7064515519219248180}
+  comenzarButton: {fileID: 0}
   antinieblaButton: {fileID: 0}
   antinieblaBackButton: {fileID: 0}
   posicionButton: {fileID: 0}

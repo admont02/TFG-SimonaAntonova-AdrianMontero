@@ -391,8 +391,8 @@ public class LevelLoader : MonoBehaviour
                     carLights.objetivoLuces = nivel.objetivo;
                 }
                 // Activar modo deslumbramiento
-                if(nivel.deslumbramiento)
-                GameManager.Instance.SetDeslumbramiento();
+                if (nivel.deslumbramiento)
+                    GameManager.Instance.SetDeslumbramiento();
 
 
                 break;

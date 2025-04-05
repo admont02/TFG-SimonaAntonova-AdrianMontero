@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (var item in cochesIA)
         {
-            item.GetComponentInChildren<Deslumbramiento>()?.gameObject.SetActive(true);
+            item.GetComponent<OtherCar>().Deslumbramiento?.gameObject.SetActive(true);
         }
     }
 
