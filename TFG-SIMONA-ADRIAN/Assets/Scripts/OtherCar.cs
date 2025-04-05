@@ -17,7 +17,7 @@ public class OtherCar : MonoBehaviour
     private Vector3 velocity;
     public bool isStopped = false;
     public float brakeDistance = 5f;         // Distancia a la que el coche empieza a frenar
-    private bool isCarInFront = false;
+    public bool isCarInFront = false;
     public GameObject arrow;
     public GameObject LeftLight;
     public GameObject RightLight;
@@ -33,6 +33,7 @@ public class OtherCar : MonoBehaviour
 
     public Material[] carColors;
     public Material[] seamColors;
+
 
     private void Awake()
     {
@@ -148,21 +149,21 @@ public class OtherCar : MonoBehaviour
         var ady = GameManager.Instance.graph.getAdy(currentId);
         return ady.Contains(nextId);
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Si detecta al jugador/otro coche
-        {
-            isCarInFront = true;
-        }
-    }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Si detecta al jugador/otro coche
+    //    {
+    //        isCarInFront = true;
+    //    }
+    //}
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Cuando el jugador/otro coche salga del trigger
-        {
-            isCarInFront = false;
-        }
-    }
+    //void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Cuando el jugador/otro coche salga del trigger
+    //    {
+    //        isCarInFront = false;
+    //    }
+    //}
     void OnMouseDown()
     { // Cuando se toca este coche, pasar el orden al GameController gameController.CarTouched(carOrder); }
         Debug.Log(this.name);

@@ -1,182 +1,183 @@
 {
-    "nivel": 5,
+    "nivel": 14,
     "mapaNuevo": {
         "numPiezas": 25,
-    "filas": 5,
-    "columnas": 5,
-    "Crossroad": [
-        {
-            "fil": 1,
-            "col": 3
-        }
-    ],
-    "Vertical": [
-        {
-            "fil": 2,
-            "col": 3
-        },
-        {
-            "fil": 1,
-            "col": 0
-        }
-    ],
-    "Horizontal": [
-        {
-            "fil": 4,
-            "col": 4
-        },
-        {
-            "fil": 3,
-            "col": 2
-        },
-        {
-            "fil": 1,
-            "col": 2
-        }
-    ],
-    "Roundabout": [
-        {
-            "fil": 3,
-            "col": 1
-        }],
-    "Pavement": [
-        {
-            "fil": 4,
-            "col": 2
-        },
-        {
-            "fil": 3,
-            "col": 4
-        },
-        {
-            "fil": 2,
-            "col": 2
-        },
-        {
-            "fil": 2,
-            "col": 4
-        },
-        {
-            "fil": 0,
-            "col": 2
-        }
-    ],
-    "Pavement_1": [],
-    "TurnLeft": [
-        {
-            "fil": 4,
-            "col": 1
-        },
-        {
-            "fil": 3,
-            "col": 3
-        },
-        {
-            "fil": 1,
-            "col": 4
-        }
-    ],
-    "TurnRight": [
-        {
-            "fil": 4,
-            "col": 0
-        },
-        {
-            "fil": 2,
-            "col": 0
-        },
-        {
-            "fil": 1,
-            "col": 1
-        }
-    ],
-    "TurnLeft2": [
-        {
-            "fil": 2,
-            "col": 1
-        },
-        {
-            "fil": 0,
-            "col": 1
-        },
-        {
-            "fil": 0,
-            "col": 4
-        }
-    ],
-    "TurnRight2": [
-        {
-            "fil": 4,
-            "col": 3
-        },
-        {
-            "fil": 3,
-            "col": 0
-        },
-        {
-            "fil": 0,
-            "col": 0
-        },
-        {
-            "fil": 0,
-            "col": 3
-        }
-    ],
-    "stops": [],
-    "prohibidos": [],
-    "cedas": [],
-    "IACars": [
-        {
-            "pieza": {
-                "index": 13
+        "filas": 5,
+        "columnas": 5,
+        "Crossroad": [
+            {
+                "fil": 1,
+                "col": 3
+            }
+        ],
+        "Vertical": [
+            {
+                "fil": 2,
+                "col": 3
             },
-            "subPosicion": {
-                "fil": 0,
+            {
+                "fil": 1,
                 "col": 0
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 4,
+                "col": 4
             },
-            "orientacion": "abajo",
-            "branchTo": 0,
-            "vehicle": "car"
-        },
-        {
-            "pieza": {
-                "index": 13
+            {
+                "fil": 3,
+                "col": 2
             },
-            "subPosicion": {
-                "fil": 10,
+            {
+                "fil": 1,
+                "col": 2
+            }
+        ],
+        "Roundabout": [
+            {
+                "fil": 3,
+                "col": 1
+            }
+        ],
+        "Pavement": [
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "Pavement_1": [],
+        "TurnLeft": [
+            {
+                "fil": 4,
                 "col": 1
             },
-            "orientacion": "arriba",
-            "branchTo": 0,
-            "vehicle": "car"
-        },
-        {
-            "pieza": {
-                "index": 15
+            {
+                "fil": 3,
+                "col": 3
             },
-            "subPosicion": {
+            {
+                "fil": 1,
+                "col": 4
+            }
+        ],
+        "TurnRight": [
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 4
+            }
+        ],
+        "TurnRight2": [
+            {
+                "fil": 4,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
                 "fil": 0,
                 "col": 0
             },
-            "orientacion": "abajo",
-            "branchTo": 0,
-            "vehicle": "car"
-        },
-        {
-            "pieza": {
-                "index": 15
-            },
-            "subPosicion": {
+            {
                 "fil": 0,
-                "col": 0
+                "col": 3
+            }
+        ],
+        "stops": [],
+        "prohibidos": [],
+        "cedas": [],
+        "IACars": [
+            {
+                "pieza": {
+                    "index": 13
+                },
+                "subPosicion": {
+                    "fil": 0,
+                    "col": 0
+                },
+                "orientacion": "abajo",
+                "branchTo": 0,
+                "vehicle": "car"
             },
-            "orientacion": "arriba",
-            "branchTo": 0,
-            "vehicle": "car"
-        }
-    ],
-    "TunnelVertical": [],
-    "TunnelHorizontal": []
+            {
+                "pieza": {
+                    "index": 13
+                },
+                "subPosicion": {
+                    "fil": 10,
+                    "col": 1
+                },
+                "orientacion": "arriba",
+                "branchTo": 0,
+                "vehicle": "car"
+            },
+            {
+                "pieza": {
+                    "index": 15
+                },
+                "subPosicion": {
+                    "fil": 0,
+                    "col": 0
+                },
+                "orientacion": "abajo",
+                "branchTo": 0,
+                "vehicle": "car"
+            },
+            {
+                "pieza": {
+                    "index": 15
+                },
+                "subPosicion": {
+                    "fil": 0,
+                    "col": 0
+                },
+                "orientacion": "arriba",
+                "branchTo": 0,
+                "vehicle": "car"
+            }
+        ],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
     },
     "jugadorNuevo": {
         "pieza": {
@@ -226,7 +227,7 @@
                 "index": 8
             },
             "subPosicion": {
-                "fil": 9, 
+                "fil": 9,
                 "col": 9
             }
         }
@@ -236,7 +237,7 @@
             "index": 8
         },
         "subPosicion": {
-            "fil": 9, 
+            "fil": 9,
             "col": 9
         }
     },
@@ -246,9 +247,8 @@
                 "index": 5
             },
             "subPosicion": {
-                
-            "fil": 11,
-            "col": 5
+                "fil": 11,
+                "col": 5
             },
             "orientacion": "arriba"
         },
@@ -257,9 +257,8 @@
                 "index": 7
             },
             "subPosicion": {
-                
-            "fil": 5,
-            "col": 11
+                "fil": 5,
+                "col": 11
             },
             "orientacion": "derecha"
         }
