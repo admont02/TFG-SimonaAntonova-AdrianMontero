@@ -8,7 +8,12 @@
             {
                 "fil": 1,
                 "col": 3,
-                "conexiones": [3, 9, 7, 13] 
+                "conexiones": [
+                    3,
+                    9,
+                    7,
+                    13
+                ]
             }
         ],
         "Vertical": [
@@ -39,7 +44,12 @@
             {
                 "fil": 3,
                 "col": 1,
-                "conexiones": [15, 17, 11, 21]
+                "conexiones": [
+                    15,
+                    17,
+                    11,
+                    21
+                ]
             }
         ],
         "Pavement": [
@@ -163,7 +173,7 @@
                 "index": 11
             },
             "subPosicion": {
-                "fil": 14,
+                "fil": 13,
                 "col": 18
             },
             "orientacion": "arriba",
@@ -205,9 +215,11 @@
         }
     ],
     "levelDialogs": [
-        " Mapa por piezas"
+        " Bienvenido a este nivel introductorio de manejo. Usa las teclas WASD de tu teclado para controlar tu vehículo y moverte por el entorno.",
+        "Tu objetivo es cumplir las reglas de tráfico mientras avanzas hacia la meta. Puedes usar el minimapa, pulsando la tecla M, para orientarte. La meta está marcada con una estrella. ¡Buena suerte!"
     ],
     "completedDialogs": [
-        " ¡Enhorabuena! Has completado el nivel correctamente."
+        " ¡Excelente trabajo! Has llegado a la meta mientras respetabas las normas de tráfico. Este es el primer paso para convertirte en un conductor experto.",
+        "Sigue practicando y perfeccionando tus habilidades en los próximos niveles. ¡Estás en el camino correcto!"
     ]
 }
