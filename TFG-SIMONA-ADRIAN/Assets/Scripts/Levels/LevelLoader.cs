@@ -37,7 +37,8 @@ public class LevelLoader : MonoBehaviour
     GameObject forbiddenPrefab;
     [SerializeField]
     GameObject MaxSpeedPrefab;
-
+    [SerializeField]
+    GameObject FrenteIzqPrefab;
     [SerializeField]
     GameObject destroyer;
     public GameObject TargetIconPrefab;
@@ -329,7 +330,25 @@ public class LevelLoader : MonoBehaviour
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);
-        }//prohibidos
+        }
+        foreach (var sign in nivel.frenteIzq)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+            posicionPieza.y = 1;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            posicionCuadricula.y = 1;
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(FrenteIzqPrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
+            stopObj.SetActive(true);
+        }
+        //prohibidos
         foreach (var sign in nivel.prohibidos)
         {
             int indexPieza = sign.pieza.index;

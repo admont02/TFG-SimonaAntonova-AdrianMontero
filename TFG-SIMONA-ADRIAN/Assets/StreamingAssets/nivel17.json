@@ -337,6 +337,18 @@
             "orientacion": "arriba"
         }
     ],
+    "frenteIzq": [
+        {
+            "pieza": {
+                "index": 27
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
     "IACars": [
         {
             "pieza": {
@@ -357,6 +369,68 @@
                 "col": 11
             },
             "orientacion": "izquierda"
+        }
+    ],
+    "semaforosNuevos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 60
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 0
+            },
+            "orientacion": "abajo",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 44
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 51
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "derecha",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 53
+            },
+            "subPosicion": {
+                "fil":0,
+                "col": 14
+            },
+            "orientacion": "izquierda",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "green"
         }
     ],
     "levelDialogs": [

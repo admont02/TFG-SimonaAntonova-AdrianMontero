@@ -36,9 +36,9 @@ public class TipoDePieza
 public static class SceneData
 {
     public static bool firstTime = true;
-    public static string JsonFileName = "menu.json";
+    //public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    //public static string JsonFileName="nivel15.json";
+    public static string JsonFileName="nivel17.json";
 
 }
 
@@ -74,6 +74,13 @@ public class Cuadricula
 }
 [System.Serializable]
 public class Stop
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
+[System.Serializable]
+public class FrenteIzq
 {
     public Pieza pieza;
     public SubPosicion subPosicion;
@@ -341,6 +348,8 @@ public class Nivel
     public List<Cuadricula> cuadriculas;
     public List<Stop> stops;
     public List<MaxVelocidad> maxVelocidad;
+    public List<FrenteIzq> frenteIzq;
+
     public List<Prohibido> prohibidos;
     public List<Ceda> cedas;
     public List<SemaforoNuevoConfig> semaforosNuevos;
