@@ -82,6 +82,7 @@ public class Stop
 [System.Serializable]
 public class MaxVelocidad
 {
+    public int velocidad;
     public Pieza pieza;
     public SubPosicion subPosicion;
     public string orientacion;

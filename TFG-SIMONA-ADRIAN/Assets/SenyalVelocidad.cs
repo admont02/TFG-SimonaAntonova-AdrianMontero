@@ -6,7 +6,14 @@ using UnityEngine;
 
 public class SenyalVelocidad : MonoBehaviour
 {
+
     public GameObject texto;
+
+    public void setMaxVelocity(int maxVelocity)
+    {
+        texto.GetComponent<TextMeshPro>().text = maxVelocity.ToString();
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == 3 && Int32.Parse(texto.GetComponent<TextMeshPro>().text) < (10 + other.gameObject.GetComponentInParent<PrometeoCarController>().carSpeed))

@@ -1,8 +1,8 @@
 {
     "type": "Luces",
-    "nivel":13,
-    "night":true,
-    "deslumbramiento":true,
+    "nivel": 13,
+    "night": true,
+    "deslumbramiento": true,
     "mapaNuevo": {
         "numPiezas": 100,
         "filas": 10,
@@ -383,7 +383,6 @@
                 "col": 9
             }
         ],
-        
         "TurnLeft": [
             {
                 "fil": 9,
@@ -432,6 +431,7 @@
     "cedas": [],
     "maxVelocidad": [
         {
+            "velocidad": 90,
             "pieza": {
                 "index": 14
             },

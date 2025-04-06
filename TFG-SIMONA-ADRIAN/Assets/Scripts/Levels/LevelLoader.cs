@@ -325,6 +325,7 @@ public class LevelLoader : MonoBehaviour
             posicionCuadricula.y = 1;
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
             GameObject stopObj = Instantiate(MaxSpeedPrefab, posicionCuadricula, prefabRotation);
+            stopObj.GetComponent<SenyalVelocidad>().setMaxVelocity(sign.velocidad);
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);
