@@ -31,7 +31,7 @@ public class ClicLevelManager : MonoBehaviour
             TextMesh priorityText = car.GetComponentInChildren<TextMesh>();
             if (priorityText != null)
             {
-               
+
                 priorityText.text = (i + 1).ToString();
             }
         }
@@ -68,7 +68,7 @@ public class ClicLevelManager : MonoBehaviour
         }
     }
 
-    
+
     public IEnumerator CheckLevelCompletion()
     {
         int index = 0;
@@ -102,7 +102,7 @@ public class ClicLevelManager : MonoBehaviour
             OtherCar otherCar = car.GetComponent<OtherCar>();
             if (otherCar != null)
             {
-                otherCar.clickMove = false; 
+                otherCar.clickMove = false;
             }
         }
         GameManager.Instance.ComprobarNivel();
@@ -113,12 +113,13 @@ public class ClicLevelManager : MonoBehaviour
         foreach (var car in carList)
         {
             OtherCar otherCar = car.GetComponent<OtherCar>();
+            StartCoroutine(DisableLights(otherCar));
             if (otherCar != null)
             {
                 otherCar.arrow.SetActive(false);
                 otherCar.clickMove = true;
                 yield return new WaitForSeconds(5.0f);
-                
+
             }
         }
     }
@@ -127,6 +128,7 @@ public class ClicLevelManager : MonoBehaviour
         foreach (var car in carList)
         {
             OtherCar otherCar = car.GetComponent<OtherCar>();
+            StartCoroutine(DisableLights(otherCar));
             if (otherCar != null)
             {
                 otherCar.arrow.SetActive(false);
@@ -135,6 +137,14 @@ public class ClicLevelManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(3.0f);
+    }
+    private IEnumerator DisableLights(OtherCar otherCar)
+    {
+        Debug.Log("ACABA DE ENTRAR EN LA CORRUTINA");
+        yield return new WaitForSeconds(3.0f);
+        otherCar.LeftLight?.SetActive(false);
+        otherCar.RightLight?.SetActive(false);
+        Debug.Log("ACABA DE SALIR EN LA CORRUTINA");
 
     }
 }
