@@ -162,6 +162,9 @@ public class PrometeoCarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 position = gameObject.transform.position;
+        position.y = 0.05f;
+        gameObject.transform.position = position;
         //In this part, we set the 'carRigidbody' value with the Rigidbody attached to this
         //gameObject. Also, we define the center of mass of the car with the Vector3 given
         //in the inspector.

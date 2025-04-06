@@ -8,7 +8,12 @@
             {
                 "fil": 1,
                 "col": 1,
-                "conexiones":[1,11,10,12]
+                "conexiones": [
+                    1,
+                    11,
+                    10,
+                    12
+                ]
             }
         ],
         "Vertical": [
@@ -106,7 +111,7 @@
             "greenSeconds": 15.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
-            "initialLight": "red"
+            "initialLight": "green"
         },
         {
             "doble": false,
@@ -152,6 +157,21 @@
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
             "initialLight": "red"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 9
+            },
+            "orientacion": "arriba",
+            "greenSeconds": 15.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
         }
     ],
     "cuadriculas": [
@@ -167,11 +187,11 @@
     ],
     "jugadorNuevo": {
         "pieza": {
-            "index": 5
+            "index": 1
         },
         "subPosicion": {
             "fil": 11,
-            "col": 1
+            "col": 15
         },
         "orientacion": "arriba"
     },
@@ -191,7 +211,7 @@
             },
             "subPosicion": {
                 "fil": 11,
-                "col": 13
+                "col": 7
             },
             "orientacion": "arriba"
         },
@@ -201,7 +221,7 @@
             },
             "subPosicion": {
                 "fil": 11,
-                "col": 4
+                "col": 0
             },
             "orientacion": "arriba"
         },
@@ -211,17 +231,7 @@
             },
             "subPosicion": {
                 "fil": 11,
-                "col": 13
-            },
-            "orientacion": "arriba"
-        },
-        {
-            "pieza": {
-                "index": 13
-            },
-            "subPosicion": {
-                "fil": 11,
-                "col": 4
+                "col": 6
             },
             "orientacion": "arriba"
         },

@@ -26,11 +26,29 @@ public class SimpleTrafficLight : MonoBehaviour
 
     private IEnumerator ChangeLightColorCoroutine()
     {
-        float currentSecs = 1.0f;
+        float currentSecs = 10.0f;
         bool fromRed = false;
+        if (red.activeSelf)
+        {
+            currentSecs = redSeconds; //Mantener el rojo por redSeconds
+        }
+        else if (amber.activeSelf)
+        {
+            currentSecs = amberSeconds; //Mantener el ambar por amberSeconds
+        }
+        else if (green.activeSelf)
+        {
+            currentSecs = greenSeconds; //Mantener el verde por greenSeconds
+        }
 
+        // Pausar antes de iniciar el cambio de luces
+        yield return new WaitForSeconds(currentSecs);
         while (true)
         {
+            while (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf) 
+            {
+                yield return null;
+            }
             // Estaba rojo
             if (red.activeSelf)
             {
