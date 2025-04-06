@@ -173,5 +173,32 @@
         "IACars": [],
         "TunnelVertical": [],
         "TunnelHorizontal": []
-    }
+    },
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 16
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 15
+        },
+        "orientacion": "arriba"
+    },
+    "targetJugador": {
+        "pieza": {
+            "index": 13
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 9
+        }
+    },
+    "levelDialogs": [
+        " En este nivel, debes conducir tu vehículo con WASD a través de la intersección, respetando las reglas del tráfico.",
+        "Conduce con cuidado y presta atención a los elementos de la intersección mientras avanzas hacia tu objetivo."
+    ],
+    "completedDialogs": [
+        " ¡Muy bien! Has demostrado que puedes respetar las normas de tráfico, recordando que, aunque el semáforo esté en verde, no debes avanzar si existe la posibilidad de quedar inmovilizado en la cuadrícula amarilla.",
+        "Este nivel era un paso importante para perfeccionar tu conocimiento en situaciones de tráfico más complejas. ¡Buen trabajo y sigue practicando!"
+    ]
 }
