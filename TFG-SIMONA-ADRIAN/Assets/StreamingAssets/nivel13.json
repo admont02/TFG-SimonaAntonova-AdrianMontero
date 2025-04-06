@@ -430,6 +430,18 @@
     "stops": [],
     "prohibidos": [],
     "cedas": [],
+    "maxVelocidad": [
+        {
+            "pieza": {
+                "index": 14
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo"
+        }
+    ],
     "jugadorNuevo": {
         "pieza": {
             "index": 14
