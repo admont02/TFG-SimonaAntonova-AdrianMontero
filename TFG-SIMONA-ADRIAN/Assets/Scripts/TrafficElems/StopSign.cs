@@ -17,7 +17,7 @@ public class StopSign : MonoBehaviour
             StartCoroutine(StopPlayer());
 
         }
-        else if (other.gameObject.layer == 7)
+        else if (other.GetComponentInParent<OtherCar>())
         {
             OtherCar car = other.GetComponentInParent<OtherCar>();
             if (car != null && !IAstopped)
@@ -41,7 +41,7 @@ public class StopSign : MonoBehaviour
             CheckPlayerLeaving();
 
         }
-        else if (other.gameObject.layer == 7)
+        else if (other.GetComponentInParent<OtherCar>())
         {
             IAstopped = false;
         }

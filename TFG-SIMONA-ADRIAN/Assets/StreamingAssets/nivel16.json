@@ -7,7 +7,8 @@
         "Crossroad": [
             {
                 "fil": 4,
-                "col": 4
+                "col": 4,
+                "conexiones":[27,29,33,22]
             }
         ],
         "Vertical": [
@@ -21,7 +22,8 @@
             },
             {
                 "fil": 3,
-                "col": 4
+                "col": 4,
+                "conexiones":[28]
             },
             {
                 "fil": 3,
@@ -63,7 +65,8 @@
             },
             {
                 "fil": 4,
-                "col": 3
+                "col": 3,
+                "conexiones":[28]
             },
             {
                 "fil": 3,
@@ -71,11 +74,15 @@
             },
             {
                 "fil": 1,
-                "col": 1
+                "col": 1,
+                "conexiones":[8]
+
             },
             {
                 "fil": 1,
-                "col": 3
+                "col": 3,
+                "conexiones":[8]
+
             },
             {
                 "fil": 0,
@@ -93,7 +100,9 @@
         "Roundabout": [
             {
                 "fil": 1,
-                "col": 2
+                "col": 2,
+                "conexiones":[7,9,2,14]
+
             }
         ],
         "Pavement": [
@@ -106,11 +115,13 @@
         "TurnLeft": [
             {
                 "fil": 5,
-                "col": 4
+                "col": 4,
+                "conexiones":[28]
             },
             {
                 "fil": 4,
-                "col": 5
+                "col": 5,
+                "conexiones":[28]
             },
             {
                 "fil": 3,
@@ -132,7 +143,9 @@
             },
             {
                 "fil": 2,
-                "col": 2
+                "col": 2,
+                "conexiones":[8]
+
             }
         ],
         "TurnLeft2": [
@@ -164,7 +177,9 @@
             },
             {
                 "fil": 0,
-                "col": 2
+                "col": 2,
+                "conexiones":[8]
+
             }
         ],
         "stops": [],
@@ -176,23 +191,57 @@
     },
     "jugadorNuevo": {
         "pieza": {
-            "index": 16
+            "index": 29
         },
         "subPosicion": {
             "fil": 11,
-            "col": 15
+            "col": 0
         },
         "orientacion": "arriba"
     },
     "targetJugador": {
         "pieza": {
-            "index": 13
+            "index": 7
         },
         "subPosicion": {
             "fil": 11,
-            "col": 9
+            "col": 10
         }
     },
+    "stops": [
+        {
+            "pieza": {
+                "index": 28
+            },
+            "subPosicion": {
+                "fil": 2,
+                "col": 3
+            },
+            "orientacion": "izquierda"
+        },
+        {
+            "pieza": {
+                "index": 28
+            },
+            "subPosicion": {
+                "fil": 17,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        }
+    ],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 27
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 7
+            },
+            "orientacion": "derecha"
+        }
+    ],
     "levelDialogs": [
         " En este nivel, debes conducir tu vehículo con WASD a través de la intersección, respetando las reglas del tráfico.",
         "Conduce con cuidado y presta atención a los elementos de la intersección mientras avanzas hacia tu objetivo."
