@@ -2,10 +2,28 @@ using UnityEngine;
 
 public class AutoDestroy : MonoBehaviour
 {
-    public float duration = 1f; // Tiempo antes de destruir
-
-    void Start()
+    private void Start()
     {
-        Destroy(gameObject, duration);
+
+        Debug.Log("hola start");
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("hola collision");
+        if (collision.gameObject.layer == 3)
+        {
+
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("hola trigger");
+        if (other.gameObject.layer == 3)
+        {
+
+            Destroy(gameObject);
+        }
     }
 }
