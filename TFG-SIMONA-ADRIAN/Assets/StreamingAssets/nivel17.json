@@ -11,7 +11,12 @@
             },
             {
                 "fil": 3,
-                "col": 4
+                "col": 4,
+                "conexiones": [
+                    27,
+                    29,
+                    36
+                ]
             }
         ],
         "Vertical": [
@@ -95,11 +100,13 @@
             },
             {
                 "fil": 3,
-                "col": 3
+                "col": 3,
+                "conexiones": [28]
             },
             {
                 "fil": 3,
-                "col": 5
+                "col": 5,
+                "conexiones": [28]
             },
             {
                 "fil": 2,
@@ -286,5 +293,66 @@
             }
         ],
         "TunnelHorizontal": []
-    }
+    },
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 8
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 15
+        },
+        "orientacion": "arriba"
+    },
+    "targetJugador": {
+        "pieza": {
+            "index": 32
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 9
+        }
+    },
+    "prohibidos": [
+        {
+            "pieza": {
+                "index": 20
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 18
+            },
+            "orientacion": "arriba"
+        }
+    ],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 27
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 7
+            },
+            "orientacion": "derecha"
+        },
+        {
+            "pieza": {
+                "index": 29
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "izquierda"
+        }
+    ],
+    "levelDialogs": [
+        " En este nivel, debes conducir tu vehículo con WASD a través de la intersección, respetando las reglas del tráfico.",
+        "Conduce con cuidado y presta atención a los elementos de la intersección mientras avanzas hacia tu objetivo."
+    ],
+    "completedDialogs": [
+        " ¡Muy bien! Has demostrado que puedes respetar las normas de tráfico, recordando que, aunque el semáforo esté en verde, no debes avanzar si existe la posibilidad de quedar inmovilizado en la cuadrícula amarilla.",
+        "Este nivel era un paso importante para perfeccionar tu conocimiento en situaciones de tráfico más complejas. ¡Buen trabajo y sigue practicando!"
+    ]
 }

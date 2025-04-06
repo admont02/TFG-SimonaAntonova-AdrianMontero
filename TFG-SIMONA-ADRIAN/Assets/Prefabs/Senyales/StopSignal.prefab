@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8306396777685350796}
   - component: {fileID: 8899725943813652258}
   - component: {fileID: 4677964695576474078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5143604895162177072}
   - component: {fileID: 34894720491376201}
   - component: {fileID: 6228956666495943311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StopSignal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 2036358574434829779}
   - component: {fileID: 5116871445680575132}
   - component: {fileID: 4677964695576474079}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pilar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -105,7 +105,7 @@ public class WaypointNavigator : MonoBehaviour
                         else
                         {
                             //if (currentWaypoint.branches[i].direction == controller.branchTo)
-                                shouldBranch = true;
+                            shouldBranch = true;
                         }
                     }
 
@@ -115,7 +115,17 @@ public class WaypointNavigator : MonoBehaviour
             if (shouldBranch)
             {
                 if (!ClicLevelManager.Instance)
-                    currentWaypoint = currentWaypoint.branches[UnityEngine.Random.Range(0, currentWaypoint.branches.Count - 1)];
+                {
+                    var connectedBranches = currentWaypoint.branches.FindAll(branch =>
+        controller.IsConnected(firstIndex, GetAdjacentPieceIndex(branch.exitDirection)));
+
+                    if (connectedBranches.Count > 0)
+                    {
+                        // Elegir una rama aleatoria entre las conectadas
+                        currentWaypoint = connectedBranches[UnityEngine.Random.Range(0, connectedBranches.Count)];
+                    }
+                }
+                //currentWaypoint = currentWaypoint.branches[UnityEngine.Random.Range(0, currentWaypoint.branches.Count - 1)];
                 else
                 {
                     currentWaypoint = currentWaypoint.branches[controller.branchTo];
