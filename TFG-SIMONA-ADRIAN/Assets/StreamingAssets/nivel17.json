@@ -7,7 +7,13 @@
         "Crossroad": [
             {
                 "fil": 6,
-                "col": 4
+                "col": 4,
+                "conexiones": [
+                    51,
+                    53,
+                    44,
+                    60
+                ]
             },
             {
                 "fil": 3,
@@ -152,7 +158,13 @@
         "Roundabout": [
             {
                 "fil": 6,
-                "col": 6
+                "col": 6,
+                "conexiones": [
+                    55,
+                    53,
+                    61,
+                    46
+                ]
             },
             {
                 "fil": 1,
