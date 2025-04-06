@@ -36,9 +36,9 @@ public class TipoDePieza
 public static class SceneData
 {
     public static bool firstTime = true;
-    public static string JsonFileName = "menu.json";
+    //public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    //public static string JsonFileName="nivel13.json";
+    public static string JsonFileName="nivel15.json";
 
 }
 
@@ -306,6 +306,14 @@ public class TargetForPlayer
     public SubPosicion subPosicion;
 }
 [System.Serializable]
+public class IADestroyer
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+
+}
+[System.Serializable]
 public class MapaConfig
 {
     public string nombre;
@@ -340,4 +348,5 @@ public class Nivel
     public bool isMenu = false;
     public List<string> objetivo;
     public List<int> correctOrder;
+    public List<IADestroyer> IADestroyer;
 }

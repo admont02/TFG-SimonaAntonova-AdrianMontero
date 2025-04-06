@@ -3634,72 +3634,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254489186}
   m_CullTransparentMesh: 1
---- !u!1 &1270409249
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270409251}
-  - component: {fileID: 1270409250}
-  - component: {fileID: 1270409252}
-  m_Layer: 0
-  m_Name: CarDestroyer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1270409250
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270409249}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 50, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1270409251
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270409249}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.6, y: 0.75123596, z: 201.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1270409252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270409249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e21dd9d9c49ac964a93c2dd90c29e963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1274639323
 GameObject:
   m_ObjectHideFlags: 0
@@ -9268,6 +9202,7 @@ MonoBehaviour:
   stopPrefab: {fileID: 5488218659139243146, guid: 7619bebdbce600e4cbf98ea64f548822, type: 3}
   cedaPrefab: {fileID: 3157293575519719972, guid: ed3dc764423427348bc505e3e73edbd1, type: 3}
   forbiddenPrefab: {fileID: 8390715255240760698, guid: 25a60f1ccc0237041b33cd2b22168f0a, type: 3}
+  destroyer: {fileID: 2775418424486396588, guid: 537547c1028da334ea1baf37aee7f49c, type: 3}
   TargetIconPrefab: {fileID: 5483377130502658908, guid: d825c8eb21ac4c541a7bd0dde6ed5ea2, type: 3}
   scale: 50
   conjuntoPiezas: {fileID: 4180219}
@@ -10924,4 +10859,3 @@ SceneRoots:
   - {fileID: 2145857886}
   - {fileID: 1512247086}
   - {fileID: 428386490}
-  - {fileID: 1270409251}

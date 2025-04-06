@@ -35,6 +35,9 @@ public class LevelLoader : MonoBehaviour
     GameObject cedaPrefab;
     [SerializeField]
     GameObject forbiddenPrefab;
+
+    [SerializeField]
+    GameObject destroyer;
     public GameObject TargetIconPrefab;
     public float scale = 50f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
     // Padre de las piezas
@@ -266,6 +269,21 @@ public class LevelLoader : MonoBehaviour
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
             GameObject stopObj = Instantiate(stopPrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
+            stopObj.SetActive(true);
+        }
+        foreach (var sign in nivel.IADestroyer)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(destroyer, posicionCuadricula, prefabRotation);
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);

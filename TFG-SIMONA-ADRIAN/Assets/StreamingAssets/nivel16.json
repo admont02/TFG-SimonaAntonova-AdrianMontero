@@ -240,6 +240,26 @@
                 "col": 7
             },
             "orientacion": "derecha"
+        },
+        {
+            "pieza": {
+                "index": 33
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "izquierda"
+        },
+        {
+            "pieza": {
+                "index": 3
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "izquierda"
         }
     ],
     "levelDialogs": [

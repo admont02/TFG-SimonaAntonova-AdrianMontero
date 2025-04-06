@@ -267,6 +267,48 @@
             "orientacion": "abajo"
         }
     ],
+    "IADestroyer": [
+        {
+            "pieza": {
+                "index": 13
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 16
+            },
+            "orientacion": "abajo"
+        },
+        {
+            "pieza": {
+                "index": 0
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 10
+            },
+            "orientacion": "derecha"
+        },
+        {
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 10,
+                "col": 0
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                "fil": 19,
+                "col": 10
+            },
+            "orientacion": "izquierda"
+        }
+    ],
     "levelDialogs": [
         " En este nivel, debes conducir tu vehículo con WASD a través de la intersección, respetando las reglas del tráfico.",
         "Conduce con cuidado y presta atención a los elementos de la intersección mientras avanzas hacia tu objetivo."

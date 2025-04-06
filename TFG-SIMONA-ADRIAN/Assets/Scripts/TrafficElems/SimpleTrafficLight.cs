@@ -26,6 +26,10 @@ public class SimpleTrafficLight : MonoBehaviour
 
     private IEnumerator ChangeLightColorCoroutine()
     {
+        while (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
+        {
+            yield return null;
+        }
         float currentSecs = 10.0f;
         bool fromRed = false;
         if (red.activeSelf)
@@ -45,10 +49,7 @@ public class SimpleTrafficLight : MonoBehaviour
         yield return new WaitForSeconds(currentSecs);
         while (true)
         {
-            while (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf) 
-            {
-                yield return null;
-            }
+            
             // Estaba rojo
             if (red.activeSelf)
             {

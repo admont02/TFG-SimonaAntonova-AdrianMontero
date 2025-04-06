@@ -6,7 +6,7 @@ public class CarDestroyer : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 3 || other.gameObject.GetComponentInParent<OtherCar>())
+        if (other.gameObject.GetComponentInParent<OtherCar>())
         {
             // Desactivar el objeto en lugar de destruirlo inmediatamente
             other.gameObject.GetComponentInParent<OtherCar>().destroyedByTrash = true;
@@ -19,6 +19,7 @@ public class CarDestroyer : MonoBehaviour
     private IEnumerator DestroyAfterDelay(GameObject obj, float delay)
     {
         yield return new WaitForSeconds(delay);
+        Debug.Log(obj);
         Destroy(obj);
     }
 
