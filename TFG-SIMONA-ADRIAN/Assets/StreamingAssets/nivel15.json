@@ -10,9 +10,9 @@
                 "col": 1,
                 "conexiones": [
                     1,
-                    11,
-                    10,
-                    12
+                    9,
+                    4,
+                    6
                 ]
             }
         ],
@@ -27,7 +27,8 @@
             },
             {
                 "fil": 0,
-                "col": 1
+                "col": 1,
+                "conexiones":[5]
             }
         ],
         "Horizontal": [
