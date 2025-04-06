@@ -176,6 +176,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8398678013823100840}
+  - component: {fileID: 1249430297122431827}
+  - component: {fileID: 7038197214755383623}
   m_Layer: 0
   m_Name: Prohibido el paso
   m_TagString: Untagged
@@ -193,10 +195,43 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 600962266146311994}
   - {fileID: 3117448859721185690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1249430297122431827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893988439510709279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b948cf10e069a42a74031b627f97b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7038197214755383623
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893988439510709279}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.257744, y: 5.8244543, z: 5.5807447}
+  m_Center: {x: 4.128872, y: 2.4122272, z: -3.7392516}
