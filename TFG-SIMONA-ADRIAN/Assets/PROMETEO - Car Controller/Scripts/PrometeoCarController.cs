@@ -413,14 +413,15 @@ public class PrometeoCarController : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.Space))
             {
-                CancelInvoke("DecelerateCar");
-                deceleratingCar = false;
-                Handbrake();
+                Brakes();
+                //CancelInvoke("DecelerateCar");
+                //deceleratingCar = false;
+                //Handbrake();
             }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                RecoverTraction();
-            }
+            //if (Input.GetKeyUp(KeyCode.Space))
+            //{
+            //    //RecoverTraction();
+            //}
             if ((!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)))
             {
                 ThrottleOff();
