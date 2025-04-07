@@ -68,10 +68,22 @@
             {
                 "fil": 2,
                 "col": 4
-            },
+            }
+        ],
+        "Grass_2": [
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "Grass": [
             {
                 "fil": 0,
                 "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 0
             }
         ],
         "Pavement_1": [],
@@ -110,10 +122,6 @@
             },
             {
                 "fil": 0,
-                "col": 1
-            },
-            {
-                "fil": 0,
                 "col": 4
             }
         ],
@@ -124,10 +132,6 @@
             },
             {
                 "fil": 3,
-                "col": 0
-            },
-            {
-                "fil": 0,
                 "col": 0
             },
             {
@@ -147,7 +151,7 @@
         },
         "subPosicion": {
             "fil": 11,
-            "col": 1
+            "col": 6
         },
         "orientacion": "arriba"
     },
@@ -192,6 +196,28 @@
             "col": 9
         }
     },
+    "IADestroyer": [
+        {
+            "pieza": {
+                "index": 0
+            },
+            "subPosicion": {
+                "fil": 10,
+                "col": 19
+            },
+            "orientacion": "abajo"
+        },
+        {
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 10,
+                "col": 19
+            },
+            "orientacion": "abajo"
+        }
+    ],
     "IACars": [
         {
             "pieza": {
@@ -199,7 +225,7 @@
             },
             "subPosicion": {
                 "fil": 11,
-                "col": 8
+                "col": 12
             },
             "orientacion": "arriba"
         },

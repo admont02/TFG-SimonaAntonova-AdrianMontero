@@ -284,6 +284,8 @@ public class MapaNuevo
     public List<PosicionMapa> TurnLeft2;
     public List<PosicionMapa> TunnelVertical;
     public List<PosicionMapa> TunnelHorizontal;
+    public List<PosicionMapa> Grass;
+    public List<PosicionMapa> Grass_2;
 
 
 
