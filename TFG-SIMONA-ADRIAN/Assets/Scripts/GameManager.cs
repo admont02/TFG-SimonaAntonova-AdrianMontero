@@ -298,6 +298,20 @@ public class GameManager : MonoBehaviour
 
         await CompletableTracker.Instance.Progressed("Juego", CompletableTracker.CompletableType.Game, 1f);
         await CompletableTracker.Instance.Completed("Juego", CompletableTracker.CompletableType.Game);
+        var wants = Simva.SimvaPlugin.Instance.WantsToQuit();
+        if (wants)
+        {
+            if (Application.isEditor)
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
 
     }
 }
