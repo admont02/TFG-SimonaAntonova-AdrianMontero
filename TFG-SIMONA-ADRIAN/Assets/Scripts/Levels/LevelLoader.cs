@@ -136,6 +136,8 @@ public class LevelLoader : MonoBehaviour
             CrearTipoPiezas(nivel.mapaNuevo.Intersection4, "Intersection4", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Pavement, "Pavement", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.TunnelVertical, "TunnelVertical", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Grass, "Grass", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.Grass_2, "Grass_2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
 
             //JUGADOR NUEVO
             if (nivel.jugadorNuevo.pieza != null)
