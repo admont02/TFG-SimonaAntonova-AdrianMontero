@@ -5137,11 +5137,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reachedDestination: 1
   destination: {x: 0, y: 0, z: 0}
-  stopDistance: 5
+  stopDistance: 8
   movementSpeed: 10
   rotationSpeed: 120
   isStopped: 0
-  brakeDistance: 10
+  brakeDistance: 12
   isCarInFront: 0
   arrow: {fileID: 5496428060249442122}
   LeftLight: {fileID: 3131868015625360600}

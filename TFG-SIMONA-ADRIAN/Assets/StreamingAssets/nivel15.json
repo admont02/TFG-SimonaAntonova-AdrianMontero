@@ -206,16 +206,7 @@
         }
     },
     "IACars": [
-        {
-            "pieza": {
-                "index": 1
-            },
-            "subPosicion": {
-                "fil": 11,
-                "col": 7
-            },
-            "orientacion": "arriba"
-        },
+        
         {
             "pieza": {
                 "index": 9
@@ -232,7 +223,7 @@
             },
             "subPosicion": {
                 "fil": 11,
-                "col": 6
+                "col": 7
             },
             "orientacion": "arriba"
         },
@@ -242,7 +233,7 @@
             },
             "subPosicion": {
                 "fil": 11,
-                "col": 13
+                "col": 11
             },
             "orientacion": "arriba"
         },
@@ -252,7 +243,7 @@
             },
             "subPosicion": {
                 "fil": 8,
-                "col": 4
+                "col": 2
             },
             "orientacion": "abajo"
         },

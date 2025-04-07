@@ -9,6 +9,7 @@ public class PreventCrash : MonoBehaviour
     {
         if (other.gameObject.layer == 3 || other.gameObject.GetComponentInParent<OtherCar>()) //Si detecta al jugador/otro coche
         {
+            Debug.Log("coche delante");
             GetComponentInParent<OtherCar>().isCarInFront = true;
         }
     }

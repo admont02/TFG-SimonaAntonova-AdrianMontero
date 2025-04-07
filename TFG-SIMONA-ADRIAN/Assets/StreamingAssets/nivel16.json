@@ -8,7 +8,12 @@
             {
                 "fil": 4,
                 "col": 4,
-                "conexiones":[27,29,33,22]
+                "conexiones": [
+                    27,
+                    29,
+                    33,
+                    22
+                ]
             }
         ],
         "Vertical": [
@@ -23,7 +28,9 @@
             {
                 "fil": 3,
                 "col": 4,
-                "conexiones":[28]
+                "conexiones": [
+                    28
+                ]
             },
             {
                 "fil": 3,
@@ -66,7 +73,9 @@
             {
                 "fil": 4,
                 "col": 3,
-                "conexiones":[28]
+                "conexiones": [
+                    28
+                ]
             },
             {
                 "fil": 3,
@@ -75,14 +84,16 @@
             {
                 "fil": 1,
                 "col": 1,
-                "conexiones":[8]
-
+                "conexiones": [
+                    8
+                ]
             },
             {
                 "fil": 1,
                 "col": 3,
-                "conexiones":[8]
-
+                "conexiones": [
+                    8
+                ]
             },
             {
                 "fil": 0,
@@ -101,8 +112,12 @@
             {
                 "fil": 1,
                 "col": 2,
-                "conexiones":[7,9,2,14]
-
+                "conexiones": [
+                    7,
+                    9,
+                    2,
+                    14
+                ]
             }
         ],
         "Pavement": [
@@ -116,12 +131,16 @@
             {
                 "fil": 5,
                 "col": 4,
-                "conexiones":[28]
+                "conexiones": [
+                    28
+                ]
             },
             {
                 "fil": 4,
                 "col": 5,
-                "conexiones":[28]
+                "conexiones": [
+                    28
+                ]
             },
             {
                 "fil": 3,
@@ -144,8 +163,9 @@
             {
                 "fil": 2,
                 "col": 2,
-                "conexiones":[8]
-
+                "conexiones": [
+                    8
+                ]
             }
         ],
         "TurnLeft2": [
@@ -178,8 +198,9 @@
             {
                 "fil": 0,
                 "col": 2,
-                "conexiones":[8]
-
+                "conexiones": [
+                    8
+                ]
             }
         ],
         "stops": [],
@@ -263,11 +284,11 @@
         }
     ],
     "levelDialogs": [
-        " En este nivel, debes conducir tu vehículo con WASD a través de la intersección, respetando las reglas del tráfico.",
-        "Conduce con cuidado y presta atención a los elementos de la intersección mientras avanzas hacia tu objetivo."
+        " En este nivel, manejas tu vehículo a través de una ciudad. ¡Es momento de demostrar tu habilidad y conocimiento de las normas de tráfico!",
+        "Presta mucha atención a las señales de tráfico. La clave para superar este desafío está en observar bien el entorno",
+        "Recuerda visualizar el minimapa con la tecla 'M' para visualizar el objetivo del nivel. ¡Buena suerte!"
     ],
     "completedDialogs": [
-        " ¡Muy bien! Has demostrado que puedes respetar las normas de tráfico, recordando que, aunque el semáforo esté en verde, no debes avanzar si existe la posibilidad de quedar inmovilizado en la cuadrícula amarilla.",
-        "Este nivel era un paso importante para perfeccionar tu conocimiento en situaciones de tráfico más complejas. ¡Buen trabajo y sigue practicando!"
+        " ¡Muy bien! Este nivel era un paso importante para perfeccionar tu conocimiento en situaciones de tráfico más complejas. ¡Buen trabajo y sigue practicando!"
     ]
 }

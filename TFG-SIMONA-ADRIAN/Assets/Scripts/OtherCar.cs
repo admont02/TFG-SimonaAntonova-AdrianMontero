@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
-using UnityEngine.AI;
 
 public class OtherCar : MonoBehaviour
 {
@@ -51,7 +48,7 @@ public class OtherCar : MonoBehaviour
         }
     }
 
-
+    
 
     private IEnumerator Intermitente(Light luz)
     {
@@ -66,6 +63,8 @@ public class OtherCar : MonoBehaviour
 
         if (ClicLevelManager.Instance != null)
         {
+            if (isCarInFront)
+                movementSpeed = 0;
             clickMove = false;
             arrow.SetActive(true);
             Vector3 localArrowRotation = Vector3.zero;
@@ -107,7 +106,9 @@ public class OtherCar : MonoBehaviour
                 if (isCarInFront)
                 {
                     // Reduce la velocidad si el jugador está demasiado cerca
-                    movementSpeed = Mathf.Lerp(movementSpeed, 0, Time.deltaTime * 2f); // Frenado suave
+                    movementSpeed =0; // Frenado suave
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 }
                 else
                 {
