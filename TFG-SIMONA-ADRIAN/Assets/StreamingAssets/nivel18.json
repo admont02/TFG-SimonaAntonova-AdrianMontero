@@ -3,7 +3,7 @@
     "nivel": 13,
     "night": false,
     "deslumbramiento": false,
-    "fog":true,
+    "fog": true,
     "mapaNuevo": {
         "numPiezas": 100,
         "filas": 10,
@@ -464,12 +464,17 @@
         }
     },
     "levelDialogs": [
-        " Estás en una carretera urbana con niebla muy intensa",
-        " Selecciona las luces que debe llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás conductores.",
-        " Buen viaje!"
+        " Estás conduciendo por una vía urbana con niebla muy intensa, lo que reduce considerablemente la visibilidad.",
+        "Selecciona las luces que puede llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás usuarios de la carretera.",
+        "Recuerda que este vehículo está equipado con luces antiniebla delanteras.¡Buena suerte y conduce con precaución!"
     ],
     "completedDialogs": [
-        "¡Enhorabuena! Has completado el nivel correctamente y has manejado las luces de forma adecuada para la muy intensa."
+        " ¡Enhorabuena! Has completado el nivel de forma correcta, utilizando las luces adecuadas para enfrentar la niebla intensa."
+    ],
+    "wrongDialogs": [
+        " Parece que no has seleccionado las luces adecuadas para esta situación.",
+        "Recuerda que luces PUEDES encender en condiciones meteorólogicas especialmente adversas",
+        "Las luces antiniebla delanteras de este vehículo están diseñadas específicamente para ayudar en estas condiciones. ¡Inténtalo de nuevo!"
     ],
     "objetivo": [
         "cortas",

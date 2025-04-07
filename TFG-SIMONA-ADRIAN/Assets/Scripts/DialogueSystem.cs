@@ -69,7 +69,7 @@ public class DialogueSystem : MonoBehaviour
     public void ShowIncorrectLevelDialog(string[] incorrect)
     {
         //levelEnded = true;
-        if (ClicLevelManager.Instance == null)
+        if (wrongDialogues==null)
             dialogues = incorrect;
         else
             dialogues = wrongDialogues;
