@@ -51,8 +51,11 @@ public class GameManager : MonoBehaviour
     private float timer = 0f;
     public float trackingInterval = 10f;
 
+    public bool finDeNivel {  get; private set; }
+
     void Awake()
     {
+        finDeNivel = false;
         incorrectLevel.Add("Nivel Incorrecto, errores: ");
         // Asegurarse de que solo hay una instancia de GameManager
         if (Instance == null)
@@ -197,7 +200,7 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarNivel()
     {
-
+        finDeNivel = true;
         if (incorrectLevel.Count > 1)
         {
             CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);

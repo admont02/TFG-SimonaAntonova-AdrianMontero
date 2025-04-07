@@ -60,7 +60,8 @@ public class CarLights : MonoBehaviour
     void ActivateLevel()
     {
         GameManager.Instance.canCarMove = true;
-        comenzarButton.transform.parent.gameObject.SetActive(false);
+        comenzarButton.transform.parent.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        comenzarButton.gameObject.SetActive(false);
 
         if (CheckCorrectLights())
         {
@@ -95,6 +96,13 @@ public class CarLights : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha5))
         {
             ToggleAntinieblaBackLights();
+        }
+
+        // Si acaba el nivel
+        if (GameManager.Instance.finDeNivel)
+        {
+            comenzarButton.transform.parent.gameObject.SetActive(false);
+
         }
     }
 
