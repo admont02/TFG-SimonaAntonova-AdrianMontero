@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class SimpleTrafficLight : MonoBehaviour
@@ -7,6 +8,11 @@ public class SimpleTrafficLight : MonoBehaviour
     public GameObject red; // Array de materiales que quieres alternar
     public GameObject amber; // Array de materiales que quieres alternar
     public GameObject green; // Array de materiales que quieres alternar
+    public GameObject indicator; // Array de materiales que quieres alternar
+
+    public Material redMaterial; // Material para el rojo
+    public Material amberMaterial; // Material para el amarillo
+    public Material greenMaterial;
 
     public float greenSeconds = 20.0f;
     public float amberSeconds = 2.0f;
@@ -18,12 +24,28 @@ public class SimpleTrafficLight : MonoBehaviour
         Vector3 position = gameObject.transform.position;
         position.y = 7.57f;
         gameObject.transform.position = position;
-
+        UpdateIndicatorMaterial();
 
         // Obtén el MeshRenderer del GameObject
         StartCoroutine(ChangeLightColorCoroutine());
     }
-
+    private void UpdateIndicatorMaterial()
+    {
+        // Obtén el MeshRenderer del indicador y cambia su material según el color activo
+        MeshRenderer indicatorRenderer = indicator.GetComponent<MeshRenderer>();
+        if (red.activeSelf)
+        {
+            indicatorRenderer.material = redMaterial;
+        }
+        else if (amber.activeSelf)
+        {
+            indicatorRenderer.material = amberMaterial;
+        }
+        else if (green.activeSelf)
+        {
+            indicatorRenderer.material = greenMaterial;
+        }
+    }
     private IEnumerator ChangeLightColorCoroutine()
     {
         while (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
@@ -49,7 +71,7 @@ public class SimpleTrafficLight : MonoBehaviour
         yield return new WaitForSeconds(currentSecs);
         while (true)
         {
-            
+
             // Estaba rojo
             if (red.activeSelf)
             {
@@ -65,31 +87,25 @@ public class SimpleTrafficLight : MonoBehaviour
             {
                 // Apagar ambar
                 amber.SetActive(false);
-                if (fromRed)
-                {
-                    // Encender verde
-                    currentSecs = greenSeconds;
-                    green.SetActive(true);
-                }
-                else
-                {
-                    // Encender rojo
-                    currentSecs = redSeconds;
-                    red.SetActive(true);
-                }
+
+                // Encender verde
+                currentSecs = greenSeconds;
+                green.SetActive(true);
+
+
 
             }
             // Estaba verde
             else if (green.activeSelf)
             {
-                currentSecs = amberSeconds;
+                currentSecs = redSeconds;
                 // Encender ambar
-                amber.SetActive(true);
+                red.SetActive(true);
                 // Apagar verde
                 green.SetActive(false);
-                fromRed = false;
-            }
 
+            }
+            UpdateIndicatorMaterial();
             // Espera 2 segundos antes de cambiar al siguiente material
             yield return new WaitForSeconds(currentSecs);
         }
