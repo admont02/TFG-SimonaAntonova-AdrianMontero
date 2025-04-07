@@ -92,6 +92,9 @@ public class EnterLevel : MonoBehaviour
 
     void PlayLevel()
     {
+        SceneData.lastCarPosition = player.transform.position;
+        SceneData.hasLastPosition = true;
+        SceneData.lastCarRotation = player.transform.rotation;
         SceneData.JsonFileName = gameObject.name + ".json";
         SceneManager.LoadScene("Game");
     }

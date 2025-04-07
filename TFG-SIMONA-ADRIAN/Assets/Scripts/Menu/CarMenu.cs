@@ -16,6 +16,14 @@ public class CarMenu : MonoBehaviour
     {
         actual = null;
     }
+    private void Start()
+    {
+        if (SceneData.hasLastPosition)
+        {
+            transform.position = SceneData.lastCarPosition;
+            transform.rotation = SceneData.lastCarRotation;
+        }
+    }
     void Update()
     {
         if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf || panelInfo.activeSelf)
