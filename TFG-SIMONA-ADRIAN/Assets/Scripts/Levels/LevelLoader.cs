@@ -311,6 +311,10 @@ public class LevelLoader : MonoBehaviour
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);
+            if (ClicLevelManager.Instance != null)
+            {
+                stopObj.GetComponent<YieldSign>().enabled = false;
+            }
         }
         //prohibidos
         foreach (var sign in nivel.maxVelocidad)

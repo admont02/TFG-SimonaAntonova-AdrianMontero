@@ -9,7 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9212785255798800670}
-  m_Layer: 0
+  - component: {fileID: 4292452220142849208}
+  - component: {fileID: 4387096185737915443}
+  - component: {fileID: 6112394811968094140}
+  m_Layer: 6
   m_Name: Ceda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +36,62 @@ Transform:
   - {fileID: 2227023429947529198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4292452220142849208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157293575519719972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 30.431828, y: 5, z: 33.016758}
+  m_Center: {x: -12.826899, y: 0, z: 29.440672}
+--- !u!114 &4387096185737915443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157293575519719972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f4e4b79debc444e900f71f987f8368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yieldTrigger: {fileID: 6112394811968094140}
+  passingTrigger: {fileID: 4292452220142849208}
+--- !u!65 &6112394811968094140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157293575519719972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 6}
+  m_Center: {x: -6.09, y: 0, z: -2.68}
 --- !u!1 &3899886643397871749
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +103,7 @@ GameObject:
   - component: {fileID: 2227023429947529198}
   - component: {fileID: 8025180454240392980}
   - component: {fileID: 4106959403698878663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane.002 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +187,7 @@ GameObject:
   - component: {fileID: 6459571383357029161}
   - component: {fileID: 6928114963730356475}
   - component: {fileID: 2408416030111601129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: __Pole (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

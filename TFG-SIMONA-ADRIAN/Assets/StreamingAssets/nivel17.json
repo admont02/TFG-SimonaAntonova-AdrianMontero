@@ -107,12 +107,16 @@
             {
                 "fil": 3,
                 "col": 3,
-                "conexiones": [28]
+                "conexiones": [
+                    28
+                ]
             },
             {
                 "fil": 3,
                 "col": 5,
-                "conexiones": [28]
+                "conexiones": [
+                    28
+                ]
             },
             {
                 "fil": 2,
@@ -349,6 +353,18 @@
             "orientacion": "izquierda"
         }
     ],
+    "stops": [
+        {
+            "pieza": {
+                "index": 29
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        }
+    ],
     "IACars": [
         {
             "pieza": {
@@ -423,7 +439,7 @@
                 "index": 53
             },
             "subPosicion": {
-                "fil":0,
+                "fil": 0,
                 "col": 14
             },
             "orientacion": "izquierda",
