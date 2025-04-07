@@ -107,7 +107,15 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("de vuelta al menu");
+                    dialogueSystem.StopAllCoroutines();
                     dialogueSystem.dialoguePanel.SetActive(false);
+                    dialogueSystem.ResetDialogue();
+                    dialogueSystem.GetComponent<AudioSource>().Stop();
+
+                    // Detenemos todas las corrutinas para evitar sonidos y texto
+
+                    // dialogueSystem.ResetDialogue();
 
                 }
 

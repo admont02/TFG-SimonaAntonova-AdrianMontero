@@ -83,6 +83,10 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator TypeSentence()
     {
+        if (!dialoguePanel.activeSelf)
+        {
+            yield break; // Salimos de la coroutine
+        }
         isTyping = true;
         foreach (char letter in dialogues[index].ToCharArray())
         {
@@ -152,7 +156,7 @@ public class DialogueSystem : MonoBehaviour
         wrongDialogues = wDialogs;
     }
 
-    private void ResetDialogue()
+    public void ResetDialogue()
     {
         dialogueText.text = "";
         index = 0;
