@@ -251,7 +251,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e0108ef135f74984c8de35c8badca3c9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -354,14 +354,17 @@ MonoBehaviour:
   rotationSpeed: 120
   isStopped: 0
   brakeDistance: 5
+  isCarInFront: 0
   arrow: {fileID: 7370299985059036312}
   LeftLight: {fileID: 7715594022134896698}
   RightLight: {fileID: 139901279783272343}
   icon: {fileID: 7951705192353858766}
   bodyMain: {fileID: 0}
   seams: {fileID: 0}
+  Deslumbramiento: {fileID: 0}
   carColors: []
   seamColors: []
+  destroyedByTrash: 0
 --- !u!114 &8798507421483331091
 MonoBehaviour:
   m_ObjectHideFlags: 0

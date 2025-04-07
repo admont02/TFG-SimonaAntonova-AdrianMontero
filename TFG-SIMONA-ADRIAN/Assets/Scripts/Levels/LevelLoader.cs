@@ -206,6 +206,12 @@ public class LevelLoader : MonoBehaviour
             if (IAcar.vehicle == "ambulance")
             {
                 cocheIAObj = Instantiate(ambulancePrefab, posicionCoche, rotation);
+                if (IAcar.emergency)
+                {
+                    cocheIAObj.GetComponent<Ambulance>().redLight.enabled = true;
+                    cocheIAObj.GetComponent<Ambulance>().lightsOn=true;
+
+                }
 
             }
             else if (IAcar.vehicle == "bus")

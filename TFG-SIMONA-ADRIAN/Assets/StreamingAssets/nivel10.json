@@ -376,7 +376,7 @@
                 "col": 14
             },
             "orientacion": "arriba",
-            "branchTo": 2
+            "branchTo": 1
         },
         {
             "pieza": {
@@ -387,7 +387,7 @@
                 "col": 11
             },
             "orientacion": "izquierda",
-            "branchTo": 2
+            "branchTo": 1
         },
         {
             "pieza": {
@@ -398,21 +398,25 @@
                 "col": 7
             },
             "orientacion": "derecha",
-            "branchTo": 1
+            "branchTo": 1,
+            "vehicle": "ambulance",
+            "emergency": true
         }
     ],
     "levelDialogs": [
-        " En este nivel, tendrás que evaluar la prioridad de tres vehículos en una intersección.",
-        "Tu tarea es decidir el orden correcto según las normas de tráfico, observando las condiciones cuidadosamente.",
-        "Recuerda analizar qué vehículo sigue recto y cuál está a la derecha para tomar la mejor decisión."
+        " En este nivel, tendrás que evaluar la prioridad de una ambulancia y otros 2 vehículos en una intersección.",
+        "Observa las señales y evalúa cuidadosamente la posición de cada vehículo para decidir el orden correcto de paso.",
+        "Recuerda que seguir las normas de tráfico será clave para superar este desafío. ¡Buena suerte!"
     ],
     "completedDialogs": [
-        " ¡Excelente trabajo! Has determinado correctamente el orden de prioridad en la intersección.",
-        "Reconociste que el vehículo que continúa recto tiene prioridad y que, posteriormente, el vehículo a la derecha debe avanzar. ¡Bien hecho!"
+        " ¡Excelente trabajo! Has determinado correctamente la prioridad en la intersección.",
+        "Reconociste que la ambulancia, al estar en una situación de emergencia, tiene la prioridad absoluta.",
+        "Después aplicaste correctamente la regla de prioridad al vehículo situado a la derecha. ¡Bien hecho!",
+        "Recuerda que no es necesario que la ambulancia tenga tanto las luces como la sirena activas. Una de ellas es suficiente para indicar la situación de emergencia."
     ],
     "wrongDialogs": [
         " Respuesta incorrecta.",
-        "Recuerda que un vehículo que continúa por la misma vía, tiene prioridad sobre los que se quieren incorporar.",
-        "Después, considera cuál de los vehículos restantes tiene la prioridad. ¡Vuelve a intentarlo!"
+        "Recuerda que los vehículos en situación de emergencia tienen prioridad sobre las señales de tráfico.",
+        "Tras su paso, evalúa cuidadosamente la posición de los demás vehículos para determinar quién debe avanzar. ¡Inténtalo de nuevo!"
     ]
 }
