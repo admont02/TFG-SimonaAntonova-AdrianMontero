@@ -126,61 +126,107 @@
             }
         ],
         "Roundabout": [],
+        "Pavement_2": [
+            {
+                "fil": 9,
+                "col": 2
+            },
+            {
+                "fil": 8,
+                "col": 0
+            },
+            {
+                "fil": 7,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 7
+            },
+            {
+                "fil": 6,
+                "col": 9
+            },
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 5,
+                "col": 2
+            }
+        ],
+        "Pavement_3": [
+            {
+                "fil": 0,
+                "col": 8
+            },
+            {
+                "fil": 9,
+                "col": 0
+            },
+            {
+                "fil": 9,
+                "col": 3
+            }
+        ],
+        "Pavement_4": [
+            {
+                "fil": 4,
+                "col": 7
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 7
+            },
+            {
+                "fil": 9,
+                "col": 7
+            },
+            {
+                "fil": 5,
+                "col": 7
+            },
+            {
+                "fil": 5,
+                "col": 9
+            },
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 9
+            }
+        ],
         "Pavement": [
             {
                 "fil": 9,
-                "col": 2
-            },
-            {
-                "fil": 8,
-                "col": 0
-            },
-            {
-                "fil": 7,
-                "col": 3
-            },
-            {
-                "fil": 5,
-                "col": 6
-            },
-            {
-                "fil": 4,
-                "col": 2
-            },
-            {
-                "fil": 4,
-                "col": 7
-            },
-            {
-                "fil": 3,
-                "col": 0
-            },
-            {
-                "fil": 1,
-                "col": 3
-            },
-            {
-                "fil": 0,
-                "col": 7
-            },
-            {
-                "fil": 0,
-                "col": 8
-            },
-            {
-                "fil": 9,
-                "col": 0
-            },
-            {
-                "fil": 9,
-                "col": 3
-            },
-            {
-                "fil": 9,
-                "col": 7
-            },
-            {
-                "fil": 9,
                 "col": 8
             },
             {
@@ -248,40 +294,12 @@
                 "col": 6
             },
             {
-                "fil": 6,
-                "col": 7
-            },
-            {
-                "fil": 6,
-                "col": 9
-            },
-            {
-                "fil": 5,
-                "col": 0
-            },
-            {
-                "fil": 5,
-                "col": 2
-            },
-            {
                 "fil": 5,
                 "col": 3
             },
             {
                 "fil": 5,
                 "col": 5
-            },
-            {
-                "fil": 5,
-                "col": 7
-            },
-            {
-                "fil": 5,
-                "col": 9
-            },
-            {
-                "fil": 4,
-                "col": 0
             },
             {
                 "fil": 4,
@@ -370,18 +388,6 @@
             {
                 "fil": 0,
                 "col": 2
-            },
-            {
-                "fil": 0,
-                "col": 3
-            },
-            {
-                "fil": 0,
-                "col": 6
-            },
-            {
-                "fil": 0,
-                "col": 9
             }
         ],
         "TurnLeft": [
@@ -435,17 +441,6 @@
             "velocidad": 90,
             "pieza": {
                 "index": 14
-            },
-            "subPosicion": {
-                "fil": 14,
-                "col": 18
-            },
-            "orientacion": "abajo"
-        },
-        {
-            "velocidad": 30,
-            "pieza": {
-                "index": 74
             },
             "subPosicion": {
                 "fil": 14,

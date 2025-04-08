@@ -75,6 +75,7 @@ public class CarLights : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf) return;
         // Posición
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {

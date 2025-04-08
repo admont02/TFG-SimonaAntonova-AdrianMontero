@@ -39,7 +39,7 @@ public static class SceneData
     public static bool firstTime = true;
     public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    //public static string JsonFileName="nivel14.json";
+   // public static string JsonFileName="nivel18.json";
     public static Vector3 lastCarPosition = Vector3.zero; // Última posición del coche en el menú o nivel
     public static bool hasLastPosition = false;
     public static Quaternion lastCarRotation = Quaternion.identity;
