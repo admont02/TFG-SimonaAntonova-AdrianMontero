@@ -50,8 +50,9 @@ public class GameManager : MonoBehaviour
 
     private float timer = 0f;
     public float trackingInterval = 10f;
+    private bool inPerspectView;
 
-    public bool finDeNivel {  get; private set; }
+    public bool finDeNivel { get; private set; }
 
     void Awake()
     {
@@ -137,10 +138,16 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator CarPerspective()
     {
-        foreach (var item in cochesIA)
+        if (!inPerspectView)
         {
-            yield return StartCoroutine(CarPerspectiveCameras(item));
+            inPerspectView = true;
+            foreach (var item in cochesIA)
+            {
+                yield return StartCoroutine(CarPerspectiveCameras(item));
+            }
+            inPerspectView = false;
         }
+
     }
     private IEnumerator CarPerspectiveCameras(GameObject item)
     {
