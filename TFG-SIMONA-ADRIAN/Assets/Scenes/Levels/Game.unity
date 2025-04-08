@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5649006, g: 0.63564, b: 0.7239374, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9209,6 +9209,7 @@ MonoBehaviour:
   TargetIconPrefab: {fileID: 5483377130502658908, guid: d825c8eb21ac4c541a7bd0dde6ed5ea2, type: 3}
   scale: 50
   conjuntoPiezas: {fileID: 4180219}
+  fuenteCoches: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0

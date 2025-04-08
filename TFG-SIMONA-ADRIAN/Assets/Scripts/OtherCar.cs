@@ -66,7 +66,7 @@ public class OtherCar : MonoBehaviour
             if (isCarInFront)
                 movementSpeed = 0;
             clickMove = false;
-            arrow.SetActive(true);
+            //arrow.SetActive(true);
             Vector3 localArrowRotation = Vector3.zero;
 
             switch (branchTo)

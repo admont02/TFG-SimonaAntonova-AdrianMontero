@@ -46,6 +46,7 @@ public class LevelLoader : MonoBehaviour
     // Padre de las piezas
     [SerializeField]
     Transform conjuntoPiezas;
+
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, SceneData.JsonFileName);
@@ -212,7 +213,13 @@ public class LevelLoader : MonoBehaviour
                 {
                     cocheIAObj.GetComponent<Ambulance>().redLight.enabled = true;
                     cocheIAObj.GetComponent<Ambulance>().lightsOn=true;
+                    cocheIAObj.GetComponent<OtherCar>().movementSpeed += 10;
 
+                }
+                else
+                {
+                    cocheIAObj.GetComponent<Ambulance>().redLight.enabled = false;
+                    cocheIAObj.GetComponent<Ambulance>().blueLight.enabled = false;
                 }
 
             }
@@ -232,11 +239,26 @@ public class LevelLoader : MonoBehaviour
 
             GameObject priorityTextObj = new GameObject("PriorityText");
             priorityTextObj.transform.SetParent(cocheIAObj.transform);
-            priorityTextObj.transform.localPosition = new Vector3(0, 6, 0);
-            priorityTextObj.transform.localScale = new Vector3(2, 2, 2);
+            if (IAcar.vehicle == "bus")
+            {
+                priorityTextObj.transform.localPosition = new Vector3(0, 4.5f, 0);
+                priorityTextObj.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if(IAcar.vehicle == "ambulance")
+            {
+                priorityTextObj.transform.localPosition = new Vector3(0, 15.5f, 0);
+                priorityTextObj.transform.localScale = new Vector3(4, 4, 4);
+            }
+            else
+            {
+                priorityTextObj.transform.localPosition = new Vector3(0, 12.5f, 0);
+                priorityTextObj.transform.localScale = new Vector3(4, 4, 4);
+            }
+            
             TextMesh priorityText = priorityTextObj.AddComponent<TextMesh>();
             priorityText.color = Color.red;
-
+           // priorityText.font = fuenteCoches;
+            priorityText.fontStyle = FontStyle.Bold;
 
             GameManager.Instance.AddCocheIA(cocheIAObj);
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();

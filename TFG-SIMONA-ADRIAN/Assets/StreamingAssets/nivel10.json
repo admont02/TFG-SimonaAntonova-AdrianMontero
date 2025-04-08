@@ -364,7 +364,18 @@
         "TurnLeft": [],
         "TurnRight": []
     },
-    "stops": [],
+    "stops": [
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 17,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
     "prohibidos": [],
     "IACars": [
         {
