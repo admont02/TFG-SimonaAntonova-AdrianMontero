@@ -1,5 +1,6 @@
 {
     "type": "Manejo",
+    "nivel": 17,
     "mapaNuevo": {
         "numPiezas": 64,
         "filas": 8,
