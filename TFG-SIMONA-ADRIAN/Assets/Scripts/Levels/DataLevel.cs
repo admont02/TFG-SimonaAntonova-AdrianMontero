@@ -22,7 +22,7 @@ public class MapaData
     public List<Stop> stops = new List<Stop>();
     public List<Prohibido> prohibidos = new List<Prohibido>();
     public List<Ceda> cedas = new List<Ceda>();
-    public List<IA_Car> IACars=new List<IA_Car>();
+    public List<IA_Car> IACars = new List<IA_Car>();
     public List<TipoDePieza> TunnelVertical = new List<TipoDePieza>();
     public List<TipoDePieza> TunnelHorizontal = new List<TipoDePieza>();
 
@@ -39,7 +39,7 @@ public static class SceneData
     public static bool firstTime = true;
     public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    //public static string JsonFileName="nivel10.json";
+    // public static string JsonFileName="nivel1.json";
     public static Vector3 lastCarPosition = Vector3.zero; // Última posición del coche en el menú o nivel
     public static bool hasLastPosition = false;
     public static Quaternion lastCarRotation = Quaternion.identity;
@@ -276,12 +276,18 @@ public class MapaNuevo
     public List<PosicionMapa> Intersection4;
 
     public List<PosicionMapa> Vertical;
+    public List<PosicionMapa> VerticalContinua;
     public List<PosicionMapa> Horizontal;
+    public List<PosicionMapa> HorizontalContinua;
 
     public List<PosicionMapa> TurnRight;
+    public List<PosicionMapa> TurnRightContinua;
     public List<PosicionMapa> TurnRight2;
+    public List<PosicionMapa> TurnRight2Continua;
     public List<PosicionMapa> TurnLeft;
+    public List<PosicionMapa> TurnLeftContinua;
     public List<PosicionMapa> TurnLeft2;
+    public List<PosicionMapa> TurnLeft2Continua;
     public List<PosicionMapa> TunnelVertical;
     public List<PosicionMapa> TunnelHorizontal;
     public List<PosicionMapa> Grass;
