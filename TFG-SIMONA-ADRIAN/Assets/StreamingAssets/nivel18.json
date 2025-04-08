@@ -470,20 +470,6 @@
         },
         "orientacion": "arriba"
     },
-    "IACars": [
-        {
-            "pieza": {
-                "index": 86
-            },
-            "subPosicion": {
-                "fil": 11,
-                "col": 5
-            },
-            "orientacion": "arriba",
-            "branchTo": 0,
-            "vehicle": "car"
-        }
-    ],
     "targetJugador": {
         "pieza": {
             "index": 84

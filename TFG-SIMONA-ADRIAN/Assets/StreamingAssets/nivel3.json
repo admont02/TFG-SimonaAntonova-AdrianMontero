@@ -245,7 +245,7 @@
         }
     ],
     "levelDialogs": [
-        " ¡Bienvenido al primer nivel de luces! En este nivel, conducirás tu vehículo a través de un túnel bien iluminado.",
+        " ¡Bienvenido al primer nivel de luces! En este nivel, conducirás tu vehículo a través de un túnel suficientemente iluminado.",
         "Además de manejar como lo has hecho en niveles de manejo, deberás seleccionar las luces adecuadas para esta situación.",
         "Recuerda que puedes moverte con las teclas WASD o las flechas del teclado, frenar con la barra espaciadora y usar el minimapa con la tecla M para orientarte. ¡Avanza con cuidado y selecciona las luces correctas!"
     ],
@@ -255,8 +255,8 @@
     ],
     "wrongDialogs": [
         " No has seleccionado las luces correctas para esta situación.",
-        "Recuerda que al entrar en un túnel suficiente iluminado, a cualquier hora del día, es obligatorio encender las luces de posición y las luces de cruce para garantizar la visibilidad.",
-        "Intenta de nuevo y asegúrate de elegir las luces adecuadas. ¡Tú puedes lograrlo!"
+        "Recuerda que al entrar en un túnel suficientemente iluminado, a cualquier hora del día, es obligatorio encender las luces de posición y las luces de cruce para garantizar la visibilidad.",
+        "Inténtalo de nuevo y asegúrate de elegir las luces adecuadas. ¡Tú puedes lograrlo!"
     ],
     "objetivo": [
         "cortas",

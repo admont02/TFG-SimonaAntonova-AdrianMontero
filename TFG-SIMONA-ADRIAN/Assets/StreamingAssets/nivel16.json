@@ -17,7 +17,7 @@
                 ]
             }
         ],
-        "Vertical": [
+        "VerticalContinua": [
             {
                 "fil": 4,
                 "col": 0
@@ -54,7 +54,7 @@
                 "col": 5
             }
         ],
-        "Horizontal": [
+        "HorizontalContinua": [
             {
                 "fil": 5,
                 "col": 1
@@ -128,7 +128,7 @@
             }
         ],
         "Pavement_1": [],
-        "TurnLeft": [
+        "TurnLeftContinua": [
             {
                 "fil": 5,
                 "col": 4,
@@ -152,7 +152,7 @@
                 "col": 1
             }
         ],
-        "TurnRight": [
+        "TurnRightContinua": [
             {
                 "fil": 5,
                 "col": 0
@@ -169,7 +169,7 @@
                 ]
             }
         ],
-        "TurnLeft2": [
+        "TurnLeft2Continua": [
             {
                 "fil": 2,
                 "col": 3
@@ -183,7 +183,7 @@
                 "col": 5
             }
         ],
-        "TurnRight2": [
+        "TurnRight2Continua": [
             {
                 "fil": 5,
                 "col": 5
