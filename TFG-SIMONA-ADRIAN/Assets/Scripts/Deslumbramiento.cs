@@ -34,14 +34,14 @@ public class Deslumbramiento : MonoBehaviour
             if (!other.gameObject.transform.parent.GetComponent<CarLights>().largasLights[0].enabled)
             {
                 correcto = true;
-                if (GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehículo."))
-                    GameManager.Instance.incorrectLevel.Remove("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehículo.");
+                if (GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehiculo."))
+                    GameManager.Instance.incorrectLevel.Remove("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehiculo.");
             }
             else
             {
                 correcto = false;
-                if (!GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehículo."))
-                    GameManager.Instance.incorrectLevel.Add("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehículo.");
+                if (!GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehiculo."))
+                    GameManager.Instance.incorrectLevel.Add("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehiculo.");
             }
         }
     }
@@ -54,8 +54,8 @@ public class Deslumbramiento : MonoBehaviour
             {
                 correcto = false;
 
-                if (!GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehículo."))
-                    GameManager.Instance.incorrectLevel.Add("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehículo.");
+                if (!GameManager.Instance.incorrectLevel.Contains("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehiculo."))
+                    GameManager.Instance.incorrectLevel.Add("Has deslumbrado a un usuario. Cambia de luces cortas a largas cuando se aproxime otro vehiculo.");
 
             }
         }

@@ -498,11 +498,11 @@
         }
     },
     "levelDialogs": [
-        " Estás en una vía interurbana insuficientemente iluminada. Circula hasta el destino",
+        " Estás conduciendo de noche en una vía interurbana insuficientemente iluminada.",
         " Selecciona las luces que debe llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás conductores.",
-        " Puedes cambiar las luces durante la conducción. Ya sea con los botones",
+        " Puedes cambiar las luces durante la conducción si fuese necesario, para no deslumbrar a otros vehículos. Ya sea con los botones de la interfaz o con el teclado:",
         " 1: cortas, 2: largas, 3: de posición, 4: antinieblas delanteras, 5: antinieblas traseras",
-        " Buen viaje!"
+        "Avanza con precaución, ajusta tus luces a las condiciones de la vía y alcanza tu destino de forma segura. ¡Buen viaje!"
     ],
     "completedDialogs": [
         "¡Enhorabuena! Has completado el nivel correctamente y has manejado las luces de forma adecuada para la carretera interurbana insuficientemente iluminada, y has evitado el deslumbramiento al otro vehículo cambiando a las luces cortas."
