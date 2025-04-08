@@ -1,0 +1,156 @@
+{
+    "nivel": 1,
+    "mapaNuevo": {
+        "numPiezas": 25,
+        "filas": 5,
+        "columnas": 5,
+        "Crossroad": [],
+        "Vertical": [
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 3
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "Roundabout": [],
+        "Grass": [
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 4,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 4
+            }
+        ],
+        "Pavement_1": [],
+        "TurnLeft": [
+            {
+                "fil": 4,
+                "col": 3
+            }
+        ],
+        "TurnRight": [
+            {
+                "fil": 4,
+                "col": 1
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 0,
+                "col": 3
+            }
+        ],
+        "TurnRight2": [
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ]
+    },
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 6
+        },
+        "subPosicion": {
+            "fil": 10,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    },
+    "targetJugador": {
+        "pieza": {
+            "index": 8
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 9
+        }
+    },
+    "levelDialogs": [
+        " ¡Bienvenido al nivel introductorio de manejo! Este tutorial te enseñará los controles básicos para que te familiarices con la conducción.",
+        "Usa las teclas WASD o las flechas del teclado para moverte. W o la flecha hacia arriba avanzan; A y la flecha izquierda giran a la izquierda; D y la flecha derecha giran a la derecha; y S o la flecha hacia abajo te hacen ir marcha atrás.",
+        "Presiona la barra espaciadora para frenar en cualquier momento de forma segura.",
+        "Además, al presionar la tecla M, se abrirá un minimapa en el que podrás ver una estrella que representa tu objetivo en los niveles. ¡Dirígete hacia ella para completarlo!",
+        "Recuerda que puedes reiniciar el nivel tantas veces como necesites hasta sentirte cómodo con los controles. ¡Practica y disfruta del aprendizaje!"
+    ],
+    "completedDialogs": [
+        " ¡Enhorabuena! Has completado el tutorial de manejo y te has familiarizado con los controles básicos.",
+        "Ahora sabes cómo usar WASD o las flechas para moverte, la barra espaciadora para frenar y el minimapa con la tecla M para localizar tu objetivo.",
+        "¡Sigue practicando y prepárate para enfrentarte a desafíos más avanzados!"
+    ]
+}

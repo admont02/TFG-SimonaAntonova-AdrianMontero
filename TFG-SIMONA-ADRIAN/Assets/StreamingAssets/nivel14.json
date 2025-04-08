@@ -184,7 +184,7 @@
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
-            "initialLight": "green"
+            "initialLight": "red"
         }
     ],
     "targetJugador": {
@@ -241,11 +241,13 @@
         }
     ],
     "levelDialogs": [
-        " Bienvenido a este nivel introductorio de manejo. Usa las teclas WASD de tu teclado para controlar tu vehículo y moverte por el entorno.",
-        "Tu objetivo es cumplir las reglas de tráfico mientras avanzas hacia la meta. Puedes usar el minimapa, pulsando la tecla M, para orientarte. La meta está marcada con una estrella. ¡Buena suerte!"
+        " En este nivel pondrás en práctica tus habilidades de conducción en un entorno más complejo.",
+        "Te encontrarás con semáforos, otros vehículos y rotondas, que requerirán atención a las normas de tráfico y decisiones rápidas.",
+        "Usa las teclas WASD o las flechas del teclado para controlar tu vehículo, y la barra espaciadora para frenar. Consulta el minimapa con la tecla M para orientarte y localizar la estrella que marca tu objetivo.",
+        "Conduce con precaución, observa el entorno y respeta las reglas de circulación. ¡Demuestra lo que has aprendido y completa el desafío con éxito!"
     ],
     "completedDialogs": [
-        " ¡Excelente trabajo! Has llegado a la meta mientras respetabas las normas de tráfico. Este es el primer paso para convertirte en un conductor experto.",
-        "Sigue practicando y perfeccionando tus habilidades en los próximos niveles. ¡Estás en el camino correcto!"
+        " ¡Enhorabuena! Has llegado a la meta cumpliendo las normas de tráfico y demostrando un manejo seguro y eficiente.",
+        "Este nivel te ha acercado un paso más a dominar las habilidades de conducción. Sigue practicando y afronta los próximos niveles con confianza. ¡Estás progresando genial!"
     ]
 }
