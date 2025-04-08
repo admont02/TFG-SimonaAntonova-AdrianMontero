@@ -16,7 +16,7 @@ public class SenyalVelocidad : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 3 && Int32.Parse(10 + texto.GetComponent<TextMeshPro>().text) < (other.gameObject.GetComponentInParent<PrometeoCarController>().carSpeed))
+        if (other.gameObject.layer == 3 && (10 + Int32.Parse(texto.GetComponent<TextMeshPro>().text)) <= (other.gameObject.GetComponentInParent<PrometeoCarController>().carSpeed))
         {
             GameManager.Instance.incorrectLevel.Add("Has sobrepasado el límite de velocidad en: "
                 + (other.gameObject.GetComponentInParent<PrometeoCarController>().carSpeed - Int32.Parse(texto.GetComponent<TextMeshPro>().text)) + " Km/h.");
