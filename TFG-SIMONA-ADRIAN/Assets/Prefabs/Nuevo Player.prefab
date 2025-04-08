@@ -3080,7 +3080,7 @@ GameObject:
   - component: {fileID: 1328640318394940515}
   - component: {fileID: 4086326109526592410}
   - component: {fileID: 5973513076051923557}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
