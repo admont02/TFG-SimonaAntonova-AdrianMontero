@@ -252,6 +252,74 @@
             "orientacion": "derecha"
         }
     ],
+    "maxVelocidad": [
+        {
+            "velocidad": 20,
+            "pieza": {
+                "index":  31
+            },
+            "subPosicion": {
+                "fil": 1,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        },
+        {
+            "velocidad": 40,
+            "pieza": {
+                "index":  27
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        },
+        {
+            "velocidad": 40,
+            "pieza": {
+                "index":  27
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        },
+        {
+            "velocidad": 40,
+            "pieza": {
+                "index":  33
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        },
+        {
+            "velocidad": 40,
+            "pieza": {
+                "index":  33
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        },
+        {
+            "velocidad": 20,
+            "pieza": {
+                "index":  14
+            },
+            "subPosicion": {
+                "fil": 16,
+                "col": 4
+            },
+            "orientacion": "abajo"
+        }
+    ],
     "IACars": [
         {
             "pieza": {
