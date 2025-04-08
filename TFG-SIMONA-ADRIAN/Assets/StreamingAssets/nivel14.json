@@ -27,10 +27,7 @@
             }
         ],
         "HorizontalContinua": [
-            {
-                "fil": 4,
-                "col": 4
-            },
+            
             {
                 "fil": 3,
                 "col": 2
@@ -64,29 +61,40 @@
             {
                 "fil": 3,
                 "col": 4
+            }
+        ],
+        "Grass_2": [
+            {
+                "fil": 2,
+                "col": 2
+            }
+        ],
+        "Pavement_2": [
+            {
+                "fil": 2,
+                "col": 4
             },
+            {
+                "fil": 4,
+                "col": 3
+            }
+        ],
+        "Pavement_3": [
             {
                 "fil": 0,
                 "col": 1
             }
         ],
-        "Grass_2": [
+        "Pavement_4": [
             {
                 "fil": 0,
                 "col": 2
             },
             {
-                "fil": 2,
-                "col": 2
-            }
-        ],
-        "Grass": [
-            {
-                "fil": 2,
+                "fil": 4,
                 "col": 4
             }
         ],
-        "Pavement_1": [],
         "TurnLeftContinua": [
             {
                 "fil": 4,
@@ -126,10 +134,7 @@
             }
         ],
         "TurnRight2Continua": [
-            {
-                "fil": 4,
-                "col": 3
-            },
+            
             {
                 "fil": 3,
                 "col": 0
