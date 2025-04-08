@@ -402,8 +402,10 @@
         }
     ],
     "levelDialogs": [
-        " En este nivel, deberás hacer clic en orden sobre los coches según su prioridad en la intersección, siguiendo las normas de tráfico.",
-        "Para ayudarte, dispones del botón 'perspectiva', que te permitirá cambiar la vista y observar la posición de todos los vehículos desde diferentes ángulos."
+        " ¡Bienvenido al primer nivel de prioridad! En esta intersección, deberás hacer clic en los coches en el orden correcto según su prioridad, siguiendo las normas de tráfico.",
+        "Cada vez que hagas clic en un coche, aparecerá un número indicando el orden en que lo has seleccionado. Si te equivocas, puedes hacer clic de nuevo en ese coche para quitarlo del orden y corregir tu decisión.",
+        "Para ayudarte en este desafío, tienes a tu disposición el botón 'Perspectiva', que te permitirá observar la posición de los vehículos desde diferentes ángulos mediante una animación. Usa este recurso tantas veces como lo necesites para analizar mejor la intersección.",
+        "¡Disfruta del nivel y demuestra tus conocimientos de tráfico!"
     ],
     "completedDialogs": [
         " ¡Buen trabajo! Has completado correctamente el nivel y demostrado que puedes aplicar las normas de prioridad en una intersección.",
