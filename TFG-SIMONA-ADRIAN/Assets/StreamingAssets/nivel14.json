@@ -54,6 +54,10 @@
         ],
         "Pavement": [
             {
+                "fil": 0,
+                "col": 0
+            },
+            {
                 "fil": 4,
                 "col": 2
             },
@@ -62,28 +66,24 @@
                 "col": 4
             },
             {
-                "fil": 2,
-                "col": 2
-            },
-            {
-                "fil": 2,
-                "col": 4
+                "fil": 0,
+                "col": 1
             }
         ],
         "Grass_2": [
             {
                 "fil": 0,
-                "col": 1
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 2
             }
         ],
         "Grass": [
             {
-                "fil": 0,
-                "col": 2
-            },
-            {
-                "fil": 0,
-                "col": 0
+                "fil": 2,
+                "col": 4
             }
         ],
         "Pavement_1": [],
