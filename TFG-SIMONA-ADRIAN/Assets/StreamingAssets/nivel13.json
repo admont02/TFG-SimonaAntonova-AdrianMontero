@@ -453,7 +453,7 @@
             "orientacion": "abajo"
         },
         {
-            "velocidad": 90,
+            "velocidad": 30,
             "pieza": {
                 "index": 14
             },
