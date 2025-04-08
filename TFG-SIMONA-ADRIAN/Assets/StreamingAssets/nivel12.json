@@ -245,11 +245,18 @@
         }
     },
     "levelDialogs": [
-        " Estás a punto de enfrentarte a una tormenta con lluvia intensa y visibilidad reducida.",
-        "Selecciona las luces que debe llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás conductores."
+        " Estás a punto de conducir bajo una tormenta con lluvia intensa, donde la visibilidad estará significativamente reducida.",
+        "Selecciona las luces que debe llevar obligatoriamente encendidas tu vehículo en esta situación para garantizar tu seguridad y la de los demás usuarios de la carretera."
     ],
     "completedDialogs": [
-        "¡Enhorabuena! Has completado el nivel correctamente y has manejado las luces de forma adecuada para la lluvia intensa."
+        " ¡Enhorabuena! Has completado el nivel correctamente seleccionando las luces adecuadas para conducir bajo lluvia intensa.",
+        "Las luces OBLIGATORIAS en esta situación son las de posición y cruce, las antinieblas delanteras son recomendadas, pero no obligatorias como se dice en la pregunta."
+    ],
+    "wrongDialogs": [
+        " No has seleccionado las luces obligatorias para conducir bajo lluvia intensa.",
+        "Recuerda que se está preguntando por luces OBLIGATORIAS. Si has seleccionado las antinieblas delanteras, son aconsejables, pero no obligatorias.",
+        "Por otro lado,en estas circunstancias está prohibido llevar encendidas las antinieblas traseras.",
+        "Intenta de nuevo y elige las luces obligatorias. ¡Tú puedes hacerlo!"
     ],
     "objetivo": [
         "cortas",

@@ -10,6 +10,7 @@ public class ClicLevelManager : MonoBehaviour
     public List<GameObject> priorityCarList = new List<GameObject>();
     private bool correctOrder = true;
     public List<int> correctOrderList;
+    public bool checking = false;
     void Awake()
     {
         if (Instance == null)
@@ -72,6 +73,7 @@ public class ClicLevelManager : MonoBehaviour
     public IEnumerator CheckLevelCompletion()
     {
         int index = 0;
+        checking = true;
 
         foreach (var item in priorityCarList)
         {
