@@ -60,7 +60,8 @@ public class CarLights : MonoBehaviour
     void ActivateLevel()
     {
         GameManager.Instance.canCarMove = true;
-        comenzarButton.transform.parent.gameObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        comenzarButton.transform.parent.gameObject.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, .5f);
+        comenzarButton.transform.parent.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-190, -20, 0);
         comenzarButton.gameObject.SetActive(false);
 
         if (CheckCorrectLights())
@@ -75,7 +76,6 @@ public class CarLights : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf) return;
         // Posición
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
@@ -103,7 +103,7 @@ public class CarLights : MonoBehaviour
         if (GameManager.Instance.finDeNivel)
         {
             comenzarButton.transform.parent.gameObject.SetActive(false);
-            
+
 
         }
     }
