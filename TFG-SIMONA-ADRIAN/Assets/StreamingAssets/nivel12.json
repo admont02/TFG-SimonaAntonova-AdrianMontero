@@ -212,6 +212,19 @@
         "TurnLeft": [],
         "TurnRight": []
     },
+    "maxVelocidad": [
+        {
+            "velocidad": 90,
+            "pieza": {
+                "index": 24
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo"
+        }
+    ],
     "jugadorNuevo": {
         "pieza": {
             "index": 3

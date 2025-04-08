@@ -440,6 +440,28 @@
                 "col": 18
             },
             "orientacion": "abajo"
+        },
+        {
+            "velocidad": 30,
+            "pieza": {
+                "index": 74
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo"
+        },
+        {
+            "velocidad": 90,
+            "pieza": {
+                "index": 14
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 18
+            },
+            "orientacion": "arriba"
         }
     ],
     "jugadorNuevo": {
