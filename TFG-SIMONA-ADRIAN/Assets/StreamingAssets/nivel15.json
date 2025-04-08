@@ -186,6 +186,30 @@
             }
         }
     ],
+    "maxVelocidad": [
+        {
+            "velocidad": 50,
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo"
+        },
+        {
+            "velocidad": 50,
+            "pieza": {
+                "index": 9
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 18
+            },
+            "orientacion": "arriba"
+        }
+    ],
     "jugadorNuevo": {
         "pieza": {
             "index": 1
