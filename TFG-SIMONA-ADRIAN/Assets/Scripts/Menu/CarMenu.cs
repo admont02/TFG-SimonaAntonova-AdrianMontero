@@ -10,6 +10,8 @@ public class CarMenu : MonoBehaviour
     private bool moviendo = false; // ¿Está el coche en movimiento?
     public GameObject panelInfo;
     public GameObject clickEffectPrefab;
+    public GameObject botonSalir;
+
 
     GameObject actual;
     private void Awake()
@@ -57,6 +59,10 @@ public class CarMenu : MonoBehaviour
         if (moviendo)
         {
             MoverCoche();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            botonSalir.SetActive(true);
         }
     }
 

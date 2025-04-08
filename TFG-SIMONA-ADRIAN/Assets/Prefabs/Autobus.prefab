@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1134945969614598094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -933,14 +933,19 @@ MonoBehaviour:
   rotationSpeed: 120
   isStopped: 0
   brakeDistance: 5
+  isCarInFront: 0
   arrow: {fileID: 13568615524255041}
   LeftLight: {fileID: 2971504855121734903}
   RightLight: {fileID: 596193595101677486}
+  LeftLightFront: {fileID: 0}
+  RightLightFront: {fileID: 0}
   icon: {fileID: 4952574956469081672}
   bodyMain: {fileID: 0}
   seams: {fileID: 0}
+  Deslumbramiento: {fileID: 0}
   carColors: []
   seamColors: []
+  destroyedByTrash: 0
 --- !u!114 &4346970129220781343
 MonoBehaviour:
   m_ObjectHideFlags: 0

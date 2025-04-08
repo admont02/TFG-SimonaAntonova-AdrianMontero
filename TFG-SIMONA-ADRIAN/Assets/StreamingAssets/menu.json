@@ -4,6 +4,7 @@
     "levelDialogs": [
         " ¡Bienvenido a nuestro videojuego de conducción! En este menú, podrás moverte con el coche haciendo clic sobre la carretera.",
         "Aquí encontrarás tres secciones de niveles: Prioridad, Luces y Manejo. Cada sección te retará a superar diferentes desafíos relacionados con las normas de tráfico y habilidades al volante.",
+        "El orden aconsejado para completar los niveles es Prioridad-Manejo-Luces, especialmente los niveles de Luces tras los de Manejo, ya que en estos también se conduce",
         "Al acercarte a una señal de tráfico, podrás hacer clic para ver los detalles del nivel correspondiente y decidir si quieres jugarlo.",
         "¡Buena suerte y disfruta del viaje mientras mejoras tus habilidades de conducción!"
     ]
