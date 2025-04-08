@@ -125,18 +125,18 @@ public class LevelLoader : MonoBehaviour
 
             CrearTipoPiezas(nivel.mapaNuevo.Crossroad, "Crossroad", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Vertical, "Vertical", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Vertical, "VerticalContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.VerticalContinua, "VerticalContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Horizontal, "Horizontal", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Horizontal, "HorizontalContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.HorizontalContinua, "HorizontalContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Roundabout, "Roundabout", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.TurnRight, "TurnRight", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnRight, "TurnRightContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnRightContinua, "TurnRightContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.TurnRight2, "TurnRight2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnRight2, "TurnRight2Continua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnRight2Continua, "TurnRight2Continua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.TurnLeft, "TurnLeft", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft, "TurnLeftContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnLeftContinua, "TurnLeftContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.TurnLeft2, "TurnLeft2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft2, "TurnLeft2Continua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft2Continua, "TurnLeft2Continua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Intersection, "Intersection", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Intersection2, "Intersection2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapaNuevo.Intersection3, "Intersection3", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
