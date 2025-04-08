@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera;
     public GameObject clicLevelCam;
     public GameObject velocidad;
+    public Transform agujaVelocidad;
     public Digrafo graph;
 
     public TextMeshProUGUI velText;
@@ -162,6 +163,8 @@ public class GameManager : MonoBehaviour
         virtualCamera.LookAt = t;
         virtualCamera.Follow = t;
     }
+
+
     private void Update()
     {
         if (carController != null && !dialogueSystem.dialoguePanel.activeSelf)
@@ -182,7 +185,12 @@ public class GameManager : MonoBehaviour
                 // Reinicia el temporizador
                 timer = 0f;
             }
-            velText.text = carController.GetComponent<PrometeoCarController>().carSpeed.ToString("F0");
+
+            float vel = carController.GetComponent<PrometeoCarController>().carSpeed;
+            velText.text = vel.ToString("F0");
+            // Mapeamos la aguja del velocímetro
+            float angle = Mathf.Lerp(120f, -120f, vel / 240f);
+            agujaVelocidad.rotation = Quaternion.Euler(0f, 0f, angle);
         }
         else
         {
