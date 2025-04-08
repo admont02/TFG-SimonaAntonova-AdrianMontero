@@ -175,7 +175,7 @@ public class OtherCar : MonoBehaviour
         //    GameManager.Instance.priorityCarList.Remove(gameObject);
 
         //Destroy(this.gameObject);
-        if (ClicLevelManager.Instance != null)
+        if (ClicLevelManager.Instance != null && !ClicLevelManager.Instance.checking)
             ClicLevelManager.Instance.CarClicked(gameObject);
 
     }

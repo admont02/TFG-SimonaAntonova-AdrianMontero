@@ -250,12 +250,12 @@ public class CarLights : MonoBehaviour
             //fog.GetComponent<Renderer>().material = fogDisipada;
             // TO DO: cambiar a que se haga clear solo de las luces, no de todos los errores
             //GameManager.Instance.incorrectLevel.Clear();
-            GameManager.Instance.incorrectLevel.Remove("Luces incorrectas para niebla intensa");
+            GameManager.Instance.incorrectLevel.Remove("Luces incorrectas. Recuerda que de noche en una via interurbana insuficientemente iluminada debes llevar encendidas las luces largas y de posición. Si cambias las luces para no deslumbrar, recuerda cambiar de nuevo las luces antes de entrar a la meta del nivel.");
         }
         else
         {
             if (GameManager.Instance.incorrectLevel.Count < 2)
-                GameManager.Instance.incorrectLevel.Add("Luces incorrectas para niebla intensa");
+                GameManager.Instance.incorrectLevel.Add("Luces incorrectas. Recuerda que de noche en una via interurbana insuficientemente iluminada debes llevar encendidas las luces largas y de posición. Si cambias las luces para no deslumbrar, recuerda cambiar de nuevo las luces antes de entrar a la meta del nivel.");
             //fog.GetComponent<Renderer>().material = fogIntensa;
         }
         return allCorrect;

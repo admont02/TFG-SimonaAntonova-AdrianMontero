@@ -490,7 +490,7 @@
     ],
     "targetJugador": {
         "pieza": {
-            "index": 84
+            "index": 86
         },
         "subPosicion": {
             "fil": 11,
@@ -498,14 +498,14 @@
         }
     },
     "levelDialogs": [
-        " Estás en una carretera interurbana insuficientemente iluminada. Circula hasta el destino",
+        " Estás en una vía interurbana insuficientemente iluminada. Circula hasta el destino",
         " Selecciona las luces que debe llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás conductores.",
-        " Puedes cambiar las luces durante la conducción.",
+        " Puedes cambiar las luces durante la conducción. Ya sea con los botones",
         " 1: cortas, 2: largas, 3: de posición, 4: antinieblas delanteras, 5: antinieblas traseras",
         " Buen viaje!"
     ],
     "completedDialogs": [
-        "¡Enhorabuena! Has completado el nivel correctamente y has manejado las luces de forma adecuada para la carretera interurbana insuficientemente iluminada, y has evitado el deslumbramiento al otro usuario."
+        "¡Enhorabuena! Has completado el nivel correctamente y has manejado las luces de forma adecuada para la carretera interurbana insuficientemente iluminada, y has evitado el deslumbramiento al otro vehículo cambiando a las luces cortas."
     ],
     "objetivo": [
         "largas",
