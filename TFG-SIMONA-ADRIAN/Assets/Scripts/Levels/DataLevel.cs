@@ -107,6 +107,13 @@ public class Ceda
     public string orientacion;
 }
 [System.Serializable]
+public class IniLuz
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
+[System.Serializable]
 public class Prohibido
 {
     public Pieza pieza;
@@ -368,6 +375,7 @@ public class Nivel
 
     public List<Prohibido> prohibidos;
     public List<Ceda> cedas;
+    public List<IniLuz> iniLuces;
     public List<SemaforoNuevoConfig> semaforosNuevos;
 
     public List<ElementoMapa> elementosMapa;

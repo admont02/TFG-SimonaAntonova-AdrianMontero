@@ -40,6 +40,8 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     GameObject FrenteIzqPrefab;
     [SerializeField]
+    GameObject iniLuzPrefab;
+    [SerializeField]
     GameObject destroyer;
     public GameObject TargetIconPrefab;
     public float scale = 50f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
@@ -354,6 +356,24 @@ public class LevelLoader : MonoBehaviour
             {
                 stopObj.GetComponent<YieldSign>().enabled = false;
             }
+        }
+        foreach (var sign in nivel.iniLuces)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+            posicionPieza.y = 1;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            posicionCuadricula.y = 1;
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(iniLuzPrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
+            stopObj.SetActive(true);
+            
         }
         //prohibidos
         foreach (var sign in nivel.maxVelocidad)

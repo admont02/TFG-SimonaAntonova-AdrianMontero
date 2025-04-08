@@ -225,13 +225,25 @@
     },
     "targetJugador": {
         "pieza": {
-            "index": 45
+            "index": 31
         },
         "subPosicion": {
             "fil": 9,
-            "col": 6
+            "col": 16
         }
     },
+    "iniLuces":[
+        {
+            "pieza": {
+                "index":10
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 0
+            },
+            "orientacion": "abajo"
+        }
+    ],
     "levelDialogs": [
         " ¡Bienvenido al primer nivel de luces! En este nivel, conducirás tu vehículo a través de un túnel bien iluminado.",
         "Además de manejar como lo has hecho en niveles de manejo, deberás seleccionar las luces adecuadas para esta situación.",
