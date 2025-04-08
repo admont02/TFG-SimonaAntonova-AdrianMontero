@@ -146,6 +146,8 @@ public class ClicLevelManager : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         otherCar.LeftLight?.SetActive(false);
         otherCar.RightLight?.SetActive(false);
+        otherCar.LeftLightFront?.SetActive(false);
+        otherCar.RightLightFront?.SetActive(false);
         Debug.Log("ACABA DE SALIR EN LA CORRUTINA");
 
     }

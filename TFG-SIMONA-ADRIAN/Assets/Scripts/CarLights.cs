@@ -102,6 +102,7 @@ public class CarLights : MonoBehaviour
         if (GameManager.Instance.finDeNivel)
         {
             comenzarButton.transform.parent.gameObject.SetActive(false);
+            
 
         }
     }

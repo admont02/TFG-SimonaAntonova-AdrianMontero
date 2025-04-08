@@ -18,6 +18,8 @@ public class OtherCar : MonoBehaviour
     public GameObject arrow;
     public GameObject LeftLight;
     public GameObject RightLight;
+    public GameObject LeftLightFront;
+    public GameObject RightLightFront;
     public int branchTo { get; set; }
     public string orientacion { get; set; }
     public bool clickMove { get; set; }
@@ -77,10 +79,12 @@ public class OtherCar : MonoBehaviour
                     break;
                 case 2: // Este
                     StartCoroutine(Intermitente(LeftLight.GetComponent<Light>()));
+                    StartCoroutine(Intermitente(LeftLightFront.GetComponent<Light>()));
                     localArrowRotation = new Vector3(-90, 0, 180); // Hacia la derecha
                     break;
                 case 3: // Oeste
                     StartCoroutine(Intermitente(RightLight.GetComponent<Light>()));
+                    StartCoroutine(Intermitente(RightLightFront.GetComponent<Light>()));
                     localArrowRotation = new Vector3(-90, -90, 0); // Hacia la izquierda
                     break;
                 case 4: // Sur
