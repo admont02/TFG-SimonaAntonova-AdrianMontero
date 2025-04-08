@@ -48,7 +48,7 @@ public class MinimapCamera : MonoBehaviour
         // Actualizar la cámara del minimapa
         UpdateMinimapCameraPosition();
 
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             smallMap.SetActive(!smallMap.activeSelf);
             bigMap.SetActive(!bigMap.activeSelf);
