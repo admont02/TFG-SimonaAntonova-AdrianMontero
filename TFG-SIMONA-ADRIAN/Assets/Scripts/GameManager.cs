@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject PerspectiveButton;
     public GameObject LightsPanel;
+    public GameObject Buttons;
     public GameObject antinieblaDelanteras;
     public GameObject antinieblaTraseras;
     public GameObject posicion;
@@ -208,6 +209,7 @@ public class GameManager : MonoBehaviour
     public void ComprobarNivel()
     {
         finDeNivel = true;
+        Buttons.SetActive(false);
         if (incorrectLevel.Count > 1)
         {
             CompletableTracker.Instance.Completed("nivel" + currentLevel.ToString()).WithSuccess(false);
