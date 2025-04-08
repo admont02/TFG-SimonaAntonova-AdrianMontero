@@ -54,7 +54,7 @@ public class MinimapCamera : MonoBehaviour
             bigMap.SetActive(!bigMap.activeSelf);
             if (smallMap.activeSelf)
             {
-                maxZoom = initialMaxZoom;
+                maxZoom = currentZoom;
             }
             if (bigMap.activeSelf)
             {
@@ -71,7 +71,13 @@ public class MinimapCamera : MonoBehaviour
 
         maxZoom = (GameManager.Instance.scale * 5) * GameManager.Instance.columnas / 10;
         minimapCamera.transform.position = positionMap;
-        //minimapCamera.orthographicSize = currentZoom;
+
+    }
+    public void ActivateSmallMap()
+    {
+        smallMap.SetActive(true);
+        bigMap.SetActive(false);
+        maxZoom = currentZoom;
 
     }
 
