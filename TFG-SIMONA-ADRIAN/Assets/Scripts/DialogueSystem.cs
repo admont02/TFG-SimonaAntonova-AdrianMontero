@@ -43,13 +43,10 @@ public class DialogueSystem : MonoBehaviour
         ResetDialogue();
         index = 0;
         dialoguePanel?.SetActive(true);
-        if (end)
-        {
-            restartButton?.SetActive(true);
-            menuButton?.SetActive(true);
-        }
+
         GameManager.Instance.canCarMove = false;
         StartCoroutine(TypeSentence());
+
     }
 
     public void ShowCompletedDialog()
@@ -69,7 +66,7 @@ public class DialogueSystem : MonoBehaviour
     public void ShowIncorrectLevelDialog(string[] incorrect)
     {
         //levelEnded = true;
-        if (wrongDialogues==null)
+        if (wrongDialogues == null)
             dialogues = incorrect;
         else
             dialogues = wrongDialogues;
@@ -103,6 +100,7 @@ public class DialogueSystem : MonoBehaviour
         }
         isTyping = false;
         typingSpeed = 0.05f;
+        
         //if (levelEnded)
         //{
         //    GameManager.Instance.canCarMove = true;
@@ -143,6 +141,11 @@ public class DialogueSystem : MonoBehaviour
                     }
                     if (GameManager.Instance.CurrentLevel == "Prioridad")
                         GameManager.Instance.PerspectiveButton.SetActive(true);
+                }
+                if (GameManager.Instance.finDeNivel)
+                {
+                    restartButton?.SetActive(true);
+                    menuButton?.SetActive(true);
                 }
             }
 
