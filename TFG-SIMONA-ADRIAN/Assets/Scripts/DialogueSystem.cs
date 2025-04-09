@@ -34,6 +34,7 @@ public class DialogueSystem : MonoBehaviour
 
         dialogueText.text = ""; // Asegurarnos de que la primera frase esté vacía al inicio
         dialogueBackground.onClick.AddListener(NextSentence);
+        audioSource.volume = 0.07f;
     }
 
     public void StartDialogue(bool end)
