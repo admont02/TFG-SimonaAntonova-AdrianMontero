@@ -411,7 +411,7 @@ public class PrometeoCarController : MonoBehaviour
             {
                 TurnRight();
             }
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space)|| Input.GetKey(KeyCode.Return))
             {
                 Brakes();
                 //CancelInvoke("DecelerateCar");

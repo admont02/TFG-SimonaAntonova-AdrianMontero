@@ -53,6 +53,7 @@ public class EnterLevel : MonoBehaviour
                 if (!audioSource.isPlaying) // Asegúrate de que no se solape
                 {
                     audioSource.clip = sparkle; // Asigna el sonido para reproducir en bucle
+                    audioSource.volume = 0.05f;
                     audioSource.loop = true; // Activa el bucle
                     audioSource.Play();
                 }
