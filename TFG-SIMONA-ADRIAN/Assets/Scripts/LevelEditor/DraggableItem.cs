@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 public enum DraggableType { Pieza, TrafficElem, Car };
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -9,6 +11,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Vector2 originalPosition; // Guarda la posición inicial
     private Vector2 originalSize; // Guarda la posición inicial
     private Canvas canvas;
+    private int originalSiblingIndex;
+
+
     public DraggableType draggableType;
     public Transform gridParent;
     void Start()
@@ -16,6 +21,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
+        originalSiblingIndex = transform.GetSiblingIndex();
 
         // Guarda la posición original del objeto en Start
         originalPosition = rectTransform.anchoredPosition;
@@ -27,6 +33,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Ajustar propiedades para que sea más visible y no bloquee eventos
         canvasGroup.alpha = 0.6f; // Hace la pieza más transparente durante el drag
         canvasGroup.blocksRaycasts = false; // Permite que los eventos pasen a través
+
+        Debug.Log(rectTransform.anchoredPosition + ",  og:" + originalPosition);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -39,6 +47,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        Debug.Log(rectTransform.anchoredPosition + ",  og:" + originalPosition);
 
         //Detectar si el objeto fue soltado sobre una celda válida del grid
         if (eventData.pointerEnter != null && eventData.pointerEnter.transform.IsChildOf(gridParent) && draggableType == DraggableType.Pieza)
@@ -54,8 +63,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 if (existingItem.draggableType != this.draggableType)
                 {
                     Debug.Log($"No se puede sustituir {existingItem.draggableType} con {this.draggableType}");
-                    rectTransform.anchoredPosition = originalPosition; //Regresa a la posición inicial
-                    rectTransform.sizeDelta = originalSize;
+                    var a = transform.parent;
+                    transform.SetParent(gridParent, false);
+                    transform.SetParent(a, false);
+                    transform.SetSiblingIndex(originalSiblingIndex);
                     return;
                 }
                 else
@@ -69,8 +80,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     GameObject copy = Instantiate(gameObject, cell.parent);
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
-                    rectTransform.anchoredPosition = originalPosition;
-                    rectTransform.sizeDelta = originalSize;
+                    var a = transform.parent;
+                    transform.SetParent(gridParent, false);
+                    transform.SetParent(a, false);
+                    transform.SetSiblingIndex(originalSiblingIndex);
                 }
             }
             else
@@ -82,14 +95,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     GameObject copy = Instantiate(gameObject, cell);
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
-                    rectTransform.anchoredPosition = originalPosition;
-                    rectTransform.sizeDelta = originalSize;
+                    var a = transform.parent;
+                    transform.SetParent(gridParent, false);
+
+                    transform.SetParent(a, false);
+                    transform.SetSiblingIndex(originalSiblingIndex);
                     rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+
+                    //rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 }
                 else
                 {
-                    rectTransform.anchoredPosition = originalPosition;
-                    rectTransform.sizeDelta = originalSize;
+                    var a = transform.parent;
+                    transform.SetParent(gridParent, false);
+                    transform.SetParent(a, false);
+                    transform.SetSiblingIndex(originalSiblingIndex);
                 }
 
             }
@@ -98,10 +118,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else
         {
-            //Si no se suelta sobre una celda válida, regresar a la posición original
-            rectTransform.anchoredPosition = originalPosition;
-            rectTransform.sizeDelta = originalSize;
+            // Si no se suelta sobre una celda válida, volver al grid original
+            var a = transform.parent;
+            transform.SetParent(gridParent, false);
+            transform.SetParent(a, false);
+            transform.SetSiblingIndex(originalSiblingIndex);
+
+            //rectTransform.localScale = Vector3.one;
+
+            //LayoutRebuilder.ForceRebuildLayoutImmediate(gridParent.GetComponent<RectTransform>());
         }
+
     }
 
 
