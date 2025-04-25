@@ -77,9 +77,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                     Debug.Log($"Pieza {name} colocada en {cell.parent.name}");
 
-                    GameObject copy = Instantiate(gameObject, cell.parent);
-                    copy.name = gameObject.name;
-                    copy.transform.localPosition = Vector3.zero;
+                    //GameObject copy = Instantiate(gameObject, cell.parent);
+                    //copy.name = gameObject.name;
+                    //copy.transform.localPosition = Vector3.zero;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
                     transform.SetParent(a, false);
@@ -92,15 +92,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                     Debug.Log($"Pieza {name} colocada en {cell.name}");
 
-                    GameObject copy = Instantiate(gameObject, cell);
-                    copy.name = gameObject.name;
-                    copy.transform.localPosition = Vector3.zero;
+                    //GameObject copy = Instantiate(gameObject, cell);
+                    //copy.name = gameObject.name;
+                    //copy.transform.localPosition = Vector3.zero;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
 
                     transform.SetParent(a, false);
                     transform.SetSiblingIndex(originalSiblingIndex);
-                    rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                    if (rectTransform.childCount > 0)
+                        rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
 
                     //rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 }
@@ -111,10 +112,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     transform.SetParent(a, false);
                     transform.SetSiblingIndex(originalSiblingIndex);
                 }
-
             }
-
-
         }
         else
         {

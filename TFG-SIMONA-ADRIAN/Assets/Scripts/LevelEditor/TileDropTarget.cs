@@ -32,8 +32,9 @@ public class TileDropTarget : MonoBehaviour, IDropHandler
             {
                 var aux = draggableRect.sizeDelta;
                 draggableRect.sizeDelta = interactiveRect.sizeDelta; //Igualar tamaños
-                draggableRect.GetChild(0).GetComponent<RectTransform>().localScale =
-                    (draggableRect.GetChild(0).GetComponent<RectTransform>().localScale * interactiveRect.sizeDelta) / aux;
+                if (draggableRect.childCount > 0)
+                    draggableRect.GetChild(0).GetComponent<RectTransform>().localScale =
+                        (draggableRect.GetChild(0).GetComponent<RectTransform>().localScale * interactiveRect.sizeDelta) / aux;
 
                 //while (0 < draggableRect.GetChild(0).childCount)
                 //{
