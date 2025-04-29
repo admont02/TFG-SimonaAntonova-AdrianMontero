@@ -16,6 +16,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public DraggableType draggableType;
     public Transform gridParent;
+    private Transform originalParent;
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -33,7 +34,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Ajustar propiedades para que sea más visible y no bloquee eventos
         canvasGroup.alpha = 0.6f; // Hace la pieza más transparente durante el drag
         canvasGroup.blocksRaycasts = false; // Permite que los eventos pasen a través
-
+        originalParent = transform.parent; // Guardar el padre original.
+        transform.SetParent(canvas.transform, true);
         Debug.Log(rectTransform.anchoredPosition + ",  og:" + originalPosition);
     }
 
@@ -41,10 +43,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         // Mueve el objeto mientras se arrastra
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.SetParent(originalParent, true);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         Debug.Log(rectTransform.anchoredPosition + ",  og:" + originalPosition);
@@ -63,6 +67,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 if (existingItem.draggableType != this.draggableType)
                 {
                     Debug.Log($"No se puede sustituir {existingItem.draggableType} con {this.draggableType}");
+                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
+                    //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
                     transform.SetParent(a, false);
@@ -77,9 +83,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                     Debug.Log($"Pieza {name} colocada en {cell.parent.name}");
 
-                    //GameObject copy = Instantiate(gameObject, cell.parent);
-                    //copy.name = gameObject.name;
-                    //copy.transform.localPosition = Vector3.zero;
+                    GameObject copy = Instantiate(gameObject, cell.parent);
+                    copy.name = gameObject.name;
+                    copy.transform.localPosition = Vector3.zero;
+                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
+                    //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
                     transform.SetParent(a, false);
@@ -92,9 +100,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                     Debug.Log($"Pieza {name} colocada en {cell.name}");
 
-                    //GameObject copy = Instantiate(gameObject, cell);
-                    //copy.name = gameObject.name;
-                    //copy.transform.localPosition = Vector3.zero;
+                    GameObject copy = Instantiate(gameObject, cell);
+                    copy.name = gameObject.name;
+                    copy.transform.localPosition = Vector3.zero;
+                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
+                    //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
 
@@ -107,6 +117,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 }
                 else
                 {
+                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
+                    //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
                     transform.SetParent(a, false);
@@ -121,6 +133,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             transform.SetParent(gridParent, false);
             transform.SetParent(a, false);
             transform.SetSiblingIndex(originalSiblingIndex);
+            //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
+            //rectTransform.sizeDelta = originalSize;
 
             //rectTransform.localScale = Vector3.one;
 
