@@ -112,6 +112,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     transform.SetSiblingIndex(originalSiblingIndex);
                     if (rectTransform.childCount > 0)
                         rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                    // Activar todos los hijos que tengan el script InteractivePoint
+                    Transform childTransform = copy.transform.GetChild(0);
+                    if (childTransform != null)
+                    {
+                        foreach (Transform subChild in childTransform)
+                        {
+                            InteractivePoint interactivePoint = subChild.GetComponent<InteractivePoint>();
+                            if (interactivePoint != null)
+                            {
+                                interactivePoint.gameObject.SetActive(true);
+                                Debug.Log($"Activado InteractivePoint en {subChild.name}");
+                            }
+                        }
+                    }
+
 
                     //rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 }
