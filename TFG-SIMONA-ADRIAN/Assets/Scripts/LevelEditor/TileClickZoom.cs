@@ -5,13 +5,15 @@ public class TileClickZoom : MonoBehaviour
     public float zoomScale = 3f; //Zoom del tile
     public float zoomDuration = 0.5f; //Duración animación zoom
     private Vector3 originalScale; //Escala original del tile
-    private bool isZoomed = false; 
+    private bool isZoomed = false;
     private GameObject gridParent;
 
     void Start()
     {
         //Guarda la escala tile 
         originalScale = transform.localScale;
+        zoomScale = 700 / GetComponent<RectTransform>().sizeDelta.x;
+        Debug.Log("or scali" + GetComponent<RectTransform>().sizeDelta.x);
 
         gridParent = transform.parent.gameObject;
     }
