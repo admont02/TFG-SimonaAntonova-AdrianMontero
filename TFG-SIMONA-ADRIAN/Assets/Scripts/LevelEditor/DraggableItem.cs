@@ -86,6 +86,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     GameObject copy = Instantiate(gameObject, cell.parent);
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
+                    Transform childTransform = copy.transform.GetChild(0);
+                    if (childTransform != null)
+                    {
+                        foreach (Transform subChild in childTransform)
+                        {
+                            InteractivePoint interactivePoint = subChild.GetComponent<InteractivePoint>();
+                            if (interactivePoint != null)
+                            {
+                                interactivePoint.gameObject.SetActive(true);
+                                Debug.Log($"Activado InteractivePoint en {subChild.name}");
+                            }
+                        }
+                    }
                     //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
                     //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;

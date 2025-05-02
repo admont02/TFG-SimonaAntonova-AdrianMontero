@@ -265,7 +265,7 @@
       "url": "https://packages.unity.com"
     },
     "es.e-ucm.simva-unity-plugin": {
-      "version": "file:C:/Users/Simona/Desktop/Folder/5Carrera/TFG-repo/TFG-SimonaAntonova-AdrianMontero/simva-unity-plugin-Study_TokenLoginInSSO",
+      "version": "file:C:/Users/ADRIAN/Desktop/QUINTO/TFG/TFG-SimonaAntonova-AdrianMontero/simva-unity-plugin-Study_TokenLoginInSSO",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -275,7 +275,7 @@
       }
     },
     "es.e-ucm.xasu": {
-      "version": "file:C:/Users/Simona/Desktop/Folder/5Carrera/TFG-repo/TFG-SimonaAntonova-AdrianMontero/xasu-adding-token-field",
+      "version": "file:C:/Users/ADRIAN/Desktop/QUINTO/TFG/TFG-SimonaAntonova-AdrianMontero/xasu-adding-token-field",
       "depth": 0,
       "source": "local",
       "dependencies": {
