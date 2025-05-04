@@ -11,18 +11,33 @@ public class MapaData
     public int columnas;
     public List<TipoDePieza> Crossroad = new List<TipoDePieza>();
     public List<TipoDePieza> Vertical = new List<TipoDePieza>();
+    public List<TipoDePieza> VerticalContinua = new List<TipoDePieza>();
     public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
+    public List<TipoDePieza> HorizontalContinua = new List<TipoDePieza>();
     public List<TipoDePieza> Roundabout = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement_1 = new List<TipoDePieza>();
+    public List<TipoDePieza> Pavement_2 = new List<TipoDePieza>();
+    public List<TipoDePieza> Pavement_3 = new List<TipoDePieza>();
+    public List<TipoDePieza> Grass = new List<TipoDePieza>();
+    public List<TipoDePieza> Grass_2 = new List<TipoDePieza>();
+    public List<TipoDePieza> Pavement_4 = new List<TipoDePieza>();
     public List<TipoDePieza> TurnLeft = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnLeftContinua = new List<TipoDePieza>();
     public List<TipoDePieza> TurnRight = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnRightContinua = new List<TipoDePieza>();
     public List<TipoDePieza> TurnLeft2 = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnLeft2Continua = new List<TipoDePieza>();
     public List<TipoDePieza> TurnRight2 = new List<TipoDePieza>();
+    public List<TipoDePieza> TurnRight2Continua = new List<TipoDePieza>();
     public List<Stop> stops = new List<Stop>();
     public List<Prohibido> prohibidos = new List<Prohibido>();
     public List<Ceda> cedas = new List<Ceda>();
+    public List<MaxVelocidad> maxVelocidad = new List<MaxVelocidad>();
     public List<IA_Car> IACars = new List<IA_Car>();
+    public TargetForPlayer targetJugador;
+    public Jugador jugadorNuevo;
+    public List<SemaforoNuevoConfig> semaforos=new List<SemaforoNuevoConfig>();
     public List<TipoDePieza> TunnelVertical = new List<TipoDePieza>();
     public List<TipoDePieza> TunnelHorizontal = new List<TipoDePieza>();
 
@@ -37,9 +52,9 @@ public class TipoDePieza
 public static class SceneData
 {
     public static bool firstTime = true;
-    public static string JsonFileName = "menu.json";
+    //public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-   // public static string JsonFileName="nivel18.json";
+    public static string JsonFileName="prueba.json";
     public static Vector3 lastCarPosition = Vector3.zero; // Última posición del coche en el menú o nivel
     public static bool hasLastPosition = false;
     public static Quaternion lastCarRotation = Quaternion.identity;

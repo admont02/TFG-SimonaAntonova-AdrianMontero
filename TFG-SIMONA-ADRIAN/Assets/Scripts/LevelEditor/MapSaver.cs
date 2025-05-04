@@ -17,7 +17,7 @@ public class MapSaver : MonoBehaviour
             numPiezas = gridParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
             filas = gridParent.GetComponent<LevelEditorController>().GetWidth(),
             columnas = gridParent.GetComponent<LevelEditorController>().GetHeight(),
-            type= levelType
+            type = levelType
         };
 
         foreach (Transform tile in gridParent)
@@ -44,9 +44,17 @@ public class MapSaver : MonoBehaviour
                 {
                     mapa.Vertical.Add(new TipoDePieza { fil = fila, col = columna });
                 }
+                else if (tileImage.sprite.name == "VerticalContinua")
+                {
+                    mapa.VerticalContinua.Add(new TipoDePieza { fil = fila, col = columna });
+                }
                 else if (tileImage.sprite.name == "Horizontal")
                 {
                     mapa.Horizontal.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "HorizontalContinua")
+                {
+                    mapa.HorizontalContinua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Pavement")
                 {
@@ -56,17 +64,45 @@ public class MapSaver : MonoBehaviour
                 {
                     mapa.Pavement_1.Add(new TipoDePieza { fil = fila, col = columna });
                 }
+                else if (tileImage.sprite.name == "Pavement_2")
+                {
+                    mapa.Pavement_2.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "Pavement_3")
+                {
+                    mapa.Pavement_3.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "Pavement_4")
+                {
+                    mapa.Pavement_4.Add(new TipoDePieza { fil = fila, col = columna });
+                }
                 else if (tileImage.sprite.name == "TurnRight")
                 {
                     mapa.TurnRight.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TurnRightContinua")
+                {
+                    mapa.TurnRightContinua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnLeft")
                 {
                     mapa.TurnLeft.Add(new TipoDePieza { fil = fila, col = columna });
                 }
+                else if (tileImage.sprite.name == "TurnLeftContinua")
+                {
+                    mapa.TurnLeftContinua.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TurnLeft2Continua")
+                {
+                    mapa.TurnLeft2Continua.Add(new TipoDePieza { fil = fila, col = columna });
+                }
                 else if (tileImage.sprite.name == "TurnRight2")
                 {
                     mapa.TurnRight2.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "TurnRight2Continua")
+                {
+                    mapa.TurnRight2Continua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnLeft2")
                 {
@@ -80,6 +116,14 @@ public class MapSaver : MonoBehaviour
                 {
                     mapa.TunnelHorizontal.Add(new TipoDePieza { fil = fila, col = columna });
                 }
+                else if (tileImage.sprite.name == "Grass")
+                {
+                    mapa.Grass.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                else if (tileImage.sprite.name == "Grass_2")
+                {
+                    mapa.Grass_2.Add(new TipoDePieza { fil = fila, col = columna });
+                }
                 // Guardar stops (InteractivePoints)
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
                 {
@@ -90,14 +134,23 @@ public class MapSaver : MonoBehaviour
                         {
                             mapa.stops.Add(new Stop
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() }, 
+                                pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
-                                orientacion = point.orientacion 
+                                orientacion = point.orientacion
                             });
                         }
                         else if (nombreHijo == "prohibido")
                         {
                             mapa.prohibidos.Add(new Prohibido
+                            {
+                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
+                        else if (nombreHijo == "ceda")
+                        {
+                            mapa.cedas.Add(new Ceda
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
@@ -113,7 +166,23 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion
                             });
                         }
-
+                        else if (nombreHijo == "targetJugador")
+                        {
+                            mapa.targetJugador = (new TargetForPlayer
+                            {
+                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col }
+                            });
+                        }
+                        else if (nombreHijo == "Car_Player")
+                        {
+                            mapa.jugadorNuevo = (new Jugador
+                            {
+                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
                     }
 
                 }
