@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using static LevelLoaderXML;
 
 public class MapSaver : MonoBehaviour
 {
@@ -12,12 +14,26 @@ public class MapSaver : MonoBehaviour
     public void SaveMap()
     {
         string levelType = levelTypeDropdown.options[levelTypeDropdown.value].text;
-        MapaData mapa = new MapaData
+        MapaCompleto mapaCompleto = new MapaCompleto
         {
-            numPiezas = gridParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
-            filas = gridParent.GetComponent<LevelEditorController>().GetWidth(),
-            columnas = gridParent.GetComponent<LevelEditorController>().GetHeight(),
-            type = levelType
+            type = levelType,
+            mapa = new MapaData
+            {
+                numPiezas = gridParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
+                filas = gridParent.GetComponent<LevelEditorController>().GetWidth(),
+                columnas = gridParent.GetComponent<LevelEditorController>().GetHeight(),
+                Vertical = new List<TipoDePieza>(),
+                Horizontal = new List<TipoDePieza>(),
+                Grass_2 = new List<TipoDePieza>(),
+                TurnLeft = new List<TipoDePieza>(),
+                TurnRight = new List<TipoDePieza>(),
+                TurnLeft2 = new List<TipoDePieza>(),
+                TurnRight2 = new List<TipoDePieza>()
+            },
+            maxVelocidad = new List<MaxVelocidad>(),
+            IACars = new List<IA_Car>(),
+            targetJugador = new TargetForPlayer(),
+            jugadorNuevo = new Jugador()
         };
 
         foreach (Transform tile in gridParent)
@@ -34,95 +50,95 @@ public class MapSaver : MonoBehaviour
 
                 if (tileImage.sprite.name == "Roundabout")
                 {
-                    mapa.Roundabout.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Roundabout.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Crossroad")
                 {
-                    mapa.Crossroad.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Crossroad.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Vertical")
                 {
-                    mapa.Vertical.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Vertical.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "VerticalContinua")
                 {
-                    mapa.VerticalContinua.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.VerticalContinua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Horizontal")
                 {
-                    mapa.Horizontal.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Horizontal.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "HorizontalContinua")
                 {
-                    mapa.HorizontalContinua.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.HorizontalContinua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Pavement")
                 {
-                    mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Pavement_1")
                 {
-                    mapa.Pavement_1.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Pavement_1.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Pavement_2")
                 {
-                    mapa.Pavement_2.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Pavement_2.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Pavement_3")
                 {
-                    mapa.Pavement_3.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Pavement_3.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Pavement_4")
                 {
-                    mapa.Pavement_4.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Pavement_4.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnRight")
                 {
-                    mapa.TurnRight.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnRight.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnRightContinua")
                 {
-                    mapa.TurnRightContinua.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnRightContinua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnLeft")
                 {
-                    mapa.TurnLeft.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnLeft.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnLeftContinua")
                 {
-                    mapa.TurnLeftContinua.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnLeftContinua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnLeft2Continua")
                 {
-                    mapa.TurnLeft2Continua.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnLeft2Continua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnRight2")
                 {
-                    mapa.TurnRight2.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnRight2.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnRight2Continua")
                 {
-                    mapa.TurnRight2Continua.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnRight2Continua.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TurnLeft2")
                 {
-                    mapa.TurnLeft2.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TurnLeft2.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TunnelVertical")
                 {
-                    mapa.TunnelVertical.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TunnelVertical.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "TunnelHorizontal")
                 {
-                    mapa.TunnelHorizontal.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.TunnelHorizontal.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Grass")
                 {
-                    mapa.Grass.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Grass.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 else if (tileImage.sprite.name == "Grass_2")
                 {
-                    mapa.Grass_2.Add(new TipoDePieza { fil = fila, col = columna });
+                    mapaCompleto.mapa.Grass_2.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 // Guardar stops (InteractivePoints)
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
@@ -132,7 +148,7 @@ public class MapSaver : MonoBehaviour
                         string nombreHijo = point.gameObject.transform.GetChild(0).name;
                         if (nombreHijo == "stop")
                         {
-                            mapa.stops.Add(new Stop
+                            mapaCompleto.stops.Add(new Stop
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
@@ -141,7 +157,7 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "prohibido")
                         {
-                            mapa.prohibidos.Add(new Prohibido
+                            mapaCompleto.prohibidos.Add(new Prohibido
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
@@ -150,7 +166,7 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "ceda")
                         {
-                            mapa.cedas.Add(new Ceda
+                            mapaCompleto.cedas.Add(new Ceda
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
@@ -159,7 +175,7 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "IA_Car")
                         {
-                            mapa.IACars.Add(new IA_Car
+                            mapaCompleto.IACars.Add(new IA_Car
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
@@ -168,7 +184,7 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "targetJugador")
                         {
-                            mapa.targetJugador = (new TargetForPlayer
+                            mapaCompleto.targetJugador = (new TargetForPlayer
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col }
@@ -176,7 +192,7 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "Car_Player")
                         {
-                            mapa.jugadorNuevo = (new Jugador
+                            mapaCompleto.jugadorNuevo = (new Jugador
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
@@ -190,7 +206,7 @@ public class MapSaver : MonoBehaviour
         }
 
         //JSON 
-        string json = JsonUtility.ToJson(mapa, true);
+        string json = JsonUtility.ToJson(mapaCompleto, true);
         string path = Path.Combine(Application.streamingAssetsPath, "prueba.json");
         File.WriteAllText(path, json);
 

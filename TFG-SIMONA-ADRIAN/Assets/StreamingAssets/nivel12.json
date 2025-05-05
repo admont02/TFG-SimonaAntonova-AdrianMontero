@@ -2,7 +2,7 @@
     "nivel": 12,
     "rain": true,
     "type": "Luces",
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 49,
         "filas": 7,
         "columnas": 7,
@@ -225,7 +225,7 @@
             "orientacion": "abajo"
         }
     ],
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 3
         },

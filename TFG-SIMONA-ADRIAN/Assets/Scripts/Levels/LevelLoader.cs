@@ -116,53 +116,53 @@ public class LevelLoader : MonoBehaviour
         float subScale = scale;
         //List<Vector3> posicionesPiezas = new List<Vector3>();
         Dictionary<int, GameObject> posicionesPiezas = new Dictionary<int, GameObject>();
-        int nodos = nivel.mapaNuevo.numPiezas;
-        GameManager.Instance.filas = nivel.mapaNuevo.filas;
-        GameManager.Instance.columnas = nivel.mapaNuevo.columnas;
+        int nodos = nivel.mapa.numPiezas;
+        GameManager.Instance.filas = nivel.mapa.filas;
+        GameManager.Instance.columnas = nivel.mapa.columnas;
         GameManager.Instance.scale = scale;
         Digrafo digrafo = new Digrafo(nodos);
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
 
-            CrearTipoPiezas(nivel.mapaNuevo.Crossroad, "Crossroad", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Vertical, "Vertical", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.VerticalContinua, "VerticalContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Horizontal, "Horizontal", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.HorizontalContinua, "HorizontalContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Roundabout, "Roundabout", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnRight, "TurnRight", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnRightContinua, "TurnRightContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnRight2, "TurnRight2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnRight2Continua, "TurnRight2Continua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft, "TurnLeft", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnLeftContinua, "TurnLeftContinua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft2, "TurnLeft2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TurnLeft2Continua, "TurnLeft2Continua", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Intersection, "Intersection", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Intersection2, "Intersection2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Intersection3, "Intersection3", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Intersection4, "Intersection4", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Pavement, "Pavement", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Pavement_2, "Pavement_2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Pavement_3, "Pavement_3", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Pavement_4, "Pavement_4", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.TunnelVertical, "TunnelVertical", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Grass, "Grass", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
-            CrearTipoPiezas(nivel.mapaNuevo.Grass_2, "Grass_2", nivel.mapaNuevo, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Crossroad, "Crossroad", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Vertical, "Vertical", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.VerticalContinua, "VerticalContinua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Horizontal, "Horizontal", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.HorizontalContinua, "HorizontalContinua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Roundabout, "Roundabout", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnRight, "TurnRight", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnRightContinua, "TurnRightContinua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnRight2, "TurnRight2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnRight2Continua, "TurnRight2Continua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnLeft, "TurnLeft", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnLeftContinua, "TurnLeftContinua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnLeft2, "TurnLeft2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TurnLeft2Continua, "TurnLeft2Continua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Intersection, "Intersection", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Intersection2, "Intersection2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Intersection3, "Intersection3", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Intersection4, "Intersection4", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Pavement, "Pavement", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Pavement_2, "Pavement_2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Pavement_3, "Pavement_3", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Pavement_4, "Pavement_4", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TunnelVertical, "TunnelVertical", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Grass, "Grass", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Grass_2, "Grass_2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
 
             //JUGADOR NUEVO
-            if (nivel.jugadorNuevo.pieza != null)
+            if (nivel.jugador.pieza != null)
             {
-                int indexPieza = nivel.jugadorNuevo.pieza.index;
+                int indexPieza = nivel.jugador.pieza.index;
                 if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
                 {
                     Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
                     //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-                    Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale, subdivisions);
+                    Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugador.subPosicion.fil, nivel.jugador.subPosicion.col, subScale, subdivisions);
 
                     // Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
-                    Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugadorNuevo.orientacion);
+                    Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugador.orientacion);
                     GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
                     playerObj.transform.localScale = new Vector3(playerObj.transform.localScale.x * scale / 100, playerObj.transform.localScale.y * scale / 100, playerObj.transform.localScale.z * scale / 100);
                     playerObj.SetActive(true);

@@ -1,6 +1,6 @@
 {
     "nivel": 14,
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 25,
         "filas": 5,
         "columnas": 5,
@@ -150,7 +150,7 @@
         "TunnelVertical": [],
         "TunnelHorizontal": []
     },
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 5
         },

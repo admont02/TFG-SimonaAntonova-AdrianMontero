@@ -1,7 +1,7 @@
 {
     "type": "Manejo",
     "nivel": 17,
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 64,
         "filas": 8,
         "columnas": 8,
@@ -311,7 +311,7 @@
         ],
         "TunnelHorizontal": []
     },
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 8
         },

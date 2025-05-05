@@ -4,7 +4,7 @@
     "correctOrder": [
         1,0,2
     ],
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 9,
         "filas": 3,
         "columnas": 3,

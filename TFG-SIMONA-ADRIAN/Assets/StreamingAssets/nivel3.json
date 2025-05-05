@@ -1,7 +1,7 @@
 {
     "nivel": 3,
     "type": "Luces",
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 49,
         "filas": 7,
         "columnas": 7,
@@ -213,7 +213,7 @@
         "TurnLeft": [],
         "TurnRight": []
     },
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 3
         },

@@ -3,7 +3,7 @@
     "nivel": 13,
     "night": true,
     "deslumbramiento": true,
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 100,
         "filas": 10,
         "columnas": 10,
@@ -464,7 +464,7 @@
             "orientacion": "arriba"
         }
     ],
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 14
         },

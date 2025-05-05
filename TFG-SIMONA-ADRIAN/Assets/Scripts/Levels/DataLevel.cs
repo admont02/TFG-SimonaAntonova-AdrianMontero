@@ -3,9 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 //para el editor de niveles
 [System.Serializable]
-public class MapaData
+public class MapaCompleto
 {
     public string type;
+    public MapaData mapa;
+    public List<Stop> stops = new List<Stop>();
+    public List<Prohibido> prohibidos = new List<Prohibido>();
+    public List<Ceda> cedas = new List<Ceda>();
+    public List<MaxVelocidad> maxVelocidad = new List<MaxVelocidad>();
+    public List<IA_Car> IACars = new List<IA_Car>();
+    public TargetForPlayer targetJugador;
+    public Jugador jugadorNuevo;
+    public List<SemaforoNuevoConfig> semaforos = new List<SemaforoNuevoConfig>();
+}
+[System.Serializable]
+public class MapaData
+{
     public int numPiezas;
     public int filas;
     public int columnas;
@@ -30,14 +43,6 @@ public class MapaData
     public List<TipoDePieza> TurnLeft2Continua = new List<TipoDePieza>();
     public List<TipoDePieza> TurnRight2 = new List<TipoDePieza>();
     public List<TipoDePieza> TurnRight2Continua = new List<TipoDePieza>();
-    public List<Stop> stops = new List<Stop>();
-    public List<Prohibido> prohibidos = new List<Prohibido>();
-    public List<Ceda> cedas = new List<Ceda>();
-    public List<MaxVelocidad> maxVelocidad = new List<MaxVelocidad>();
-    public List<IA_Car> IACars = new List<IA_Car>();
-    public TargetForPlayer targetJugador;
-    public Jugador jugadorNuevo;
-    public List<SemaforoNuevoConfig> semaforos=new List<SemaforoNuevoConfig>();
     public List<TipoDePieza> TunnelVertical = new List<TipoDePieza>();
     public List<TipoDePieza> TunnelHorizontal = new List<TipoDePieza>();
 
@@ -52,9 +57,9 @@ public class TipoDePieza
 public static class SceneData
 {
     public static bool firstTime = true;
-    //public static string JsonFileName = "menu.json";
+    public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    public static string JsonFileName="prueba.json";
+    //public static string JsonFileName="nivel1.json";
     public static Vector3 lastCarPosition = Vector3.zero; // Última posición del coche en el menú o nivel
     public static bool hasLastPosition = false;
     public static Quaternion lastCarRotation = Quaternion.identity;
@@ -80,12 +85,7 @@ public class IA_Car
     public string vehicle = "car";
     public bool emergency = false;
 }
-[System.Serializable]
-public class Player
-{
-    public Posicion posicionInicial;
-    public Posicion rotacionInicial;
-}
+
 [System.Serializable]
 public class Cuadricula
 {
@@ -366,20 +366,14 @@ public class IADestroyer
     public string orientacion;
 
 }
-[System.Serializable]
-public class MapaConfig
-{
-    public string nombre;
-    public Posicion posicion;
-}
+
 [System.Serializable]
 public class Nivel
 {
     public int nivel;
-    public MapaConfig mapa;
-    public MapaNuevo mapaNuevo;
-    public Player jugador;
-    public Jugador jugadorNuevo;
+    //public MapaConfig mapa;
+    public MapaNuevo mapa;
+    public Jugador jugador;
     public TargetForPlayer targetJugador;
     public List<IA_Car> IACars;
 

@@ -1,6 +1,6 @@
 {
     "type": "Prioridad",
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 100,
         "filas": 10,
         "columnas": 10,

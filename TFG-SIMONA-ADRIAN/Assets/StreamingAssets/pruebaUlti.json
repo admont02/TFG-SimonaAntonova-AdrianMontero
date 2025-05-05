@@ -1,0 +1,142 @@
+{
+    "type": "Manejo",
+    "mapa": {
+        "numPiezas": 9,
+        "filas": 3,
+        "columnas": 3,
+        "Vertical": [
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 2
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "Grass_2": [
+            {
+                "fil": 1,
+                "col": 1
+            }
+        ],
+        "TurnLeft": [
+            {
+                "fil": 2,
+                "col": 2
+            }
+        ],
+        "TurnRight": [
+            {
+                "fil": 2,
+                "col": 0
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "TurnRight2": [
+            {
+                "fil": 0,
+                "col": 0
+            }
+        ]
+    },
+    "maxVelocidad": [
+        {
+            "velocidad": 40,
+            "pieza": {
+                "index": 3
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "velocidad": 40,
+            "pieza": {
+                "index": 5
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "arriba"
+        }
+    ],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 7
+            },
+            "orientacion": "derecha",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        },
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 4
+            },
+            "orientacion": "izquierda",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        },
+        { 
+            "pieza": {
+                "index": 5
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 12
+            },
+            "orientacion": "arriba",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 5
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 1
+        }
+    },
+    "jugador": {
+        "pieza": {
+            "index": 3
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    }
+}

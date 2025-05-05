@@ -1,7 +1,7 @@
 {
     "type": "Manejo",
     "nivel": 15,
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 16,
         "filas": 4,
         "columnas": 4,
@@ -211,7 +211,7 @@
             "orientacion": "arriba"
         }
     ],
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 1
         },

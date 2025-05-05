@@ -1,6 +1,6 @@
 {
     "nivel": 5,
-    "mapaNuevo": {
+    "mapa": {
         "numPiezas": 9,
         "filas": 3,
         "columnas": 3,
@@ -79,7 +79,7 @@
             }
         ]
     },
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
             "index": 0
         },
