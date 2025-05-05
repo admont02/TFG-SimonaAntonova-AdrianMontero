@@ -429,7 +429,7 @@ public class LevelLoader : MonoBehaviour
             stopObj.SetActive(true);
         }
         //SEMAFOROS NUEVOS
-        foreach (var semaforo in nivel.semaforosNuevos)
+        foreach (var semaforo in nivel.semaforos)
         {
             // Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
             Quaternion rotation = ConvertirOrientacionARotacion(semaforo.orientacion);

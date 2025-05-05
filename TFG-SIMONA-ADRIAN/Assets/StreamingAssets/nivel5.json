@@ -89,7 +89,7 @@
         },
         "orientacion": "arriba"
     },
-    "semaforosNuevos": [
+    "semaforos": [
         {
             "doble": false,
             "pieza": {

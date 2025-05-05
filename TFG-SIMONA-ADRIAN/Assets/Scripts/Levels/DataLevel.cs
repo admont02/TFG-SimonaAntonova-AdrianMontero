@@ -14,7 +14,7 @@ public class MapaCompleto
     public List<IA_Car> IACars = new List<IA_Car>();
     public TargetForPlayer targetJugador;
     public Jugador jugadorNuevo;
-    public List<SemaforoNuevoConfig> semaforos = new List<SemaforoNuevoConfig>();
+    public List<Semaforo> semaforos = new List<Semaforo>();
 }
 [System.Serializable]
 public class MapaData
@@ -57,9 +57,9 @@ public class TipoDePieza
 public static class SceneData
 {
     public static bool firstTime = true;
-    public static string JsonFileName = "menu.json";
+    //public static string JsonFileName = "menu.json";
     // para poder probar el nivel sin venir desde el menu sustituir lo de arriba por esta:
-    //public static string JsonFileName="nivel1.json";
+    public static string JsonFileName="nivel14.json";
     public static Vector3 lastCarPosition = Vector3.zero; // Última posición del coche en el menú o nivel
     public static bool hasLastPosition = false;
     public static Quaternion lastCarRotation = Quaternion.identity;
@@ -212,7 +212,7 @@ public class Digrafo
 }
 
 [System.Serializable]
-public class SemaforoNuevoConfig
+public class Semaforo
 {
     public bool doble;
     public Pieza pieza;
@@ -385,7 +385,7 @@ public class Nivel
     public List<Prohibido> prohibidos;
     public List<Ceda> cedas;
     public List<IniLuz> iniLuces;
-    public List<SemaforoNuevoConfig> semaforosNuevos;
+    public List<Semaforo> semaforos;
 
     public List<ElementoMapa> elementosMapa;
     public string[] levelDialogs;

@@ -99,7 +99,7 @@
         "TunnelVertical": [],
         "TunnelHorizontal": []
     },
-    "semaforosNuevos": [
+    "semaforos": [
         {
             "doble": false,
             "pieza": {

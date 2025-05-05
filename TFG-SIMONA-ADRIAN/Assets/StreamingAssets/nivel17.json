@@ -388,7 +388,7 @@
             "orientacion": "izquierda"
         }
     ],
-    "semaforosNuevos": [
+    "semaforos": [
         {
             "doble": false,
             "pieza": {
