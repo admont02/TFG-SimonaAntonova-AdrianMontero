@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CarMoveTittle : MonoBehaviour
 {
-    public Transform centroTitulo;  // Asigna el objeto que es el título
-    public float radio = 3f;       // Distancia del coche al título
-    public float velocidad = 2f;   // Velocidad de giro
 
-    private float angulo = 0f;
+    public TMP_Text textoUI;
+    public float amplitud = 5f;  // Cuánto se mueve cada letra
+    public float velocidad = 5f; // Velocidad de vibración
 
     void Update()
     {
-        angulo += velocidad * Time.deltaTime;
-        float x = centroTitulo.position.x + Mathf.Cos(angulo) * radio;
-        float y = centroTitulo.position.y + Mathf.Sin(angulo) * radio;
-        transform.position = new Vector3(x, y, transform.position.z);
+        string originalText = textoUI.text;
+        string textoModificado = "";
+
+        for (int i = 0; i < originalText.Length; i++)
+        {
+            float offset = Mathf.Sin(Time.time * velocidad + i) * amplitud;
+            //textoModificado += $"<voffset={offset}em>{originalText[i]}</voffset>";
+        }
+
+        textoUI.text = textoModificado;
     }
 }
