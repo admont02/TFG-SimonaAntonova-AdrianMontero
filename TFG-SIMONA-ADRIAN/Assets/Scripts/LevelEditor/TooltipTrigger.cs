@@ -11,7 +11,7 @@ public class TooltipTriggerUI : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         Debug.Log("puntero");
 
-        Vector3 offsetPosition = transform.position + new Vector3(0, 5,0); 
+        Vector3 offsetPosition = transform.position + new Vector3(0, 3.5f,0); 
         tooltipManager.ShowTooltip(tooltipMessage, offsetPosition);
     }
 

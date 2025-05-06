@@ -1,5 +1,5 @@
 using UnityEngine;
-using Xasu.HighLevel;
+//using Xasu.HighLevel;
 
 public class TriggerHandler : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class TriggerHandler : MonoBehaviour
 
                 if (trafficLight.GetComponent<SimpleTrafficLight>().red.activeSelf)
                 {
-                    GameObjectTracker.Instance.Interacted("traffic-light-error", GameObjectTracker.TrackedGameObject.GameObject);
+                    //GameObjectTracker.Instance.Interacted("traffic-light-error", GameObjectTracker.TrackedGameObject.GameObject);
                     if(!GameManager.Instance.incorrectLevel.Contains("Has pasado un Semáforo con luz roja."))
                     GameManager.Instance.incorrectLevel.Add("Has pasado un Semáforo con luz roja.");
                 }

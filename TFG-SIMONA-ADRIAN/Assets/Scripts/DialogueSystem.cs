@@ -34,13 +34,14 @@ public class DialogueSystem : MonoBehaviour
 
         dialogueText.text = ""; // Asegurarnos de que la primera frase esté vacía al inicio
         dialogueBackground.onClick.AddListener(NextSentence);
-        audioSource.volume = 0.07f;
     }
 
     public void StartDialogue(bool end)
     {
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0.07f;
+
         ResetDialogue();
         index = 0;
         dialoguePanel?.SetActive(true);

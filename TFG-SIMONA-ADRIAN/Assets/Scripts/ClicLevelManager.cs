@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Xasu.HighLevel;
+//using Xasu.HighLevel;
 
 public class ClicLevelManager : MonoBehaviour
 {
@@ -89,7 +89,7 @@ public class ClicLevelManager : MonoBehaviour
             }
 
             //Registrar el orden independientemente de si es correcto o no
-            GameObjectTracker.Instance.Interacted($"car-{otherCar.carID}-order-{index + 1}");
+            //GameObjectTracker.Instance.Interacted($"car-{otherCar.carID}-order-{index + 1}");
             index++;
         }
 

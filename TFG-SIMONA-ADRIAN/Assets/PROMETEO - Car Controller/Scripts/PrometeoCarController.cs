@@ -13,7 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Xasu.HighLevel;
+//using Xasu.HighLevel;
 
 public class PrometeoCarController : MonoBehaviour
 {
@@ -288,24 +288,24 @@ public class PrometeoCarController : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<OtherCar>() != null)
         {
-            GameObjectTracker.Instance.Interacted("crash-car-error", GameObjectTracker.TrackedGameObject.GameObject);
+            //GameObjectTracker.Instance.Interacted("crash-car-error", GameObjectTracker.TrackedGameObject.GameObject);
             if (!GameManager.Instance.incorrectLevel.Contains("Has tenido un choque con otro vehículo."))
                 GameManager.Instance.incorrectLevel.Add("Has tenido un choque con otro vehículo.");
         }
     }
     private void TrackPlayerInput()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            GameObjectTracker.Instance.Interacted("player-moved-forward");
+        //if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        //    GameObjectTracker.Instance.Interacted("player-moved-forward");
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            GameObjectTracker.Instance.Interacted("player-moved-backward");
+        //if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        //    GameObjectTracker.Instance.Interacted("player-moved-backward");
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            GameObjectTracker.Instance.Interacted("player-moved-left");
+        //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        //    GameObjectTracker.Instance.Interacted("player-moved-left");
 
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            GameObjectTracker.Instance.Interacted("player-moved-right");
+        //if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        //    GameObjectTracker.Instance.Interacted("player-moved-right");
 
     }
     // Update is called once per frame

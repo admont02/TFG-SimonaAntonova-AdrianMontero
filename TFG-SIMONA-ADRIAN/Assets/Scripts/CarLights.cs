@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Xasu.HighLevel;
+//using Xasu.HighLevel;
 
 public class CarLights : MonoBehaviour
 {
@@ -118,12 +118,12 @@ public class CarLights : MonoBehaviour
         GameManager.Instance.antinieblaDelanteras.GetComponent<Image>().color = antinieblaOn ? Color.yellow : Color.white;
         if (antinieblaOn)
         {
-            GameObjectTracker.Instance.Interacted("antinieblasDelanteras-on");
+            //GameObjectTracker.Instance.Interacted("antinieblasDelanteras-on");
             lucesSeleccionadas.Add("antinieblasDelanteras");
         }
         else
         {
-            GameObjectTracker.Instance.Interacted("antinieblasDelanteras-off");
+            //GameObjectTracker.Instance.Interacted("antinieblasDelanteras-off");
             lucesSeleccionadas.Remove("antinieblasDelanteras");
         }
         CheckCorrectLights();
@@ -138,12 +138,12 @@ public class CarLights : MonoBehaviour
         GameManager.Instance.antinieblaTraseras.GetComponent<Image>().color = antinieblaBackOn ? Color.yellow : Color.white;
         if (antinieblaBackOn)
         {
-            GameObjectTracker.Instance.Interacted("antinieblasTraseras-on");
+            //GameObjectTracker.Instance.Interacted("antinieblasTraseras-on");
             lucesSeleccionadas.Add("antinieblasTraseras");
         }
         else
         {
-            GameObjectTracker.Instance.Interacted("antinieblasTraseras-off");
+            //GameObjectTracker.Instance.Interacted("antinieblasTraseras-off");
             lucesSeleccionadas.Remove("antinieblasTraseras");
         }
         CheckCorrectLights();
@@ -161,7 +161,7 @@ public class CarLights : MonoBehaviour
         {
 
 
-            GameObjectTracker.Instance.Interacted("posicion-on");
+            //GameObjectTracker.Instance.Interacted("posicion-on");
             lucesSeleccionadas.Add("posicion");
         }
         else
@@ -171,7 +171,7 @@ public class CarLights : MonoBehaviour
             if (largasOn)
                 ToggleLargasLights();
 
-            GameObjectTracker.Instance.Interacted("posicion-off");
+            //GameObjectTracker.Instance.Interacted("posicion-off");
             lucesSeleccionadas.Remove("posicion");
         }
         CheckCorrectLights();
@@ -191,12 +191,12 @@ public class CarLights : MonoBehaviour
                 TogglePosicionLights();
             if (largasOn)
                 ToggleLargasLights();
-            GameObjectTracker.Instance.Interacted("cortas-on");
+            //GameObjectTracker.Instance.Interacted("cortas-on");
             lucesSeleccionadas.Add("cortas");
         }
         else
         {
-            GameObjectTracker.Instance.Interacted("cortas-off");
+            //GameObjectTracker.Instance.Interacted("cortas-off");
             lucesSeleccionadas.Remove("cortas");
         }
         CheckCorrectLights();
@@ -217,12 +217,12 @@ public class CarLights : MonoBehaviour
             if (cortasOn)
                 ToggleCortasLights();
 
-            GameObjectTracker.Instance.Interacted("largas-on");
+            //GameObjectTracker.Instance.Interacted("largas-on");
             lucesSeleccionadas.Add("largas");
         }
         else
         {
-            GameObjectTracker.Instance.Interacted("largas-off");
+            //GameObjectTracker.Instance.Interacted("largas-off");
             lucesSeleccionadas.Remove("largas");
         }
         CheckCorrectLights();

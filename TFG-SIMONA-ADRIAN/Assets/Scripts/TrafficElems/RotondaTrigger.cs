@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Xasu.HighLevel;
+//using Xasu.HighLevel;
 
 public class RotondaTrigger : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class RotondaTrigger : MonoBehaviour
             // Verificar si el jugador entra desde la izquierda
             if (entryAngle < lowerLimit && entryAngle > greaterLimit)
             {
-                GameObjectTracker.Instance.Interacted("roundabout-error", GameObjectTracker.TrackedGameObject.GameObject);
+                //GameObjectTracker.Instance.Interacted("roundabout-error", GameObjectTracker.TrackedGameObject.GameObject);
                 Debug.LogWarning("Entrada incorrecta en la rotonda.");
                 // Añadir lógica para manejar la entrada incorrecta (por ejemplo, reducir la velocidad)
                 if (!GameManager.Instance.incorrectLevel.Contains("Rotonda realizada en sentido contrario."))
