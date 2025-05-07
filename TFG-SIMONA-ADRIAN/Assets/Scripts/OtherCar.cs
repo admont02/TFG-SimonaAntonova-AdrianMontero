@@ -77,15 +77,15 @@ public class OtherCar : MonoBehaviour
                     Debug.Log("TENGO ORIENTACION: " + orientacion + " Y BRANCH TO " + branchTo);
                     localArrowRotation = new Vector3(-90, 0, -90); // Hacia adelante
                     break;
-                case 2: // Este
+                case 2: // Oeste
                     StartCoroutine(Intermitente(LeftLight.GetComponent<Light>()));
                     StartCoroutine(Intermitente(LeftLightFront.GetComponent<Light>()));
-                    localArrowRotation = new Vector3(-90, 0, 180); // Hacia la derecha
+                    localArrowRotation = new Vector3(-90, 0, 180); // Hacia la izqda
                     break;
-                case 3: // Oeste
+                case 0: // Este
                     StartCoroutine(Intermitente(RightLight.GetComponent<Light>()));
                     StartCoroutine(Intermitente(RightLightFront.GetComponent<Light>()));
-                    localArrowRotation = new Vector3(-90, -90, 0); // Hacia la izquierda
+                    localArrowRotation = new Vector3(-90, -90, 0); // Hacia la dcha
                     break;
                 case 4: // Sur
                     localArrowRotation = new Vector3(-90, 180, 0); // Hacia atrás

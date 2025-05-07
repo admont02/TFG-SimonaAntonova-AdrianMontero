@@ -376,7 +376,7 @@
                 "col": 14
             },
             "orientacion": "arriba",
-            "branchTo": 1
+            "branchTo": 0
         },
         {
             "pieza": {
@@ -398,7 +398,7 @@
                 "col": 7
             },
             "orientacion": "derecha",
-            "branchTo": 2
+            "branchTo": 0
         }
     ],
     "levelDialogs": [
