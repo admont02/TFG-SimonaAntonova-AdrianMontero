@@ -13,8 +13,11 @@ public class MapaCompleto
     public List<MaxVelocidad> maxVelocidad = new List<MaxVelocidad>();
     public List<IA_Car> IACars = new List<IA_Car>();
     public TargetForPlayer targetJugador;
-    public Jugador jugadorNuevo;
+    public Jugador jugador;
     public List<Semaforo> semaforos = new List<Semaforo>();
+    public string[] levelDialogs;
+    public string[] completedDialogs;
+    public string[] wrongDialogs;
 }
 [System.Serializable]
 public class MapaData

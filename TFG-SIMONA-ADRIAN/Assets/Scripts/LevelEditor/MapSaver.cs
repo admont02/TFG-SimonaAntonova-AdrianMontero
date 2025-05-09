@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using static LevelLoaderXML;
 
@@ -13,9 +14,12 @@ public class MapSaver : MonoBehaviour
     public int columnas;
 
     public TMP_InputField textMeshProUGUI;
+
+    string[] empty = new string[1];
     public void SaveMap()
     {
         string levelType = levelTypeDropdown.options[levelTypeDropdown.value].text;
+
         MapaCompleto mapaCompleto = new MapaCompleto
         {
             type = levelType,
@@ -35,9 +39,14 @@ public class MapSaver : MonoBehaviour
             maxVelocidad = new List<MaxVelocidad>(),
             IACars = new List<IA_Car>(),
             targetJugador = new TargetForPlayer(),
-            jugadorNuevo = new Jugador()
+            jugador = new Jugador(),
+            levelDialogs = empty,
+            completedDialogs = empty,
+            wrongDialogs = empty
         };
 
+        int numJugador = 0;
+        int numTarget = 0;
         foreach (Transform tile in gridParent)
         {
             //Obtener fila y columna del nombre del tile
@@ -188,28 +197,65 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion
                             });
                         }
-                        else if (nombreHijo == "targetJugador")
+                        else if (nombreHijo == "TargetForPlayer")
                         {
                             mapaCompleto.targetJugador = (new TargetForPlayer
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col }
                             });
+                            numTarget++;
                         }
                         else if (nombreHijo == "Car_Player")
                         {
-                            mapaCompleto.jugadorNuevo = (new Jugador
+                            mapaCompleto.jugador = (new Jugador
                             {
                                 pieza = new Pieza { index = tile.GetSiblingIndex() },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
+                            numJugador++;
                         }
                     }
 
                 }
+
+
             }
         }
+        if (levelType == "Manejo")
+        {
+            // Comprobar que hay jugador y target
+            if (numJugador != 1 || numTarget < 1)
+            {
+                Debug.LogError("Los niveles de manejo deben contener 1 jugador y al menos 1 destino (estrella), ahora hay: " + numJugador + ", " + numTarget);
+                return;
+            }
+            empty[0] = " Nivel de Manejo creado desde el editor";
+            mapaCompleto.levelDialogs = empty;
+        }
+        else if (levelType == "Luces")
+        {
+            // Comprobar que hay jugador y target
+            if (numJugador < 1 || numTarget < 1)
+            {
+                Debug.LogError("Los niveles de luces deben contener 1 jugador y al menos 1 destino (estrella), ahora hay: " + numJugador + ", " + numTarget);
+                return;
+            }
+            empty[0] = " Nivel de Luces creado desde el editor";
+            mapaCompleto.levelDialogs = empty;
+        }
+        else if (levelType == "Prioridad")
+        {
+            // Comprobar 
+            empty[0] = " Nivel de Prioridad creado desde el editor";
+            mapaCompleto.levelDialogs = empty;
+
+        }
+        string[] auxi = new string[1];
+        auxi[0] = " Nivel completado correctamente!";
+        mapaCompleto.completedDialogs = auxi;
+
 
         //JSON 
         string json = JsonUtility.ToJson(mapaCompleto, true);

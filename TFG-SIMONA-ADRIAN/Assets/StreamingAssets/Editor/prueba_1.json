@@ -1,5 +1,5 @@
 {
-    "type": "Prioridad",
+    "type": "Manejo",
     "mapa": {
         "numPiezas": 9,
         "filas": 3,
@@ -7,7 +7,20 @@
         "Crossroad": [],
         "Vertical": [],
         "VerticalContinua": [],
-        "Horizontal": [],
+        "Horizontal": [
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 2
+            }
+        ],
         "HorizontalContinua": [],
         "Roundabout": [],
         "Pavement": [
@@ -21,18 +34,6 @@
             },
             {
                 "fil": 2,
-                "col": 2
-            },
-            {
-                "fil": 1,
-                "col": 0
-            },
-            {
-                "fil": 1,
-                "col": 1
-            },
-            {
-                "fil": 1,
                 "col": 2
             },
             {
@@ -72,22 +73,31 @@
     "IACars": [],
     "targetJugador": {
         "pieza": {
-            "index": 0
+            "index": 5
         },
         "subPosicion": {
-            "fil": 0,
-            "col": 0
+            "fil": 11,
+            "col": 13
         }
     },
-    "jugadorNuevo": {
+    "jugador": {
         "pieza": {
-            "index": 0
+            "index": 3
         },
         "subPosicion": {
-            "fil": 0,
-            "col": 0
+            "fil": 1,
+            "col": 7
         },
-        "orientacion": ""
+        "orientacion": "derecha"
     },
-    "semaforos": []
+    "semaforos": [],
+    "levelDialogs": [
+        "Nivel de Manejo creado desde el editor"
+    ],
+    "completedDialogs": [
+        "Nivel completado correctamente!"
+    ],
+    "wrongDialogs": [
+        "Nivel de Manejo creado desde el editor"
+    ]
 }
