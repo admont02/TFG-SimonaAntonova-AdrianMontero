@@ -17,35 +17,39 @@ public class JsonListLoader : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
 
+            if (transform.GetChild(0).gameObject.activeSelf)
+            {
+                if (Directory.Exists(path))
+                {
+                    string[] files = Directory.GetFiles(path, "*.json");
+
+                    foreach (string file in files)
+                    {
+                        string fileName = Path.GetFileName(file);
+                        string fileName2 = Path.GetFileNameWithoutExtension(file);
+
+                        Debug.Log(file);
+                        Debug.Log(fileName);
+                        GameObject newButton = Instantiate(buttonPrefab, contentParent);
+                        newButton.GetComponentInChildren<TextMeshProUGUI>().text = fileName2;
+
+                        // Guardamos el nombre para el evento del botón
+                        string capturedFileName = fileName;
+                        newButton.GetComponent<Button>().onClick.AddListener(() =>
+                        {
+                            Debug.Log("Has hecho clic en: " + capturedFileName);
+                            PlayLevel(capturedFileName);
+                        });
+                    }
+                }
+                else
+                {
+                    Debug.LogError("No se encuentra la carpeta: " + path);
+                }
+
+            }
         });
 
-        if (Directory.Exists(path))
-        {
-            string[] files = Directory.GetFiles(path, "*.json");
-
-            foreach (string file in files)
-            {
-                string fileName = Path.GetFileName(file);
-                string fileName2 = Path.GetFileNameWithoutExtension(file);
-
-                Debug.Log(file);
-                Debug.Log(fileName);
-                GameObject newButton = Instantiate(buttonPrefab, contentParent);
-                newButton.GetComponentInChildren<TextMeshProUGUI>().text = fileName2;
-
-                // Guardamos el nombre para el evento del botón
-                string capturedFileName = fileName;
-                newButton.GetComponent<Button>().onClick.AddListener(() =>
-                {
-                    Debug.Log("Has hecho clic en: " + capturedFileName);
-                    PlayLevel(capturedFileName);
-                });
-            }
-        }
-        else
-        {
-            Debug.LogError("No se encuentra la carpeta: " + path);
-        }
     }
 
     void PlayLevel(string a)

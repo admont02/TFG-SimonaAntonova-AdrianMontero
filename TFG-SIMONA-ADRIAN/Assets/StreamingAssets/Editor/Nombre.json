@@ -1,0 +1,93 @@
+{
+    "type": "Prioridad",
+    "mapa": {
+        "numPiezas": 9,
+        "filas": 3,
+        "columnas": 3,
+        "Crossroad": [
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "Vertical": [],
+        "VerticalContinua": [],
+        "Horizontal": [],
+        "HorizontalContinua": [],
+        "Roundabout": [],
+        "Pavement": [],
+        "Pavement_1": [],
+        "Pavement_2": [],
+        "Pavement_3": [],
+        "Grass": [],
+        "Grass_2": [],
+        "Pavement_4": [],
+        "TurnLeft": [],
+        "TurnLeftContinua": [],
+        "TurnRight": [],
+        "TurnRightContinua": [],
+        "TurnLeft2": [],
+        "TurnLeft2Continua": [],
+        "TurnRight2": [],
+        "TurnRight2Continua": [],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
+    },
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "maxVelocidad": [],
+    "IACars": [],
+    "targetJugador": {
+        "pieza": {
+            "index": 0
+        },
+        "subPosicion": {
+            "fil": 0,
+            "col": 0
+        }
+    },
+    "jugadorNuevo": {
+        "pieza": {
+            "index": 0
+        },
+        "subPosicion": {
+            "fil": 0,
+            "col": 0
+        },
+        "orientacion": ""
+    },
+    "semaforos": []
+}

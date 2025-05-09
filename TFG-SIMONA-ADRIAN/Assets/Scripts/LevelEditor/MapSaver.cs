@@ -210,6 +210,12 @@ public class MapSaver : MonoBehaviour
         //JSON 
         string json = JsonUtility.ToJson(mapaCompleto, true);
         string path = Path.Combine(Application.streamingAssetsPath, "Editor/" + textMeshProUGUI.text + ".json");
+        int counter = 1;
+        while (File.Exists(path))
+        {
+            path = Path.Combine(Application.streamingAssetsPath, $"Editor/{textMeshProUGUI.text}_{counter}.json");
+            counter++;
+        }
         File.WriteAllText(path, json);
 
         Debug.Log($"Mapa guardado en {path}");
