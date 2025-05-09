@@ -1,0 +1,501 @@
+{
+    "type": "Luces",
+    "nivel": 18,
+    "night": false,
+    "deslumbramiento": false,
+    "fog": true,
+    "mapa": {
+        "numPiezas": 100,
+        "filas": 10,
+        "columnas": 10,
+        "Crossroad": [],
+        "Vertical": [
+            {
+                "fil": 9,
+                "col": 1
+            },
+            {
+                "fil": 8,
+                "col": 1
+            },
+            {
+                "fil": 8,
+                "col": 4
+            },
+            {
+                "fil": 8,
+                "col": 6
+            },
+            {
+                "fil": 7,
+                "col": 1
+            },
+            {
+                "fil": 7,
+                "col": 4
+            },
+            {
+                "fil": 6,
+                "col": 1
+            },
+            {
+                "fil": 6,
+                "col": 4
+            },
+            {
+                "fil": 6,
+                "col": 8
+            },
+            {
+                "fil": 5,
+                "col": 1
+            },
+            {
+                "fil": 5,
+                "col": 4
+            },
+            {
+                "fil": 5,
+                "col": 8
+            },
+            {
+                "fil": 4,
+                "col": 1
+            },
+            {
+                "fil": 4,
+                "col": 4
+            },
+            {
+                "fil": 4,
+                "col": 8
+            },
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 8
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 8
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "Horizontal": [
+            {
+                "fil": 9,
+                "col": 5
+            },
+            {
+                "fil": 7,
+                "col": 7
+            },
+            {
+                "fil": 1,
+                "col": 6
+            },
+            {
+                "fil": 1,
+                "col": 7
+            }
+        ],
+        "Roundabout": [],
+        "Pavement_2": [
+            {
+                "fil": 9,
+                "col": 2
+            },
+            {
+                "fil": 8,
+                "col": 0
+            },
+            {
+                "fil": 7,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 7
+            },
+            {
+                "fil": 6,
+                "col": 9
+            },
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 5,
+                "col": 2
+            }
+        ],
+        "Pavement_3": [
+            {
+                "fil": 0,
+                "col": 8
+            },
+            {
+                "fil": 9,
+                "col": 0
+            },
+            {
+                "fil": 9,
+                "col": 3
+            }
+        ],
+        "Pavement_4": [
+            {
+                "fil": 4,
+                "col": 7
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 7
+            },
+            {
+                "fil": 9,
+                "col": 7
+            },
+            {
+                "fil": 5,
+                "col": 7
+            },
+            {
+                "fil": 5,
+                "col": 9
+            },
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 9
+            }
+        ],
+        "Pavement": [
+            {
+                "fil": 9,
+                "col": 8
+            },
+            {
+                "fil": 9,
+                "col": 9
+            },
+            {
+                "fil": 8,
+                "col": 2
+            },
+            {
+                "fil": 8,
+                "col": 3
+            },
+            {
+                "fil": 8,
+                "col": 5
+            },
+            {
+                "fil": 8,
+                "col": 7
+            },
+            {
+                "fil": 8,
+                "col": 8
+            },
+            {
+                "fil": 8,
+                "col": 9
+            },
+            {
+                "fil": 7,
+                "col": 0
+            },
+            {
+                "fil": 7,
+                "col": 2
+            },
+            {
+                "fil": 7,
+                "col": 5
+            },
+            {
+                "fil": 7,
+                "col": 9
+            },
+            {
+                "fil": 6,
+                "col": 0
+            },
+            {
+                "fil": 6,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 3
+            },
+            {
+                "fil": 6,
+                "col": 5
+            },
+            {
+                "fil": 6,
+                "col": 6
+            },
+            {
+                "fil": 5,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 5
+            },
+            {
+                "fil": 4,
+                "col": 3
+            },
+            {
+                "fil": 4,
+                "col": 5
+            },
+            {
+                "fil": 4,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 9
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 6
+            },
+            {
+                "fil": 3,
+                "col": 7
+            },
+            {
+                "fil": 3,
+                "col": 9
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 2,
+                "col": 5
+            },
+            {
+                "fil": 2,
+                "col": 6
+            },
+            {
+                "fil": 2,
+                "col": 7
+            },
+            {
+                "fil": 2,
+                "col": 9
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 9
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "TurnLeft": [
+            {
+                "fil": 9,
+                "col": 6
+            },
+            {
+                "fil": 7,
+                "col": 8
+            }
+        ],
+        "TurnRight": [
+            {
+                "fil": 9,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 5
+            }
+        ],
+        "TurnLeft2": [
+            {
+                "fil": 1,
+                "col": 8
+            },
+            {
+                "fil": 0,
+                "col": 5
+            }
+        ],
+        "TurnRight2": [
+            {
+                "fil": 7,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 4
+            }
+        ],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
+    },
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "maxVelocidad": [
+        {
+            "velocidad": 90,
+            "pieza": {
+                "index": 14
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo"
+        },
+        {
+            "velocidad": 30,
+            "pieza": {
+                "index": 14
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 18
+            },
+            "orientacion": "arriba"
+        }
+    ],
+    "jugador": {
+        "pieza": {
+            "index": 14
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    },
+    "targetJugador": {
+        "pieza": {
+            "index": 84
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 11
+        }
+    },
+    "levelDialogs": [
+        " Estás conduciendo por una vía urbana con niebla muy intensa, lo que reduce considerablemente la visibilidad.",
+        "Selecciona las luces que puede llevar encendidas tu vehículo para garantizar tu seguridad y la de los demás usuarios de la carretera.",
+        "Recuerda que este vehículo está equipado con luces antiniebla delanteras.¡Buena suerte y conduce con precaución!"
+    ],
+    "completedDialogs": [
+        " ¡Enhorabuena! Has completado el nivel de forma correcta, utilizando las luces adecuadas para enfrentar la niebla intensa."
+    ],
+    "wrongDialogs": [
+        " Parece que no has seleccionado las luces adecuadas para esta situación.",
+        "Recuerda que luces PUEDES encender en condiciones meteorólogicas especialmente adversas",
+        "Las luces antiniebla delanteras de este vehículo están diseñadas específicamente para ayudar en estas condiciones. ¡Inténtalo de nuevo!"
+    ],
+    "objetivo": [
+        "cortas",
+        "posicion",
+        "antinieblasDelanteras",
+        "antinieblasTraseras"
+    ]
+}

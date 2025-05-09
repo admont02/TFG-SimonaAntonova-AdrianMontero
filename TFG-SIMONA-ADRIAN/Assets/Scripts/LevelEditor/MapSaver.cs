@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static LevelLoaderXML;
@@ -11,6 +12,7 @@ public class MapSaver : MonoBehaviour
     public int filas;
     public int columnas;
 
+    public TMP_InputField textMeshProUGUI;
     public void SaveMap()
     {
         string levelType = levelTypeDropdown.options[levelTypeDropdown.value].text;
@@ -207,7 +209,7 @@ public class MapSaver : MonoBehaviour
 
         //JSON 
         string json = JsonUtility.ToJson(mapaCompleto, true);
-        string path = Path.Combine(Application.streamingAssetsPath, "prueba.json");
+        string path = Path.Combine(Application.streamingAssetsPath, "Editor/" + textMeshProUGUI.text + ".json");
         File.WriteAllText(path, json);
 
         Debug.Log($"Mapa guardado en {path}");

@@ -1,5 +1,5 @@
 {
-    "type": "Manejo",
+    "type": "Prioridad",
     "mapa": {
         "numPiezas": 9,
         "filas": 3,
@@ -7,24 +7,33 @@
         "Crossroad": [],
         "Vertical": [],
         "VerticalContinua": [],
-        "Horizontal": [
-            {
-                "fil": 1,
-                "col": 0
-            },
-            {
-                "fil": 1,
-                "col": 1
-            },
-            {
-                "fil": 1,
-                "col": 2
-            }
-        ],
+        "Horizontal": [],
         "HorizontalContinua": [],
-        "Roundabout": [],
-        "Pavement": [],
-        "Pavement_1": [
+        "Roundabout": [
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
             {
                 "fil": 0,
                 "col": 0
@@ -38,23 +47,12 @@
                 "col": 2
             }
         ],
+        "Pavement": [],
+        "Pavement_1": [],
         "Pavement_2": [],
         "Pavement_3": [],
         "Grass": [],
-        "Grass_2": [
-            {
-                "fil": 2,
-                "col": 0
-            },
-            {
-                "fil": 2,
-                "col": 1
-            },
-            {
-                "fil": 2,
-                "col": 2
-            }
-        ],
+        "Grass_2": [],
         "Pavement_4": [],
         "TurnLeft": [],
         "TurnLeftContinua": [],
@@ -81,7 +79,7 @@
             "col": 0
         }
     },
-    "jugador": {
+    "jugadorNuevo": {
         "pieza": {
             "index": 0
         },

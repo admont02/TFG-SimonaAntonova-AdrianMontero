@@ -71,7 +71,26 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
-            Debug.Log("No se encontró el archivo JSON.");
+            filePath = Path.Combine(Application.streamingAssetsPath, "Editor/" + SceneData.JsonFileName); 
+            filePath = filePath.Replace("\\", "/"); // Reemplaza las barras invertidas por barras normales
+            Debug.Log("Ruta del archivo JSON: " + filePath);
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                Nivel nivelData = JsonUtility.FromJson<Nivel>(json);
+                //if (Enum.TryParse(nivelData.type.ToString(), true, out LevelType tipo)) 
+                //{ 
+                //    nivelData.type = tipo; 
+                //} 
+                //else 
+                //{ 
+                //    nivelData.type = LevelType.Desconocido; 
+                //}
+                CrearNivel(nivelData);
+                Debug.Log(" se encontró el archivo JSON.");
+            }
+            else
+                Debug.Log("No se encontró el archivo JSON.");
         }
     }
     Vector3 ConvertToPosition(int fil, int col, float scale)
@@ -202,7 +221,7 @@ public class LevelLoader : MonoBehaviour
             }
         }
         GameManager.Instance.graph = digrafo;
-        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs,nivel.wrongDialogs);
+        GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs, nivel.wrongDialogs);
 
 
         //IAs nuevo
@@ -223,7 +242,7 @@ public class LevelLoader : MonoBehaviour
                 if (IAcar.emergency)
                 {
                     cocheIAObj.GetComponent<Ambulance>().redLight.enabled = true;
-                    cocheIAObj.GetComponent<Ambulance>().lightsOn=true;
+                    cocheIAObj.GetComponent<Ambulance>().lightsOn = true;
                     cocheIAObj.GetComponent<OtherCar>().movementSpeed += 10;
 
                 }
@@ -255,7 +274,7 @@ public class LevelLoader : MonoBehaviour
                 priorityTextObj.transform.localPosition = new Vector3(0, 4.5f, 0);
                 priorityTextObj.transform.localScale = new Vector3(1, 1, 1);
             }
-            else if(IAcar.vehicle == "ambulance")
+            else if (IAcar.vehicle == "ambulance")
             {
                 priorityTextObj.transform.localPosition = new Vector3(0, 15.5f, 0);
                 priorityTextObj.transform.localScale = new Vector3(4, 4, 4);
@@ -265,10 +284,10 @@ public class LevelLoader : MonoBehaviour
                 priorityTextObj.transform.localPosition = new Vector3(0, 12.5f, 0);
                 priorityTextObj.transform.localScale = new Vector3(4, 4, 4);
             }
-            
+
             TextMesh priorityText = priorityTextObj.AddComponent<TextMesh>();
             priorityText.color = Color.red;
-           // priorityText.font = fuenteCoches;
+            // priorityText.font = fuenteCoches;
             priorityText.fontStyle = FontStyle.Bold;
 
             GameManager.Instance.AddCocheIA(cocheIAObj);
@@ -373,7 +392,7 @@ public class LevelLoader : MonoBehaviour
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);
-            
+
         }
         //prohibidos
         foreach (var sign in nivel.maxVelocidad)
