@@ -163,10 +163,12 @@ public class LevelLoader : MonoBehaviour
             CrearTipoPiezas(nivel.mapa.Intersection3, "Intersection3", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Intersection4, "Intersection4", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Pavement, "Pavement", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.Pavement_1, "Pavement_1", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Pavement_2, "Pavement_2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Pavement_3, "Pavement_3", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Pavement_4, "Pavement_4", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.TunnelVertical, "TunnelVertical", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
+            CrearTipoPiezas(nivel.mapa.TunnelHorizontal, "TunnelHorizontal", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Grass, "Grass", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Grass_2, "Grass_2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
 

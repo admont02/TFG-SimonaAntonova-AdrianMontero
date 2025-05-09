@@ -297,6 +297,7 @@ public class MapaNuevo
     public int filas;
     public int columnas;
     public List<PosicionMapa> Pavement;
+    public List<PosicionMapa> Pavement_1;
     public List<PosicionMapa> Pavement_2;
     public List<PosicionMapa> Pavement_3;
     public List<PosicionMapa> Pavement_4;

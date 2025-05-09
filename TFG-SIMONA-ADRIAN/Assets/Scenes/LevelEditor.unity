@@ -3119,7 +3119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6570552246728590178, guid: c1a1ecc012f835b4d9af44976d2e055d, type: 3}
       propertyPath: col
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6570552246728590178, guid: c1a1ecc012f835b4d9af44976d2e055d, type: 3}
       propertyPath: fil

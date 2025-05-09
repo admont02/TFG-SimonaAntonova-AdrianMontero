@@ -240,10 +240,7 @@ public class MapSaver : MonoBehaviour
                             numJugador++;
                         }
                     }
-
                 }
-
-
             }
         }
         if (levelType == "Manejo")
