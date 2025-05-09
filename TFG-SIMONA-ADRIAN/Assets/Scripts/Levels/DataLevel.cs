@@ -18,6 +18,10 @@ public class MapaCompleto
     public string[] levelDialogs;
     public string[] completedDialogs;
     public string[] wrongDialogs;
+    public bool fog = false;
+    public bool rain = false;
+    public bool night = false;
+    public bool deslumbramiento = false;
 }
 [System.Serializable]
 public class MapaData

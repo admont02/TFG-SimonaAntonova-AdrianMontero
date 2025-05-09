@@ -15,6 +15,11 @@ public class MapSaver : MonoBehaviour
 
     public TMP_InputField textMeshProUGUI;
 
+    public Toggle rainToggle;
+    public Toggle fogToggle;
+    public Toggle nightToggle;
+    public Toggle deslumbramientoToggle;
+
     string[] empty = new string[1];
     public void SaveMap()
     {
@@ -42,7 +47,12 @@ public class MapSaver : MonoBehaviour
             jugador = new Jugador(),
             levelDialogs = empty,
             completedDialogs = empty,
-            wrongDialogs = empty
+            wrongDialogs = empty,
+            rain = rainToggle.isOn,
+            fog = fogToggle.isOn,
+            night = nightToggle.isOn,
+            deslumbramiento = deslumbramientoToggle.isOn
+
         };
 
         int numJugador = 0;
@@ -233,6 +243,11 @@ public class MapSaver : MonoBehaviour
             }
             empty[0] = " Nivel de Manejo creado desde el editor";
             mapaCompleto.levelDialogs = empty;
+
+            mapaCompleto.rain = false;
+            mapaCompleto.fog = false;
+            mapaCompleto.night = false;
+            mapaCompleto.deslumbramiento = false;
         }
         else if (levelType == "Luces")
         {
@@ -242,6 +257,20 @@ public class MapSaver : MonoBehaviour
                 Debug.LogError("Los niveles de luces deben contener 1 jugador y al menos 1 destino (estrella), ahora hay: " + numJugador + ", " + numTarget);
                 return;
             }
+
+            //if (rainToggle.isOn || fogToggle.isOn || nightToggle.isOn || deslumbramientoToggle.isOn)
+            //{
+            mapaCompleto.rain = rainToggle.isOn;
+            mapaCompleto.fog = fogToggle.isOn;
+            mapaCompleto.night = nightToggle.isOn;
+            mapaCompleto.deslumbramiento = deslumbramientoToggle.isOn;
+            //}
+            //else
+            //{
+            //    Debug.LogError("Los niveles de luces deben tener algun elemento de la lista de opciones activo");
+            //    return;
+            //}
+
             empty[0] = " Nivel de Luces creado desde el editor";
             mapaCompleto.levelDialogs = empty;
         }
@@ -251,7 +280,13 @@ public class MapSaver : MonoBehaviour
             empty[0] = " Nivel de Prioridad creado desde el editor";
             mapaCompleto.levelDialogs = empty;
 
+            mapaCompleto.rain = false;
+            mapaCompleto.fog = false;
+            mapaCompleto.night = false;
+            mapaCompleto.deslumbramiento = false;
+
         }
+
         string[] auxi = new string[1];
         auxi[0] = " Nivel completado correctamente!";
         mapaCompleto.completedDialogs = auxi;
