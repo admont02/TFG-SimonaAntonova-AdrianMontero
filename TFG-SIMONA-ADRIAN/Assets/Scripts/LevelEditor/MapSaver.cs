@@ -64,6 +64,9 @@ public class MapSaver : MonoBehaviour
 
         int numJugador = 0;
         int numTarget = 0;
+
+
+
         foreach (Transform tile in gridParent)
         {
             //Obtener fila y columna del nombre del tile
@@ -173,6 +176,9 @@ public class MapSaver : MonoBehaviour
                     mapaCompleto.mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 // Guardar stops (InteractivePoints)
+
+    
+
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
                 {
                     if (point.gameObject.transform.childCount > 0)
@@ -182,7 +188,7 @@ public class MapSaver : MonoBehaviour
                         {
                             mapaCompleto.stops.Add(new Stop
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
@@ -191,7 +197,7 @@ public class MapSaver : MonoBehaviour
                         {
                             mapaCompleto.prohibidos.Add(new Prohibido
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
@@ -200,7 +206,7 @@ public class MapSaver : MonoBehaviour
                         {
                             mapaCompleto.cedas.Add(new Ceda
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
@@ -209,7 +215,7 @@ public class MapSaver : MonoBehaviour
                         {
                             mapaCompleto.IACars.Add(new IA_Car
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
@@ -218,7 +224,7 @@ public class MapSaver : MonoBehaviour
                         {
                             mapaCompleto.targetJugador = (new TargetForPlayer
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col }
                             });
                             numTarget++;
@@ -227,7 +233,7 @@ public class MapSaver : MonoBehaviour
                         {
                             mapaCompleto.jugador = (new Jugador
                             {
-                                pieza = new Pieza { index = tile.GetSiblingIndex() },
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
