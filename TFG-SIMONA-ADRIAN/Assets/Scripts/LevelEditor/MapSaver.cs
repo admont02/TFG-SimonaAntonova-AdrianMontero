@@ -49,7 +49,6 @@ public class MapSaver : MonoBehaviour
             Image tileImage = tile.GetComponent<Image>();
             if (tileImage != null && tileImage.sprite != null)
             {
-
                 if (tileImage.sprite.name == "Roundabout")
                 {
                     mapaCompleto.mapa.Roundabout.Add(new TipoDePieza { fil = fila, col = columna });
@@ -141,6 +140,11 @@ public class MapSaver : MonoBehaviour
                 else if (tileImage.sprite.name == "Grass_2")
                 {
                     mapaCompleto.mapa.Grass_2.Add(new TipoDePieza { fil = fila, col = columna });
+                }
+                // default
+                else
+                {
+                    mapaCompleto.mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
                 }
                 // Guardar stops (InteractivePoints)
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())

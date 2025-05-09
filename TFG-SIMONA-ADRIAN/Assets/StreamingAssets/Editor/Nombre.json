@@ -4,7 +4,13 @@
         "numPiezas": 9,
         "filas": 3,
         "columnas": 3,
-        "Crossroad": [
+        "Crossroad": [],
+        "Vertical": [],
+        "VerticalContinua": [],
+        "Horizontal": [],
+        "HorizontalContinua": [],
+        "Roundabout": [],
+        "Pavement": [
             {
                 "fil": 2,
                 "col": 0
@@ -42,12 +48,6 @@
                 "col": 2
             }
         ],
-        "Vertical": [],
-        "VerticalContinua": [],
-        "Horizontal": [],
-        "HorizontalContinua": [],
-        "Roundabout": [],
-        "Pavement": [],
         "Pavement_1": [],
         "Pavement_2": [],
         "Pavement_3": [],
