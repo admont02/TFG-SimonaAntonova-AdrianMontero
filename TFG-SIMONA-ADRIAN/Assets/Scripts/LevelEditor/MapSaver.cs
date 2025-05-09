@@ -20,6 +20,12 @@ public class MapSaver : MonoBehaviour
     public Toggle nightToggle;
     public Toggle deslumbramientoToggle;
 
+    public Toggle cortasToggle;
+    public Toggle largasToggle;
+    public Toggle posToggle;
+    public Toggle antidelToggle;
+    public Toggle antitraToggle;
+
     string[] empty = new string[1];
     public void SaveMap()
     {
@@ -43,6 +49,7 @@ public class MapSaver : MonoBehaviour
             },
             maxVelocidad = new List<MaxVelocidad>(),
             IACars = new List<IA_Car>(),
+            objetivo = new List<string>(),
             targetJugador = new TargetForPlayer(),
             jugador = new Jugador(),
             levelDialogs = empty,
@@ -264,6 +271,18 @@ public class MapSaver : MonoBehaviour
             mapaCompleto.fog = fogToggle.isOn;
             mapaCompleto.night = nightToggle.isOn;
             mapaCompleto.deslumbramiento = deslumbramientoToggle.isOn;
+
+
+            if (cortasToggle.isOn)
+                mapaCompleto.objetivo.Add(cortasToggle.gameObject.name);
+            if (largasToggle.isOn)
+                mapaCompleto.objetivo.Add(largasToggle.gameObject.name);
+            if (posToggle.isOn)
+                mapaCompleto.objetivo.Add(posToggle.gameObject.name);
+            if (antidelToggle.isOn)
+                mapaCompleto.objetivo.Add(antidelToggle.gameObject.name);
+            if (antitraToggle.isOn)
+                mapaCompleto.objetivo.Add(antitraToggle.gameObject.name);
             //}
             //else
             //{

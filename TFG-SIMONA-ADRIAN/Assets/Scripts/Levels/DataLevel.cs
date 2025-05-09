@@ -15,6 +15,7 @@ public class MapaCompleto
     public TargetForPlayer targetJugador;
     public Jugador jugador;
     public List<Semaforo> semaforos = new List<Semaforo>();
+    public List<string> objetivo;
     public string[] levelDialogs;
     public string[] completedDialogs;
     public string[] wrongDialogs;
