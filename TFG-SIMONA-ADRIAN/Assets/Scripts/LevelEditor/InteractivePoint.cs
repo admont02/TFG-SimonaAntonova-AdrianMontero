@@ -36,6 +36,10 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
             if (interactiveRect != null && draggableRect != null)
             {
                 draggableRect.sizeDelta = interactiveRect.sizeDelta; //Igualar tamaños
+                //if (copy.transform.childCount > 0)
+                //{
+                //    copy.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = interactiveRect.sizeDelta;
+                //}
             }
 
             //json?
