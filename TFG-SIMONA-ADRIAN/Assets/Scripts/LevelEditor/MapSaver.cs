@@ -31,15 +31,18 @@ public class MapSaver : MonoBehaviour
     public void SaveMap()
     {
         string levelType = levelTypeDropdown.options[levelTypeDropdown.value].text;
+        Transform mapParent = gridParent;
+        if (gridParentPrioridad.gameObject.activeSelf)
+            mapParent = gridParentPrioridad;
 
         MapaCompleto mapaCompleto = new MapaCompleto
         {
             type = levelType,
             mapa = new MapaData
             {
-                numPiezas = gridParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
-                filas = gridParent.GetComponent<LevelEditorController>().GetWidth(),
-                columnas = gridParent.GetComponent<LevelEditorController>().GetHeight(),
+                numPiezas = mapParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
+                filas = mapParent.GetComponent<LevelEditorController>().GetWidth(),
+                columnas = mapParent.GetComponent<LevelEditorController>().GetHeight(),
                 Vertical = new List<TipoDePieza>(),
                 Horizontal = new List<TipoDePieza>(),
                 Grass_2 = new List<TipoDePieza>(),
@@ -66,9 +69,7 @@ public class MapSaver : MonoBehaviour
         int numJugador = 0;
         int numTarget = 0;
 
-        Transform mapParent = gridParent;
-        if (gridParentPrioridad.gameObject.activeSelf)
-            mapParent = gridParentPrioridad;
+        
         foreach (Transform tile in mapParent)
         {
             //Obtener fila y columna del nombre del tile
