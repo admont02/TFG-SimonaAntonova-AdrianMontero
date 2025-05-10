@@ -51,8 +51,8 @@ public class MapSaver : MonoBehaviour
             maxVelocidad = new List<MaxVelocidad>(),
             IACars = new List<IA_Car>(),
             objetivo = new List<string>(),
-            targetJugador = null,
-            jugador = null,
+            targetJugador = new TargetForPlayer(),
+            jugador = new Jugador(),
             levelDialogs = empty,
             completedDialogs = empty,
             wrongDialogs = empty,
@@ -62,7 +62,7 @@ public class MapSaver : MonoBehaviour
             deslumbramiento = deslumbramientoToggle.isOn
 
         };
-
+        
         int numJugador = 0;
         int numTarget = 0;
 

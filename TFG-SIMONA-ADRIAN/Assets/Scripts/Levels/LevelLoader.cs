@@ -47,7 +47,7 @@ public class LevelLoader : MonoBehaviour
     public float scale = 50f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
     // Padre de las piezas
     [SerializeField]
-    Transform conjuntoPiezas;
+    public Transform conjuntoPiezas;
 
     public void CargarNivel()
     {
@@ -173,8 +173,12 @@ public class LevelLoader : MonoBehaviour
             CrearTipoPiezas(nivel.mapa.Grass_2, "Grass_2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
 
             //JUGADOR NUEVO
-            if (nivel.jugador.pieza != null)
+            if (nivel.jugador.pieza != null && nivel.type!="Prioridad")
             {
+                if(conjuntoPiezas.childCount > 1)
+                {
+
+                }
                 int indexPieza = nivel.jugador.pieza.index;
                 if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
                 {
@@ -187,6 +191,7 @@ public class LevelLoader : MonoBehaviour
                     GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
                     playerObj.transform.localScale = new Vector3(playerObj.transform.localScale.x * scale / 100, playerObj.transform.localScale.y * scale / 100, playerObj.transform.localScale.z * scale / 100);
                     playerObj.SetActive(true);
+
                     GameManager.Instance.carController = playerObj.GetComponent<PrometeoCarController>();
                     GameManager.Instance.SetPlayer(playerObj.transform);
                 }
