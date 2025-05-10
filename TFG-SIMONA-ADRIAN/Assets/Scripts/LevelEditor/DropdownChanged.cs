@@ -6,7 +6,10 @@ public class DropdownChanged : MonoBehaviour
 {
     //public TMP_Dropdown dropdown;
     public Dropdown dropdown;
-    public GameObject objetoQueQuieroActivar;
+    public GameObject LucesPanel;
+    public GameObject PrioridadPanel;
+    public GameObject MapaPrioridad;
+    public GameObject Mapa;
 
     void Start()
     {
@@ -17,14 +20,27 @@ public class DropdownChanged : MonoBehaviour
     void OnDropdownValueChanged(int index)
     {
         string selectedOption = dropdown.options[index].text;
-
-        if (selectedOption == "Luces")
+        if (selectedOption == "Prioridad")
         {
-            objetoQueQuieroActivar.SetActive(true);
+            PrioridadPanel.SetActive(true);
+            MapaPrioridad.SetActive(true);
+            Mapa.SetActive(false);
         }
         else
         {
-            objetoQueQuieroActivar.SetActive(false);
+            PrioridadPanel.SetActive(false);
+            MapaPrioridad.SetActive(false);
+            Mapa.SetActive(true);
+        }
+        if (selectedOption == "Luces")
+        {
+            LucesPanel.SetActive(true);
+        }
+        else
+        {
+            LucesPanel.SetActive(false);
+
+
         }
     }
 }

@@ -9,6 +9,7 @@ using static LevelLoaderXML;
 public class MapSaver : MonoBehaviour
 {
     public Transform gridParent;
+    public Transform gridParentPrioridad;
     public Dropdown levelTypeDropdown;
     public int filas;
     public int columnas;
@@ -50,8 +51,8 @@ public class MapSaver : MonoBehaviour
             maxVelocidad = new List<MaxVelocidad>(),
             IACars = new List<IA_Car>(),
             objetivo = new List<string>(),
-            targetJugador = new TargetForPlayer(),
-            jugador = new Jugador(),
+            targetJugador = null,
+            jugador = null,
             levelDialogs = empty,
             completedDialogs = empty,
             wrongDialogs = empty,
@@ -65,9 +66,10 @@ public class MapSaver : MonoBehaviour
         int numJugador = 0;
         int numTarget = 0;
 
-
-
-        foreach (Transform tile in gridParent)
+        Transform mapParent = gridParent;
+        if (gridParentPrioridad.gameObject.activeSelf)
+            mapParent = gridParentPrioridad;
+        foreach (Transform tile in mapParent)
         {
             //Obtener fila y columna del nombre del tile
             string[] parts = tile.name.Replace("Tile (", "").Replace(")", "").Split(',');
@@ -177,7 +179,7 @@ public class MapSaver : MonoBehaviour
                 }
                 // Guardar stops (InteractivePoints)
 
-    
+
 
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
                 {
@@ -222,6 +224,9 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "TargetForPlayer")
                         {
+
+
+                            mapaCompleto.targetJugador = new TargetForPlayer();
                             mapaCompleto.targetJugador = (new TargetForPlayer
                             {
                                 pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
@@ -231,6 +236,8 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "Car_Player")
                         {
+                            mapaCompleto.jugador = new Jugador();
+
                             mapaCompleto.jugador = (new Jugador
                             {
                                 pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },

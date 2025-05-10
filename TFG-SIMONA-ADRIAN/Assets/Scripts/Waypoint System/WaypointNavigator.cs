@@ -22,9 +22,10 @@ public class WaypointNavigator : MonoBehaviour
     {
         currentIndex = index;
         posicionesPiezas = posicionesPiezas_;
-        currentWaypoint = posicionesPiezas[index].GetComponent<WaypointContainer>().GetWaypoint().GetComponent<Waypoint>();
+        currentWaypoint = posicionesPiezas[index].GetComponent<WaypointContainer>()?.GetWaypoint().GetComponent<Waypoint>();
         Direction dir = ParseOrientationToDirection(orientacion);
-        currentWaypoint = GetClosestWaypointInDirection(posicionesPiezas[index], controller.transform.position, dir);
+        if (currentWaypoint)
+            currentWaypoint = GetClosestWaypointInDirection(posicionesPiezas[index], controller.transform.position, dir);
     }
     void Start()
     {
