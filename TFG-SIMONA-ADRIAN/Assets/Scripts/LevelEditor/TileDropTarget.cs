@@ -23,7 +23,6 @@ public class TileDropTarget : MonoBehaviour, IDropHandler
                 // (Opcional) Cambiar el color para que coincida con la pieza
                 tileImage.color = droppedImage.color;
             }
-
             //Ajustar el tamaño del objeto para que coincida con el InteractivePoint
             RectTransform interactiveRect = tileImage.GetComponent<RectTransform>();
             RectTransform draggableRect = droppedImage.GetComponent<RectTransform>();
@@ -35,6 +34,7 @@ public class TileDropTarget : MonoBehaviour, IDropHandler
                 if (draggableRect.childCount > 0)
                     draggableRect.GetChild(0).GetComponent<RectTransform>().localScale =
                         (draggableRect.GetChild(0).GetComponent<RectTransform>().localScale * interactiveRect.sizeDelta) / aux;
+                
 
                 //while (0 < draggableRect.GetChild(0).childCount)
                 //{

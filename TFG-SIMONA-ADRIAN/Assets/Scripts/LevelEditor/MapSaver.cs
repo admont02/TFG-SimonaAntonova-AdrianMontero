@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -40,7 +41,7 @@ public class MapSaver : MonoBehaviour
             type = levelType,
             mapa = new MapaData
             {
-                numPiezas = mapParent.GetComponent<LevelEditorController>().GetWidth() * gridParent.GetComponent<LevelEditorController>().GetHeight(),
+                numPiezas = mapParent.GetComponent<LevelEditorController>().GetWidth() * mapParent.GetComponent<LevelEditorController>().GetHeight(),
                 filas = mapParent.GetComponent<LevelEditorController>().GetWidth(),
                 columnas = mapParent.GetComponent<LevelEditorController>().GetHeight(),
                 Vertical = new List<TipoDePieza>(),
@@ -65,11 +66,11 @@ public class MapSaver : MonoBehaviour
             deslumbramiento = deslumbramientoToggle.isOn
 
         };
-        
+
         int numJugador = 0;
         int numTarget = 0;
+        List<(int indexEditor, int posicionIACars)> cochesOrdenados = new List<(int, int)>();
 
-        
         foreach (Transform tile in mapParent)
         {
             //Obtener fila y columna del nombre del tile
@@ -87,7 +88,8 @@ public class MapSaver : MonoBehaviour
                 }
                 else if (tileImage.sprite.name == "Crossroad")
                 {
-                    mapaCompleto.mapa.Crossroad.Add(new TipoDePieza { fil = fila, col = columna });
+                    int ind = fila * mapaCompleto.mapa.columnas + columna;
+                    mapaCompleto.mapa.Crossroad.Add(new CrossroadPieza { fil = fila, col = columna, conexiones = new List<int> { ind - 1, ind + 1, ind - mapaCompleto.mapa.columnas, ind + mapaCompleto.mapa.columnas } });
                 }
                 else if (tileImage.sprite.name == "Vertical")
                 {
@@ -204,6 +206,14 @@ public class MapSaver : MonoBehaviour
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion
                             });
+                            foreach (CrossroadPieza crossroad in mapaCompleto.mapa.Crossroad)
+                            {
+                                if (crossroad.conexiones.Contains(fila * mapaCompleto.mapa.columnas + columna))
+                                {
+                                    crossroad.conexiones.Remove(fila * mapaCompleto.mapa.columnas + columna);
+                                    Debug.Log($"Conexión eliminada en Crossroad {crossroad.fil}, {crossroad.col} debido a señal de prohibido en {fila}, {columna}");
+                                }
+                            }
                         }
                         else if (nombreHijo == "ceda")
                         {
@@ -216,12 +226,24 @@ public class MapSaver : MonoBehaviour
                         }
                         else if (nombreHijo == "IA_Car")
                         {
+                            BotonCoche botonCoche = point.gameObject.transform.GetChild(0).GetComponent<BotonCoche>();
+
+                            int _branchTo = 0; // Valor por defecto
+
+                            if (botonCoche != null)
+                            {
+                                if (botonCoche.cocheData.recto) _branchTo = 1;
+                                else if (botonCoche.cocheData.izqda) _branchTo = 2;
+                                else if (botonCoche.cocheData.dcha) _branchTo = 0;
+                            }
                             mapaCompleto.IACars.Add(new IA_Car
                             {
                                 pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
-                                orientacion = point.orientacion
+                                orientacion = point.orientacion,
+                                branchTo = _branchTo
                             });
+                            cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
                         }
                         else if (nombreHijo == "TargetForPlayer")
                         {
@@ -314,6 +336,9 @@ public class MapSaver : MonoBehaviour
             mapaCompleto.fog = false;
             mapaCompleto.night = false;
             mapaCompleto.deslumbramiento = false;
+            mapaCompleto.correctOrder = cochesOrdenados.OrderBy(c => c.indexEditor).Select(c => c.posicionIACars).ToList();
+
+            Debug.Log("Orden correcto de coches guardado: " + string.Join(", ", mapaCompleto.correctOrder));
 
         }
 

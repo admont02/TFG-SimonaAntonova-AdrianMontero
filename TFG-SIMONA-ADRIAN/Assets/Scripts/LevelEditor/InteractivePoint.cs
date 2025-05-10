@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InteractivePoint : MonoBehaviour, IDropHandler
 {
@@ -41,7 +42,14 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
                 //    copy.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = interactiveRect.sizeDelta;
                 //}
             }
+            if (copy.GetComponent<BotonCoche>())
+            {
+                copy.GetComponent<BotonCoche>().AddButton();
 
+                copy.GetComponent<CanvasGroup>().enabled = false;
+                copy.GetComponent<DraggableItem>().enabled = false;
+
+            }
             //json?
         }
     }

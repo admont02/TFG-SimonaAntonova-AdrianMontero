@@ -87,6 +87,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
                     copy.GetComponent<TooltipTriggerUI>().enabled = false;
+                  
                     Transform childTransform = copy.transform.GetChild(0);
                     if (childTransform != null)
                     {

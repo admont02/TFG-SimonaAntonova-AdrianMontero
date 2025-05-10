@@ -16,6 +16,7 @@ public class MapaCompleto
     public Jugador jugador;
     public List<Semaforo> semaforos = new List<Semaforo>();
     public List<string> objetivo;
+    public List<int> correctOrder;
     public string[] levelDialogs;
     public string[] completedDialogs;
     public string[] wrongDialogs;
@@ -30,7 +31,7 @@ public class MapaData
     public int numPiezas;
     public int filas;
     public int columnas;
-    public List<TipoDePieza> Crossroad = new List<TipoDePieza>();
+    public List<CrossroadPieza> Crossroad = new List<CrossroadPieza>();
     public List<TipoDePieza> Vertical = new List<TipoDePieza>();
     public List<TipoDePieza> VerticalContinua = new List<TipoDePieza>();
     public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
@@ -62,6 +63,12 @@ public class TipoDePieza
     public int fil;
     public int col;
 }
+[System.Serializable]
+public class CrossroadPieza : TipoDePieza
+{
+    public List<int> conexiones; // Lista de conexiones
+}
+
 public static class SceneData
 {
     public static bool firstTime = true;
@@ -375,7 +382,22 @@ public class IADestroyer
     public string orientacion;
 
 }
+[System.Serializable]
+public class CocheIAEditorData
+{
+    public bool recto;
+    public bool dcha;
+    public bool izqda;
+    public int index;
 
+    public CocheIAEditorData()
+    {
+        recto = false;
+        dcha = false;
+        izqda = false;
+        index = -1;
+    }
+}
 [System.Serializable]
 public class Nivel
 {
