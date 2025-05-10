@@ -17,7 +17,13 @@ public class LevelEditorController : MonoBehaviour
 
     void Start()
     {
-        generateMapButton.onClick.AddListener(GenerateMap);
+        if (generateMapButton != null)
+            generateMapButton.onClick.AddListener(GenerateMap);
+        else
+        {
+            mapWidth = 3;
+            mapHeight = 3;
+        }
     }
 
     void GenerateMap()
