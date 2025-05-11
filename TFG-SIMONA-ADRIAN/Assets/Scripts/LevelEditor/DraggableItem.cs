@@ -17,6 +17,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public DraggableType draggableType;
     public Transform gridParent;
     private Transform originalParent;
+    public bool drag = true;
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -30,6 +31,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if(!drag) return;
         originalSize = eventData.pointerDrag.GetComponent<RectTransform>().sizeDelta;
         // Ajustar propiedades para que sea más visible y no bloquee eventos
         canvasGroup.alpha = 0.6f; // Hace la pieza más transparente durante el drag
@@ -41,6 +43,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!drag) return;
+
         // Mueve el objeto mientras se arrastra
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
@@ -48,6 +52,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!drag) return;
+
         transform.SetParent(originalParent, true);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
@@ -87,7 +93,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
                     copy.GetComponent<TooltipTriggerUI>().enabled = false;
-                  
+                    copy.GetComponent<DraggableItem>().drag = false;
+
                     Transform childTransform = copy.transform.GetChild(0);
                     if (childTransform != null)
                     {
@@ -119,7 +126,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     copy.name = gameObject.name;
                     copy.transform.localPosition = Vector3.zero;
                     copy.GetComponent<TooltipTriggerUI>().enabled = false;
-
+                    copy.GetComponent<DraggableItem>().drag = false;
                     //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
                     //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;

@@ -11,6 +11,7 @@ public class MapaCompleto
     public List<Prohibido> prohibidos = new List<Prohibido>();
     public List<Ceda> cedas = new List<Ceda>();
     public List<MaxVelocidad> maxVelocidad = new List<MaxVelocidad>();
+    public List<IniLuz> iniLuces;
     public List<IA_Car> IACars = new List<IA_Car>();
     public TargetForPlayer targetJugador;
     public Jugador jugador;

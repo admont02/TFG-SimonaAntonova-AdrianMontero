@@ -198,6 +198,19 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion
                             });
                         }
+                        else if (nombreHijo == "semaforo")
+                        {
+                            mapaCompleto.semaforos.Add(new Semaforo
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion,
+                                greenSeconds= 20.0f,
+                                amberSeconds= 2.0f,
+                                redSeconds= 15.0f,
+                                initialLight= "red"
+                            });
+                        }
                         else if (nombreHijo == "prohibido")
                         {
                             mapaCompleto.prohibidos.Add(new Prohibido
@@ -224,6 +237,25 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion
                             });
                         }
+                        else if (nombreHijo == "iniLuz")
+                        {
+                            mapaCompleto.iniLuces.Add(new IniLuz
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
+                        else if (nombreHijo == "maxVel")
+                        {
+                            mapaCompleto.maxVelocidad.Add(new MaxVelocidad
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion,
+                                velocidad = point.gameObject.transform.GetChild(0).GetComponent<VelocitySetter>().velocidad
+                            });
+                        }
                         else if (nombreHijo == "IA_Car")
                         {
                             BotonCoche botonCoche = point.gameObject.transform.GetChild(0).GetComponent<BotonCoche>();
@@ -242,6 +274,50 @@ public class MapSaver : MonoBehaviour
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion,
                                 branchTo = _branchTo
+                            });
+                            cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
+                        }
+                        else if (nombreHijo == "Ambulance")
+                        {
+                            BotonCoche botonCoche = point.gameObject.transform.GetChild(0).GetComponent<BotonCoche>();
+
+                            int _branchTo = 0; // Valor por defecto
+
+                            if (botonCoche != null)
+                            {
+                                if (botonCoche.cocheData.recto) _branchTo = 1;
+                                else if (botonCoche.cocheData.izqda) _branchTo = 2;
+                                else if (botonCoche.cocheData.dcha) _branchTo = 0;
+                            }
+                            mapaCompleto.IACars.Add(new IA_Car
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion,
+                                branchTo = _branchTo,
+                                vehicle= "ambulance"
+                            });
+                            cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
+                        }
+                        else if (nombreHijo == "Bus")
+                        {
+                            BotonCoche botonCoche = point.gameObject.transform.GetChild(0).GetComponent<BotonCoche>();
+
+                            int _branchTo = 0; // Valor por defecto
+
+                            if (botonCoche != null)
+                            {
+                                if (botonCoche.cocheData.recto) _branchTo = 1;
+                                else if (botonCoche.cocheData.izqda) _branchTo = 2;
+                                else if (botonCoche.cocheData.dcha) _branchTo = 0;
+                            }
+                            mapaCompleto.IACars.Add(new IA_Car
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion,
+                                branchTo = _branchTo,
+                                vehicle = "bus"
                             });
                             cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
                         }
