@@ -16,7 +16,9 @@ public class IACarConfig : MonoBehaviour
     [SerializeField]
     Toggle izqda;
     [SerializeField]
-    public TMP_InputField index; 
+    public TMP_InputField index;
+    [SerializeField]
+    GameObject toggleGroup;
     private CocheIAEditorData cocheActual; // Referencia al coche seleccionado
 
     public void MostrarPanel(CocheIAEditorData coche)
@@ -25,8 +27,9 @@ public class IACarConfig : MonoBehaviour
             OcultarPanel();
         cocheActual = coche;
         panelConfig.SetActive(true); // Mostrar el panel
-
+        toggleGroup.SetActive(true);
         // Cargar los datos del coche en el panel
+
         index.text = coche.index.ToString();
         recto.isOn = coche.recto;
         dcha.isOn = coche.dcha;

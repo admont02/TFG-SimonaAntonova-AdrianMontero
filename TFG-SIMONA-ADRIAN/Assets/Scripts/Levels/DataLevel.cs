@@ -12,6 +12,10 @@ public class MapaCompleto
     public List<Ceda> cedas = new List<Ceda>();
     public List<MaxVelocidad> maxVelocidad = new List<MaxVelocidad>();
     public List<IniLuz> iniLuces;
+    public List<FrenteIzq> frenteIzq=new List<FrenteIzq>();
+    public List<FrenteDcha> frenteDcha=new List<FrenteDcha>();
+    public List<Frente> frente=new List<Frente>();
+
     public List<IA_Car> IACars = new List<IA_Car>();
     public TargetForPlayer targetJugador;
     public Jugador jugador;
@@ -37,7 +41,7 @@ public class MapaData
     public List<TipoDePieza> VerticalContinua = new List<TipoDePieza>();
     public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
     public List<TipoDePieza> HorizontalContinua = new List<TipoDePieza>();
-    public List<TipoDePieza> Roundabout = new List<TipoDePieza>();
+    public List<RoundaboutPieza> Roundabout = new List<RoundaboutPieza>();
     public List<TipoDePieza> Pavement = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement_1 = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement_2 = new List<TipoDePieza>();
@@ -69,7 +73,10 @@ public class CrossroadPieza : TipoDePieza
 {
     public List<int> conexiones; // Lista de conexiones
 }
-
+public class RoundaboutPieza : TipoDePieza
+{
+    public List<int> conexiones; // Lista de conexiones
+}
 public static class SceneData
 {
     public static bool firstTime = true;
@@ -117,6 +124,20 @@ public class Stop
 }
 [System.Serializable]
 public class FrenteIzq
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
+[System.Serializable]
+public class FrenteDcha
+{
+    public Pieza pieza;
+    public SubPosicion subPosicion;
+    public string orientacion;
+}
+[System.Serializable]
+public class Frente
 {
     public Pieza pieza;
     public SubPosicion subPosicion;
@@ -413,6 +434,8 @@ public class Nivel
     public List<Stop> stops;
     public List<MaxVelocidad> maxVelocidad;
     public List<FrenteIzq> frenteIzq;
+    public List<FrenteDcha> frenteDcha;
+    public List<Frente> frente;
 
     public List<Prohibido> prohibidos;
     public List<Ceda> cedas;

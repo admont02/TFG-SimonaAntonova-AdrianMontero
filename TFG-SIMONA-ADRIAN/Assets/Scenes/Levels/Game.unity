@@ -9323,6 +9323,8 @@ MonoBehaviour:
   TargetIconPrefab: {fileID: 5483377130502658908, guid: d825c8eb21ac4c541a7bd0dde6ed5ea2, type: 3}
   scale: 50
   conjuntoPiezas: {fileID: 4180219}
+  FrentePrefab: {fileID: 6827608276088101106, guid: 819b4cb4ac369054d8fce4f75051cba5, type: 3}
+  FrenteDchaPrefab: {fileID: 7499042499943028870, guid: a793053fad1950a4b9d51aa59e481e76, type: 3}
 --- !u!4 &1467421212
 Transform:
   m_ObjectHideFlags: 0

@@ -1,0 +1,173 @@
+{
+    "type": "Manejo",
+    "mapa": {
+        "numPiezas": 9,
+        "filas": 3,
+        "columnas": 3,
+        "Crossroad": [],
+        "Vertical": [
+            {
+                "fil": 1,
+                "col": 1
+            }
+        ],
+        "VerticalContinua": [],
+        "Horizontal": [
+            {
+                "fil": 2,
+                "col": 1
+            }
+        ],
+        "HorizontalContinua": [],
+        "Pavement": [
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "Pavement_1": [],
+        "Pavement_2": [],
+        "Pavement_3": [],
+        "Grass": [],
+        "Grass_2": [],
+        "Pavement_4": [],
+        "TurnLeft": [],
+        "TurnLeftContinua": [],
+        "TurnRight": [],
+        "TurnRightContinua": [],
+        "TurnLeft2": [],
+        "TurnLeft2Continua": [],
+        "TurnRight2": [],
+        "TurnRight2Continua": [],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
+    },
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "maxVelocidad": [],
+    "iniLuces": [],
+    "frenteIzq": [
+        {
+            "pieza": {
+                "index": 4
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo"
+        }
+    ],
+    "frenteDcha": [
+        {
+            "pieza": {
+                "index": 4
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 2
+            },
+            "orientacion": "arriba"
+        }
+    ],
+    "frente": [
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 7
+            },
+            "subPosicion": {
+                "fil": 3,
+                "col": 11
+            },
+            "orientacion": "izquierda",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        },
+        {
+            "pieza": {
+                "index": 4
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 12
+            },
+            "orientacion": "arriba",
+            "branchTo": 0,
+            "vehicle": "ambulance",
+            "emergency": true
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 7
+        },
+        "subPosicion": {
+            "fil": 1,
+            "col": 7
+        }
+    },
+    "jugador": {
+        "pieza": {
+            "index": 4
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 1
+        },
+        "orientacion": "arriba"
+    },
+    "semaforos": [],
+    "objetivo": [],
+    "correctOrder": [],
+    "levelDialogs": [
+        " Nivel de Manejo creado desde el editor"
+    ],
+    "completedDialogs": [
+        " Nivel completado correctamente!"
+    ],
+    "wrongDialogs": [
+        " Nivel incorrecto!"
+    ],
+    "fog": false,
+    "rain": false,
+    "night": false,
+    "deslumbramiento": false
+}

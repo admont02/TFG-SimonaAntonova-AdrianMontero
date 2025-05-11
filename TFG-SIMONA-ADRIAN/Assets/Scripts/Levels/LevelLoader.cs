@@ -48,6 +48,10 @@ public class LevelLoader : MonoBehaviour
     // Padre de las piezas
     [SerializeField]
     public Transform conjuntoPiezas;
+    [SerializeField]
+    GameObject FrentePrefab;
+    [SerializeField]
+    GameObject FrenteDchaPrefab;
 
     public void CargarNivel()
     {
@@ -433,6 +437,40 @@ public class LevelLoader : MonoBehaviour
             posicionCuadricula.y = 1;
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
             GameObject stopObj = Instantiate(FrenteIzqPrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
+            stopObj.SetActive(true);
+        }
+        foreach (var sign in nivel.frente)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+            posicionPieza.y = 1;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            posicionCuadricula.y = 1;
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(FrentePrefab, posicionCuadricula, prefabRotation);
+            stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
+
+            stopObj.SetActive(true);
+        }
+        foreach (var sign in nivel.frenteDcha)
+        {
+            int indexPieza = sign.pieza.index;
+
+
+            Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
+            posicionPieza.y = 1;
+
+            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            posicionCuadricula.y = 1;
+            Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
+            GameObject stopObj = Instantiate(FrenteDchaPrefab, posicionCuadricula, prefabRotation);
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);

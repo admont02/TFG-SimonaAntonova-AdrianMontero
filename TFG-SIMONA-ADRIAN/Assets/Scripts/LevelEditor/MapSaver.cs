@@ -53,6 +53,7 @@ public class MapSaver : MonoBehaviour
                 TurnRight2 = new List<TipoDePieza>()
             },
             maxVelocidad = new List<MaxVelocidad>(),
+            iniLuces = new List<IniLuz>(),
             IACars = new List<IA_Car>(),
             objetivo = new List<string>(),
             targetJugador = new TargetForPlayer(),
@@ -84,7 +85,8 @@ public class MapSaver : MonoBehaviour
             {
                 if (tileImage.sprite.name == "Roundabout")
                 {
-                    mapaCompleto.mapa.Roundabout.Add(new TipoDePieza { fil = fila, col = columna });
+                    int ind = fila * mapaCompleto.mapa.columnas + columna;
+                    mapaCompleto.mapa.Roundabout.Add(new RoundaboutPieza { fil = fila, col = columna, conexiones = new List<int> { ind - 1, ind + 1, ind - mapaCompleto.mapa.columnas, ind + mapaCompleto.mapa.columnas } });
                 }
                 else if (tileImage.sprite.name == "Crossroad")
                 {
@@ -205,10 +207,10 @@ public class MapSaver : MonoBehaviour
                                 pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion,
-                                greenSeconds= 20.0f,
-                                amberSeconds= 2.0f,
-                                redSeconds= 15.0f,
-                                initialLight= "red"
+                                greenSeconds = 20.0f,
+                                amberSeconds = 2.0f,
+                                redSeconds = 15.0f,
+                                initialLight = "red"
                             });
                         }
                         else if (nombreHijo == "prohibido")
@@ -246,6 +248,33 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion
                             });
                         }
+                        else if (nombreHijo == "FrenteIzq")
+                        {
+                            mapaCompleto.frenteIzq.Add(new FrenteIzq
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
+                        else if (nombreHijo == "FrenteDcha")
+                        {
+                            mapaCompleto.frenteDcha.Add(new FrenteDcha
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
+                        else if (nombreHijo == "Frente")
+                        {
+                            mapaCompleto.frente.Add(new Frente
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion
+                            });
+                        }
                         else if (nombreHijo == "maxVel")
                         {
                             mapaCompleto.maxVelocidad.Add(new MaxVelocidad
@@ -275,7 +304,8 @@ public class MapSaver : MonoBehaviour
                                 orientacion = point.orientacion,
                                 branchTo = _branchTo
                             });
-                            cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
+                            if (levelType == "Prioridad")
+                                cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
                         }
                         else if (nombreHijo == "Ambulance")
                         {
@@ -295,9 +325,34 @@ public class MapSaver : MonoBehaviour
                                 subPosicion = new SubPosicion { fil = point.fil, col = point.col },
                                 orientacion = point.orientacion,
                                 branchTo = _branchTo,
-                                vehicle= "ambulance"
+                                vehicle = "ambulance"
                             });
-                            cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
+                            if (levelType == "Prioridad")
+                                cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
+                        }
+                        else if (nombreHijo == "AmbulanceEmergency")
+                        {
+                            BotonCoche botonCoche = point.gameObject.transform.GetChild(0).GetComponent<BotonCoche>();
+
+                            int _branchTo = -1; // Valor por defecto
+
+                            if (botonCoche != null)
+                            {
+                                if (botonCoche.cocheData.recto) _branchTo = 1;
+                                else if (botonCoche.cocheData.izqda) _branchTo = 2;
+                                else if (botonCoche.cocheData.dcha) _branchTo = 0;
+                            }
+                            mapaCompleto.IACars.Add(new IA_Car
+                            {
+                                pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                                subPosicion = new SubPosicion { fil = point.fil, col = point.col },
+                                orientacion = point.orientacion,
+                                branchTo = _branchTo,
+                                vehicle = "ambulance",
+                                emergency = true
+                            });
+                            if (levelType == "Prioridad")
+                                cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
                         }
                         else if (nombreHijo == "Bus")
                         {
@@ -319,7 +374,8 @@ public class MapSaver : MonoBehaviour
                                 branchTo = _branchTo,
                                 vehicle = "bus"
                             });
-                            cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
+                            if (levelType == "Prioridad")
+                                cochesOrdenados.Add((botonCoche.cocheData.index, mapaCompleto.IACars.Count - 1));
                         }
                         else if (nombreHijo == "TargetForPlayer")
                         {
@@ -404,6 +460,19 @@ public class MapSaver : MonoBehaviour
         }
         else if (levelType == "Prioridad")
         {
+            if (cochesOrdenados.Count < 2)
+            {
+                Debug.LogError("Los niveles de prioridad deben contener al menos 2 cochesIA, ahora hay: " + cochesOrdenados.Count);
+                return;
+            }
+            for (int i = 0; i < mapaCompleto.IACars.Count; i++)
+            {
+                if (mapaCompleto.IACars[i].branchTo < 0)
+                {
+                    Debug.LogError("Los coches deben tener un destino en los niveles de prioridad ");
+                    return;
+                }
+            }
             // Comprobar 
             empty[0] = " Nivel de Prioridad creado desde el editor";
             mapaCompleto.levelDialogs = empty;
