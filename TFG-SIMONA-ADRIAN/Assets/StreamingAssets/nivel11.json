@@ -372,7 +372,7 @@
                 "fil": 0,
                 "col": 13
             },
-            "orientacion": "izquierda"
+            "orientacion": "derecha"
         },
         {
             "pieza": {
@@ -382,7 +382,7 @@
                 "fil": 17,
                 "col": 4
             },
-            "orientacion": "derecha"
+            "orientacion": "izquierda"
         }
     ],
     "prohibidos": [],

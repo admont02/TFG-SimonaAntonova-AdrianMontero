@@ -372,7 +372,21 @@
     "prohibidos": [],
     "cedas": [],
     "maxVelocidad": [],
+    "iniLuces": [],
     "IACars": [
+        {
+            "pieza": {
+                "index": 49
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 2
+            },
+            "orientacion": "abajo",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        },
         {
             "pieza": {
                 "index": 39
@@ -382,7 +396,7 @@
                 "col": 7
             },
             "orientacion": "derecha",
-            "branchTo": 2,
+            "branchTo": 0,
             "vehicle": "car",
             "emergency": false
         },
@@ -395,7 +409,7 @@
                 "col": 11
             },
             "orientacion": "izquierda",
-            "branchTo": 0,
+            "branchTo": 1,
             "vehicle": "car",
             "emergency": false
         },
@@ -408,7 +422,7 @@
                 "col": 16
             },
             "orientacion": "arriba",
-            "branchTo": 1,
+            "branchTo": 0,
             "vehicle": "car",
             "emergency": false
         }
@@ -434,6 +448,12 @@
     },
     "semaforos": [],
     "objetivo": [],
+    "correctOrder": [
+        2,
+        0,
+        1,
+        3
+    ],
     "levelDialogs": [
         " Nivel de Prioridad creado desde el editor"
     ],
@@ -441,7 +461,7 @@
         " Nivel completado correctamente!"
     ],
     "wrongDialogs": [
-        " Nivel de Prioridad creado desde el editor"
+        " Nivel incorrecto!"
     ],
     "fog": false,
     "rain": false,

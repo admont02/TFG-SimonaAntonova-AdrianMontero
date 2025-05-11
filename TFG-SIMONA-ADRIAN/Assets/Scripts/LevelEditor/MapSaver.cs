@@ -421,6 +421,9 @@ public class MapSaver : MonoBehaviour
         string[] auxi = new string[1];
         auxi[0] = " Nivel completado correctamente!";
         mapaCompleto.completedDialogs = auxi;
+        string[] auxi2 = new string[1];
+        auxi2[0] = " Nivel incorrecto!";
+        mapaCompleto.wrongDialogs = auxi2;
 
 
         //JSON 

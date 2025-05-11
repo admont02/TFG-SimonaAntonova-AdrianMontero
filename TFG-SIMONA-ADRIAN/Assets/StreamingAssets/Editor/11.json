@@ -372,7 +372,21 @@
     "prohibidos": [],
     "cedas": [],
     "maxVelocidad": [],
+    "iniLuces": [],
     "IACars": [
+        {
+            "pieza": {
+                "index": 49
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 2
+            },
+            "orientacion": "abajo",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        },
         {
             "pieza": {
                 "index": 39
@@ -435,9 +449,10 @@
     "semaforos": [],
     "objetivo": [],
     "correctOrder": [
-        0,
         1,
-        2
+        2,
+        0,
+        3
     ],
     "levelDialogs": [
         " Nivel de Prioridad creado desde el editor"
@@ -446,7 +461,7 @@
         " Nivel completado correctamente!"
     ],
     "wrongDialogs": [
-        " Nivel de Prioridad creado desde el editor"
+        " Nivel incorrecto!"
     ],
     "fog": false,
     "rain": false,

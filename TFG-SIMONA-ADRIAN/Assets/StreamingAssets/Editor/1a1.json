@@ -1,7 +1,7 @@
 {
     "type": "Prioridad",
     "mapa": {
-        "numPiezas": 0,
+        "numPiezas": 81,
         "filas": 9,
         "columnas": 9,
         "Crossroad": [
@@ -10,7 +10,6 @@
                 "col": 4,
                 "conexiones": [
                     39,
-                    41,
                     31,
                     49
                 ]
@@ -368,11 +367,88 @@
         "TunnelVertical": [],
         "TunnelHorizontal": []
     },
-    "stops": [],
-    "prohibidos": [],
-    "cedas": [],
+    "stops": [
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        },
+        {
+            "pieza": {
+                "index": 41
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
+    "prohibidos": [
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        },
+        {
+            "pieza": {
+                "index": 41
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        }
+    ],
+    "cedas": [
+        {
+            "pieza": {
+                "index": 49
+            },
+            "subPosicion": {
+                "fil": 4,
+                "col": 2
+            },
+            "orientacion": "arriba"
+        },
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 14
+            },
+            "orientacion": "derecha"
+        }
+    ],
     "maxVelocidad": [],
+    "iniLuces": [],
     "IACars": [
+        {
+            "pieza": {
+                "index": 49
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 2
+            },
+            "orientacion": "abajo",
+            "branchTo": 1,
+            "vehicle": "car",
+            "emergency": false
+        },
         {
             "pieza": {
                 "index": 39
@@ -382,6 +458,19 @@
                 "col": 7
             },
             "orientacion": "derecha",
+            "branchTo": 2,
+            "vehicle": "car",
+            "emergency": false
+        },
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "izquierda",
             "branchTo": 0,
             "vehicle": "car",
             "emergency": false
@@ -408,6 +497,19 @@
                 "col": 16
             },
             "orientacion": "arriba",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        },
+        {
+            "pieza": {
+                "index": 31
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 16
+            },
+            "orientacion": "abajo",
             "branchTo": 1,
             "vehicle": "car",
             "emergency": false
@@ -432,12 +534,76 @@
         },
         "orientacion": ""
     },
-    "semaforos": [],
+    "semaforos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 49
+            },
+            "subPosicion": {
+                "fil": 14,
+                "col": 18
+            },
+            "orientacion": "abajo",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 41
+            },
+            "subPosicion": {
+                "fil": 0,
+                "col": 14
+            },
+            "orientacion": "derecha",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        },
+        {
+            "doble": false,
+            "pieza": {
+                "index": 41
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 4
+            },
+            "orientacion": "izquierda",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        }
+    ],
     "objetivo": [],
     "correctOrder": [
+        3,
+        0,
         2,
         1,
-        0
+        5,
+        4
     ],
     "levelDialogs": [
         " Nivel de Prioridad creado desde el editor"
