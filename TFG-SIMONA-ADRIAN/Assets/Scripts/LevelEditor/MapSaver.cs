@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using TMPro;
@@ -92,6 +93,16 @@ public class MapSaver : MonoBehaviour
                 {
                     int ind = fila * mapaCompleto.mapa.columnas + columna;
                     mapaCompleto.mapa.Crossroad.Add(new CrossroadPieza { fil = fila, col = columna, conexiones = new List<int> { ind - 1, ind + 1, ind - mapaCompleto.mapa.columnas, ind + mapaCompleto.mapa.columnas } });
+                }
+                else if (tileImage.sprite.name == "Crossroad1")
+                {
+                    int ind = fila * mapaCompleto.mapa.columnas + columna;
+                    mapaCompleto.mapa.Crossroad.Add(new CrossroadPieza { fil = fila, col = columna, conexiones = new List<int> { ind - 1, ind + 1, ind - mapaCompleto.mapa.columnas, ind + mapaCompleto.mapa.columnas } });
+                    mapaCompleto.cuadriculas.Add(new Cuadricula
+                    {
+                        pieza = new Pieza { index = fila * mapaCompleto.mapa.columnas + columna },
+                        subPosicion = new SubPosicion { fil = 9, col = 9 }
+                    });
                 }
                 else if (tileImage.sprite.name == "Vertical")
                 {

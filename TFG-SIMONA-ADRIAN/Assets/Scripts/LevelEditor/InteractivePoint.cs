@@ -48,6 +48,7 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
 
                 copy.GetComponent<CanvasGroup>().enabled = false;
                 copy.GetComponent<DraggableItem>().enabled = false;
+                copy.GetComponent<TooltipTriggerUI>().enabled = false;
 
             }
             //json?

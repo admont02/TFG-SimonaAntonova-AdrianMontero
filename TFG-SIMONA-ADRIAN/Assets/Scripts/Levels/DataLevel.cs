@@ -15,6 +15,7 @@ public class MapaCompleto
     public List<FrenteIzq> frenteIzq=new List<FrenteIzq>();
     public List<FrenteDcha> frenteDcha=new List<FrenteDcha>();
     public List<Frente> frente=new List<Frente>();
+    public List<Cuadricula> cuadriculas= new List<Cuadricula>();
 
     public List<IA_Car> IACars = new List<IA_Car>();
     public TargetForPlayer targetJugador;

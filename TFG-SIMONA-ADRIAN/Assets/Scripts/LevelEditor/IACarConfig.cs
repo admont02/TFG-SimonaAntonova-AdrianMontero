@@ -28,6 +28,7 @@ public class IACarConfig : MonoBehaviour
         cocheActual = coche;
         panelConfig.SetActive(true); // Mostrar el panel
         toggleGroup.SetActive(true);
+        index.gameObject.SetActive(true);
         // Cargar los datos del coche en el panel
 
         index.text = coche.index.ToString();
