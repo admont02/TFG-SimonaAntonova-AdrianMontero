@@ -398,7 +398,7 @@
                 "fil": 4,
                 "col": 0
             },
-            "orientacion": "abajo",
+            "orientacion": "arriba",
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
@@ -413,7 +413,7 @@
                 "fil": 14,
                 "col": 18
             },
-            "orientacion": "arriba",
+            "orientacion": "abajo",
             "greenSeconds": 15.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
@@ -428,7 +428,7 @@
                 "fil": 18,
                 "col": 4
             },
-            "orientacion": "derecha",
+            "orientacion": "izquierda",
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
@@ -443,7 +443,7 @@
                 "fil": 0,
                 "col": 14
             },
-            "orientacion": "izquierda",
+            "orientacion": "derecha",
             "greenSeconds": 15.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,

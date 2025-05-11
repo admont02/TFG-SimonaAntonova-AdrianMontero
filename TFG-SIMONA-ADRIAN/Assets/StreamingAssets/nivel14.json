@@ -170,7 +170,7 @@
                 "fil": 4,
                 "col": 2
             },
-            "orientacion": "abajo",
+            "orientacion": "arriba",
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
@@ -185,7 +185,7 @@
                 "fil": 13,
                 "col": 18
             },
-            "orientacion": "arriba",
+            "orientacion": "abajo",
             "greenSeconds": 20.0,
             "amberSeconds": 2.0,
             "redSeconds": 15.0,
