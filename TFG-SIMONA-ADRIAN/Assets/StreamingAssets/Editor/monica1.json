@@ -372,43 +372,51 @@
     "cedas": [],
     "maxVelocidad": [],
     "iniLuces": [],
-    "frenteIzq": [
+    "frenteIzq": [],
+    "frenteDcha": [],
+    "frente": [],
+    "cuadriculas": [],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 39
+            },
+            "subPosicion": {
+                "fil": 16,
+                "col": 7
+            },
+            "orientacion": "derecha",
+            "branchTo": 1,
+            "vehicle": "car",
+            "emergency": false
+        },
+        {
+            "pieza": {
+                "index": 41
+            },
+            "subPosicion": {
+                "fil": 2,
+                "col": 11
+            },
+            "orientacion": "izquierda",
+            "branchTo": 1,
+            "vehicle": "car",
+            "emergency": false
+        },
         {
             "pieza": {
                 "index": 31
             },
             "subPosicion": {
-                "fil": 14,
-                "col": 18
+                "fil": 11,
+                "col": 16
             },
-            "orientacion": "abajo"
+            "orientacion": "arriba",
+            "branchTo": 2,
+            "vehicle": "car",
+            "emergency": false
         }
     ],
-    "frenteDcha": [
-        {
-            "pieza": {
-                "index": 49
-            },
-            "subPosicion": {
-                "fil": 14,
-                "col": 18
-            },
-            "orientacion": "abajo"
-        }
-    ],
-    "frente": [
-        {
-            "pieza": {
-                "index": 31
-            },
-            "subPosicion": {
-                "fil": 4,
-                "col": 2
-            },
-            "orientacion": "arriba"
-        }
-    ],
-    "IACars": [],
     "targetJugador": {
         "pieza": {
             "index": 0
@@ -430,7 +438,11 @@
     },
     "semaforos": [],
     "objetivo": [],
-    "correctOrder": [],
+    "correctOrder": [
+        1,
+        2,
+        0
+    ],
     "levelDialogs": [
         " Nivel de Prioridad creado desde el editor"
     ],

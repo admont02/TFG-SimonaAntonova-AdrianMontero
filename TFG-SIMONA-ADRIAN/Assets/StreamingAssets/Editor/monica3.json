@@ -1,0 +1,327 @@
+{
+    "type": "Luces",
+    "mapa": {
+        "numPiezas": 49,
+        "filas": 7,
+        "columnas": 7,
+        "Crossroad": [],
+        "Vertical": [],
+        "VerticalContinua": [],
+        "Horizontal": [
+            {
+                "fil": 4,
+                "col": 3
+            },
+            {
+                "fil": 4,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 1
+            }
+        ],
+        "HorizontalContinua": [],
+        "Pavement": [
+            {
+                "fil": 6,
+                "col": 0
+            },
+            {
+                "fil": 6,
+                "col": 1
+            },
+            {
+                "fil": 6,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 3
+            },
+            {
+                "fil": 6,
+                "col": 4
+            },
+            {
+                "fil": 6,
+                "col": 5
+            },
+            {
+                "fil": 6,
+                "col": 6
+            },
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 5,
+                "col": 1
+            },
+            {
+                "fil": 5,
+                "col": 2
+            },
+            {
+                "fil": 5,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 4
+            },
+            {
+                "fil": 5,
+                "col": 5
+            },
+            {
+                "fil": 5,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 4,
+                "col": 1
+            },
+            {
+                "fil": 4,
+                "col": 5
+            },
+            {
+                "fil": 4,
+                "col": 6
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 6
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 3
+            },
+            {
+                "fil": 2,
+                "col": 4
+            },
+            {
+                "fil": 2,
+                "col": 5
+            },
+            {
+                "fil": 2,
+                "col": 6
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 1,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 5
+            },
+            {
+                "fil": 1,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 5
+            },
+            {
+                "fil": 0,
+                "col": 6
+            }
+        ],
+        "Pavement_1": [],
+        "Pavement_2": [],
+        "Pavement_3": [],
+        "Grass": [],
+        "Grass_2": [],
+        "Pavement_4": [],
+        "TurnLeft": [],
+        "TurnLeftContinua": [],
+        "TurnRight": [
+            {
+                "fil": 4,
+                "col": 2
+            }
+        ],
+        "TurnRightContinua": [],
+        "TurnLeft2": [
+            {
+                "fil": 0,
+                "col": 2
+            }
+        ],
+        "TurnLeft2Continua": [],
+        "TurnRight2": [],
+        "TurnRight2Continua": [],
+        "TunnelVertical": [
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 2
+            }
+        ],
+        "TunnelHorizontal": []
+    },
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "maxVelocidad": [
+        {
+            "velocidad": 70,
+            "pieza": {
+                "index": 31
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        },
+        {
+            "velocidad": 50,
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
+    "iniLuces": [
+        {
+            "pieza": {
+                "index": 1
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 4
+            },
+            "orientacion": "izquierda"
+        }
+    ],
+    "frenteIzq": [],
+    "frenteDcha": [],
+    "frente": [],
+    "cuadriculas": [],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 31
+            },
+            "subPosicion": {
+                "fil": 11,
+                "col": 11
+            },
+            "orientacion": "izquierda",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 32
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 7
+        }
+    },
+    "jugador": {
+        "pieza": {
+            "index": 0
+        },
+        "subPosicion": {
+            "fil": 1,
+            "col": 7
+        },
+        "orientacion": "derecha"
+    },
+    "semaforos": [],
+    "objetivo": [
+        "largas",
+        "posicion"
+    ],
+    "correctOrder": [],
+    "levelDialogs": [
+        " Nivel de Luces creado desde el editor"
+    ],
+    "completedDialogs": [
+        " Nivel completado correctamente!"
+    ],
+    "wrongDialogs": [
+        " Nivel incorrecto!"
+    ],
+    "fog": false,
+    "rain": false,
+    "night": true,
+    "deslumbramiento": true
+}

@@ -1,0 +1,308 @@
+{
+    "type": "Manejo",
+    "mapa": {
+        "numPiezas": 49,
+        "filas": 7,
+        "columnas": 7,
+        "Crossroad": [
+            {
+                "fil": 4,
+                "col": 4
+            }
+        ],
+        "Vertical": [
+            {
+                "fil": 6,
+                "col": 4
+            },
+            {
+                "fil": 5,
+                "col": 4
+            },
+            {
+                "fil": 3,
+                "col": 1
+            },
+            {
+                "fil": 3,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 3
+            },
+            {
+                "fil": 0,
+                "col": 3
+            }
+        ],
+        "VerticalContinua": [],
+        "Horizontal": [
+            {
+                "fil": 4,
+                "col": 2
+            },
+            {
+                "fil": 4,
+                "col": 3
+            },
+            {
+                "fil": 4,
+                "col": 5
+            },
+            {
+                "fil": 4,
+                "col": 6
+            },
+            {
+                "fil": 2,
+                "col": 2
+            },
+            {
+                "fil": 2,
+                "col": 5
+            },
+            {
+                "fil": 2,
+                "col": 6
+            }
+        ],
+        "HorizontalContinua": [],
+        "Pavement": [
+            {
+                "fil": 6,
+                "col": 0
+            },
+            {
+                "fil": 6,
+                "col": 1
+            },
+            {
+                "fil": 6,
+                "col": 2
+            },
+            {
+                "fil": 6,
+                "col": 3
+            },
+            {
+                "fil": 6,
+                "col": 5
+            },
+            {
+                "fil": 6,
+                "col": 6
+            },
+            {
+                "fil": 5,
+                "col": 0
+            },
+            {
+                "fil": 5,
+                "col": 1
+            },
+            {
+                "fil": 5,
+                "col": 2
+            },
+            {
+                "fil": 5,
+                "col": 3
+            },
+            {
+                "fil": 5,
+                "col": 5
+            },
+            {
+                "fil": 5,
+                "col": 6
+            },
+            {
+                "fil": 4,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 0
+            },
+            {
+                "fil": 3,
+                "col": 2
+            },
+            {
+                "fil": 3,
+                "col": 3
+            },
+            {
+                "fil": 3,
+                "col": 5
+            },
+            {
+                "fil": 3,
+                "col": 6
+            },
+            {
+                "fil": 2,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 0
+            },
+            {
+                "fil": 1,
+                "col": 1
+            },
+            {
+                "fil": 1,
+                "col": 2
+            },
+            {
+                "fil": 1,
+                "col": 4
+            },
+            {
+                "fil": 1,
+                "col": 5
+            },
+            {
+                "fil": 1,
+                "col": 6
+            },
+            {
+                "fil": 0,
+                "col": 0
+            },
+            {
+                "fil": 0,
+                "col": 1
+            },
+            {
+                "fil": 0,
+                "col": 2
+            },
+            {
+                "fil": 0,
+                "col": 4
+            },
+            {
+                "fil": 0,
+                "col": 5
+            },
+            {
+                "fil": 0,
+                "col": 6
+            }
+        ],
+        "Pavement_1": [],
+        "Pavement_2": [],
+        "Pavement_3": [],
+        "Grass": [],
+        "Grass_2": [],
+        "Pavement_4": [],
+        "TurnLeft": [
+            {
+                "fil": 2,
+                "col": 3
+            }
+        ],
+        "TurnLeftContinua": [],
+        "TurnRight": [
+            {
+                "fil": 4,
+                "col": 1
+            }
+        ],
+        "TurnRightContinua": [],
+        "TurnLeft2": [],
+        "TurnLeft2Continua": [],
+        "TurnRight2": [
+            {
+                "fil": 2,
+                "col": 1
+            },
+            {
+                "fil": 2,
+                "col": 4
+            }
+        ],
+        "TurnRight2Continua": [],
+        "TunnelVertical": [],
+        "TunnelHorizontal": []
+    },
+    "stops": [],
+    "prohibidos": [],
+    "cedas": [],
+    "maxVelocidad": [],
+    "iniLuces": [],
+    "frenteIzq": [],
+    "frenteDcha": [],
+    "frente": [],
+    "cuadriculas": [],
+    "IACars": [
+        {
+            "pieza": {
+                "index": 22
+            },
+            "subPosicion": {
+                "fil": 7,
+                "col": 6
+            },
+            "orientacion": "abajo",
+            "branchTo": 0,
+            "vehicle": "car",
+            "emergency": false
+        }
+    ],
+    "targetJugador": {
+        "pieza": {
+            "index": 46
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 12
+        }
+    },
+    "jugador": {
+        "pieza": {
+            "index": 3
+        },
+        "subPosicion": {
+            "fil": 11,
+            "col": 12
+        },
+        "orientacion": "arriba"
+    },
+    "semaforos": [
+        {
+            "doble": false,
+            "pieza": {
+                "index": 30
+            },
+            "subPosicion": {
+                "fil": 18,
+                "col": 4
+            },
+            "orientacion": "izquierda",
+            "greenSeconds": 20.0,
+            "amberSeconds": 2.0,
+            "redSeconds": 15.0,
+            "initialLight": "red"
+        }
+    ],
+    "objetivo": [],
+    "correctOrder": [],
+    "levelDialogs": [
+        " Nivel de Manejo creado desde el editor"
+    ],
+    "completedDialogs": [
+        " Nivel completado correctamente!"
+    ],
+    "wrongDialogs": [
+        " Nivel incorrecto!"
+    ],
+    "fog": false,
+    "rain": false,
+    "night": false,
+    "deslumbramiento": false
+}
