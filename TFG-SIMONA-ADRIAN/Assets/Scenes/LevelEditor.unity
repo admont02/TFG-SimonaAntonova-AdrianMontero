@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -41763,7 +41763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430b27c4e2eb7b94186539142d0193f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipMessage: "Intersecci\xF3n"
+  tooltipMessage: Interseccion
   tooltipManager: {fileID: 1172930381}
 --- !u!1001 &1540649300
 PrefabInstance:
@@ -47486,8 +47486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -180, y: -54.39998}
-  m_SizeDelta: {x: -440, y: 20}
+  m_AnchoredPosition: {x: -165.865, y: -54.39998}
+  m_SizeDelta: {x: -391.73, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794515602
 MonoBehaviour:
@@ -47509,7 +47509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Opciones
+  m_text: Condiciones del mapa
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -51698,7 +51698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430b27c4e2eb7b94186539142d0193f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipMessage: "Intersecci\xF3n"
+  tooltipMessage: Interseccion con cuadricula
   tooltipManager: {fileID: 1172930381}
 --- !u!225 &1943735970
 CanvasGroup:

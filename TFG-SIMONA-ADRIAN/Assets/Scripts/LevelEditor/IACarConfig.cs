@@ -45,7 +45,7 @@ public class IACarConfig : MonoBehaviour
     {
         if (int.TryParse(index.text, out int nuevoID))
         {
-            cocheActual.index = nuevoID;
+            cocheActual.index = nuevoID - 1;
         }
     }
 
@@ -60,7 +60,7 @@ public class IACarConfig : MonoBehaviour
         dcha.onValueChanged.RemoveAllListeners();
         izqda.onValueChanged.RemoveAllListeners();
     }
-    
+
     public void SaveConfig()
     {
 
