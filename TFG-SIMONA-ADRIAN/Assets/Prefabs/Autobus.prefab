@@ -333,7 +333,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7294118, b: 0.0627451, a: 1}
   m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
@@ -1057,8 +1057,8 @@ MonoBehaviour:
   arrow: {fileID: 13568615524255041}
   LeftLight: {fileID: 2971504855121734903}
   RightLight: {fileID: 596193595101677486}
-  LeftLightFront: {fileID: 0}
-  RightLightFront: {fileID: 0}
+  LeftLightFront: {fileID: 5748559593938725473}
+  RightLightFront: {fileID: 4171241655598460538}
   icon: {fileID: 4952574956469081672}
   bodyMain: {fileID: 0}
   seams: {fileID: 0}
