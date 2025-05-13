@@ -37,12 +37,13 @@ public class MapaData
     public int numPiezas;
     public int filas;
     public int columnas;
+    public List<RoundaboutPieza> Roundabout = new List<RoundaboutPieza>();
     public List<CrossroadPieza> Crossroad = new List<CrossroadPieza>();
     public List<TipoDePieza> Vertical = new List<TipoDePieza>();
     public List<TipoDePieza> VerticalContinua = new List<TipoDePieza>();
     public List<TipoDePieza> Horizontal = new List<TipoDePieza>();
     public List<TipoDePieza> HorizontalContinua = new List<TipoDePieza>();
-    public List<RoundaboutPieza> Roundabout = new List<RoundaboutPieza>();
+    
     public List<TipoDePieza> Pavement = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement_1 = new List<TipoDePieza>();
     public List<TipoDePieza> Pavement_2 = new List<TipoDePieza>();
@@ -74,6 +75,7 @@ public class CrossroadPieza : TipoDePieza
 {
     public List<int> conexiones; // Lista de conexiones
 }
+[System.Serializable]
 public class RoundaboutPieza : TipoDePieza
 {
     public List<int> conexiones; // Lista de conexiones

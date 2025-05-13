@@ -31,7 +31,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(!drag) return;
+        if (!drag) return;
         originalSize = eventData.pointerDrag.GetComponent<RectTransform>().sizeDelta;
         // Ajustar propiedades para que sea más visible y no bloquee eventos
         canvasGroup.alpha = 0.6f; // Hace la pieza más transparente durante el drag
@@ -137,19 +137,23 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     if (rectTransform.childCount > 0)
                         rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                     // Activar todos los hijos que tengan el script InteractivePoint
-                    Transform childTransform = copy.transform.GetChild(0);
-                    if (childTransform != null)
+                    if (transform.childCount > 0)
                     {
-                        foreach (Transform subChild in childTransform)
+                        Transform childTransform = copy.transform.GetChild(0);
+                        if (childTransform != null)
                         {
-                            InteractivePoint interactivePoint = subChild.GetComponent<InteractivePoint>();
-                            if (interactivePoint != null)
+                            foreach (Transform subChild in childTransform)
                             {
-                                interactivePoint.gameObject.SetActive(true);
-                                Debug.Log($"Activado InteractivePoint en {subChild.name}");
+                                InteractivePoint interactivePoint = subChild.GetComponent<InteractivePoint>();
+                                if (interactivePoint != null)
+                                {
+                                    interactivePoint.gameObject.SetActive(true);
+                                    Debug.Log($"Activado InteractivePoint en {subChild.name}");
+                                }
                             }
                         }
                     }
+
 
 
                     //rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);

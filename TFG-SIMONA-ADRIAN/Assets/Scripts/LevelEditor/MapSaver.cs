@@ -240,6 +240,14 @@ public class MapSaver : MonoBehaviour
                                     Debug.Log($"Conexión eliminada en Crossroad {crossroad.fil}, {crossroad.col} debido a señal de prohibido en {fila}, {columna}");
                                 }
                             }
+                            foreach (RoundaboutPieza roundabout in mapaCompleto.mapa.Roundabout)
+                            {
+                                if (roundabout.conexiones.Contains(fila * mapaCompleto.mapa.columnas + columna))
+                                {
+                                    roundabout.conexiones.Remove(fila * mapaCompleto.mapa.columnas + columna);
+                                    Debug.Log($"Conexión eliminada en roundabout {roundabout.fil}, {roundabout.col} debido a señal de prohibido en {fila}, {columna}");
+                                }
+                            }
                         }
                         else if (nombreHijo == "ceda")
                         {
