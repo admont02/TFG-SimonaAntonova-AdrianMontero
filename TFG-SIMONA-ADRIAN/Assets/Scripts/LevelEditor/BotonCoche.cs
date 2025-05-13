@@ -17,6 +17,7 @@ public class BotonCoche : MonoBehaviour
     {
         if (mapaPrioridad.activeSelf)
         {
+            uiManager.MostrarPanel(cocheData);
             Debug.Log("Añadido boton");
             boton = transform.gameObject.AddComponent<Button>();
             boton.onClick.AddListener(() => uiManager.MostrarPanel(cocheData));
