@@ -269,7 +269,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 1
+  entryDirection: 0
+  exitDirection: 4
 --- !u!1 &841452952489418409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1273,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 1
+  entryDirection: 4
+  exitDirection: 0
 --- !u!1 &3754654819887123551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1483,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 2
+  entryDirection: 0
+  exitDirection: 3
 --- !u!1 &4651621251328984849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,7 +2060,8 @@ MonoBehaviour:
   width: 4
   branches: []
   branchRatio: 1
-  direction: 2
+  entryDirection: 3
+  exitDirection: 0
 --- !u!1 &6374668501654126132
 GameObject:
   m_ObjectHideFlags: 0
