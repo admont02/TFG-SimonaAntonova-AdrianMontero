@@ -4,7 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
-
+/// <summary>
+/// Clase encargada de la configuración de los vehículos no manejables en el editor de niveles
+/// </summary>
 public class IACarConfig : MonoBehaviour
 {
     [SerializeField]
@@ -26,10 +28,10 @@ public class IACarConfig : MonoBehaviour
         if (panelConfig.activeSelf)
             OcultarPanel();
         cocheActual = coche;
-        panelConfig.SetActive(true); // Mostrar el panel
+        panelConfig.SetActive(true); //Mostrar el panel
         toggleGroup.SetActive(true);
         index.gameObject.SetActive(true);
-        // Cargar los datos del coche en el panel
+        //Cargar los datos del coche en el panel
 
         index.text = coche.index.ToString();
         recto.isOn = coche.recto;
@@ -52,17 +54,12 @@ public class IACarConfig : MonoBehaviour
     public void OcultarPanel()
     {
         panelConfig.SetActive(false);
-        cocheActual = null; // Limpiar referencia al cerrar el panel
+        cocheActual = null;
 
-        // Remover eventos para evitar problemas de memoria
         index.onValueChanged.RemoveAllListeners();
         recto.onValueChanged.RemoveAllListeners();
         dcha.onValueChanged.RemoveAllListeners();
         izqda.onValueChanged.RemoveAllListeners();
     }
 
-    public void SaveConfig()
-    {
-
-    }
 }

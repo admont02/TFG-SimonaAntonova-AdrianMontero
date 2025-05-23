@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Clase que crea un botón en el icono de los vehículos no controlables para configurarlos desde el editor.
+/// </summary>
 public class BotonCoche : MonoBehaviour
 {
-    public CocheIAEditorData cocheData; // Datos del coche asociado
+    public CocheIAEditorData cocheData; //Datos del coche asociado
     public IACarConfig uiManager;
     private Button boton;
     public GameObject mapaPrioridad;
 
     void Start()
     {
-        uiManager = FindObjectOfType<IACarConfig>(); // Buscar el UI Manager en la escena
-       // Asignar evento al botón
+        uiManager = FindObjectOfType<IACarConfig>(); 
+       
     }
     public void AddButton()
     {

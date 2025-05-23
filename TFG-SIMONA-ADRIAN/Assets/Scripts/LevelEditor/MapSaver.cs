@@ -6,8 +6,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-using static LevelLoaderXML;
-
+/// <summary>
+/// Clase utilizada para el guardado de mapas creados en el editor.
+/// </summary>
 public class MapSaver : MonoBehaviour
 {
     public Transform gridParent;
@@ -36,7 +37,7 @@ public class MapSaver : MonoBehaviour
         Transform mapParent = gridParent;
         if (gridParentPrioridad.gameObject.activeSelf)
             mapParent = gridParentPrioridad;
-
+        //estructura del mapa
         MapaCompleto mapaCompleto = new MapaCompleto
         {
             type = levelType,
@@ -84,6 +85,7 @@ public class MapSaver : MonoBehaviour
             Image tileImage = tile.GetComponent<Image>();
             if (tileImage != null && tileImage.sprite != null)
             {
+                //guardado de las piezas segun la que esta colocada en cada baldosa
                 if (tileImage.sprite.name == "Roundabout")
                 {
                     int ind = fila * mapaCompleto.mapa.columnas + columna;
@@ -188,15 +190,12 @@ public class MapSaver : MonoBehaviour
                 {
                     mapaCompleto.mapa.Grass_2.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                // default
+                //default
                 else
                 {
                     mapaCompleto.mapa.Pavement.Add(new TipoDePieza { fil = fila, col = columna });
                 }
-                // Guardar stops (InteractivePoints)
-
-
-
+                //Guardar elementos colocados en las piezas (InteractivePoints)
                 foreach (InteractivePoint point in tile.GetComponentsInChildren<InteractivePoint>())
                 {
                     if (point.gameObject.transform.childCount > 0)
@@ -424,9 +423,10 @@ public class MapSaver : MonoBehaviour
                 }
             }
         }
+        //si el nivel es de manejo
         if (levelType == "Manejo")
         {
-            // Comprobar que hay jugador y target
+            //comprobar que hay jugador y target
             if (numJugador != 1 || numTarget < 1)
             {
                 Debug.LogError("Los niveles de manejo deben contener 1 jugador y al menos 1 destino (estrella), ahora hay: " + numJugador + ", " + numTarget);
@@ -440,23 +440,23 @@ public class MapSaver : MonoBehaviour
             mapaCompleto.night = false;
             mapaCompleto.deslumbramiento = false;
         }
+        //si es de luces
         else if (levelType == "Luces")
         {
-            // Comprobar que hay jugador y target
+            //comprobar que hay jugador y target
             if (numJugador < 1 || numTarget < 1)
             {
                 Debug.LogError("Los niveles de luces deben contener 1 jugador y al menos 1 destino (estrella), ahora hay: " + numJugador + ", " + numTarget);
                 return;
             }
 
-            //if (rainToggle.isOn || fogToggle.isOn || nightToggle.isOn || deslumbramientoToggle.isOn)
-            //{
+            //caracteristicas climaticas y horarias
             mapaCompleto.rain = rainToggle.isOn;
             mapaCompleto.fog = fogToggle.isOn;
             mapaCompleto.night = nightToggle.isOn;
             mapaCompleto.deslumbramiento = deslumbramientoToggle.isOn;
 
-
+            //luces objetivo del nivel
             if (cortasToggle.isOn)
                 mapaCompleto.objetivo.Add(cortasToggle.gameObject.name);
             if (largasToggle.isOn)
@@ -467,18 +467,15 @@ public class MapSaver : MonoBehaviour
                 mapaCompleto.objetivo.Add(antidelToggle.gameObject.name);
             if (antitraToggle.isOn)
                 mapaCompleto.objetivo.Add(antitraToggle.gameObject.name);
-            //}
-            //else
-            //{
-            //    Debug.LogError("Los niveles de luces deben tener algun elemento de la lista de opciones activo");
-            //    return;
-            //}
+           
 
             empty[0] = " Nivel de Luces creado desde el editor";
             mapaCompleto.levelDialogs = empty;
         }
+        //si es de prioridad
         else if (levelType == "Prioridad")
         {
+            //si hay menos de 2 coches
             if (cochesOrdenados.Count < 2)
             {
                 Debug.LogError("Los niveles de prioridad deben contener al menos 2 cochesIA, ahora hay: " + cochesOrdenados.Count);
@@ -486,13 +483,14 @@ public class MapSaver : MonoBehaviour
             }
             for (int i = 0; i < mapaCompleto.IACars.Count; i++)
             {
+                //si los coches no tienen destino asignado
                 if (mapaCompleto.IACars[i].branchTo < 0)
                 {
                     Debug.LogError("Los coches deben tener un destino en los niveles de prioridad ");
                     return;
                 }
             }
-            // Comprobar 
+            
             empty[0] = " Nivel de Prioridad creado desde el editor";
             mapaCompleto.levelDialogs = empty;
 
@@ -500,6 +498,7 @@ public class MapSaver : MonoBehaviour
             mapaCompleto.fog = false;
             mapaCompleto.night = false;
             mapaCompleto.deslumbramiento = false;
+            //orden de los vehiculos en la solucion
             mapaCompleto.correctOrder = cochesOrdenados.OrderBy(c => c.indexEditor).Select(c => c.posicionIACars).ToList();
 
             Debug.Log("Orden correcto de coches guardado: " + string.Join(", ", mapaCompleto.correctOrder));
@@ -514,7 +513,7 @@ public class MapSaver : MonoBehaviour
         mapaCompleto.wrongDialogs = auxi2;
 
 
-        //JSON 
+        //guardado en archivo JSON
         string json = JsonUtility.ToJson(mapaCompleto, true);
         string path = Path.Combine(Application.streamingAssetsPath, "Editor/" + textMeshProUGUI.text + ".json");
         int counter = 1;

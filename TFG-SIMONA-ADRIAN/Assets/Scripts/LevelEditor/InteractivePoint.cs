@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+/// <summary>
+/// Clase que representa los lugares de una pieza donde se puede colocar un elemento durante la creacion de un nivel en el editor.
+/// </summary>
 public class InteractivePoint : MonoBehaviour, IDropHandler
 {
     public DraggableType acceptedType;
@@ -37,13 +39,11 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
             if (interactiveRect != null && draggableRect != null)
             {
                 draggableRect.sizeDelta = interactiveRect.sizeDelta; //Igualar tamaños
-                //if (copy.transform.childCount > 0)
-                //{
-                //    copy.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = interactiveRect.sizeDelta;
-                //}
+                
             }
             if (copy.GetComponent<BotonCoche>())
             {
+                //añadir boton de vehiculo no manejable para poder configurarlo
                 copy.GetComponent<BotonCoche>().AddButton();
 
                 copy.GetComponent<CanvasGroup>().enabled = false;
@@ -51,7 +51,7 @@ public class InteractivePoint : MonoBehaviour, IDropHandler
                 copy.GetComponent<TooltipTriggerUI>().enabled = false;
 
             }
-            //json?
+            
         }
     }
 

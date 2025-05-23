@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Clase que gestiona el cambio de paneles Piezas-Elementos en el editor
+/// </summary>
 public class PanelSwitcher : MonoBehaviour
 {
     public GameObject[] panels; //Los paneles a navegar

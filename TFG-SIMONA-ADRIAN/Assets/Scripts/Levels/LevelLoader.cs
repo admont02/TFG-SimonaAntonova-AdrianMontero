@@ -7,11 +7,12 @@ using Unity.AI.Navigation;
 using UnityEngine.UIElements;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 //using Xasu.HighLevel;
-
+/// <summary>
+/// Clase encargada de la creación de los elementos de la escena en Unity a partir del contenido de un archivo JSON.
+/// </summary>
 public class LevelLoader : MonoBehaviour
 {
-    public string jsonFileName = "nivel2.json";
-    private string mapsFolderPath = "Assets/TemplatesMapas/";
+    //prefabs de las piezas
     public GameObject TargetPrefab;
     [SerializeField]
     GameObject cocheIAPrefab;
@@ -45,7 +46,8 @@ public class LevelLoader : MonoBehaviour
     GameObject destroyer;
     public GameObject TargetIconPrefab;
     public float scale = 50f; //Escala utilizada para convertir las filas y columnas a posiciones en Unity
-    // Padre de las piezas
+    private float cuadriculaSize = 2.5f; //Tamaño de cada cuadrícula dentro de una pieza
+    //Padre de las piezas
     [SerializeField]
     public Transform conjuntoPiezas;
     [SerializeField]
@@ -56,20 +58,14 @@ public class LevelLoader : MonoBehaviour
     public void CargarNivel()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, SceneData.JsonFileName);
-        filePath = filePath.Replace("\\", "/"); // Reemplaza las barras invertidas por barras normales
+        filePath = filePath.Replace("\\", "/"); //Reemplaza las barras invertidas por barras normales
+        //creación del nivel
         Debug.Log("Ruta del archivo JSON: " + filePath);
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
             Nivel nivelData = JsonUtility.FromJson<Nivel>(json);
-            //if (Enum.TryParse(nivelData.type.ToString(), true, out LevelType tipo)) 
-            //{ 
-            //    nivelData.type = tipo; 
-            //} 
-            //else 
-            //{ 
-            //    nivelData.type = LevelType.Desconocido; 
-            //}
+            
             CrearNivel(nivelData);
             Debug.Log(" se encontró el archivo JSON.");
         }
@@ -82,14 +78,7 @@ public class LevelLoader : MonoBehaviour
             {
                 string json = File.ReadAllText(filePath);
                 Nivel nivelData = JsonUtility.FromJson<Nivel>(json);
-                //if (Enum.TryParse(nivelData.type.ToString(), true, out LevelType tipo)) 
-                //{ 
-                //    nivelData.type = tipo; 
-                //} 
-                //else 
-                //{ 
-                //    nivelData.type = LevelType.Desconocido; 
-                //}
+               
                 CrearNivel(nivelData);
                 Debug.Log(" se encontró el archivo JSON.");
             }
@@ -97,23 +86,41 @@ public class LevelLoader : MonoBehaviour
                 Debug.Log("No se encontró el archivo JSON.");
         }
     }
+    /// <summary>
+    /// Método encargado de convertir el esquema {fil,col} a una posición de Unity
+    /// </summary>
+    /// <param name="fil"></param>
+    /// <param name="col"></param>
+    /// <param name="scale"></param>
+    /// <returns></returns>
     Vector3 ConvertToPosition(int fil, int col, float scale)
     {
         float z = scale / 2 + scale * fil;
         float x = scale / 2 + scale * col;
         return new Vector3(x, 0, z);
     }
-
+    /// <summary>
+    /// Método encargado de convertir el esquema {fil,col} dentro de una pieza a una posicion de Unity
+    /// </summary>
+    /// <param name="basePosition"></param>
+    /// <param name="subFil"></param>
+    /// <param name="subCol"></param>
+    /// <param name="subScale"></param>
+    /// <param name="subdivisions"></param>
+    /// <returns></returns>
     Vector3 ConvertToSubPosition(Vector3 basePosition, int subFil, int subCol, float subScale, int subdivisions)
     {
-        //el numero magico 5 es un offset para que 0,0 sea en la pos 5,5
-        float subdivisionSize = subScale / subdivisions; // Tamaño de cada subdivisión
-        float offsetX = -subScale / 2 + 2.5f + subdivisionSize * subFil;
-        float offsetZ = -subScale / 2 + 2.5f + subdivisionSize * subCol;
+        float subdivisionSize = subScale / subdivisions; //Tamaño de cada subdivisión
+        float offsetX = -subScale / 2 + cuadriculaSize + subdivisionSize * subFil;
+        float offsetZ = -subScale / 2 + cuadriculaSize + subdivisionSize * subCol;
         return basePosition + new Vector3(offsetX, 2.81f, offsetZ);
     }
 
-
+    /// <summary>
+    /// Transformación de la orientación de un elemento a una rotación en Unity
+    /// </summary>
+    /// <param name="orientacion"></param>
+    /// <returns></returns>
     Quaternion ConvertirOrientacionARotacion(string orientacion)
     {
         switch (orientacion.ToLower())
@@ -131,7 +138,10 @@ public class LevelLoader : MonoBehaviour
                 return Quaternion.identity;
         }
     }
-
+    /// <summary>
+    /// Método encargado de leer el JSON y crear los elementos
+    /// </summary>
+    /// <param name="nivel"></param>
     void CrearNivel(Nivel nivel)
     {
 
@@ -143,11 +153,12 @@ public class LevelLoader : MonoBehaviour
         GameManager.Instance.filas = nivel.mapa.filas;
         GameManager.Instance.columnas = nivel.mapa.columnas;
         GameManager.Instance.scale = scale;
+        //grafo de conexiones
         Digrafo digrafo = new Digrafo(nodos);
         // Crear el punto objetivo
         if (!nivel.isMenu)
         {
-
+            //creacion de las piezas pertinentes que conforman el nivel
             CrearTipoPiezas(nivel.mapa.Crossroad, "Crossroad", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Vertical, "Vertical", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.VerticalContinua, "VerticalContinua", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
@@ -176,21 +187,17 @@ public class LevelLoader : MonoBehaviour
             CrearTipoPiezas(nivel.mapa.Grass, "Grass", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
             CrearTipoPiezas(nivel.mapa.Grass_2, "Grass_2", nivel.mapa, conjuntoPiezas, scale, posicionesPiezas, digrafo);
 
-            //JUGADOR NUEVO
+            //creacion del vehiculo del jugador
             if (nivel.jugador.pieza != null && nivel.type!="Prioridad")
             {
-                if(conjuntoPiezas.childCount > 1)
-                {
-
-                }
+                //pieza en la que se encuentra
                 int indexPieza = nivel.jugador.pieza.index;
                 if (indexPieza >= 0 && indexPieza < posicionesPiezas.Count)
                 {
                     Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
-                    //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+                    //pos del jugador dentro de la pieza
                     Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugador.subPosicion.fil, nivel.jugador.subPosicion.col, subScale, subdivisions);
-
-                    // Quaternion rotPlayer = Quaternion.Euler(nivel.jugadorNuevo.rotacionInicial.x, nivel.jugadorNuevo.rotacionInicial.y, nivel.jugadorNuevo.rotacionInicial.z);
+                    //rotacion del jugador
                     Quaternion rotPlayer = ConvertirOrientacionARotacion(nivel.jugador.orientacion);
                     GameObject playerObj = Instantiate(playerPrefab, posicionJugador, rotPlayer);
                     playerObj.transform.localScale = new Vector3(playerObj.transform.localScale.x * scale / 100, playerObj.transform.localScale.y * scale / 100, playerObj.transform.localScale.z * scale / 100);
@@ -204,52 +211,52 @@ public class LevelLoader : MonoBehaviour
                     Debug.LogError("No se encontró la pieza especificada para el jugador.");
                 }
 
-
+                //creacion del punto objetivo del nivel
                 Vector3 posicionPiezaTarget = posicionesPiezas[nivel.targetJugador.pieza.index].transform.position;
-                //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
                 Vector3 posicionTarget = ConvertToSubPosition(posicionPiezaTarget, nivel.targetJugador.subPosicion.fil, nivel.targetJugador.subPosicion.col, subScale, subdivisions);
                 GameObject targetPoint = Instantiate(TargetPrefab, posicionTarget, Quaternion.identity);
                 targetPoint.SetActive(true);
                 GameManager.Instance.SetPlayerTarget(targetPoint);
 
-                //targetPoint.transform.position = new Vector3(nivel.targetJugador.x, nivel.targetJugador.y, nivel.targetJugador.z);
                 LineRenderer lineRenderer = targetPoint.GetComponent<LineRenderer>();
                 lineRenderer.positionCount = 2;
                 lineRenderer.SetPosition(0, targetPoint.transform.position);
                 lineRenderer.SetPosition(1, targetPoint.transform.position + new Vector3(0, 50.0f, 0));
                 //icono minimapa
                 Vector3 iconPosition = posicionTarget;
-                iconPosition.y += 30.0f; // Aquí defines cuánto quieres aumentar la altura
+                iconPosition.y += 30.0f; 
                 Quaternion rotacionTarget = Quaternion.Euler(100, 0, 0);
                 GameObject minimapIcon = Instantiate(TargetIconPrefab, iconPosition, rotacionTarget);
                 minimapIcon.SetActive(true);
 
 
-                GameObject playerObjAux = GameManager.Instance.carController.gameObject;
+                //gps, ya no se usa
                 //GPSController gpsController = playerObjAux.GetComponent<GPSController>();
                 //gpsController.Initialize(digrafo, posicionesPiezas, nivel.jugadorNuevo.pieza.index, nivel.targetJugador.pieza.index);
 
             }
         }
+        //asignacion del digrafo de las conexiones y los dialogos
         GameManager.Instance.graph = digrafo;
         GameManager.Instance.dialogueSystem.SetLevelDialog(nivel.levelDialogs, nivel.completedDialogs, nivel.wrongDialogs);
 
 
-        //IAs nuevo
+        //vehiculos no controlables
         int id = 0;
         foreach (var IAcar in nivel.IACars)
         {
             Quaternion rotation = ConvertirOrientacionARotacion(IAcar.orientacion);
             int indexPieza = IAcar.pieza.index;
 
-
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
-            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            //posicion coche dentro de la pieza
             Vector3 posicionCoche = ConvertToSubPosition(posicionPieza, IAcar.subPosicion.fil, IAcar.subPosicion.col, subScale, subdivisions);
             GameObject cocheIAObj;
+            //distincion del tipo de vehiculo (turismo,ambulancia,bus)
             if (IAcar.vehicle == "ambulance")
             {
                 cocheIAObj = Instantiate(ambulancePrefab, posicionCoche, rotation);
+                //situacion de emergencia
                 if (IAcar.emergency)
                 {
                     cocheIAObj.GetComponent<Ambulance>().redLight.enabled = true;
@@ -277,7 +284,7 @@ public class LevelLoader : MonoBehaviour
             cocheIAObj.transform.localScale = new Vector3(cocheIAObj.transform.localScale.x * scale / 100, cocheIAObj.transform.localScale.y * scale / 100, cocheIAObj.transform.localScale.z * scale / 100);
             cocheIAObj.name = "CocheIA" + id;
 
-
+            //texto de prioridad
             GameObject priorityTextObj = new GameObject("PriorityText");
             priorityTextObj.transform.SetParent(cocheIAObj.transform);
             if (IAcar.vehicle == "bus")
@@ -298,15 +305,15 @@ public class LevelLoader : MonoBehaviour
 
             TextMesh priorityText = priorityTextObj.AddComponent<TextMesh>();
             priorityText.color = Color.red;
-            // priorityText.font = fuenteCoches;
             priorityText.fontStyle = FontStyle.Bold;
 
             GameManager.Instance.AddCocheIA(cocheIAObj);
             OtherCar otherCar = cocheIAObj.GetComponent<OtherCar>();
+            //set del waypoint inicial
             WaypointNavigator wN = cocheIAObj.GetComponent<WaypointNavigator>();
             wN.SetInitialWaypoint(posicionesPiezas, indexPieza, IAcar.orientacion);
 
-
+            //rama que debe tomar (solo niveles de prioridad)
             otherCar.branchTo = IAcar.branchTo;
             otherCar.orientacion = IAcar.orientacion;
             otherCar.carID = id;
@@ -314,16 +321,15 @@ public class LevelLoader : MonoBehaviour
 
 
         }
-
-        //CUADRICULAS ACTUAL
+        //creacion de señales y marcas viales
+        //cuadriculas amarillas
         foreach (var cuadricula in nivel.cuadriculas)
         {
             int indexPieza = cuadricula.pieza.index;
 
 
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
-
-            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            //pos
             Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, cuadricula.subPosicion.fil, cuadricula.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = cuadriculaPrefab.transform.rotation;
             GameObject cuadriculaObj = Instantiate(cuadriculaPrefab, posicionCuadricula, prefabRotation);
@@ -339,12 +345,11 @@ public class LevelLoader : MonoBehaviour
 
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
             posicionPieza.y = 1;
-
-            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            //pos
+            Vector3 posicionStop = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
-            posicionCuadricula.y = 1;
-            GameObject stopObj = Instantiate(stopPrefab, posicionCuadricula, prefabRotation);
+            posicionStop.y = 1;
+            GameObject stopObj = Instantiate(stopPrefab, posicionStop, prefabRotation);
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);
@@ -366,6 +371,7 @@ public class LevelLoader : MonoBehaviour
 
             stopObj.SetActive(true);
         }
+        //cedas
         foreach (var sign in nivel.cedas)
         {
             int indexPieza = sign.pieza.index;
@@ -373,12 +379,11 @@ public class LevelLoader : MonoBehaviour
 
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
             posicionPieza.y = 1;
-
-            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
-            Vector3 posicionCuadricula = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
-            posicionCuadricula.y = 1;
+            //pos
+            Vector3 posicionCeda = ConvertToSubPosition(posicionPieza, sign.subPosicion.fil, sign.subPosicion.col, subScale, subdivisions);
+            posicionCeda.y = 1;
             Quaternion prefabRotation = ConvertirOrientacionARotacion(sign.orientacion);
-            GameObject stopObj = Instantiate(cedaPrefab, posicionCuadricula, prefabRotation);
+            GameObject stopObj = Instantiate(cedaPrefab, posicionCeda, prefabRotation);
             stopObj.transform.localScale = new Vector3(stopObj.transform.localScale.x * scale / 100, stopObj.transform.localScale.y * scale / 100, stopObj.transform.localScale.z * scale / 100);
 
             stopObj.SetActive(true);
@@ -492,16 +497,15 @@ public class LevelLoader : MonoBehaviour
 
             stopObj.SetActive(true);
         }
-        //SEMAFOROS NUEVOS
+        //SEMAFOROS 
         foreach (var semaforo in nivel.semaforos)
         {
-            // Quaternion rotation = Quaternion.Euler(semaforo.rotacion.x, semaforo.rotacion.y, semaforo.rotacion.z);
             Quaternion rotation = ConvertirOrientacionARotacion(semaforo.orientacion);
             int indexPieza = semaforo.pieza.index;
 
 
             Vector3 posicionPieza = posicionesPiezas[indexPieza].transform.position;
-            //Vector3 posicionJugador = ConvertToSubPosition(posicionPieza, nivel.jugadorNuevo.subPosicion.fil, nivel.jugadorNuevo.subPosicion.col, subScale);
+            //pos
             Vector3 posicionSemaforo = ConvertToSubPosition(posicionPieza, semaforo.subPosicion.fil, semaforo.subPosicion.col, subScale, subdivisions);
             if (semaforo.doble)
             {
@@ -530,7 +534,7 @@ public class LevelLoader : MonoBehaviour
                 SimpleTrafficLight semaforoScript = semaforoObj.GetComponent<SimpleTrafficLight>();
                 semaforoScript.greenSeconds = semaforo.greenSeconds;
                 semaforoScript.amberSeconds = semaforo.amberSeconds;
-                semaforoScript.redSeconds = semaforo.redSeconds; // Configurar la luz inicial
+                semaforoScript.redSeconds = semaforo.redSeconds; //configurar la luz inicial
                 semaforoScript.red.SetActive(semaforo.initialLight == "red");
                 semaforoScript.amber.SetActive(semaforo.initialLight == "amber");
                 semaforoScript.green.SetActive(semaforo.initialLight == "green");
@@ -538,8 +542,7 @@ public class LevelLoader : MonoBehaviour
 
         }
 
-
-
+        //configuraciones climaticas y ambientales
         if (nivel.fog)
         {
             GameManager.Instance.EnableFog();
@@ -555,12 +558,10 @@ public class LevelLoader : MonoBehaviour
 
         }
         GameManager.Instance.CurrentLevel = nivel.type;
+        //tipo de nivel
         switch (nivel.type)
         {
-            //case LevelType.Desconocido:
-            //    break;
-            //case LevelType.Conduccion:
-            //    break;
+            
             case "Prioridad":
 
                 Debug.Log("Prioridad");
@@ -570,18 +571,12 @@ public class LevelLoader : MonoBehaviour
                 break;
             case "Luces":
                 Debug.Log("nivel luces");
-                //GameManager.Instance.antinieblaDelanteras.SetActive(true);
-                //GameManager.Instance.antinieblaTraseras.SetActive(true);
-                //GameManager.Instance.posicion.SetActive(true);
-                //GameManager.Instance.largas.SetActive(true);
-                //GameManager.Instance.cortas.SetActive(true);
-                //GameObject cocheJugador = Instantiate(Resources.Load("CochePrefab"), new Vector3(nivel.posicionCoche.x, nivel.posicionCoche.y, nivel.posicionCoche.z), Quaternion.identity) as GameObject; 
                 CarLights carLights = GameManager.Instance.carController.gameObject.GetComponent<CarLights>();
                 if (carLights != null)
                 {
                     carLights.objetivoLuces = nivel.objetivo;
                 }
-                // Activar modo deslumbramiento
+                //activar modo deslumbramiento
                 if (nivel.deslumbramiento)
                     GameManager.Instance.SetDeslumbramiento();
 
@@ -590,6 +585,16 @@ public class LevelLoader : MonoBehaviour
         }
         GameManager.Instance.SetCurrentLevel(nivel.nivel);
     }
+    /// <summary>
+    /// Método encargado de crear el tipo de pieza correspondiente en la posicion indicada de la escena
+    /// </summary>
+    /// <param name="piezas"></param>
+    /// <param name="prefabName"></param>
+    /// <param name="nivel"></param>
+    /// <param name="conjuntoPiezas"></param>
+    /// <param name="scale"></param>
+    /// <param name="posicionesPiezas"></param>
+    /// <param name="digrafo"></param>
     private void CrearTipoPiezas(List<PosicionMapa> piezas, string prefabName, MapaNuevo nivel, Transform conjuntoPiezas, float scale, Dictionary<int, GameObject> posicionesPiezas, Digrafo digrafo)
     {
         foreach (var recta in piezas)

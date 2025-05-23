@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Clase que gestiona el control de colisiones de los vehículos no manejables con otros vehículos.
+/// </summary>
 public class PreventCrash : MonoBehaviour
 {
-    // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 3 || other.gameObject.GetComponentInParent<OtherCar>() && other.gameObject.GetComponent<PreventCrash>()==null) //Si detecta al jugador/otro coche

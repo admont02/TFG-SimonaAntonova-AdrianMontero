@@ -1,7 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Clase encargada de crear el grid que representa el mapa en el editor de niveles.
+/// </summary>
 public class LevelEditorController : MonoBehaviour
 {
     public TMP_InputField widthInput; //InputField para el ancho
@@ -28,13 +30,13 @@ public class LevelEditorController : MonoBehaviour
 
     void GenerateMap()
     {
-        // Limpia el grid existente
+        //Limpia el grid existente
         foreach (Transform child in gridParent)
         {
             Destroy(child.gameObject);
         }
 
-        // Comprueba si las filas y columnas están configuradas
+        //Comprueba si las filas y columnas están configuradas
         if (int.TryParse(widthInput.text, out mapHeight) && int.TryParse(heightInput.text, out mapWidth))
         {
             if (mapWidth >= 3 && mapWidth <= 10 && mapHeight >= 3 && mapHeight <= 10)
@@ -43,34 +45,28 @@ public class LevelEditorController : MonoBehaviour
                     gridParent.transform.parent.GetComponent<RectTransform>().sizeDelta.x / mapWidth,
                     gridParent.transform.parent.GetComponent<RectTransform>().sizeDelta.y / mapHeight);
 
-                //gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+                
                 gridLayoutGroup.constraintCount = mapWidth;
 
-                int totalTiles = mapWidth * mapHeight; // Total de tiles
+                int totalTiles = mapWidth * mapHeight; //total de tiles
 
                 for (int i = 0; i < totalTiles; i++)
                 {
-                    // Crear un nuevo tile
+                    //crear un nuevo tile
                     GameObject tile = Instantiate(tilePrefab, gridParent);
 
-                    // Calcular fila y columna
-                    int fila = i / mapHeight;   // Índice entero para la fila
-                    int columna = i % mapHeight; // Resto para la columna
+                    //calcular fila y columna
+                    int fila = i / mapHeight;   
+                    int columna = i % mapHeight; 
 
-                    // Invertir las filas para que el grid empiece desde la esquina inferior izquierda
+                    //invertir las filas para que el grid empiece desde la esquina inferior izquierda
                     fila = mapWidth - 1 - fila;
 
-                    // Configurar la posición del tile
+                    //configurar la posición del tile
                     RectTransform rect = tile.GetComponent<RectTransform>();
                     rect.sizeDelta = gridLayoutGroup.cellSize;
                     rect.GetComponent<BoxCollider2D>().size = gridLayoutGroup.cellSize;
-                    ////tile.
-                    //float tileWidth = rect.sizeDelta.x * (gridParent.sizeDelta.x/ mapWidth);
-                    //float tileHeight = rect.sizeDelta.y * (gridParent.sizeDelta.y/ mapHeight);
-
-                    //rect.anchoredPosition = new Vector2(columna * tileWidth, fila * tileHeight);
-
-                    // Opcional: Renombrar el tile para facilitar la depuración
+                    
                     tile.name = $"Tile ({fila},{columna})";
                 }
             }
@@ -86,11 +82,18 @@ public class LevelEditorController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Devuelve el ancho del mapa
+    /// </summary>
+    /// <returns></returns>
     public int GetWidth()
     {
         return mapWidth;
     }
+    /// <summary>
+    /// Devuelve el alto del mapa
+    /// </summary>
+    /// <returns></returns>
     public int GetHeight()
     {
         return mapHeight;

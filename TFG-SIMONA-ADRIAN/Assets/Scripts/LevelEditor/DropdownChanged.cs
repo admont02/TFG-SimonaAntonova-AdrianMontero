@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Clase que gestiona el desplegable de seleccion de tipo de nivel en el editor.
+/// </summary>
 public class DropdownChanged : MonoBehaviour
 {
-    //public TMP_Dropdown dropdown;
     public Dropdown dropdown;
     public GameObject LucesPanel;
     public GameObject PrioridadPanel;
@@ -19,7 +20,7 @@ public class DropdownChanged : MonoBehaviour
     void Start()
     {
         dropdown.onValueChanged.AddListener(OnDropdownValueChanged);
-        OnDropdownValueChanged(dropdown.value); // Llamar al inicio para estado inicial
+        OnDropdownValueChanged(dropdown.value);
     }
 
     void OnDropdownValueChanged(int index)
@@ -52,8 +53,6 @@ public class DropdownChanged : MonoBehaviour
         else
         {
             LucesPanel.SetActive(false);
-
-
         }
     }
 }

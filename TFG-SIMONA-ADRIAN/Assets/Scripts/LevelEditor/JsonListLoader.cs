@@ -3,7 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// Clase que permite jugar los niveles creados en el editor.
+/// </summary>
 public class JsonListLoader : MonoBehaviour
 {
     public Transform contentParent; // El parent de los botones (ScrollView Content)
@@ -33,7 +35,7 @@ public class JsonListLoader : MonoBehaviour
                         GameObject newButton = Instantiate(buttonPrefab, contentParent);
                         newButton.GetComponentInChildren<TextMeshProUGUI>().text = fileName2;
 
-                        // Guardamos el nombre para el evento del botón
+                        //Guardamos el nombre para el evento del botón
                         string capturedFileName = fileName;
                         newButton.GetComponent<Button>().onClick.AddListener(() =>
                         {

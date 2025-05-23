@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+/// <summary>
+/// Clase que gestiona el tooltip informativo al colocar el raton sobre un elemento o pieza del editor
+/// </summary>
 public class TooltipManager : MonoBehaviour
 {
     public static TooltipManager instance;
@@ -24,7 +26,7 @@ public class TooltipManager : MonoBehaviour
 
     public void HideTooltip()
     {
-        Debug.Log("escondo");
+        
         tooltipPanel.SetActive(false);
     }
 }

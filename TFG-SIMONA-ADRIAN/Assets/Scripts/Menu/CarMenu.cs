@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Clase encargada del movimiento del coche del menu de niveles
+/// </summary>
 public class CarMenu : MonoBehaviour
 {
-    public float velocidad = 10f; // Velocidad de movimiento del coche
-    public float rotacionVelocidad = 5f; // Velocidad de rotación del coche
-    private Vector3 destino; // El punto donde el coche se mueve
-    private bool moviendo = false; // ¿Está el coche en movimiento?
+    public float velocidad = 10f; 
+    public float rotacionVelocidad = 5f; 
+    private Vector3 destino; 
+    private bool moviendo = false; 
     public GameObject panelInfo;
     public GameObject clickEffectPrefab;
     public GameObject botonSalir;

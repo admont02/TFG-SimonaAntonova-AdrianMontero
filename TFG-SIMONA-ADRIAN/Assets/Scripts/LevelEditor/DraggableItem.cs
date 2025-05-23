@@ -2,14 +2,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+//Tipo del elemento arrastrable
 public enum DraggableType { Pieza, TrafficElem, Car };
-
+/// <summary>
+/// Componente asociado tanto a las piezas como a los elementos del editor. Se encarga de gestionar el drag&drop dentro del mapa. 
+/// </summary>
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Vector2 originalPosition; // Guarda la posición inicial
-    private Vector2 originalSize; // Guarda la posición inicial
+    private Vector2 originalPosition; //Guarda la posición inicial
+    private Vector2 originalSize; //Guarda el tamaño inicial
     private Canvas canvas;
     private int originalSiblingIndex;
 
@@ -25,7 +28,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvas = GetComponentInParent<Canvas>();
         originalSiblingIndex = transform.GetSiblingIndex();
 
-        // Guarda la posición original del objeto en Start
         originalPosition = rectTransform.anchoredPosition;
     }
 
@@ -33,10 +35,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (!drag) return;
         originalSize = eventData.pointerDrag.GetComponent<RectTransform>().sizeDelta;
-        // Ajustar propiedades para que sea más visible y no bloquee eventos
-        canvasGroup.alpha = 0.6f; // Hace la pieza más transparente durante el drag
-        canvasGroup.blocksRaycasts = false; // Permite que los eventos pasen a través
-        originalParent = transform.parent; // Guardar el padre original.
+        canvasGroup.alpha = 0.6f; 
+        canvasGroup.blocksRaycasts = false; 
+        originalParent = transform.parent;//Guardar padre original.
         transform.SetParent(canvas.transform, true);
         Debug.Log(rectTransform.anchoredPosition + ",  og:" + originalPosition);
     }
@@ -45,7 +46,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (!drag) return;
 
-        // Mueve el objeto mientras se arrastra
+        //Mueve el objeto mientras se arrastra
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 
     }
@@ -73,8 +74,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 if (existingItem.draggableType != this.draggableType)
                 {
                     Debug.Log($"No se puede sustituir {existingItem.draggableType} con {this.draggableType}");
-                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
-                    //rectTransform.sizeDelta = originalSize;
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
                     transform.SetParent(a, false);
@@ -83,6 +82,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 }
                 else
                 {
+                    //cambiar la pieza por otra
                     Debug.Log("cambiar pieza");
 
                     Destroy(existingItem.gameObject);
@@ -108,8 +108,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             }
                         }
                     }
-                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
-                    //rectTransform.sizeDelta = originalSize;
+                    
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
                     transform.SetParent(a, false);
@@ -127,8 +126,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     copy.transform.localPosition = Vector3.zero;
                     copy.GetComponent<TooltipTriggerUI>().enabled = false;
                     copy.GetComponent<DraggableItem>().drag = false;
-                    //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
-                    //rectTransform.sizeDelta = originalSize;
+                    
                     var a = transform.parent;
                     transform.SetParent(gridParent, false);
 
@@ -136,7 +134,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     transform.SetSiblingIndex(originalSiblingIndex);
                     if (rectTransform.childCount > 0)
                         rectTransform.GetChild(0).GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                    // Activar todos los hijos que tengan el script InteractivePoint
+                    //Activar todos los hijos que tengan el script InteractivePoint
                     if (transform.childCount > 0)
                     {
                         Transform childTransform = copy.transform.GetChild(0);
@@ -171,17 +169,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else
         {
-            // Si no se suelta sobre una celda válida, volver al grid original
+            //Si no se suelta sobre una celda válida, volver al grid original
             var a = transform.parent;
             transform.SetParent(gridParent, false);
             transform.SetParent(a, false);
             transform.SetSiblingIndex(originalSiblingIndex);
-            //rectTransform.anchoredPosition = originalPosition; //Regresa a la posici?n inicial
-            //rectTransform.sizeDelta = originalSize;
-
-            //rectTransform.localScale = Vector3.one;
-
-            //LayoutRebuilder.ForceRebuildLayoutImmediate(gridParent.GetComponent<RectTransform>());
+            
         }
 
     }

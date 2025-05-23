@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Clase que gestiona el zoom sobre un tile en el editor
+/// </summary>
 public class TileClickZoom : MonoBehaviour
 {
     public float zoomScale = 3f; //Zoom del tile
