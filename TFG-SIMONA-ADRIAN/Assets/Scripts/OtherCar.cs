@@ -1,7 +1,9 @@
 using System.Collections;
 
 using UnityEngine;
-
+/// <summary>
+/// Clase que gestiona el comportamiento general del coche en combinacion con WaypointNavigator
+/// </summary>
 public class OtherCar : MonoBehaviour
 {
 
@@ -13,7 +15,7 @@ public class OtherCar : MonoBehaviour
     private Vector3 lastPosition;
     private Vector3 velocity;
     public bool isStopped = false;
-    public float brakeDistance = 5f;         // Distancia a la que el coche empieza a frenar
+    public float brakeDistance = 5f; //distancia a la que el coche empieza a frenar
     public bool isCarInFront = false;
     public GameObject arrow;
     public GameObject LeftLight;
@@ -32,17 +34,18 @@ public class OtherCar : MonoBehaviour
 
     public Material[] carColors;
     public Material[] seamColors;
-    public bool destroyedByTrash=false;
+    public bool destroyedByTrash = false;
 
     private void Awake()
     {
+        //Color
         if (carColors.Length > 0 && bodyMain != null)
         {
             int randomIndex = Random.Range(0, carColors.Length);
             bodyMain.GetComponent<Renderer>().material = carColors[randomIndex];
         }
 
-        // Asigna un material aleatorio a seams
+
         if (seamColors.Length > 0 && seams != null)
         {
             int randomIndex = Random.Range(0, seamColors.Length);
@@ -50,8 +53,12 @@ public class OtherCar : MonoBehaviour
         }
     }
 
-    
 
+    /// <summary>
+    /// Efecto de parpadeo en intermitentes
+    /// </summary>
+    /// <param name="luz"></param>
+    /// <returns></returns>
     private IEnumerator Intermitente(Light luz)
     {
         while (true)
@@ -62,7 +69,7 @@ public class OtherCar : MonoBehaviour
     }
     private void Start()
     {
-
+        //Si es nivel de clic
         if (ClicLevelManager.Instance != null)
         {
             if (isCarInFront)
@@ -70,7 +77,7 @@ public class OtherCar : MonoBehaviour
             clickMove = false;
             //arrow.SetActive(true);
             Vector3 localArrowRotation = Vector3.zero;
-
+            //establecer en que direccion se mueve el vehiculo
             switch (branchTo)
             {
                 case 1: // Norte
@@ -98,7 +105,7 @@ public class OtherCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //hay que cambiar segunda variable 
+
         if (isStopped || !GameManager.Instance.canCarMove && !ClicLevelManager.Instance || ClicLevelManager.Instance && !clickMove) return;
         if (transform.position != destination)
         {
@@ -109,14 +116,14 @@ public class OtherCar : MonoBehaviour
             {
                 if (isCarInFront)
                 {
-                    // Reduce la velocidad si el jugador está demasiado cerca
-                    movementSpeed =0; // Frenado suave
+                    //Reduce la velocidad si está demasiado cerca de otro coche
+                    movementSpeed = 0;
                     GetComponent<Rigidbody>().velocity = Vector3.zero;
                     GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 }
                 else
                 {
-                    movementSpeed = 15f; // Restablecer velocidad normal
+                    movementSpeed = 15f; //Restablecer velocidad normal
                 }
                 reachedDestination = false;
                 Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
@@ -135,56 +142,48 @@ public class OtherCar : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// Establece el prox destino del vehiculo
+    /// </summary>
+    /// <param name="des"></param>
     public void MoveToDestinations(Vector3 des)
     {
         destination = des;
         reachedDestination = false;
     }
+    /// <summary>
+    /// Detiene el vehiculo
+    /// </summary>
     public void StopCar()
     {
         isStopped = true;
     }
-
+    /// <summary>
+    /// Reanuda el vehiculo
+    /// </summary>
     public void ResumeCar()
     {
         isStopped = false;
     }
+    /// <summary>
+    /// Comrpueba la conexion de 2 piezas en el grafo
+    /// </summary>
+    /// <param name="currentId"></param>
+    /// <param name="nextId"></param>
+    /// <returns></returns>
     public bool IsConnected(int currentId, int nextId)
     {
         var ady = GameManager.Instance.graph.getAdy(currentId);
         return ady.Contains(nextId);
     }
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Si detecta al jugador/otro coche
-    //    {
-    //        isCarInFront = true;
-    //    }
-    //}
 
-    //void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.layer == 3 || other.gameObject.GetComponent<OtherCar>()) //Cuando el jugador/otro coche salga del trigger
-    //    {
-    //        isCarInFront = false;
-    //    }
-    //}
     void OnMouseDown()
-    { // Cuando se toca este coche, pasar el orden al GameController gameController.CarTouched(carOrder); }
+    {
         Debug.Log(this.name);
-        ////gameObject.GetComponentInChildren<MeshCollider>().gameObject.GetComponent<MeshRenderer>().material = outline;
-        //if (!GameManager.Instance.priorityCarList.Contains(gameObject))
-        //    GameManager.Instance.priorityCarList.Add(gameObject);
-        //else
-        //    GameManager.Instance.priorityCarList.Remove(gameObject);
-
-        //Destroy(this.gameObject);
+        //coche clicado
         if (ClicLevelManager.Instance != null && !ClicLevelManager.Instance.checking)
             ClicLevelManager.Instance.CarClicked(gameObject);
 
     }
-    //public void SetBranchTo(int b)
-    //{
-    //    branchTo = b;
-    //}
+
 }

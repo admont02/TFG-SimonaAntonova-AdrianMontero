@@ -1,31 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Clase encargada de detectar deslumbramientos a otros vehiculos
+/// </summary>
 public class Deslumbramiento : MonoBehaviour
 {
     bool correcto = false;
 
 
-    /*
-     
-     if (allCorrect)
-        {
-            Debug.Log("correctas");
-            //fog.SetActive(false);
-            //fog.GetComponent<Renderer>().material = fogDisipada;
-            // TO DO: cambiar a que se haga clear solo de las luces, no de todos los errores
-            //GameManager.Instance.incorrectLevel.Clear();
-            GameManager.Instance.incorrectLevel.Remove("Luces incorrectas para niebla intensa");
-        }
-        else
-        {
-            if (GameManager.Instance.incorrectLevel.Count < 2)
-                GameManager.Instance.incorrectLevel.Add("Luces incorrectas para niebla intensa");
-            //fog.GetComponent<Renderer>().material = fogIntensa;
-        }
-     
-     */
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.layer == 3)

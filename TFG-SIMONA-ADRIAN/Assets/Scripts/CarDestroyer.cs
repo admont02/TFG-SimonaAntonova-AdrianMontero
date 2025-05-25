@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using Xasu.HighLevel;
-
+/// <summary>
+/// Clase utilizada para destruir los vehiculos al llegar a un punto en caso de desearlo
+/// </summary>
 public class CarDestroyer : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponentInParent<OtherCar>())
         {
-            // Desactivar el objeto en lugar de destruirlo inmediatamente
+            //Desactivar el objeto en lugar de destruirlo inmediatamente
             other.gameObject.GetComponentInParent<OtherCar>().destroyedByTrash = true;
 
-            // Llamar a una corrutina para destruirlo después
+            
             StartCoroutine(DestroyAfterDelay(other.transform.parent.gameObject, 0.1f));
         }
         //else if(other.gameObject.layer == 3)

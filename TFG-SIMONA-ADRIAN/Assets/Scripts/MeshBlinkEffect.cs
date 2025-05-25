@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Clase que gestiona el parpadeo del objetivo en el minimapa
+/// </summary>
 public class MeshBlinkEffect : MonoBehaviour
 {
     public float blinkSpeed = 1f; 

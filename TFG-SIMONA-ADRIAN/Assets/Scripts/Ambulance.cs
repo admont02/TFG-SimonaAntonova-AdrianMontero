@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-
+/// <summary>
+/// Clase que representa una ambulancia
+/// </summary>
 public class Ambulance : MonoBehaviour
 {
-    public GameObject sirenLights;
-    public AudioSource sirenSound;
+    public GameObject sirenLights;//luces
+    public AudioSource sirenSound;//sonido
     public bool lightsOn = true;
 
     public Light redLight;

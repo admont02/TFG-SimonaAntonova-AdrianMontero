@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
-
+/// <summary>
+///  Clase para detectar si se incumple un semaforo (no se utiliza finalmente)
+/// </summary>
 public class SimpleTrafficLight : MonoBehaviour
 {
-    public GameObject red; // Array de materiales que quieres alternar
-    public GameObject amber; // Array de materiales que quieres alternar
-    public GameObject green; // Array de materiales que quieres alternar
-    public GameObject indicator; // Array de materiales que quieres alternar
+    public GameObject red; 
+    public GameObject amber; 
+    public GameObject green; 
+    public GameObject indicator; 
 
-    public Material redMaterial; // Material para el rojo
-    public Material amberMaterial; // Material para el amarillo
+    public Material redMaterial;
+    public Material amberMaterial; 
     public Material greenMaterial;
 
     public float greenSeconds = 20.0f;

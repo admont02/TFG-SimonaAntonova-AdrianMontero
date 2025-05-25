@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Clase que representa las cuadriculas amarillas en las carreteras
+/// </summary>
 public class CuadriculaAmarilla : MonoBehaviour
 {
-    private readonly string incorrectString = "Cuadrícula de marcas amarillas: Prohibido entrar en el cruze cuando es posible quedarse inmovilizado en él";
+    private readonly string incorrectString = "Cuadrícula de marcas amarillas: Prohibido entrar en el cruce cuando es posible quedarse inmovilizado en él";
     private void Start()
     {
         Vector3 position = gameObject.transform.position;

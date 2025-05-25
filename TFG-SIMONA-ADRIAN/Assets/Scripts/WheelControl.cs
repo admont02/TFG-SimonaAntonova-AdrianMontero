@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Script de la API de UNity que gestiona las ruedas de un vehiculo
+/// </summary>
 public class WheelControl : MonoBehaviour
 {
     public Transform wheelModel;

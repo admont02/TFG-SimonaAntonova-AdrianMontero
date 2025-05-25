@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+///  Clase para detectar si se incumple una señal de restriccion de velocidad
+/// </summary>
 public class SenyalVelocidad : MonoBehaviour
 {
 

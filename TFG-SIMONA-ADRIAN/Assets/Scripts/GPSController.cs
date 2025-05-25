@@ -1,21 +1,23 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-
+/// <summary>
+/// NO SE USA. Antigua clase GPS
+/// </summary>
 public class GPSController : MonoBehaviour
 {
-    public Transform player; // Referencia al coche del jugador
-    public Transform target; // Referencia al objetivo del jugador
-    public GameObject pathRendererPrefab; // Prefab del LineRenderer
-    public int initialNodeId; // ID inicial en el grafo
-    public int targetNodeId; // ID del nodo objetivo
-    public Digrafo graph; // Referencia al grafo
+    public Transform player; //Referencia al coche del jugador
+    public Transform target; //Referencia al objetivo del jugador
+    public GameObject pathRendererPrefab; //Prefab del LineRenderer
+    public int initialNodeId; //ID inicial en el grafo
+    public int targetNodeId; //ID del nodo objetivo
+    public Digrafo graph; //Referencia al grafo
     private List<Node> path;
     private int currentPathIndex;
-    private Dictionary<int, GameObject> posicionesPiezas; // Mapa de posiciones de las piezas
-    private GameObject pathRendererObject; // Instancia del LineRenderer
+    private Dictionary<int, GameObject> posicionesPiezas; //Mapa de posiciones de las piezas
+    private GameObject pathRendererObject; 
     private LineRenderer lineRenderer;
-    private float recalculationInterval = 1.0f; // Intervalo de tiempo para recalcular la ruta en segundos
+    private float recalculationInterval = 1.0f; //Intervalo de tiempo para recalcular la ruta en segundos
     private float timeSinceLastRecalculation = 0.0f;
 
     public void Initialize(Digrafo graph_, Dictionary<int, GameObject> posicionesPiezas_, int initialNodeId_, int targetNodeId_)

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// NO SE USA. Antigua clase que utilizaba el GPS
+/// </summary>
 public static class NavigationUtils
 {
     public static List<Node> AStar(Digrafo graph, Node start, Node goal)

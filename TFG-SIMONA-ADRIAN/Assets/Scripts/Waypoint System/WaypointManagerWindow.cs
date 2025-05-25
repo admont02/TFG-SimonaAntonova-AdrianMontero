@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+/// <summary>
+/// Clase que gestiona la tool de Unity para editar los Waypoints
+/// </summary>
 #if UNITY_EDITOR
 public class WaypointManagerWindow : EditorWindow
 {

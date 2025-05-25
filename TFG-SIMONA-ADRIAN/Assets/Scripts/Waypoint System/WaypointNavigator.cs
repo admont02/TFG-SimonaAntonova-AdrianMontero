@@ -2,22 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Clase que utilizan los coches IA para la gestión de la ruta de Waypoints
+/// </summary>
 public class WaypointNavigator : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     OtherCar controller;
     public Waypoint currentWaypoint;
     public bool randomDirection;
     int direction;
     int currentIndex;
-    //esto deberia estar accesible en GameManager (tb se usa GPS)
+    
     Dictionary<int, GameObject> posicionesPiezas;
     string initialOrientation;
     private void Awake()
     {
         controller = GetComponent<OtherCar>();
     }
+    /// <summary>
+    /// Establece el Waypoint inicial del vehículo
+    /// </summary>
+    /// <param name="posicionesPiezas_"></param>
+    /// <param name="index"></param>
+    /// <param name="orientacion"></param>
     public void SetInitialWaypoint(Dictionary<int, GameObject> posicionesPiezas_, int index, string orientacion)
     {
         currentIndex = index;
@@ -33,6 +41,11 @@ public class WaypointNavigator : MonoBehaviour
             direction = Mathf.RoundToInt(UnityEngine.Random.Range(0f, 1f));
         controller.MoveToDestinations(currentWaypoint.GetPosition());
     }
+    /// <summary>
+    /// Devuelve la siguiente pieza a la que va a pasar el vehiculo
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private int GetAdjacentPieceIndex(Direction direction)
     {
         //3 es numero magico mapa 3x3
@@ -60,6 +73,12 @@ public class WaypointNavigator : MonoBehaviour
         //currentIndex = newIndex;
         return newIndex;
     }
+    /// <summary>
+    /// Devuelve el primer Waypoint al que debe aproximarse el vehiculo en la nueva pieza
+    /// </summary>
+    /// <param name="exitDirection"></param>
+    /// <param name="currentPosition"></param>
+    /// <returns></returns>
     private Waypoint FindNearestWaypointInAdjacentPiece(Direction exitDirection, Vector3 currentPosition)
     {
         GameObject adjacentPiece = posicionesPiezas[currentIndex].GetComponent<WaypointContainer>().GetRoot();
@@ -68,11 +87,11 @@ public class WaypointNavigator : MonoBehaviour
         Waypoint nearestWaypoint = null;
         float shortestDistance = float.MaxValue;
 
-        Direction entryDirection = GetOppositeDirection(exitDirection); // Direccion opuesta para conectar
+        Direction entryDirection = GetOppositeDirection(exitDirection); //Direccion opuesta para conectar
 
         foreach (Waypoint waypoint in waypoints)
         {
-            // Solo considera waypoints cuya entrada coincida con la dirección de salida del anterior
+            //Solo considera waypoints cuya entrada coincida con la dirección de salida del anterior
             if (waypoint.entryDirection == entryDirection)
             {
                 float distance = Vector3.Distance(currentPosition, waypoint.GetPosition());
@@ -122,7 +141,7 @@ public class WaypointNavigator : MonoBehaviour
 
                     if (connectedBranches.Count > 0)
                     {
-                        // Elegir una rama aleatoria entre las conectadas
+                        //elegir una rama aleatoria entre las conectadas
                         currentWaypoint = connectedBranches[UnityEngine.Random.Range(0, connectedBranches.Count)];
                     }
                 }
@@ -160,6 +179,11 @@ public class WaypointNavigator : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// Devuelve la direccion opuesta a la pasada por parametro
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private Direction GetOppositeDirection(Direction direction)
     {
         switch (direction)
@@ -171,6 +195,13 @@ public class WaypointNavigator : MonoBehaviour
             default: return Direction.North;  // Valor predeterminado
         }
     }
+    /// <summary>
+    /// Metodo empleado para coger el Waypoint mas cercano en la direccion de la ruta
+    /// </summary>
+    /// <param name="piece"></param>
+    /// <param name="position"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private Waypoint GetClosestWaypointInDirection(GameObject piece, Vector3 position, Direction direction)
     {
         Waypoint[] waypoints = piece.GetComponentsInChildren<Waypoint>();
@@ -192,7 +223,13 @@ public class WaypointNavigator : MonoBehaviour
 
         return closestWaypoint;
     }
-
+    /// <summary>
+    /// Metodo para verificar si un Waypoint corresponde con la direccion de la ruta
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="to"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     private bool IsInDirection(Vector3 from, Vector3 to, Direction direction)
     {
         Vector3 directionVector = to - from;
@@ -205,7 +242,11 @@ public class WaypointNavigator : MonoBehaviour
             default: return false;
         }
     }
-
+    /// <summary>
+    /// Metodo para convertir orientacion en direccion
+    /// </summary>
+    /// <param name="orientation"></param>
+    /// <returns></returns>
     private Direction ParseOrientationToDirection(string orientation)
     {
         switch (orientation.ToLower())

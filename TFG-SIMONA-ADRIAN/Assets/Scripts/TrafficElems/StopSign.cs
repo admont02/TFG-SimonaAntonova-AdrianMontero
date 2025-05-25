@@ -1,7 +1,9 @@
 using System.Collections;
 using UnityEngine;
 //using Xasu.HighLevel;
-
+/// <summary>
+///  Clase para detectar si se incumple una señal de stop y para que los coches IA realicen la parada
+/// </summary>
 public class StopSign : MonoBehaviour
 {
     public float stopDuration = 3.0f; //Duración del tiempo que el coche debe detenerse

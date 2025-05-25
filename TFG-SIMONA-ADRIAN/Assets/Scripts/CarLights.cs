@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //using Xasu.HighLevel;
-
+/// <summary>
+/// Clase encargada de gestionar las luces del jugador
+/// </summary>
 public class CarLights : MonoBehaviour
 {
     public GameObject fog;
@@ -20,9 +22,9 @@ public class CarLights : MonoBehaviour
     public Button posicionButton;
     public Button cortasButton;
     public Button largasButton;
-    public List<string> objetivoLuces; // Lista de tipos de luces que deben estar encendidas
+    public List<string> objetivoLuces; //Lista de tipos de luces que deben estar encendidas
 
-    private List<string> lucesSeleccionadas = new(); // Lista de tipos de luces que deben estar encendidas
+    private List<string> lucesSeleccionadas = new(); //Lista de tipos de luces que estan encendidas
 
     private bool antinieblaOn = false;
     private bool antinieblaBackOn = false;
@@ -33,7 +35,6 @@ public class CarLights : MonoBehaviour
     void Start()
     {
         // Configurar luces
-        // ...
         fogIntensa = fog.GetComponent<Renderer>().material;
         antinieblaButton = GameManager.Instance.antinieblaDelanteras.GetComponent<Button>();
         antinieblaBackButton = GameManager.Instance.antinieblaTraseras.GetComponent<Button>();
@@ -76,20 +77,22 @@ public class CarLights : MonoBehaviour
     }
     private void Update()
     {
-        // Posición
+        // cortas
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             ToggleCortasLights();
         }
-        // 
+        // largas
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
             ToggleLargasLights();
         }
+        //Posición
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             TogglePosicionLights();
         }
+        //antinieblas
         if (Input.GetKeyUp(KeyCode.Alpha4))
         {
             ToggleAntinieblaLights();

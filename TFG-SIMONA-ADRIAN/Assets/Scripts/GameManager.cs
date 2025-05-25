@@ -7,7 +7,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 //using Xasu.HighLevel;
-
+/// <summary>
+/// GameManager del juego. Se encarga de gestionar otras clases como LevelLoader, DialogueSystem o ClicLevelManager, además de guardar variables importantes y diversos prefabs
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -60,13 +62,13 @@ public class GameManager : MonoBehaviour
     {
         finDeNivel = false;
         incorrectLevel.Add("Nivel Incorrecto, errores: ");
-        // Asegurarse de que solo hay una instancia de GameManager
+        //Asegurarse de que solo hay una instancia de GameManager
         if (Instance == null)
         {
             Instance = this;
             // DontDestroyOnLoad(gameObject); // Mantener el GameManager entre escenas
 
-            // Inicializar cualquier cosa necesaria al inicio de la escena
+            //Inicializar cualquier cosa necesaria al inicio de la escena
             InitializeNivelLoader();
 
             InitializeDialogue();
@@ -182,13 +184,13 @@ public class GameManager : MonoBehaviour
                     //GameObjectTracker.Instance.Interacted($"player-position/{carPosition.x}-{carPosition.y}-{carPosition.z}");
                 }
 
-                // Reinicia el temporizador
+               
                 timer = 0f;
             }
 
             float vel = carController.GetComponent<PrometeoCarController>().carSpeed;
             velText.text = vel.ToString("F0");
-            // Mapeamos la aguja del velocímetro
+            //Mapeamos la aguja del velocímetro
             float angle = Mathf.Lerp(120f, -120f, vel / 240f);
             agujaVelocidad.rotation = Quaternion.Euler(0f, 0f, angle);
         }
@@ -201,6 +203,9 @@ public class GameManager : MonoBehaviour
         //    ComprobarNivel();
         //Debug.Log(priorityCarList.Count);
     }
+    /// <summary>
+    /// Inicializa el LevelLoader
+    /// </summary>
     void InitializeNivelLoader()
     {
 
@@ -214,6 +219,9 @@ public class GameManager : MonoBehaviour
             Debug.Log("No se encontró NivelLoader en la escena.");
         }
     }
+    /// <summary>
+    /// Comoprueba si un nivel se ha completado de manera correcta y hace las llamadas pertinentes para mostrar los dialogos 
+    /// </summary>
     public void ComprobarNivel()
     {
         finDeNivel = true;
@@ -236,15 +244,25 @@ public class GameManager : MonoBehaviour
             Debug.Log("¡Nivel completado correctamente!");
         }
     }
-
+    /// <summary>
+    /// Establece el objetivo
+    /// </summary>
+    /// <param name="targetPoint"></param>
     internal void SetPlayerTarget(GameObject targetPoint)
     {
         playerTarget = targetPoint;
     }
+    /// <summary>
+    /// Añade un cocheIA a la lista
+    /// </summary>
+    /// <param name="coche"></param>
     public void AddCocheIA(GameObject coche)
     {
         cochesIA.Add(coche);
     }
+    /// <summary>
+    /// Activa la niebla
+    /// </summary>
     public void EnableFog()
     {
         carController.gameObject.GetComponent<CarLights>().fog.SetActive(true);
@@ -255,6 +273,9 @@ public class GameManager : MonoBehaviour
         //RenderSettings.fogEndDistance = 80f;
         //RenderSettings.fogDensity = 0.05f;
     }
+    /// <summary>
+    /// Activa la lluvia
+    /// </summary>
     public void EnableRain()
     {
         //Debug.Log("lluvia");
@@ -271,6 +292,9 @@ public class GameManager : MonoBehaviour
         ChangeSkybox();
         instantiatedRain.SetActive(true);
     }
+    /// <summary>
+    /// Activa la noche
+    /// </summary>
     public void SetNight()
     {
         //RenderSettings.ambientLight = Color.gray; // Cambia la luz ambiental a gris
@@ -280,6 +304,9 @@ public class GameManager : MonoBehaviour
 
         directionalLight.color = Color.black;
     }
+    /// <summary>
+    /// activa el deslumbramiento
+    /// </summary>
     public void SetDeslumbramiento()
     {
         foreach (var item in cochesIA)
@@ -287,7 +314,9 @@ public class GameManager : MonoBehaviour
             item.GetComponent<OtherCar>().Deslumbramiento?.gameObject.SetActive(true);
         }
     }
-
+    /// <summary>
+    /// Cambio de Skybox al nocturno
+    /// </summary>
     void ChangeSkybox()
     {
         if (graySkybox != null)
@@ -296,23 +325,35 @@ public class GameManager : MonoBehaviour
             DynamicGI.UpdateEnvironment(); // Actualiza la iluminación global
         }
     }
-
+    /// <summary>
+    /// Cambio de escena 
+    /// </summary>
+    /// <param name="sceneName"></param>
     public void ChangeScene(string sceneName)
     {
         if (sceneName == "Menu")
             SceneData.JsonFileName = "menu.json";
         SceneManager.LoadScene(sceneName);
     }
+    /// <summary>
+    /// Reiniciar escena
+    /// </summary>
     public void ReloadCurrentScene()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
-
+    /// <summary>
+    /// Establecer nivel actual
+    /// </summary>
+    /// <param name="nivel"></param>
     public void SetCurrentLevel(int nivel)
     {
         currentLevel = nivel;
     }
+    /// <summary>
+    /// Salir del juego
+    /// </summary>
     public async void Finalized()
     {
 

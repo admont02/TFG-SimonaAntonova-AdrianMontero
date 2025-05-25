@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Clase que agrupa los Waypoints de una pieza
+/// </summary>
 public class WaypointContainer : MonoBehaviour
 {
     [SerializeField]

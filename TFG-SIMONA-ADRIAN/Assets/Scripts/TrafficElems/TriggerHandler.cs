@@ -1,6 +1,8 @@
 using UnityEngine;
 //using Xasu.HighLevel;
-
+/// <summary>
+///  Clase para detectar si se incumple unsemaforo y para parar/reanudar la ruta de los cochesIA en semaforos
+/// </summary>
 public class TriggerHandler : MonoBehaviour
 {
     public GameObject trafficLight; // El semáforo que tiene los materiales

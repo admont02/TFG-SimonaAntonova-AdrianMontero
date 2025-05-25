@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using Xasu.HighLevel;
-
+/// <summary>
+///  Clase para detectar si se realiza una glorieta en sentido contrario
+/// </summary>
 public class RotondaTrigger : MonoBehaviour
 {
     private const float leftTurnThreshold = -20f;

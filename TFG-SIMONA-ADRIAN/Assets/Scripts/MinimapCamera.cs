@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Clase que gestiona la camara del minimapa
+/// </summary>
 public class MinimapCamera : MonoBehaviour
 {
     public Transform player;
@@ -23,7 +25,7 @@ public class MinimapCamera : MonoBehaviour
     {
         smallMap.SetActive(true);
         bigMap.SetActive(false);
-        // Inicializar el zoom actual al mínimo
+        
         currentZoom = maxZoom;
         player = GameManager.Instance.carController.transform;
         target = GameManager.Instance.playerTarget.transform;
@@ -37,16 +39,15 @@ public class MinimapCamera : MonoBehaviour
         if (!bigMap.activeSelf)
         {
 
-            // Seguir al jugador
+            //Seguir al jugador
             FollowPlayer();
         }
 
-        // Ajustar el zoom según la distancia entre el jugador y el objetivo
+        //Ajustar el zoom según la distancia entre el jugador y el objetivo
         AdjustZoom();
 
 
-        // Actualizar la cámara del minimapa
-        UpdateMinimapCameraPosition();
+        
 
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -81,7 +82,7 @@ public class MinimapCamera : MonoBehaviour
 
     }
 
-    // Método para seguir al jugador
+    //Método para seguir al jugador
     private void FollowPlayer()
     {
         Vector3 desiredPosition = new Vector3(player.position.x, minimapCamera.transform.position.y, player.position.z);
@@ -89,25 +90,21 @@ public class MinimapCamera : MonoBehaviour
         //minimapCamera.transform.position = Vector3.Lerp(minimapCamera.transform.position, desiredPosition, followSpeed * Time.deltaTime);
     }
 
-    // Ajustar el zoom según la distancia entre el jugador y el objetivo
+    /// <summary>
+    /// Ajusta el zoom según la distancia entre el jugador y el objetivo
+    /// </summary>
     private void AdjustZoom()
     {
         float distanceToTarget = Vector3.Distance(player.position, target.position);
 
-        // Normalizar la distancia entre la distancia mínima y máxima
+        //Normalizar la distancia entre la distancia mínima y máxima
         float zoomFactor = Mathf.InverseLerp(minDistance, maxDistance, distanceToTarget);
-
-        // Calcular el nuevo zoom en función de la distancia
+        //Calcular el nuevo zoom en función de la distancia
         currentZoom = Mathf.Lerp(minZoom, maxZoom, zoomFactor);
 
-        // Ajustar el zoom de la cámara
+        // ajustar el zoom de la cámara
         minimapCamera.orthographicSize = currentZoom;
     }
 
-    // Actualizar la posición de la cámara del minimapa
-    private void UpdateMinimapCameraPosition()
-    {
-        // Aquí puedes hacer ajustes adicionales como un "recentrado" de la cámara o zoom específico.
-        // Por ejemplo, limitar el rango de movimiento si es necesario.
-    }
+    
 }

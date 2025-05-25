@@ -4,7 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// Componente asociado a las señales del menu de seleccion de nivel para su funcionamiento
+/// </summary>
 public class EnterLevel : MonoBehaviour
 {
     private AudioSource audioSource;
@@ -12,9 +14,9 @@ public class EnterLevel : MonoBehaviour
     public AudioClip sparkle;
 
 
-    public Transform player;  // Referencia al transform del jugador
-    public float proximityDistance = 5f;  // Distancia a la que la señal se agranda
-    public Vector3 enlargedScale = new Vector3(4f, 4f, 4f);  // Tamaño agrandado
+    public Transform player;  
+    public float proximityDistance = 5f;  //Distancia a la que la señal se agranda
+    public Vector3 enlargedScale = new Vector3(4f, 4f, 4f);  //Tamaño agrandado
     private Vector3 originalScale;
     private bool near = false;
     public TextMeshProUGUI text;
@@ -50,11 +52,11 @@ public class EnterLevel : MonoBehaviour
             }
             else //si estas cerca
             {
-                if (!audioSource.isPlaying) // Asegúrate de que no se solape
+                if (!audioSource.isPlaying) 
                 {
-                    audioSource.clip = sparkle; // Asigna el sonido para reproducir en bucle
+                    audioSource.clip = sparkle; //Asigna el sonido para reproducir en bucle
                     audioSource.volume = 0.05f;
-                    audioSource.loop = true; // Activa el bucle
+                    audioSource.loop = true; 
                     audioSource.Play();
                 }
                 if (Input.GetMouseButtonDown(0))
@@ -85,12 +87,14 @@ public class EnterLevel : MonoBehaviour
             transform.localScale = originalScale;
             if (audioSource.isPlaying)
             {
-                audioSource.Stop(); // Detiene el audio
-                audioSource.loop = false; // Desactiva el bucle para futuros usos
+                audioSource.Stop(); 
+                audioSource.loop = false; 
             }
         }
     }
-
+    /// <summary>
+    /// Inicia el nivel correspondiente
+    /// </summary>
     void PlayLevel()
     {
         SceneData.lastCarPosition = player.transform.position;
@@ -99,6 +103,9 @@ public class EnterLevel : MonoBehaviour
         SceneData.JsonFileName = gameObject.name + ".json";
         SceneManager.LoadScene("Game");
     }
+    /// <summary>
+    /// Cierra el panel de info del nivel
+    /// </summary>
     void CerrarPanel()
     {
         panel.SetActive(false);

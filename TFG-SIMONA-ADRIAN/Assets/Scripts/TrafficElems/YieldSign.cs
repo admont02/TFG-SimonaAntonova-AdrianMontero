@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+///  Clase para detectar si se incumple una señal de ceda el paso
+/// </summary>
 public class YieldSign : MonoBehaviour
 {
     public Collider yieldTrigger; // Trigger para detectar si llegas al ceda

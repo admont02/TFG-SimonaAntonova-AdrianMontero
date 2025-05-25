@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //using Xasu.HighLevel;
-
+/// <summary>
+/// Manager de los niveles de categoria Prioridad
+/// </summary>
 public class ClicLevelManager : MonoBehaviour
 {
     public static ClicLevelManager Instance { get; private set; }
@@ -24,6 +26,9 @@ public class ClicLevelManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    /// <summary>
+    /// Actualiza la UI de los coches segun su orden
+    /// </summary>
     private void UpdatePriorityUI()
     {
         for (int i = 0; i < priorityCarList.Count; i++)
@@ -49,6 +54,10 @@ public class ClicLevelManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Metodo que gestiona cuando se clica sobre un vehiculo
+    /// </summary>
+    /// <param name="car"></param>
     public void CarClicked(GameObject car)
     {
         if (GameManager.Instance.dialogueSystem.dialoguePanel.activeSelf)
@@ -62,14 +71,17 @@ public class ClicLevelManager : MonoBehaviour
             priorityCarList.Remove(car);
         }
         UpdatePriorityUI();
-
+        //Si estan todos seleccionados
         if (priorityCarList.Count >= GameManager.Instance.cochesIA.Count)
         {
             StartCoroutine(CheckLevelCompletion());
         }
     }
 
-
+    /// <summary>
+    /// Comprobacion de si se ha completado bien el nivel
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator CheckLevelCompletion()
     {
         int index = 0;
@@ -109,7 +121,11 @@ public class ClicLevelManager : MonoBehaviour
         }
         GameManager.Instance.ComprobarNivel();
     }
-
+    /// <summary>
+    /// Corrutina de movimiento en orden (correcta)
+    /// </summary>
+    /// <param name="carList"></param>
+    /// <returns></returns>
     private IEnumerator MoveCarsInOrder(List<GameObject> carList)
     {
         foreach (var car in carList)
@@ -125,6 +141,11 @@ public class ClicLevelManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Corrutina de movimiento en desorden (incorrecta)
+    /// </summary>
+    /// <param name="carList"></param>
+    /// <returns></returns>
     private IEnumerator MoveCarsInDisorder(List<GameObject> carList)
     {
         foreach (var car in carList)
@@ -140,6 +161,11 @@ public class ClicLevelManager : MonoBehaviour
         }
         yield return new WaitForSeconds(3.0f);
     }
+    /// <summary>
+    /// Metodo encargado de apagar los intermitentes al terminar la corrutina
+    /// </summary>
+    /// <param name="otherCar"></param>
+    /// <returns></returns>
     private IEnumerator DisableLights(OtherCar otherCar)
     {
         Debug.Log("ACABA DE ENTRAR EN LA CORRUTINA");

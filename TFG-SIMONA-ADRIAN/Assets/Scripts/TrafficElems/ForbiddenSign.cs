@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using Xasu.HighLevel;
-
+/// <summary>
+/// Clase para detectar si se incumple una señal de calle prohibida
+/// </summary>
 public class ForbiddenSign : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
